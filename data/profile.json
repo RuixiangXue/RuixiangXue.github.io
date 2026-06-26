@@ -55,10 +55,10 @@
       "logo": "assets/logos/geely.svg",
       "role": "Algorithm Intern",
       "period": "2026.05 - Present",
-      "summary": "Research on feed-forward street-scene reconstruction and rendering-conditioned generative models for large-baseline extrapolative novel-view synthesis.",
+      "summary": "Research on LiDAR-free street-scene novel-view extrapolation with mutual enhancement between feed-forward reconstruction and generative models.",
       "bullets": [
-        "Focused on feed-forward reconstruction of street scenes for large-baseline novel-view extrapolation.",
-        "Explored rendering-conditioned generative modeling for improving novel-view synthesis under large viewpoint changes."
+        "Used LiDAR-free feed-forward street-scene reconstruction to improve the geometric consistency of generative novel-view synthesis models.",
+        "Leveraged generated views as feedback to refine feed-forward street-scene reconstruction for large-baseline novel-view extrapolation."
       ],
       "tags": [
         "driving",
