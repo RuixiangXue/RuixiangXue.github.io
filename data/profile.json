@@ -97,9 +97,9 @@
       ],
       "summary": "Research and development of deep learning based point cloud compression methods for MPEG AI-PCC.",
       "bullets": [
-        "Designed Transformer models for point cloud representation and efficient spatial feature extraction.",
-        "Used density changes during point cloud downsampling to guide reconstruction mode selection.",
-        "Achieved 39% geometry compression gain and 34% attribute compression gain over the baseline under public test conditions."
+        "Designed **Transformer** models for point cloud representation and efficient spatial feature extraction.",
+        "Used **density changes** during point cloud downsampling to guide reconstruction mode selection.",
+        "Achieved **39% geometry compression gain** and **34% attribute compression gain** over the baseline under public test conditions."
       ],
       "contributions": [
         {
@@ -210,10 +210,10 @@
       "summary": "Compact and progressive compression for 3D Gaussian splatting scenes.",
       "bullets": [
         "Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.",
-        "Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.",
-        "Proposed LayeredCGS, a feed-forward layered 3DGS compressor with cross-layer context modeling and truncatable bitstreams.",
-        "Achieved 35% BD-Rate gain over the feed-forward FCGS baseline, with up to 2 dB higher ROI PSNR under comparable bitrates.",
-        "The resulting paper, 3D Gaussian Splatting Compression with Object Scalability, has been accepted by ECCV 2026 and is not yet on arXiv."
+        "Proposed **RecastGS** to reorganize pretrained 3DGS into a **region-aware layered hierarchy** with prompt-driven object extraction and progressive distillation.",
+        "Proposed **LayeredCGS**, a feed-forward layered 3DGS compressor with **cross-layer context modeling** and **truncatable bitstreams**.",
+        "Achieved **35% BD-Rate gain** over the feed-forward FCGS baseline, with up to **2 dB higher ROI PSNR** under comparable bitrates.",
+        "The resulting paper, **3D Gaussian Splatting Compression with Object Scalability**, has been accepted by **ECCV 2026** and is not yet on arXiv."
       ]
     },
     {

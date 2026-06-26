@@ -82,7 +82,7 @@
             <div class="project-copy">
               <strong>Intelligent Point Cloud Compression</strong>
               <p>Research and development of deep learning based point cloud compression methods for MPEG AI-PCC.</p>
-              <ul><li>Designed Transformer models for point cloud representation and efficient spatial feature extraction.</li><li>Used density changes during point cloud downsampling to guide reconstruction mode selection.</li><li>Achieved 39% geometry compression gain and 34% attribute compression gain over the baseline under public test conditions.</li></ul>
+              <ul><li>Designed <strong>Transformer</strong> models for point cloud representation and efficient spatial feature extraction.</li><li>Used <strong>density changes</strong> during point cloud downsampling to guide reconstruction mode selection.</li><li>Achieved <strong>39% geometry compression gain</strong> and <strong>34% attribute compression gain</strong> over the baseline under public test conditions.</li></ul>
               
               
               <div class="project-contributions" id="project-intelligent-point-cloud-compression-contributions">
@@ -172,9 +172,17 @@
                     </dialog>
                   </div>
 
-                  <div class="contribution-group">
-                    <h3>Patent applications</h3>
-                    <ol>
+                  <div class="contribution-group contribution-actions">
+                    <button type="button" class="project-action-button" data-dialog-target="project-intelligent-point-cloud-compression-patent-applications-dialog">
+                      <i class="fa-solid fa-file-lines"></i><span>Patent applications</span>
+                    </button>
+                    <dialog class="project-dialog" id="project-intelligent-point-cloud-compression-patent-applications-dialog">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>Patent applications</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <ol class="dialog-contribution-list">
                     <li>
                       <span class="contribution-meta">2024</span>
                       <strong>编解码方法、编码器、解码器以及存储介质</strong>
@@ -210,6 +218,8 @@
                       <span class="contribution-note">also filed as 点云几何信息的压缩、解压缩及点云视频编解码方法、装置</span>
                     </li>
 </ol>
+                      </div>
+                    </dialog>
                   </div>
 
               </div>
@@ -222,7 +232,7 @@
             <div class="project-copy">
               <strong>3D Gaussian Splatting Coding</strong>
               <p>Compact and progressive compression for 3D Gaussian splatting scenes.</p>
-              <ul><li>Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.</li><li>Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.</li><li>Proposed LayeredCGS, a feed-forward layered 3DGS compressor with cross-layer context modeling and truncatable bitstreams.</li></ul>
+              <ul><li>Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.</li><li>Proposed <strong>RecastGS</strong> to reorganize pretrained 3DGS into a <strong>region-aware layered hierarchy</strong> with prompt-driven object extraction and progressive distillation.</li><li>Proposed <strong>LayeredCGS</strong>, a feed-forward layered 3DGS compressor with <strong>cross-layer context modeling</strong> and <strong>truncatable bitstreams</strong>.</li></ul>
               
               
             </div>

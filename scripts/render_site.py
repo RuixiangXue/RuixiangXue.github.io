@@ -727,28 +727,12 @@ def render_project_contributions(item: dict[str, Any]) -> str:
         return ""
     body = []
     for group in groups:
-        if is_standardization_group(group):
-            body.append(render_contribution_dialog_group(item, group))
-        else:
-            entries = "".join(render_contribution_item(entry) for entry in group.get("items", []))
-            body.append(
-                f"""
-                  <div class="contribution-group">
-                    <h3>{esc(group.get('type', 'Contributions'))}</h3>
-                    <ol>{entries}</ol>
-                  </div>
-"""
-            )
+        body.append(render_contribution_dialog_group(item, group))
     return f"""
               <div class="project-contributions" id="{esc(project_id(item['name']))}-contributions">
                 {''.join(body)}
               </div>
 """
-
-
-def is_standardization_group(group: dict[str, Any]) -> bool:
-    name = normalize_key(group.get("type", ""))
-    return "standardization" in name or "标准化" in name
 
 
 def render_contribution_dialog_group(item: dict[str, Any], group: dict[str, Any]) -> str:

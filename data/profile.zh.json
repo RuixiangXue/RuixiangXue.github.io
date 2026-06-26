@@ -97,9 +97,9 @@
       ],
       "summary": "面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。",
       "bullets": [
-        "针对点云数据表征设计 Transformer 网络，提高空间特征提取效率。",
-        "利用点云降采样过程中的密度变化指导重建模式选择。",
-        "在公开测试条件下，相较基线实现 39% 几何压缩增益和 34% 属性压缩增益。"
+        "针对点云数据表征设计 **Transformer 网络**，提高空间特征提取效率。",
+        "利用点云降采样过程中的 **密度变化** 指导重建模式选择。",
+        "在公开测试条件下，相较基线实现 **39% 几何压缩增益** 和 **34% 属性压缩增益**。"
       ],
       "contributions": [
         {
@@ -209,10 +209,10 @@
       ],
       "summary": "面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。",
       "bullets": [
-        "提出 RecastGS，将预训练 3DGS 重组为区域感知的分层表示，并结合提示驱动的目标区域提取与渐进蒸馏。",
-        "提出 LayeredCGS，通过跨层上下文建模实现前馈式分层 3DGS 压缩，并生成可截断码流。",
-        "相较前馈基线 FCGS 实现 35% BD-Rate 增益，在相近码率下 ROI PSNR 最高提升 2 dB。",
-        "相关论文 3D Gaussian Splatting Compression with Object Scalability 已被 ECCV 2026 接收，尚未发布 arXiv。"
+        "提出 **RecastGS**，将预训练 3DGS 重组为 **区域感知的分层表示**，并结合提示驱动的目标区域提取与渐进蒸馏。",
+        "提出 **LayeredCGS**，通过 **跨层上下文建模** 实现前馈式分层 3DGS 压缩，并生成 **可截断码流**。",
+        "相较前馈基线 FCGS 实现 **35% BD-Rate 增益**，在相近码率下 **ROI PSNR 最高提升 2 dB**。",
+        "相关论文 **3D Gaussian Splatting Compression with Object Scalability** 已被 **ECCV 2026** 接收，尚未发布 arXiv。"
       ]
     },
     {

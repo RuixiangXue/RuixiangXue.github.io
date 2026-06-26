@@ -667,6 +667,9 @@ body.theme-prism .project-action-button:hover {
 }
 
 body.theme-prism .project-contributions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
