@@ -36,9 +36,9 @@
       "degree": "Ph.D. Student, Information and Communication Engineering",
       "period": "2021.09 - 2027.06",
       "details": [
-        "NJU Vision Lab, advised by Prof. Zhan Ma",
-        "Research fields: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, and AI-assisted photography",
-        "Excellent result in doctoral qualification assessment"
+        "NJU Vision Lab, advised by Prof. Zhan Ma and Researcher Tong Chen",
+        "Research fields: **intelligent point cloud compression**, **3D Gaussian splatting compression**, **implicit neural representations**, and **AI-assisted photography**",
+        "**Excellent** result in doctoral qualification assessment"
       ]
     },
     {
@@ -172,7 +172,7 @@
         "homepage": "",
         "paper": "",
         "code": "",
-        "bibtex": ""
+        "bibtex": "#bibtex"
       },
       "bullets": [
         "Introduced RecastGS, a post-training method that reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control.",
@@ -184,7 +184,8 @@
         "3dgs",
         "publication",
         "eccv"
-      ]
+      ],
+      "bibtex": "@inproceedings{xue2026objectscalable3dgs,\n  title={3D Gaussian Splatting Compression with Object Scalability},\n  author={Xue, Ruixiang and others},\n  booktitle={European Conference on Computer Vision (ECCV)},\n  year={2026},\n  note={Accepted, not yet publicly released}\n}"
     },
     {
       "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry",
@@ -204,7 +205,7 @@
         "homepage": "https://github.com/NJUVISION/Unicorn",
         "paper": "https://doi.org/10.1109/TPAMI.2024.3462938",
         "code": "https://github.com/NJUVISION/Unicorn",
-        "bibtex": ""
+        "bibtex": "#bibtex"
       },
       "bullets": [
         "Proposed a universal multiscale conditional point cloud geometry coding framework supporting lossy/lossless, static/dynamic, and diverse point cloud data.",
@@ -216,7 +217,8 @@
         "publication"
       ],
       "doi": "10.1109/TPAMI.2024.3462938",
-      "metadata": "Vol. 47, No. 1, pp. 269-287, Jan. 2025"
+      "metadata": "Vol. 47, No. 1, pp. 269-287, Jan. 2025",
+      "bibtex": "@article{wang2025unicorngeometry,\n  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part I: Geometry},\n  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  volume={47},\n  number={1},\n  pages={269--287},\n  year={2025},\n  doi={10.1109/TPAMI.2024.3462938}\n}"
     },
     {
       "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
@@ -227,15 +229,14 @@
       "notes": "CCF-B, first author",
       "badges": [
         "CCF-B",
-        "First author",
-        "LiDAR Compression"
+        "First author"
       ],
       "abstract": "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into range image sequences and coding them with spatiotemporal conditional neural networks, reaching real-time decoding and strong low-bitrate gains.",
       "links": {
-        "homepage": "",
+        "homepage": "https://github.com/RuixiangXue/NeRI",
         "paper": "https://doi.org/10.1109/ICASSP48485.2024.10446596",
-        "code": "",
-        "bibtex": ""
+        "code": "https://github.com/RuixiangXue/NeRI",
+        "bibtex": "#bibtex"
       },
       "bullets": [
         "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into 2D range images and coding them with spatiotemporal conditional neural networks.",
@@ -247,7 +248,8 @@
         "publication"
       ],
       "doi": "10.1109/ICASSP48485.2024.10446596",
-      "metadata": "ICASSP 2024, pp. 8020-8024"
+      "metadata": "ICASSP 2024, pp. 8020-8024",
+      "bibtex": "@inproceedings{xue2024neri,\n  title={NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence},\n  author={Xue, Ruixiang and Li, Jiaxin and Chen, Tong and Ding, Dandan and Cao, Xun and Ma, Zhan},\n  booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},\n  pages={8020--8024},\n  year={2024},\n  doi={10.1109/ICASSP48485.2024.10446596}\n}"
     },
     {
       "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute",
@@ -274,9 +276,10 @@
         "homepage": "",
         "paper": "https://doi.org/10.1109/TPAMI.2024.3462945",
         "code": "",
-        "bibtex": ""
+        "bibtex": "#bibtex"
       },
-      "abstract": "Attribute compression is discussed in Part II of the Unicorn framework. Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages; the full abstract will be added after the publisher abstract or manuscript text is available."
+      "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to code the geometry and attribute of any given point cloud. Attribute compression is discussed in Part II of this paper, while geometry compression is given in Part I of this paper. We first construct the multiscale sparse tensors of each voxelized point cloud attribute frame. Since attribute components exhibit very different intrinsic characteristics from the geometry element, e.g., 8-bit RGB color versus 1-bit occupancy, we process the attribute residual between lower-scale reconstruction and current-scale data. Similarly, we leverage spatially lower-scale priors in the current frame and (previously processed) temporal reference frame to improve the probability estimation of attribute intensity through conditional residual prediction in lossless mode or enhance the attribute reconstruction through progressive residual refinement in lossy mode for better performance. The proposed Unicorn is a versatile, learning-based solution capable of compressing a great variety of static and dynamic point clouds in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency with affordable encoding/decoding runtime.",
+      "bibtex": "@article{wang2025unicorngeometry,\n  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part I: Geometry},\n  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  volume={47},\n  number={1},\n  pages={269--287},\n  year={2025},\n  doi={10.1109/TPAMI.2024.3462938}\n}"
     },
     {
       "title": "GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling",
@@ -300,9 +303,11 @@
         "Second author"
       ],
       "links": {
-        "paper": "https://doi.org/10.1109/TVCG.2023.3336936"
+        "paper": "https://doi.org/10.1109/TVCG.2023.3336936",
+        "bibtex": "#bibtex"
       },
-      "abstract": "Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages. The full abstract will be added after the publisher abstract or manuscript text is available."
+      "abstract": "The lossy Geometry-based Point Cloud Compression (G-PCC) inevitably impairs the geometry information of point clouds, which deteriorates the quality of experience (QoE) in reconstruction and/or misleads decisions in tasks such as classification. To tackle it, this work proposes GRNet for the geometry restoration of G-PCC compressed large-scale point clouds. By analyzing the content characteristics of original and G-PCC compressed point clouds, we attribute the G-PCC distortion to two key factors: point vanishing and point displacement. Visible impairments on a point cloud are usually dominated by an individual factor or superimposed by both factors, which are determined by the density of the original point cloud. To this end, we employ two different models for coordinate reconstruction, termed Coordinate Expansion and Coordinate Refinement, to attack the point vanishing and displacement, respectively. In addition, 4-byte auxiliary density information is signaled in the bitstream to assist the selection of Coordinate Expansion, Coordinate Refinement, or their combination. Before being fed into the coordinate reconstruction module, the G-PCC compressed point cloud is first processed by a Feature Analysis Module for multiscale information fusion, in which kNN-based Transformer is leveraged at each scale to adaptively characterize neighborhood geometric dynamics for effective restoration. Following the common test conditions recommended in the MPEG standardization committee, GRNet significantly improves the G-PCC anchor and remarkably outperforms state-of-the-art methods on a great variety of point clouds (e.g., solid, dense, and sparse samples) both quantitatively and qualitatively. Meanwhile, GRNet runs fairly fast and uses a smaller-size model when compared with existing learning-based approaches, making it attractive to industry practitioners.",
+      "bibtex": "@article{liu2024grnet,\n  title={GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling},\n  author={Liu, Gexin and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Ma, Zhan},\n  journal={IEEE Transactions on Visualization and Computer Graphics},\n  volume={30},\n  number={10},\n  pages={6740--6753},\n  year={2024},\n  doi={10.1109/TVCG.2023.3336936}\n}"
     }
   ],
   "skills": [

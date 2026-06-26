@@ -86,6 +86,37 @@
         setTheme(!isDark);
       });
 
+      document.querySelectorAll('.say-hi').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const emoji = document.createElement('span');
+          const choices = ['👋', '✨', '🙂', '💬'];
+          emoji.className = 'hi-emoji';
+          emoji.textContent = choices[Math.floor(Math.random() * choices.length)];
+          button.appendChild(emoji);
+          window.setTimeout(function() { emoji.remove(); }, 1200);
+        });
+      });
+
+      document.querySelectorAll('[data-bibtex-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = document.getElementById(button.getAttribute('data-bibtex-target'));
+          if (!target) return;
+          target.hidden = !target.hidden;
+        });
+      });
+
+      document.querySelectorAll('[data-copy-bibtex]').forEach(function(button) {
+        button.addEventListener('click', async function() {
+          const target = document.getElementById(button.getAttribute('data-copy-bibtex'));
+          const code = target && target.querySelector('code');
+          if (!code) return;
+          await navigator.clipboard.writeText(code.innerText);
+          const oldText = button.innerText;
+          button.innerText = 'Copied';
+          window.setTimeout(function() { button.innerText = oldText; }, 1200);
+        });
+      });
+
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {

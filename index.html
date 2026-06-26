@@ -50,10 +50,10 @@
       <aside class="hero-visual">
         <div class="portrait-frame">
           <img src="assets/media/profile.jpg" alt="Ruixiang Xue portrait">
-          <a class="say-hi" href="mailto:xrxee@smail.nju.edu.cn" title="Say Hi">
+          <button class="say-hi" type="button" title="Say Hi" aria-label="Say Hi">
             <i class="fa-solid fa-hand-sparkles"></i>
             <span>Say Hi</span>
-          </a>
+          </button>
         </div>
       </aside>
     </section>
@@ -83,7 +83,7 @@
                 <p class="exp-title"><strong>Nanjing University</strong></p>
                 <p class="exp-detail">Ph.D. Student, Information and Communication Engineering</p>
                 <p class="exp-period">2021.09 - 2027.06</p>
-                <ul><li>NJU Vision Lab, advised by Prof. Zhan Ma</li><li>Research fields: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, and AI-assisted photography</li><li>Excellent result in doctoral qualification assessment</li></ul>
+                <ul><li>NJU Vision Lab, advised by Prof. Zhan Ma and Researcher Tong Chen</li><li>Research fields: <strong>intelligent point cloud compression</strong>, <strong>3D Gaussian splatting compression</strong>, <strong>implicit neural representations</strong>, and <strong>AI-assisted photography</strong></li><li><strong>Excellent</strong> result in doctoral qualification assessment</li></ul>
               </div>
             </div>
           </div>
@@ -152,11 +152,26 @@
                     <div class="author">Ruixiang Xue et al. (authors to be finalized after public release)</div>
                     
                     <div class="pub-badges"><span>ECCV 2026</span><span>Accepted</span><span>3DGS Compression</span></div>
-                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><span class="pub-action disabled" title="Paper coming soon"><i class="fa-solid fa-file-lines"></i><span>Paper</span></span><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><span class="pub-action disabled" title="Paper coming soon"><i class="fa-solid fa-file-lines"></i><span>Paper</span></span><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><button class="pub-action" type="button" data-bibtex-target="bibtex-3d-gaussian-splatting-compression-with-object-scalabilit" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement.</p>
                     </details>
+                    
+                    <div class="bibtex-box" id="bibtex-3d-gaussian-splatting-compression-with-object-scalabilit" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="bibtex-3d-gaussian-splatting-compression-with-object-scalabilit">Copy</button>
+                      </div>
+                      <pre><code>@inproceedings{xue2026objectscalable3dgs,
+  title={3D Gaussian Splatting Compression with Object Scalability},
+  author={Xue, Ruixiang and others},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026},
+  note={Accepted, not yet publicly released}
+}</code></pre>
+                    </div>
+
                   </div>
                 </article>
               </li>
@@ -170,11 +185,29 @@
                     <div class="author">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma</div>
                     <div class="pub-doi">DOI: 10.1109/TPAMI.2024.3462938</div>
                     <div class="pub-badges"><span>SCI Q1</span><span>CCF-A</span><span>IF 18.6</span><span>Co-first author</span></div>
-                    <div class="pub-actions"><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Project"><i class="fa-solid fa-globe"></i><span>Project</span></a><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462938" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-actions"><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Project"><i class="fa-solid fa-globe"></i><span>Project</span></a><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462938" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><button class="pub-action" type="button" data-bibtex-target="bibtex-a-versatile-point-cloud-compressor-using-universal-multi" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.</p>
                     </details>
+                    
+                    <div class="bibtex-box" id="bibtex-a-versatile-point-cloud-compressor-using-universal-multi" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="bibtex-a-versatile-point-cloud-compressor-using-universal-multi">Copy</button>
+                      </div>
+                      <pre><code>@article{wang2025unicorngeometry,
+  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part I: Geometry},
+  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={47},
+  number={1},
+  pages={269--287},
+  year={2025},
+  doi={10.1109/TPAMI.2024.3462938}
+}</code></pre>
+                    </div>
+
                   </div>
                 </article>
               </li>
@@ -187,12 +220,28 @@
                     <div class="pub-meta">ICASSP 2024, pp. 8020-8024</div>
                     <div class="author">Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma</div>
                     <div class="pub-doi">DOI: 10.1109/ICASSP48485.2024.10446596</div>
-                    <div class="pub-badges"><span>CCF-B</span><span>First author</span><span>LiDAR Compression</span></div>
-                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/ICASSP48485.2024.10446596" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-badges"><span>CCF-B</span><span>First author</span></div>
+                    <div class="pub-actions"><a class="pub-action" href="https://github.com/RuixiangXue/NeRI" target="_blank" rel="noopener" title="Project"><i class="fa-solid fa-globe"></i><span>Project</span></a><a class="pub-action" href="https://doi.org/10.1109/ICASSP48485.2024.10446596" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/RuixiangXue/NeRI" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><button class="pub-action" type="button" data-bibtex-target="bibtex-neri-implicit-neural-representation-of-lidar-point-cloud" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into range image sequences and coding them with spatiotemporal conditional neural networks, reaching real-time decoding and strong low-bitrate gains.</p>
                     </details>
+                    
+                    <div class="bibtex-box" id="bibtex-neri-implicit-neural-representation-of-lidar-point-cloud" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="bibtex-neri-implicit-neural-representation-of-lidar-point-cloud">Copy</button>
+                      </div>
+                      <pre><code>@inproceedings{xue2024neri,
+  title={NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence},
+  author={Xue, Ruixiang and Li, Jiaxin and Chen, Tong and Ding, Dandan and Cao, Xun and Ma, Zhan},
+  booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={8020--8024},
+  year={2024},
+  doi={10.1109/ICASSP48485.2024.10446596}
+}</code></pre>
+                    </div>
+
                   </div>
                 </article>
               </li>
@@ -206,11 +255,29 @@
                     <div class="author">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma</div>
                     <div class="pub-doi">DOI: 10.1109/TPAMI.2024.3462945</div>
                     <div class="pub-badges"><span>SCI Q1</span><span>CCF-A</span><span>IF 18.6</span><span>Second author</span></div>
-                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462945" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462945" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><button class="pub-action" type="button" data-bibtex-target="bibtex-a-versatile-point-cloud-compressor-using-universal-multi" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
-                      <p>Attribute compression is discussed in Part II of the Unicorn framework. Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages; the full abstract will be added after the publisher abstract or manuscript text is available.</p>
+                      <p>A universal multiscale conditional coding framework, Unicorn, is proposed to code the geometry and attribute of any given point cloud. Attribute compression is discussed in Part II of this paper, while geometry compression is given in Part I of this paper. We first construct the multiscale sparse tensors of each voxelized point cloud attribute frame. Since attribute components exhibit very different intrinsic characteristics from the geometry element, e.g., 8-bit RGB color versus 1-bit occupancy, we process the attribute residual between lower-scale reconstruction and current-scale data. Similarly, we leverage spatially lower-scale priors in the current frame and (previously processed) temporal reference frame to improve the probability estimation of attribute intensity through conditional residual prediction in lossless mode or enhance the attribute reconstruction through progressive residual refinement in lossy mode for better performance. The proposed Unicorn is a versatile, learning-based solution capable of compressing a great variety of static and dynamic point clouds in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency with affordable encoding/decoding runtime.</p>
                     </details>
+                    
+                    <div class="bibtex-box" id="bibtex-a-versatile-point-cloud-compressor-using-universal-multi" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="bibtex-a-versatile-point-cloud-compressor-using-universal-multi">Copy</button>
+                      </div>
+                      <pre><code>@article{wang2025unicorngeometry,
+  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part I: Geometry},
+  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={47},
+  number={1},
+  pages={269--287},
+  year={2025},
+  doi={10.1109/TPAMI.2024.3462938}
+}</code></pre>
+                    </div>
+
                   </div>
                 </article>
               </li>
@@ -224,11 +291,29 @@
                     <div class="author">Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma</div>
                     <div class="pub-doi">DOI: 10.1109/TVCG.2023.3336936</div>
                     <div class="pub-badges"><span>SCI Q1</span><span>CCF-A</span><span>IF 6.5</span><span>Second author</span></div>
-                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TVCG.2023.3336936" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TVCG.2023.3336936" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><button class="pub-action" type="button" data-bibtex-target="bibtex-grnet-geometry-restoration-for-g-pcc-compressed-point-cl" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
-                      <p>Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages. The full abstract will be added after the publisher abstract or manuscript text is available.</p>
+                      <p>The lossy Geometry-based Point Cloud Compression (G-PCC) inevitably impairs the geometry information of point clouds, which deteriorates the quality of experience (QoE) in reconstruction and/or misleads decisions in tasks such as classification. To tackle it, this work proposes GRNet for the geometry restoration of G-PCC compressed large-scale point clouds. By analyzing the content characteristics of original and G-PCC compressed point clouds, we attribute the G-PCC distortion to two key factors: point vanishing and point displacement. Visible impairments on a point cloud are usually dominated by an individual factor or superimposed by both factors, which are determined by the density of the original point cloud. To this end, we employ two different models for coordinate reconstruction, termed Coordinate Expansion and Coordinate Refinement, to attack the point vanishing and displacement, respectively. In addition, 4-byte auxiliary density information is signaled in the bitstream to assist the selection of Coordinate Expansion, Coordinate Refinement, or their combination. Before being fed into the coordinate reconstruction module, the G-PCC compressed point cloud is first processed by a Feature Analysis Module for multiscale information fusion, in which kNN-based Transformer is leveraged at each scale to adaptively characterize neighborhood geometric dynamics for effective restoration. Following the common test conditions recommended in the MPEG standardization committee, GRNet significantly improves the G-PCC anchor and remarkably outperforms state-of-the-art methods on a great variety of point clouds (e.g., solid, dense, and sparse samples) both quantitatively and qualitatively. Meanwhile, GRNet runs fairly fast and uses a smaller-size model when compared with existing learning-based approaches, making it attractive to industry practitioners.</p>
                     </details>
+                    
+                    <div class="bibtex-box" id="bibtex-grnet-geometry-restoration-for-g-pcc-compressed-point-cl" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="bibtex-grnet-geometry-restoration-for-g-pcc-compressed-point-cl">Copy</button>
+                      </div>
+                      <pre><code>@article{liu2024grnet,
+  title={GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling},
+  author={Liu, Gexin and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Ma, Zhan},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={30},
+  number={10},
+  pages={6740--6753},
+  year={2024},
+  doi={10.1109/TVCG.2023.3336936}
+}</code></pre>
+                    </div>
+
                   </div>
                 </article>
               </li>
@@ -286,6 +371,37 @@
       themeToggle.addEventListener('click', function() {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         setTheme(!isDark);
+      });
+
+      document.querySelectorAll('.say-hi').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const emoji = document.createElement('span');
+          const choices = ['👋', '✨', '🙂', '💬'];
+          emoji.className = 'hi-emoji';
+          emoji.textContent = choices[Math.floor(Math.random() * choices.length)];
+          button.appendChild(emoji);
+          window.setTimeout(function() { emoji.remove(); }, 1200);
+        });
+      });
+
+      document.querySelectorAll('[data-bibtex-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const target = document.getElementById(button.getAttribute('data-bibtex-target'));
+          if (!target) return;
+          target.hidden = !target.hidden;
+        });
+      });
+
+      document.querySelectorAll('[data-copy-bibtex]').forEach(function(button) {
+        button.addEventListener('click', async function() {
+          const target = document.getElementById(button.getAttribute('data-copy-bibtex'));
+          const code = target && target.querySelector('code');
+          if (!code) return;
+          await navigator.clipboard.writeText(code.innerText);
+          const oldText = button.innerText;
+          button.innerText = 'Copied';
+          window.setTimeout(function() { button.innerText = oldText; }, 1200);
+        });
       });
 
       if ('IntersectionObserver' in window) {

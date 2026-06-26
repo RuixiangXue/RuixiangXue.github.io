@@ -171,10 +171,10 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
       <aside class="hero-visual">
         <div class="portrait-frame">
           <img src="{esc(person.get('avatar', 'assets/img/avatar.svg'))}" alt="{esc(person['name'])} portrait">
-          <a class="say-hi" href="mailto:{esc(person['email'])}" title="Say Hi">
+          <button class="say-hi" type="button" title="Say Hi" aria-label="Say Hi">
             <i class="fa-solid fa-hand-sparkles"></i>
             <span>Say Hi</span>
-          </a>
+          </button>
         </div>
       </aside>
     </section>
@@ -379,6 +379,37 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         setTheme(!isDark);
       }});
 
+      document.querySelectorAll('.say-hi').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const emoji = document.createElement('span');
+          const choices = ['👋', '✨', '🙂', '💬'];
+          emoji.className = 'hi-emoji';
+          emoji.textContent = choices[Math.floor(Math.random() * choices.length)];
+          button.appendChild(emoji);
+          window.setTimeout(function() {{ emoji.remove(); }}, 1200);
+        }});
+      }});
+
+      document.querySelectorAll('[data-bibtex-target]').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const target = document.getElementById(button.getAttribute('data-bibtex-target'));
+          if (!target) return;
+          target.hidden = !target.hidden;
+        }});
+      }});
+
+      document.querySelectorAll('[data-copy-bibtex]').forEach(function(button) {{
+        button.addEventListener('click', async function() {{
+          const target = document.getElementById(button.getAttribute('data-copy-bibtex'));
+          const code = target && target.querySelector('code');
+          if (!code) return;
+          await navigator.clipboard.writeText(code.innerText);
+          const oldText = button.innerText;
+          button.innerText = 'Copied';
+          window.setTimeout(function() {{ button.innerText = oldText; }}, 1200);
+        }});
+      }});
+
       if ('IntersectionObserver' in window) {{
         const observer = new IntersectionObserver(function(entries) {{
           entries.forEach(function(entry) {{
@@ -493,7 +524,7 @@ def render_research_bubbles(interests: list[str]) -> str:
 
 
 def render_education(item: dict[str, Any]) -> str:
-    details = "".join(f"<li>{esc(detail)}</li>" for detail in item.get("details", []))
+    details = "".join(f"<li>{format_inline(detail)}</li>" for detail in item.get("details", []))
     logo = item.get("logo", "assets/logos/nju.svg")
     return f"""
           <div class="card timeline-item">
@@ -555,7 +586,7 @@ def render_publication(item: dict[str, Any]) -> str:
         ("code", "fa-brands fa-github", "Code"),
         ("bibtex", "fa-solid fa-quote-right", "BibTeX"),
     ]
-    actions = "".join(render_publication_action(links.get(key, ""), icon, label) for key, icon, label in link_items)
+    actions = "".join(render_publication_action(links.get(key, ""), icon, label, item) for key, icon, label in link_items)
     abstract = item.get("abstract") or "Abstract will be added when the public version is available."
     venue_short = item.get("venue_short") or item.get("venue", "")
     venue_full = item.get("venue_full") or item.get("venue", "")
@@ -576,13 +607,19 @@ def render_publication(item: dict[str, Any]) -> str:
                       <summary>Abstract</summary>
                       <p>{esc(abstract)}</p>
                     </details>
+                    {render_bibtex_box(item)}
                   </div>
                 </article>
               </li>
 """
 
 
-def render_publication_action(url: str, icon: str, label: str) -> str:
+def render_publication_action(url: str, icon: str, label: str, item: dict[str, Any]) -> str:
+    if label == "BibTeX" and item.get("bibtex"):
+        return (
+            f'<button class="pub-action" type="button" data-bibtex-target="{esc(bibtex_id(item))}" '
+            f'title="{esc(label)}"><i class="{esc(icon)}"></i><span>{esc(label)}</span></button>'
+        )
     if url:
         return (
             f'<a class="pub-action" href="{esc(url)}" target="_blank" rel="noopener" '
@@ -592,6 +629,40 @@ def render_publication_action(url: str, icon: str, label: str) -> str:
         f'<span class="pub-action disabled" title="{esc(label)} coming soon">'
         f'<i class="{esc(icon)}"></i><span>{esc(label)}</span></span>'
     )
+
+
+def render_bibtex_box(item: dict[str, Any]) -> str:
+    bibtex = item.get("bibtex")
+    if not bibtex:
+        return ""
+    box_id = bibtex_id(item)
+    return f"""
+                    <div class="bibtex-box" id="{esc(box_id)}" hidden>
+                      <div class="bibtex-head">
+                        <strong>BibTeX</strong>
+                        <button type="button" data-copy-bibtex="{esc(box_id)}">Copy</button>
+                      </div>
+                      <pre><code>{esc(bibtex)}</code></pre>
+                    </div>
+"""
+
+
+def bibtex_id(item: dict[str, Any]) -> str:
+    base = "".join(ch.lower() if ch.isalnum() else "-" for ch in item["title"])
+    return "bibtex-" + "-".join(part for part in base.split("-") if part)[:56]
+
+
+def format_inline(text: Any) -> str:
+    raw = str(text)
+    parts = raw.split("**")
+    rendered: list[str] = []
+    for index, part in enumerate(parts):
+        escaped = esc(part)
+        if index % 2 == 1:
+            rendered.append(f"<strong>{escaped}</strong>")
+        else:
+            rendered.append(escaped)
+    return "".join(rendered)
 
 
 def render_award(item: dict[str, Any]) -> str:

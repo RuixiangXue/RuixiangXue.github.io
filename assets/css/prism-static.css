@@ -258,6 +258,7 @@ body.theme-prism .say-hi {
   font-size: 0.9rem;
   font-weight: 780;
   backdrop-filter: blur(14px);
+  cursor: pointer;
 }
 
 body.theme-prism .say-hi i {
@@ -268,6 +269,29 @@ body.theme-prism .say-hi:hover {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-1px);
+}
+
+body.theme-prism .hi-emoji {
+  position: absolute;
+  right: 12px;
+  top: -18px;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: hiPop 1.2s ease-out forwards;
+}
+
+@keyframes hiPop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.72) rotate(-8deg);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-48px) scale(1.28) rotate(8deg);
+  }
 }
 
 body.theme-prism .institution-logo[src*="hdu.svg"] {
@@ -599,6 +623,12 @@ body.theme-prism .pub-action {
   color: var(--foreground);
   font-size: 0.86rem;
   font-weight: 720;
+  cursor: pointer;
+}
+
+button.pub-action {
+  font-family: inherit;
+  background: transparent;
 }
 
 body.theme-prism .pub-action:hover {
@@ -629,6 +659,47 @@ body.theme-prism .pub-abstract summary {
 body.theme-prism .pub-abstract p {
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+body.theme-prism .bibtex-box {
+  margin-top: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f1412;
+  color: #edf2ec;
+}
+
+body.theme-prism .bibtex-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.theme-prism .bibtex-head button {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #edf2ec;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 720;
+}
+
+body.theme-prism .bibtex-box pre {
+  max-height: 280px;
+  overflow: auto;
+  margin: 0;
+  padding: 14px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
 }
 
 body.theme-prism .awards-grid,
