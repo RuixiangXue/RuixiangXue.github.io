@@ -354,8 +354,8 @@ body.theme-prism .research-core {
   top: 50%;
   left: 50%;
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 176px;
+  height: 176px;
   align-items: center;
   justify-content: center;
   border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--line));
@@ -364,12 +364,12 @@ body.theme-prism .research-core {
   box-shadow: var(--shadow);
   color: var(--foreground);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.18rem;
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.15;
   text-align: center;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 5;
 }
 
 body.theme-prism .research-bubble {
@@ -387,6 +387,7 @@ body.theme-prism .research-bubble {
   font-size: 0.98rem;
   font-weight: 720;
   animation: bubbleFloat 6s ease-in-out infinite;
+  z-index: 2;
 }
 
 body.theme-prism .bubble-0 {
@@ -401,14 +402,14 @@ body.theme-prism .bubble-1 {
 }
 
 body.theme-prism .bubble-2 {
-  top: 43%;
-  left: 5%;
+  top: 46%;
+  left: 3%;
   animation-delay: -2s;
 }
 
 body.theme-prism .bubble-3 {
-  right: 6%;
-  bottom: 34%;
+  right: 3%;
+  bottom: 31%;
   animation-delay: -3s;
 }
 
