@@ -55,10 +55,10 @@
       "logo": "assets/logos/geely.svg",
       "role": "Algorithm Intern",
       "period": "2026.05 - Present",
-      "summary": "Research on LiDAR-free street-scene novel-view extrapolation with mutual enhancement between feed-forward reconstruction and generative models.",
+      "summary": "Research on street-scene novel-view extrapolation with mutual enhancement between feed-forward reconstruction and generative models.",
       "bullets": [
-        "Used LiDAR-free feed-forward street-scene reconstruction to improve the geometric consistency of generative novel-view synthesis models.",
-        "Leveraged generated views as feedback to refine feed-forward street-scene reconstruction for large-baseline novel-view extrapolation."
+        "Used feed-forward street-scene reconstruction to improve the geometric consistency of generative novel-view synthesis models.",
+        "Leveraged generative priors to improve the rendering-quality loss for feed-forward street-scene reconstruction under large-baseline novel-view extrapolation."
       ],
       "tags": [
         "driving",
