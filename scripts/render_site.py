@@ -682,17 +682,46 @@ def render_project_card(item: dict[str, Any]) -> str:
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
     image = item.get("image")
     image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
+    card_class = "card project-card has-flows" if item.get("flows") else "card project-card"
     return f"""
-          <article class="card project-card" id="{esc(item.get('id', project_id(item['name'])))}">
+          <article class="{card_class}" id="{esc(item.get('id', project_id(item['name'])))}">
             {image_html}
             <div class="project-copy">
               <strong>{esc(item['name'])}</strong>
               <p>{esc(item.get('summary', ''))}</p>
               {bullet_list}
+              {render_project_flows(item)}
               {render_project_links(item)}
               {render_project_contributions(item)}
             </div>
           </article>
+"""
+
+
+def render_project_flows(item: dict[str, Any]) -> str:
+    flows = item.get("flows", [])
+    if not flows:
+        return ""
+    return f"""
+              <div class="project-flow-grid">
+                {''.join(render_project_flow(flow, index) for index, flow in enumerate(flows))}
+              </div>
+"""
+
+
+def render_project_flow(flow: dict[str, Any], index: int) -> str:
+    steps = flow.get("steps", [])
+    nodes = "".join(f'<span class="flow-node">{esc(step)}</span>' for step in steps)
+    return f"""
+                <div class="flow-card flow-card-{index % 2}">
+                  <div class="flow-head">
+                    <strong>{esc(flow.get('title', 'Pipeline'))}</strong>
+                    <span>{esc(flow.get('caption', ''))}</span>
+                  </div>
+                  <div class="flow-track" style="--step-count: {max(len(steps), 1)}">
+                    {nodes}
+                  </div>
+                </div>
 """
 
 

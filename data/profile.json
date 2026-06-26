@@ -250,10 +250,39 @@
         "coding",
         "photography"
       ],
-      "summary": "A user-friendly camera assistant prototype for composition guidance and shooting suggestions.",
+      "summary": "Virtual photography and spatial reframing workflows that combine single-image 3DGS reconstruction, Unreal Engine capture, human-scene compositing, and generative neural rendering.",
       "bullets": [
-        "Surveyed photo composition, feed-forward 3DGS reconstruction, and large-model based aesthetic quality assessment methods.",
-        "Built an AI coding demo with image analysis, composition advice, composition preview generation, and step-by-step shooting guidance."
+        "Built a virtual studio pipeline from **single-image Marble 3DGS world creation** to **SplatTransform preprocessing**, Unreal Engine import, immersive navigation, and controllable capture.",
+        "Composited reconstructed scene splats with a separate **human 3DGS asset pipeline**, then used generative neural rendering to improve photo realism when raw 3DGS renders are not yet photography-grade.",
+        "Replicated an **Apple Spatial Reframing-style** workflow for constrained camera-angle changes from a single photo, enabling practical nearby-view recomposition."
+      ],
+      "flows": [
+        {
+          "title": "Virtual Studio Pipeline",
+          "caption": "From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.",
+          "steps": [
+            "Reference image",
+            "Marble 3DGS world",
+            "SplatTransform preprocessing",
+            "Unreal Engine import",
+            "Immersive camera capture",
+            "Human 3DGS composite",
+            "Generative neural rendering"
+          ]
+        },
+        {
+          "title": "Spatial Reframing Pipeline",
+          "caption": "Apple-like nearby-view recomposition under constrained viewpoint changes.",
+          "steps": [
+            "Input photo",
+            "Single-image 3DGS reconstruction",
+            "Subject mask and geometry cues",
+            "Constrained camera reframe",
+            "Confidence and hole map",
+            "Generative repair",
+            "Reframed photo"
+          ]
+        }
       ]
     }
   ],

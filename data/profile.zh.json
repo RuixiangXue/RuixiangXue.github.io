@@ -249,10 +249,39 @@
         "coding",
         "photography"
       ],
-      "summary": "面向构图建议与拍摄指导的用户友好型相机助手原型。",
+      "summary": "围绕虚拟摄影与空间重构开展项目实践，结合单图 3DGS 重建、UE 虚拟拍摄、人物与场景合成以及生成式神经渲染。",
       "bullets": [
-        "调研照片构图、前馈 3DGS 重建以及基于大模型的美学质量评价方法。",
-        "使用 AI Coding 实现图像分析、构图建议、构图预览生成和拍照步骤指导 Demo。"
+        "搭建从 **Marble 单图 3DGS 场景生成**、**SplatTransform 预处理** 到 Unreal Engine 导入、沉浸式漫游和可控拍摄的虚拟摄影棚流程。",
+        "将重建得到的场景 3DGS 与独立的人物 3DGS 资产流程组合，并利用生成式神经渲染改善原始 3DGS 渲染达不到摄影质量的问题。",
+        "复刻 **Apple Spatial Reframing** 类似能力，在有限角度变化下从单张照片实现拍摄视角重构与重新取景。"
+      ],
+      "flows": [
+        {
+          "title": "Virtual Studio Pipeline",
+          "caption": "从单张参考图到 UE 虚拟摄影棚，再到生成式神经渲染照片。",
+          "steps": [
+            "参考图片",
+            "Marble 3DGS 场景",
+            "SplatTransform 预处理",
+            "Unreal Engine 导入",
+            "沉浸式相机拍摄",
+            "人物 3DGS 合成",
+            "生成式神经渲染"
+          ]
+        },
+        {
+          "title": "Spatial Reframing Pipeline",
+          "caption": "面向有限角度变化的 Apple-like 重新取景流程。",
+          "steps": [
+            "输入照片",
+            "单图 3DGS 重建",
+            "主体掩码与几何线索",
+            "受限相机重构",
+            "置信度与空洞区域",
+            "生成式修复",
+            "重新取景照片"
+          ]
+        }
       ]
     }
   ],

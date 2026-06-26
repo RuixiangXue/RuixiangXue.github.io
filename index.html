@@ -85,6 +85,7 @@
               <ul><li>Designed <strong>Transformer</strong> models for point cloud representation and efficient spatial feature extraction.</li><li>Used <strong>density changes</strong> during point cloud downsampling to guide reconstruction mode selection.</li><li>Achieved <strong>39% geometry compression gain</strong> and <strong>34% attribute compression gain</strong> over the baseline under public test conditions.</li></ul>
               
               
+              
               <div class="project-contributions" id="project-intelligent-point-cloud-compression-contributions">
                 
                   <div class="contribution-group contribution-actions">
@@ -233,17 +234,43 @@
               <strong>3D Gaussian Splatting Coding</strong>
               <p>Compact and progressive compression for 3D Gaussian splatting scenes.</p>
               <ul><li>Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.</li><li>Proposed <strong>RecastGS</strong> to reorganize pretrained 3DGS into a <strong>region-aware layered hierarchy</strong> with prompt-driven object extraction and progressive distillation.</li><li>Proposed <strong>LayeredCGS</strong>, a feed-forward layered 3DGS compressor with <strong>cross-layer context modeling</strong> and <strong>truncatable bitstreams</strong>.</li></ul>
+              
               <div class="project-actions"><a href="#publication-3dgs-object-scalability"><i class="fa-solid fa-award"></i><span>ECCV26</span></a></div>
               
             </div>
           </article>
 
-          <article class="card project-card" id="project-ai-assisted-photography">
+          <article class="card project-card has-flows" id="project-ai-assisted-photography">
             
             <div class="project-copy">
               <strong>AI-assisted photography</strong>
-              <p>A user-friendly camera assistant prototype for composition guidance and shooting suggestions.</p>
-              <ul><li>Surveyed photo composition, feed-forward 3DGS reconstruction, and large-model based aesthetic quality assessment methods.</li><li>Built an AI coding demo with image analysis, composition advice, composition preview generation, and step-by-step shooting guidance.</li></ul>
+              <p>Virtual photography and spatial reframing workflows that combine single-image 3DGS reconstruction, Unreal Engine capture, human-scene compositing, and generative neural rendering.</p>
+              <ul><li>Built a virtual studio pipeline from <strong>single-image Marble 3DGS world creation</strong> to <strong>SplatTransform preprocessing</strong>, Unreal Engine import, immersive navigation, and controllable capture.</li><li>Composited reconstructed scene splats with a separate <strong>human 3DGS asset pipeline</strong>, then used generative neural rendering to improve photo realism when raw 3DGS renders are not yet photography-grade.</li><li>Replicated an <strong>Apple Spatial Reframing-style</strong> workflow for constrained camera-angle changes from a single photo, enabling practical nearby-view recomposition.</li></ul>
+              
+              <div class="project-flow-grid">
+                
+                <div class="flow-card flow-card-0">
+                  <div class="flow-head">
+                    <strong>Virtual Studio Pipeline</strong>
+                    <span>From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.</span>
+                  </div>
+                  <div class="flow-track" style="--step-count: 7">
+                    <span class="flow-node">Reference image</span><span class="flow-node">Marble 3DGS world</span><span class="flow-node">SplatTransform preprocessing</span><span class="flow-node">Unreal Engine import</span><span class="flow-node">Immersive camera capture</span><span class="flow-node">Human 3DGS composite</span><span class="flow-node">Generative neural rendering</span>
+                  </div>
+                </div>
+
+                <div class="flow-card flow-card-1">
+                  <div class="flow-head">
+                    <strong>Spatial Reframing Pipeline</strong>
+                    <span>Apple-like nearby-view recomposition under constrained viewpoint changes.</span>
+                  </div>
+                  <div class="flow-track" style="--step-count: 7">
+                    <span class="flow-node">Input photo</span><span class="flow-node">Single-image 3DGS reconstruction</span><span class="flow-node">Subject mask and geometry cues</span><span class="flow-node">Constrained camera reframe</span><span class="flow-node">Confidence and hole map</span><span class="flow-node">Generative repair</span><span class="flow-node">Reframed photo</span>
+                  </div>
+                </div>
+
+              </div>
+
               
               
             </div>

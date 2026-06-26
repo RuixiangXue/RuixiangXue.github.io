@@ -478,6 +478,26 @@ body.theme-prism .bubble-5 {
   }
 }
 
+@keyframes dataFlow {
+  from {
+    background-position: 220% 0;
+  }
+
+  to {
+    background-position: -40% 0;
+  }
+}
+
+@keyframes flowSheen {
+  from {
+    transform: translateX(-20%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(20%) rotate(360deg);
+  }
+}
+
 body.theme-prism .focus-list span {
   display: inline-flex;
   min-height: 38px;
@@ -593,6 +613,10 @@ body.theme-prism .project-card:target {
   transform: translateY(-2px);
 }
 
+body.theme-prism .project-card.has-flows {
+  grid-column: 1 / -1;
+}
+
 body.theme-prism .project-image {
   display: block;
   width: 100%;
@@ -658,6 +682,95 @@ body.theme-prism .project-action-button {
 body.theme-prism .project-action-button:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+body.theme-prism .project-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+body.theme-prism .flow-card {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--line) 72%, var(--accent));
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 76%, transparent), color-mix(in srgb, var(--surface-soft) 68%, transparent)),
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34%);
+  backdrop-filter: blur(16px) saturate(1.25);
+  box-shadow: 0 18px 44px rgba(18, 27, 24, 0.12);
+}
+
+body.theme-prism .flow-card::before {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: linear-gradient(115deg, transparent 38%, color-mix(in srgb, var(--accent) 16%, transparent) 48%, transparent 58%);
+  animation: flowSheen 7s linear infinite;
+  pointer-events: none;
+}
+
+body.theme-prism .flow-head,
+body.theme-prism .flow-track {
+  position: relative;
+  z-index: 1;
+}
+
+body.theme-prism .flow-head {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+body.theme-prism .flow-head strong {
+  color: var(--foreground);
+  font-size: 0.96rem;
+}
+
+body.theme-prism .flow-head span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+body.theme-prism .flow-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+body.theme-prism .flow-node {
+  position: relative;
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--line) 70%, #fff);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 64%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 8px 20px rgba(20, 28, 26, 0.08);
+  color: var(--foreground);
+  font-size: 0.82rem;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+body.theme-prism .flow-node:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  width: 14px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 18%, transparent), var(--accent), color-mix(in srgb, var(--accent) 18%, transparent));
+  background-size: 220% 100%;
+  transform: translateY(-50%);
+  animation: dataFlow 1.5s linear infinite;
 }
 
 body.theme-prism .project-contributions {
@@ -1044,6 +1157,10 @@ body.theme-prism .site-footer a {
   body.theme-prism .hero-visual {
     min-height: 0;
   }
+
+  body.theme-prism .project-flow-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1058,6 +1175,17 @@ body.theme-prism .site-footer a {
 
   body.theme-prism .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  body.theme-prism .flow-track {
+    gap: 8px 18px;
+  }
+
+  body.theme-prism .flow-node {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+    white-space: normal;
   }
 
   body.theme-prism .research-map {
