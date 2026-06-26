@@ -267,7 +267,6 @@
       "notes": "已接收，尚未发布 arXiv",
       "badges": [
         "CCF-B",
-        "Accepted",
         "三维高斯泼溅压缩"
       ],
       "abstract": "We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement. The code will be released at https://github.com/RuixiangXue/ScalableGSC.",
