@@ -313,6 +313,10 @@
         "code": "",
         "bibtex": "#bibtex"
       },
+      "hide_missing_actions": [
+        "homepage",
+        "code"
+      ],
       "tags": [
         "compression",
         "point-cloud",
