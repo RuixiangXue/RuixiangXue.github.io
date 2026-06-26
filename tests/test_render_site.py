@@ -26,7 +26,7 @@ class RenderSiteTest(unittest.TestCase):
                 "phone": "+86-13777803815",
                 "location": "Nanjing, China",
                 "summary": "Researcher in intelligent point cloud compression.",
-                "research_interests": ["Point cloud compression"],
+                "research_interests": ["Point cloud compression", "Implicit neural representations"],
             },
             "links": [{"label": "GitHub", "url": "https://github.com/RuixiangXue"}],
             "education": [
@@ -95,6 +95,7 @@ class RenderSiteTest(unittest.TestCase):
         self.assertIn("research-map", home)
         self.assertIn('href="#project-point-cloud-compression"', home)
         self.assertIn('id="project-point-cloud-compression"', home)
+        self.assertIn("Coming soon", home)
         self.assertNotIn("logo-cloud", home)
         self.assertNotIn("Field Notes", home)
         self.assertIn("Point Cloud Compression", resume)

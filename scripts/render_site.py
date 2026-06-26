@@ -187,7 +187,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
         <p class="section-kicker">{t['research_focus']}</p>
         <h2 class="section-title">{t['about']}</h2>
       </div>
-      {render_research_bubbles(person.get("research_interests", []), project_previews)}
+      {render_research_bubbles(person.get("research_interests", []), project_previews, lang=lang)}
     </section>
 
     <section class="section" id="projects" data-section="projects">
@@ -543,17 +543,25 @@ def render_interest_list(interests: list[str]) -> str:
     return "".join(f"<span>{esc(item)}</span>" for item in interests)
 
 
-def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]]) -> str:
-    bubbles = "".join(
-        f'<a class="research-bubble bubble-{index % 6}" href="#{esc(find_project_for_interest(item, projects))}">{esc(item)}</a>'
-        for index, item in enumerate(interests)
-    )
+def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]], *, lang: str) -> str:
+    bubbles = "".join(render_research_bubble(item, index, projects, lang=lang) for index, item in enumerate(interests))
     return f"""
       <div class="research-map" aria-label="Spatial intelligence research map">
         <div class="research-core">Spatial<br>Intelligence</div>
         {bubbles}
       </div>
 """
+
+
+def render_research_bubble(interest: str, index: int, projects: list[dict[str, Any]], *, lang: str) -> str:
+    target = find_project_for_interest(interest, projects)
+    if target:
+        return f'<a class="research-bubble bubble-{index % 6}" href="#{esc(target)}">{esc(interest)}</a>'
+    note = "Coming soon" if lang == "en" else "待补充"
+    return (
+        f'<span class="research-bubble bubble-{index % 6} is-disabled">'
+        f'{esc(interest)}<small>{esc(note)}</small></span>'
+    )
 
 
 def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[str, Any]]:
@@ -563,11 +571,11 @@ def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[s
     used: set[int] = set()
     for interest in interests:
         index = best_project_index(interest, projects, used)
-        if index is not None:
+        if index is not None and projects[index].get("homepage_project", True) is not False:
             item = dict(projects[index])
             used.add(index)
         else:
-            item = fallback_project_for_interest(interest, profile, lang=lang)
+            continue
         item["id"] = project_id(item.get("name", interest))
         item["interest"] = interest
         previews.append(item)
@@ -580,6 +588,7 @@ def best_project_index(interest: str, projects: list[dict[str, Any]], used: set[
         (("point", "cloud"), ("point", "cloud")),
         (("3d", "gaussian"), ("gaussian", "splatting")),
         (("splatting",), ("3dgs", "gaussian")),
+        (("三维", "高斯"), ("高斯", "3d")),
         (("street", "novel"), ("street", "novel")),
         (("街景",), ("街景",)),
         (("photography",), ("camera", "photography")),
@@ -597,36 +606,12 @@ def best_project_index(interest: str, projects: list[dict[str, Any]], used: set[
     return None
 
 
-def fallback_project_for_interest(interest: str, profile: dict[str, Any], *, lang: str) -> dict[str, Any]:
-    interest_norm = normalize_key(interest)
-    if "implicit" in interest_norm or "隐式" in interest_norm:
-        neri = next((item for item in profile.get("publications", []) if item.get("title", "").startswith("NeRI")), {})
-        return {
-            "name": interest,
-            "summary": (
-                "Implicit neural representation for LiDAR point cloud compression, using range image sequences and pose-conditioned neural fitting."
-                if lang == "en"
-                else "围绕 LiDAR 点云的隐式神经表示压缩，利用距离图序列与位姿条件神经网络进行建模。"
-            ),
-            "image": "assets/media/neri.png",
-            "bullets": neri.get("bullets", [])[:3],
-            "links": neri.get("links", {}),
-            "action_labels": neri.get("action_labels", {}),
-            "action_icons": neri.get("action_icons", {}),
-        }
-    return {
-        "name": interest,
-        "summary": "Project preview will be expanded with additional materials." if lang == "en" else "项目预览内容待后续补充。",
-        "bullets": [],
-    }
-
-
-def find_project_for_interest(interest: str, projects: list[dict[str, Any]]) -> str:
+def find_project_for_interest(interest: str, projects: list[dict[str, Any]]) -> str | None:
     interest_norm = normalize_key(interest)
     for project in projects:
         if normalize_key(project.get("interest", "")) == interest_norm:
             return project.get("id", "projects")
-    return "projects"
+    return None
 
 
 def project_id(name: str) -> str:

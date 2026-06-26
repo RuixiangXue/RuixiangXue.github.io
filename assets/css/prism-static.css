@@ -388,6 +388,7 @@ body.theme-prism .research-core {
 body.theme-prism .research-bubble {
   position: absolute;
   display: inline-flex;
+  flex-direction: column;
   max-width: 260px;
   min-height: 54px;
   align-items: center;
@@ -412,6 +413,24 @@ body.theme-prism .research-bubble:focus-visible {
   border-color: var(--accent);
   color: var(--accent);
   outline: 0;
+}
+
+body.theme-prism .research-bubble small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+body.theme-prism .research-bubble.is-disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+body.theme-prism .research-bubble.is-disabled:hover {
+  border-color: var(--line);
+  color: var(--foreground);
 }
 
 body.theme-prism .bubble-0 {

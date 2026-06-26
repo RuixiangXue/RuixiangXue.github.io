@@ -122,6 +122,7 @@
     },
     {
       "name": "Street Generative Novel-View Synthesis",
+      "homepage_project": false,
       "tags": [
         "driving",
         "world-model",
