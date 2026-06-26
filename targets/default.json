@@ -1,0 +1,16 @@
+{
+  "title": "Research Resume",
+  "focus": "Targeted for research and algorithm roles in point cloud compression, 3D Gaussian splatting compression, neural scene representation, driving world models, and AI multimedia systems.",
+  "include_project_tags": [
+    "compression",
+    "point-cloud",
+    "3dgs",
+    "driving",
+    "world-model",
+    "street-view",
+    "restoration",
+    "standardization",
+    "publication"
+  ],
+  "resume_filename": "resume.html"
+}

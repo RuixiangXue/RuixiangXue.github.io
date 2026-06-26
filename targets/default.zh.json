@@ -1,0 +1,17 @@
+{
+  "title": "研究简历",
+  "title_zh": "研究简历",
+  "focus": "面向点云压缩、三维高斯泼溅压缩、神经场景表示、自动驾驶世界模型和 AI 多媒体系统等研究/算法岗位。",
+  "include_project_tags": [
+    "compression",
+    "point-cloud",
+    "3dgs",
+    "driving",
+    "world-model",
+    "street-view",
+    "restoration",
+    "standardization",
+    "publication"
+  ],
+  "resume_filename": "resume-zh.html"
+}

@@ -1,0 +1,529 @@
+:root,
+:root[data-theme="light"] {
+  --background: #fbfbf8;
+  --surface: #ffffff;
+  --surface-soft: #f3f4ef;
+  --foreground: #171717;
+  --muted: #656866;
+  --line: #dedfd7;
+  --accent: #a32e2e;
+  --accent-soft: #f5e8e4;
+  --shadow: 0 18px 46px rgba(23, 23, 23, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --background: #101211;
+  --surface: #171a18;
+  --surface-soft: #20231f;
+  --foreground: #f4f3ee;
+  --muted: #b5b7b0;
+  --line: #31342f;
+  --accent: #e27865;
+  --accent-soft: #2a1d1a;
+  --shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.theme-prism {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.theme-prism a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.theme-prism .top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+body.theme-prism .nav-container {
+  display: flex;
+  max-width: 1180px;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+body.theme-prism .nav-left,
+body.theme-prism .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+body.theme-prism .nav-left a,
+body.theme-prism .language-link {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 680;
+}
+
+body.theme-prism .nav-left a:first-child {
+  color: var(--foreground);
+  font-size: 1.02rem;
+  font-weight: 820;
+}
+
+body.theme-prism .nav-left a:hover,
+body.theme-prism .language-link:hover {
+  color: var(--accent);
+}
+
+body.theme-prism .theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+body.theme-prism .portfolio-shell,
+body.theme-prism .single-column {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 24px 48px;
+}
+
+body.theme-prism .hero-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) 390px;
+  gap: 54px;
+  align-items: stretch;
+  min-height: calc(100vh - 154px);
+  padding-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
+
+body.theme-prism .hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+body.theme-prism .eyebrow,
+body.theme-prism .section-kicker,
+body.theme-prism .job-topline {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.theme-prism .hero-copy h1 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", "Noto Serif CJK SC", serif;
+  font-size: clamp(3.4rem, 8vw, 7.4rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+body.theme-prism .hero-copy h1 span {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 720;
+  line-height: 1.1;
+}
+
+body.theme-prism .hero-role {
+  margin: 28px 0 0;
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 760;
+}
+
+body.theme-prism .hero-summary {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.13rem;
+}
+
+body.theme-prism .hero-social,
+body.theme-prism .social-icons {
+  display: flex;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+body.theme-prism .hero-social a,
+body.theme-prism .social-icons a {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 1.08rem;
+}
+
+body.theme-prism .hero-social a:hover,
+body.theme-prism .social-icons a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+body.theme-prism .highlight-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+
+body.theme-prism .highlight-card {
+  min-height: 126px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+body.theme-prism .highlight-card span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 820;
+  text-transform: uppercase;
+}
+
+body.theme-prism .highlight-card strong {
+  display: block;
+  color: var(--foreground);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+body.theme-prism .hero-visual {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
+  min-height: 560px;
+}
+
+body.theme-prism .portrait-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  box-shadow: var(--shadow);
+}
+
+body.theme-prism .portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.theme-prism .logo-cloud {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+body.theme-prism .logo-cloud img {
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  object-fit: contain;
+}
+
+body.theme-prism .logo-cloud img[src*="hdu.svg"],
+body.theme-prism .institution-logo[src*="hdu.svg"] {
+  background: #0a4f8f;
+}
+
+body.theme-prism .section {
+  margin: 54px 0;
+}
+
+body.theme-prism .section-title {
+  margin: 0 0 22px;
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", "Noto Serif CJK SC", serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+body.theme-prism .section-body,
+body.theme-prism .exp-detail,
+body.theme-prism .exp-period,
+body.theme-prism .project-card p,
+body.theme-prism .pub-content .author,
+body.theme-prism .pub-content .periodical,
+body.theme-prism .pub-content .links,
+body.theme-prism .job-card p,
+body.theme-prism .muted-line {
+  color: var(--muted);
+}
+
+body.theme-prism .focus-section {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  padding: 46px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+body.theme-prism .focus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.theme-prism .focus-list span {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+body.theme-prism .content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.9fr);
+  gap: 38px;
+  align-items: start;
+}
+
+body.theme-prism .card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+body.theme-prism .timeline-item {
+  margin-bottom: 14px;
+  padding: 18px;
+}
+
+body.theme-prism .experience-item {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+body.theme-prism .institution-logo {
+  width: 86px;
+  height: 64px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  object-fit: contain;
+}
+
+body.theme-prism .exp-title {
+  margin: 0;
+}
+
+body.theme-prism .exp-title strong,
+body.theme-prism .project-card strong,
+body.theme-prism .pub-content .title,
+body.theme-prism .award-text strong,
+body.theme-prism .job-card h3 {
+  color: var(--foreground);
+}
+
+body.theme-prism .exp-detail,
+body.theme-prism .exp-period {
+  margin: 4px 0;
+}
+
+body.theme-prism ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+body.theme-prism li {
+  margin: 6px 0;
+}
+
+body.theme-prism .project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.theme-prism .project-card {
+  overflow: hidden;
+  margin: 0;
+}
+
+body.theme-prism .project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 8.2;
+  border-bottom: 1px solid var(--line);
+  object-fit: cover;
+  background: var(--surface-soft);
+}
+
+body.theme-prism .project-copy {
+  padding: 18px;
+}
+
+body.theme-prism .project-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.16rem;
+}
+
+body.theme-prism .bibliography {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+body.theme-prism .bibliography li {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+body.theme-prism .pub-content .title {
+  font-size: 1.07rem;
+  font-weight: 800;
+}
+
+body.theme-prism .awards-grid,
+body.theme-prism .job-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+body.theme-prism .award-item,
+body.theme-prism .job-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+body.theme-prism .award-item {
+  display: flex;
+  gap: 10px;
+}
+
+body.theme-prism .award-icon {
+  color: var(--accent);
+}
+
+body.theme-prism .job-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+body.theme-prism .site-footer {
+  margin-top: 64px;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+}
+
+body.theme-prism .site-footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 980px) {
+  body.theme-prism .hero-panel,
+  body.theme-prism .focus-section,
+  body.theme-prism .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-prism .hero-panel {
+    min-height: 0;
+  }
+
+  body.theme-prism .hero-visual {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  body.theme-prism .nav-container {
+    padding: 10px 16px;
+  }
+
+  body.theme-prism .portfolio-shell,
+  body.theme-prism .single-column {
+    padding: 34px 16px 38px;
+  }
+
+  body.theme-prism .highlight-strip,
+  body.theme-prism .project-grid,
+  body.theme-prism .logo-cloud {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-prism .experience-item {
+    grid-template-columns: 1fr;
+  }
+
+  body.theme-prism .institution-logo {
+    width: 116px;
+  }
+
+  body.theme-prism .portrait-frame img {
+    min-height: 360px;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hikes": [
+    {
+      "name": "West Lake Ridge Walk",
+      "date": "2026-01-01",
+      "location": "Hangzhou, China",
+      "distance_km": 12.4,
+      "elevation_gain_m": 520,
+      "highest_m": 355,
+      "status": "sample",
+      "weather": "Cool and clear",
+      "note": "Sample entry for the hiking journal format. Replace with real tracks, photos, and field notes after your next hike.",
+      "tags": [
+        "training",
+        "city-ridge"
+      ]
+    }
+  ]
+}

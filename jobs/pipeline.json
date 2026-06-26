@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "company": "Example Autonomous Driving AI Lab",
+      "role": "Research Scientist Intern",
+      "source": "sample",
+      "location": "Shanghai / Remote",
+      "status": "to_apply",
+      "priority": "high",
+      "deadline": "2026-07-15",
+      "jd_file": "jobs/jd/example-autonomous-driving-ai-lab.md",
+      "target_file": "targets/driving-world-model.json",
+      "resume_file": "assets/cv/resume-driving-world-model.html",
+      "contacts": [],
+      "next_action": "Replace this sample with a real JD, then tailor the driving world model resume.",
+      "next_action_date": "2026-07-01",
+      "notes": "Emphasize ECCV 2026 3DGS compression, Geely AI Center internship, StreetCrafter/UniSplat evaluation work, and driving world model restoration."
+    }
+  ]
+}

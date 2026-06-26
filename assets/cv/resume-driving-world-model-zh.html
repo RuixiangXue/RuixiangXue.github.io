@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自动驾驶世界模型 / 场景生成简历</title>
+  <link rel="stylesheet" href="../css/resume.css">
+</head>
+<body>
+
+    <main class="resume">
+      <header class="resume-head">
+        <div>
+          <h1>Ruixiang Xue <span>薛瑞翔</span></h1>
+          <p>南京大学博士研究生</p>
+        </div>
+        <address>
+          xrxee@smail.nju.edu.cn<br>
+          +86-13777803815<br>
+          南京，中国
+        </address>
+      </header>
+
+      <section>
+        <h2>自动驾驶世界模型 / 场景生成简历</h2>
+        <p>面向自动驾驶 AI 岗位，重点覆盖 driving world model、街景合成、动态场景生成、新视角 artifact 修复与评测管线。</p>
+      </section>
+
+      <section>
+        <h2>教育经历</h2>
+        <article><h3>南京大学 <span>2021.09 - 2027.06</span></h3><p>信息与通信工程博士研究生</p></article><article><h3>杭州电子科技大学 <span>2017.09 - 2021.06</span></h3><p>电子信息工程工学学士</p></article>
+      </section>
+
+      <section>
+        <h2>工作经历</h2>
+        <article><h3>吉利人工智能中心 <span>2026 - 至今</span></h3><p><strong>研究实习生</strong> - 围绕自动驾驶世界模型、动态街景新视角合成，以及世界模型/三维场景生成 artifact 修复开展研究。</p><ul><li>调研并分析 Vista、StreetCrafter、SymDrive、FreeFix、DriveFix 等自动驾驶世界模型与街景合成方法。</li><li>围绕 StreetCrafter 与 UniSplat 类基线搭建动态街景生成实验的评测与部署流程。</li><li>探索面向驾驶场景新视角 artifact 的修复训练对构造、置信过滤与异常值过滤策略。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>研究项目</h2>
+        <article><h3>三维高斯泼溅编码</h3><p>面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。</p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知的分层表示，并结合提示驱动的目标区域提取与渐进蒸馏。</li><li>提出 LayeredCGS，通过跨层上下文建模实现前馈式分层 3DGS 压缩，并生成可截断码流。</li><li>相较前馈基线 FCGS 实现 35% BD-Rate 增益，在相近码率下 ROI PSNR 最高提升 2 dB。</li><li>相关论文 3D Gaussian Splatting Compression with Object Scalability 已被 ECCV 2026 接收，尚未发布 arXiv。</li></ul></article><article><h3>自动驾驶世界模型与街景修复</h3><p>围绕动态街景生成、新视角 artifact 与自动驾驶仿真修复管线开展研究探索。</p><ul><li>调研 Vista 类自动驾驶世界模型与 StreetCrafter 类可控街景视频扩散方法。</li><li>比较 Difix3D+、SymDrive、FreeFix、DriveFix 等修复与细化方向，分析 artifact 分布、时序一致性与输入要求差异。</li><li>探索 StreetCrafter 与 UniSplat 基线的评测矩阵，包括生成视图、真实参考与定量汇总。</li><li>聚焦构造更接近推理阶段新视角 artifact 的 degraded-clean pair，并过滤不可靠伪监督。</li></ul></article><article><h3>智能相机助手</h3><p>面向构图建议与拍摄指导的用户友好型相机助手原型。</p><ul><li>调研照片构图、前馈 3DGS 重建以及基于大模型的美学质量评价方法。</li><li>使用 AI Coding 实现图像分析、构图建议、构图预览生成和拍照步骤指导 Demo。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>代表论文</h2>
+        <article><h3>3D Gaussian Splatting Compression with Object Scalability</h3><p>Ruixiang Xue et al. <em>European Conference on Computer Vision (ECCV), 2026</em>. 已接收，尚未发布 arXiv</p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知分层表示，实现目标级和 ROI 自适应质量控制。</li><li>提出 LayeredCGS，通过跨层依赖建模生成可截断码流，支持快速预览与渐进式质量提升。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>技能</h2>
+        <div class="resume-skills">
+          <p><strong>编码与压缩</strong>: 深度学习点云编码, 三维高斯泼溅编码, 自动驾驶世界模型, 街景合成与修复, MPEG AI-PCC 标准化, G-PCC 与 V-PCC</p><p><strong>编程</strong>: Python, PyTorch, Linux, AI Coding 工作流</p><p><strong>沟通</strong>: CET-6, 国际会议英文展示, 技术文献检索与阅读</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>荣誉</h2>
+        <p><strong>南京大学学业一等奖学金</strong>, 2021 - 2025</p><p><strong>浙江省第十二届大学生创业计划竞赛特等奖</strong>, 2020</p>
+      </section>
+    </main>
+
+</body>
+</html>

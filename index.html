@@ -1,362 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Ruixiang Xue</title>
- <meta name="description" content="Ruixiang Xue"/>
- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
- <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruixiang Xue - Homepage</title>
+  <meta name="description" content="Ph.D. student in Information and Communication Engineering at Nanjing University, working on intelligent point cloud compression, 3D Gaussian splatting compression, driving world models, and practical AI-assisted imaging systems.">
+  <meta name="keywords" content="Ruixiang Xue, point cloud compression, 3D Gaussian splatting, Nanjing University">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
- <!--Facebook-->
- <meta property="og:image" content="https://ruixiangxue.github.io/MACARONS/example.png">
- <meta property="og:image:type" content="image/jpg">
- <meta property="og:image:width" content="600">
- <meta property="og:image:height" content="400">
- <meta property="og:type" content="website"/>
- <meta property="og:url" content="https://ruixiangxue.github.io/"/>
- <meta property="og:title" content="MACARONS"/>
- <meta property="og:description" content="Personal webpage of Antoine Gu&eacutedon."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
- <!--Twitter-->
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="Antoine Gu&eacutedon" />
- <meta property="twitter:description" content="Personal webpage of Antoine Gu&eacutedon."/>
- <meta name="twitter:image" content="https://anttwo.github.io/MACARONS/example.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
- <!-- <link href="http://fonts.googleapis.com/css?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">  -->
- 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
- <script src="https://kit.fontawesome.com/bacac70704.js" crossorigin="anonymous"></script>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
- <link rel="shortcut icon" href="resrc/icons/mathis_square_thumb_nobg.jpg">
-
- <link href="style.css" rel="stylesheet">
-
-<!--  Google Analytics (DO NOT copy/paste following section, setup your own analytics tag at https://analytics.google.com/analytics/web/)  -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDL4R10HKE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CDL4R10HKE');
-</script>
-<!-- End Google Analytics -->
-
+  <link rel="stylesheet" href="assets/css/font_sans_serif.css">
+  <link rel="stylesheet" href="assets/css/prism-static.css">
 </head>
+<body class="theme-prism">
 
-<body>
-    <div class="container" style="padding-top:2rem;">
-        <div class="col-lg-6" style="text-align:left; font-size: xx-large;">
-            <div class="row" style="padding-left: 1.5rem;">
-                <h1 style="font-size: 70px;">Ruixiang Xue</h1>
-                <h1 style="font-size: 55px;">PhD Student</h1>
-            </div>
-          <a href="https://vision.nju.edu.cn/main.htm" style="font-weight: 300;">Vision Lab</a>  <br>
-          <a href="https://www.nju.edu.cn/">Nanjing University (NJU)</a>
-          <p style="font-size: large;">
-            Jiangsu Province, China <br>
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="./">Home</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="jobs.html">Jobs</a>
+      </div>
+      <div class="nav-right">
+        <a class="language-link" href="index-zh.html">中文</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="portfolio-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">NJU Vision Lab / Prof. Zhan Ma</p>
+        <h1>Ruixiang Xue<span>薛瑞翔</span></h1>
+        <p class="hero-role">Ph.D. Student, Nanjing University</p>
+        <p class="hero-summary">Ph.D. student in Information and Communication Engineering at Nanjing University, working on intelligent point cloud compression, 3D Gaussian splatting compression, driving world models, and practical AI-assisted imaging systems.</p>
+        <div class="hero-social">
+          <a href="https://github.com/RuixiangXue" title="GitHub"><i class="fa-brands fa-github"></i></a><a href="mailto:xrxee@smail.nju.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a><a href="assets/cv/resume.html" title="CV" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i></a>
         </div>
-        
-        <div class="col-lg-6" style="text-align:center; padding-top: 2rem;">
-          <img src="./media/profile.jpg" alt="Profile picture" style="height: 400px;"><br>
+        <div class="highlight-strip"><div class="highlight-card"><span>ECCV 2026</span><strong>3DGS object-scalable compression</strong></div><div class="highlight-card"><span>Geely AI</span><strong>Driving world model intern</strong></div><div class="highlight-card"><span>MPEG AI-PCC</span><strong>8 proposals / 5 patents</strong></div></div>
+      </div>
+      <aside class="hero-visual">
+        <div class="portrait-frame">
+          <img src="assets/media/profile.jpg" alt="Ruixiang Xue portrait">
+        </div>
+        <div class="logo-cloud"><img src="assets/logos/nju.png" alt="Nanjing University logo"><img src="assets/logos/hdu.svg" alt="Hangzhou Dianzi University logo"><img src="assets/logos/geely.svg" alt="Geely Artificial Intelligence Center logo"><img src="assets/logos/oppo.svg" alt="OPPO Research Institute, Nebula Lab logo"></div>
+      </aside>
+    </section>
 
-          <h5 style="padding-top: 5px;">
-            <a href="xrxee@smail.nju.edu.cn" title="e-Mail" target="_blank"><i class="fa fa-envelope-square fa-3x"></i></a>
-            <a href="https://github.com/RuixiangXue" title="GitHub" target="_blank"><i class="fa fa-github-square fa-3x"></i></a>
-            <!--
-            <a href="https://www.linkedin.com/in/antoine-gu%C3%A9don-3a50b0156/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
-	        <a href="https://scholar.google.com/citations?user=uvg-I8sAAAAJ&hl=fr&oi=ao" title="Google Scholar" target="_blank"><i class="ai ai-google-scholar-square ai-3x"></i></a>
-	        <a href="https://arxiv.org/search/cs?query=Gu%C3%A9don%2C+A&searchtype=author&abstracts=show&order=-announced_date_first&size=50" target="_blank"><i class="ai ai-arxiv-square ai-3x"></i></a>
-            !-->
-        </h5>
+    <section class="section focus-section" id="about">
+      <div>
+        <p class="section-kicker">Research Focus</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="focus-list">
+        <span>Intelligent point cloud compression</span><span>3D Gaussian splatting compression</span><span>Neural representations for LiDAR point clouds</span><span>Driving world models and dynamic street-scene restoration</span><span>AI-assisted computational photography</span>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <div class="section" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="section-body">
+          
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/logos/geely.svg" alt="Geely Artificial Intelligence Center logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>Geely Artificial Intelligence Center</strong></p>
+                <p class="exp-detail">Research Intern</p>
+                <p class="exp-period">2026 - Present</p>
+                <p>Working on driving world models, dynamic street-scene novel-view synthesis, and restoration of world-model or 3D scene generation artifacts.</p>
+                <ul><li>Studied and analyzed driving world model and street-view synthesis methods including Vista, StreetCrafter, SymDrive, FreeFix, and DriveFix.</li><li>Built evaluation and deployment workflows around StreetCrafter and UniSplat-style baselines for dynamic street-scene generation experiments.</li><li>Explored restoration training pairs and confidence or outlier filtering strategies for novel-view artifacts in driving scenes.</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/logos/oppo.svg" alt="OPPO Research Institute, Nebula Lab logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>OPPO Research Institute, Nebula Lab</strong></p>
+                <p class="exp-detail">Algorithm Intern</p>
+                <p class="exp-period">2024.02 - 2024.11</p>
+                <p>Worked on intelligent point cloud compression research and MPEG AI-PCC standardization.</p>
+                <ul><li>Developed and evaluated intelligent point cloud compression algorithms around MPEG AI-PCC standardization.</li><li>Implemented point cloud codec software and evaluated performance across standard test sequences.</li><li>Participated in multiple MPEG meetings, submitted 8 standardization proposals, and filed 5 invention patents.</li></ul>
+              </div>
+            </div>
+          </div>
 
         </div>
-       </div>
+      </div>
 
-    <div class="container">
-        <h2>Introduction</h2>
-        <hr/>
-        <p> I am a PhD student in the VISION lab of Nanjing University (NJU) and 
-            I am advised by <a href="https://scholar.google.com/citations?user=78KxtRMAAAAJ&hl=zh-CN">Zhan Ma (NJU)</a>.
-            I am mostly interested in Point Cloud Compression using deep learning approaches.</p>
+      <div class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-body">
+          
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/logos/nju.png" alt="Nanjing University logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>Nanjing University</strong></p>
+                <p class="exp-detail">Ph.D. Student, Information and Communication Engineering</p>
+                <p class="exp-period">2021.09 - 2027.06</p>
+                <ul><li>NJU Vision Lab, advised by Prof. Zhan Ma</li><li>Research fields: intelligent point cloud compression and 3D Gaussian splatting compression</li><li>Excellent result in doctoral qualification assessment</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/logos/hdu.svg" alt="Hangzhou Dianzi University logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>Hangzhou Dianzi University</strong></p>
+                <p class="exp-detail">B.Eng., Electronic Information Engineering</p>
+                <p class="exp-period">2017.09 - 2021.06</p>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <h2>News</h2>
-        <hr/>
-	<p class="label date">09-2024</p> <a href="https://ieeexplore.ieee.org/document/10682571">Unicorn Part I:Geometry</a> paper has been accepted to TPAMI!<br>
-        <p class="label date">09-2024</p> <a href="https://ieeexplore.ieee.org/document/10682566">Unicorn Part II:Attribute</a> paper has been accepted to TPAMI!<br>
-	<p class="label date">12-2023</p> <a href="https://arxiv.org/abs/2208.10449">NeRI</a> paper has been accepted to ICASSP 2024!<br>
-        <p class="label date">11-2023</p> <a href="https://arxiv.org/abs/2208.10449">GR-Net</a> paper has been accepted to TVCG 2023!<br>
-        <p class="label date">09-2023</p> I'm starting my PhD in NJU!<br>
-	<p class="label date">06-2023</p> I finish my B.S. in HDU!<br>
-    </div>
-
-    <div class="container">
-	    <h2>Experience</h2>
-	    <hr/>
-	    <p class="label date">02-2024 / 11-2024</p> 
-	    <strong>Guangdong Oppo Mobile Telecommunications Corporation Ltd (OPPO)</strong> <br>
-	    <p>
-	        Worked as a <strong>[Your Position]</strong> in the [Department/Team Name], focusing on [your key responsibilities]. 
-	        Led and contributed to multiple projects related to <strong>[relevant technology/domain]</strong>, optimizing [specific aspect] and improving [key metric or feature].
-	    </p>
-	    <h3>Key Contributions:</h3>
-	    <ul>
-	        <li>Designed and implemented <strong>[specific feature or algorithm]</strong>, improving [performance/efficiency] by <strong>X%</strong>.</li>
-	        <li>Developed a [tool/framework] to [solve a problem], reducing processing time by <strong>X%</strong>.</li>
-	        <li>Collaborated with [team or department] to optimize [system/process], leading to [specific impact].</li>
-	        <li>Published technical documentation and shared findings with the team, enhancing knowledge transfer.</li>
-	        <li>Worked on [specific deep learning, computer vision, or software engineering task] related to [your project area].</li>
-	    </ul>
-    </div>
-
-    <!-- Publications -->
-    <div class="container">
-        <h2>Publications</h2>
-        <hr/>
-        <!-- Unicorn Part1 -->
-        <div class="container" style="text-align:left; padding-top: 2rem; padding-bottom: 2rem;">
-            <div  class="col-lg-8" style="text-align: left;">
-                <h4>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry</h4>
-                <p style="font-size: 20px;">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024</p>
-                <div>
-		    <a href="https://yydlmzyz.github.io/">Jianqiang Wang#</a>,
-                    <a href="https://RuixiangXue.github.io/"><b>Ruxiang Xue#</b></a>, 
-                    Jiaxin Li </a>
-                    Dandan Ding </a>
-                    Zhan Ma </a>
-		    (#-Equally Contribution)
-                </div>
-                A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations. <br>
-                <a class="label label-info" href="https://ieeexplore.ieee.org/document/10682571"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Paper</a>
-                <a class="label label-info" href="https://github.com/NJUVISION/Unicorn"><i class="fa fa-code fa-lg" style="vertical-align: center; margin-top: 0px"></i>&nbsp;&nbsp;Code</a>
-                <a class="label label-info" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    <i class="fa fa-commenting fa-lg" style="vertical-align:center;margin-top:0px"></i>&nbsp;&nbsp;BibTeX
-                </a>
-                <div class="collapse" id="collapse3">
-                    <div class="card"> 
-                        <div class="card-block">
-                            <pre class="card-text clickselect">
-                                @ARTICLE{10682566,
-				  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Lin, Yi and Ma, Zhan},
-				  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-				  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute}, 
-				  year={2025},
-				  volume={47},
-				  number={1},
-				  pages={252-268},
-				  keywords={Geometry;Point cloud compression;Encoding;Tensors;Image color analysis;Image coding;Transform coding;Attribute;conditional coding;geometry;multiscale sparse representation;point cloud compression},
-				  doi={10.1109/TPAMI.2024.3462945}}
-                        </div>
-                      </div>
-                </div>
-
+      <div class="section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-body">
+          <div class="project-grid">
+          
+          <div class="card project-card">
+            <img class="project-image" src="assets/media/neri.png" alt="Intelligent Point Cloud Compression preview">
+            <div class="project-copy">
+            <strong>Intelligent Point Cloud Compression</strong>
+            <p>Research and development of deep learning based point cloud compression methods for MPEG AI-PCC.</p>
+            <ul><li>Designed Transformer models for point cloud representation and efficient spatial feature extraction.</li><li>Used density changes during point cloud downsampling to guide reconstruction mode selection.</li></ul>
             </div>
-        </div><br>
-        <!-- Unicorn Part2 -->
-        <div class="container" style="text-align:left; padding-top: 2rem; padding-bottom: 2rem;">
-            <div  class="col-lg-8" style="text-align: left;">
-                <h4>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute</h4>
-                <p style="font-size: 20px;">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024</p>
-                <div>
-		    <a href="https://yydlmzyz.github.io/">Jianqiang Wang</a>,
-                    <a href="https://RuixiangXue.github.io/"><b>Ruxiang Xue</b></a>, 
-                    Jiaxin Li </a>
-                    Dandan Ding </a>
-                    Zhan Ma </a>
-                </div>
-                A universal multiscale conditional coding framework, Unicorn, is proposed to code the geometry and attribute of any given point cloud. Attribute compression is discussed in Part II of this paper, while geometry compression is given in Part I of this paper. We first construct the multiscale sparse tensors of each voxelized point cloud attribute frame. Since attribute components exhibit very different intrinsic characteristics from the geometry element, e.g., 8-bit RGB color versus 1-bit occupancy, we process the attribute residual between lower-scale reconstruction and current-scale data. Similarly, we leverage spatially lower-scale priors in the current frame and (previously processed) temporal reference frame to improve the probability estimation of attribute intensity through conditional residual prediction in lossless mode or enhance the attribute reconstruction through progressive residual refinement in lossy mode for better performance. The proposed Unicorn is a versatile, learning-based solution capable of compressing a great variety of static and dynamic point clouds in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency with affordable encoding/decoding runtime. <br>
-                <a class="label label-info" href="https://ieeexplore.ieee.org/document/10682566"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Paper</a>
-                <a class="label label-info" href="https://github.com/NJUVISION/Unicorn"><i class="fa fa-code fa-lg" style="vertical-align: center; margin-top: 0px"></i>&nbsp;&nbsp;Code</a>
-                <a class="label label-info" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    <i class="fa fa-commenting fa-lg" style="vertical-align:center;margin-top:0px"></i>&nbsp;&nbsp;BibTeX
-                </a>
-                <div class="collapse" id="collapse3">
-                    <div class="card"> 
-                        <div class="card-block">
-                            <pre class="card-text clickselect">
-                                @ARTICLE{10682566,
-				  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Lin, Yi and Ma, Zhan},
-				  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-				  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute}, 
-				  year={2025},
-				  volume={47},
-				  number={1},
-				  pages={252-268},
-				  keywords={Geometry;Point cloud compression;Encoding;Tensors;Image color analysis;Image coding;Transform coding;Attribute;conditional coding;geometry;multiscale sparse representation;point cloud compression},
-				  doi={10.1109/TPAMI.2024.3462945}}
-                      </div>
-                </div>
+          </div>
 
+          <div class="card project-card">
+            <img class="project-image" src="assets/media/macarons.png" alt="3D Gaussian Splatting Coding preview">
+            <div class="project-copy">
+            <strong>3D Gaussian Splatting Coding</strong>
+            <p>Compact and progressive compression for 3D Gaussian splatting scenes.</p>
+            <ul><li>Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.</li><li>Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.</li></ul>
             </div>
-        </div><br>
+          </div>
 
-	    
-        <!-- NeRI -->
-        <div class="container" style="text-align:left; padding-top: 2rem; padding-bottom: 2rem;">
-            <div class="col-lg-4" style="text-align:left; padding-top: 2rem;">
-                <img src="./media/neri.png" alt="neri" style="width: 350px;">
+          <div class="card project-card">
+            <img class="project-image" src="assets/media/GRNet.png" alt="Driving World Model and Street-Scene Restoration preview">
+            <div class="project-copy">
+            <strong>Driving World Model and Street-Scene Restoration</strong>
+            <p>Research exploration on dynamic street-scene generation, novel-view artifacts, and restoration pipelines for driving simulation.</p>
+            <ul><li>Surveyed Vista-style driving world models and StreetCrafter-style controllable street-view video diffusion methods.</li><li>Compared restoration and refinement directions including Difix3D+, SymDrive, FreeFix, and DriveFix to identify gaps in artifact distribution, temporal consistency, and input requirements.</li></ul>
             </div>
-            <div  class="col-lg-8" style="text-align: left;">
-                <h4>NeRI: Implicit Neural Representation Of LiDAR Point Cloud Using Range Image Sequence</h4>
-                <p style="font-size: 20px;">ICASSP 2024</p>
-                <div>
-                    <a href="https://RuixiangXue.github.io/"><b>Ruxiang Xue</b></a>, 
-                    Jiaxin Li </a>
-                    <a href="https://tongxyh.github.io">Tong Chen</a>
-                    Dandan Ding </a>
-                    Xun Cao </a>
-                    Zhan Ma </a>
-                </div>
-                This paper proposes the NeRI, an implicit neural representa- tion (INR) based LiDAR point cloud compressor.
-                In NeRI, we first transform a sequence of 3D LiDAR frames into a 2D range image sequence through range image projection over time.
-                Then, we employ a neural network conditioned on the temporal frame index and associated LiDAR sensor pose to fit input range images as closely as possible.
-                The optimized net- work parameters, which implicitly represent the input LiDAR data, are later lossily compressed. 
-                NeRI decoder is then initialized using decoded parameters to generate range images for reconstructing the 3D LiDAR sequence accordingly.
-                Extensive experimental results demonstrate the significant su- periority of NeRI regarding the compression efficiency and decoding speed compared to state-of-the-art 2D and 3D compressors for LiDAR point cloud. <br>
-                <a class="label label-info" href="https://arxiv.org/abs/2311.12775"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Paper</a>
-                <a class="label label-info" href="https://github.com/RuixiangXue/NeRI"><i class="fa fa-code fa-lg" style="vertical-align: center; margin-top: 0px"></i>&nbsp;&nbsp;Code</a>
-                <a class="label label-info" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    <i class="fa fa-commenting fa-lg" style="vertical-align:center;margin-top:0px"></i>&nbsp;&nbsp;BibTeX
-                </a>
-                <div class="collapse" id="collapse3">
-                    <div class="card"> 
-                        <div class="card-block">
-                            <pre class="card-text clickselect">
-                                @INPROCEEDINGS{10446596,
-				  author={Xue, Ruixiang and Li, Jiaxin and Chen, Tong and Ding, Dandan and Cao, Xun and Ma, Zhan},
-				  booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
-				  title={NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence}, 
-				  year={2024},
-				  volume={},
-				  number={},
-				  pages={8020-8024},
-				  keywords={Point cloud compression;Laser radar;Image coding;Three-dimensional displays;Quantization (signal);Neural networks;Transforms;Point cloud geometry compression;LiDAR data;implicit neural representation;range image},
-				  doi={10.1109/ICASSP48485.2024.10446596}}
-                        </div>
-                      </div>
-                </div>
+          </div>
 
+          <div class="card project-card">
+            
+            <div class="project-copy">
+            <strong>Intelligent Camera Assistant</strong>
+            <p>A user-friendly camera assistant prototype for composition guidance and shooting suggestions.</p>
+            <ul><li>Surveyed photo composition, feed-forward 3DGS reconstruction, and large-model based aesthetic quality assessment methods.</li><li>Built an AI coding demo with image analysis, composition advice, composition preview generation, and step-by-step shooting guidance.</li></ul>
             </div>
-        </div><br>
-        
-        <!-- GR-Net -->
-        <div class="container" style="text-align:left; padding-top: 2rem; padding-bottom: 2rem;">
-            <div class="col-lg-4" style="text-align:left; padding-top: 2rem;">
-                <img src="./media/GRNet.png" alt="neri" style="width: 350px;">
-            </div>
-            <div  class="col-lg-8" style="text-align: left;">
-                <a href="https://RuixiangXue.github.io/neri/">
-                    <h4>GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling</h4>
-                </a>
-                <p style="font-size: 20px;">TVCG 2023</p>
-                <div>
-                    Gexin Liu </a>
-                    <a href="https://RuixiangXue.github.io/"><b>Ruxiang Xue</b></a>, 
-                    Jiaxin Li </a>
-                    Dandan Ding </a>
-                    Zhan Ma </a>
+          </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="section-body">
+          <div class="publications">
+            <ol class="bibliography">
+              
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">3D Gaussian Splatting Compression with Object Scalability</div>
+                    <div class="author"><strong>Ruixiang Xue et al.</strong></div>
+                    <div class="periodical"><em><strong>European Conference on Computer Vision (ECCV), 2026</strong></em></div>
+                    <div class="links">Accepted, not yet on arXiv</div>
+                  </div>
                 </div>
-                The lossy Geometry-based Point Cloud Compression (G-PCC) inevitably impairs the geometry information of point clouds,
-                which deteriorates the quality of experience (QoE) in reconstruction and/or misleads decisions in tasks such as classification.
-                To tackle it, this work proposes GRNet for the geometry restoration of G-PCC compressed large-scale point clouds.
-                By analyzing the content characteristics of original and G-PCC compressed point clouds, we attribute the G-PCC distortion to two key factors: point vanishing and point displacement.
-                Visible impairments on a point cloud are usually dominated by an individual factor or superimposed by both factors,
-                which are determined by the density of the original point cloud. To this end, we employ two different models for coordinate reconstruction,
-                termed Coordinate Expansion and Coordinate Refinement, to attack the point vanishing and displacement, respectively.
-                In addition, 4-byte auxiliary density information is signaled in the bitstream to assist the selection of Coordinate Expansion,
-                Coordinate Refinement, or their combination. Before being fed into the coordinate reconstruction module,
-                the G-PCC compressed point cloud is first processed by a Feature Analysis Module for multiscale information fusion,
-                in which kNN-based Transformer is leveraged at each scale to adaptively characterize neighborhood geometric dynamics for effective restoration.
-                Following the common test conditions recommended in the MPEG standardization committee,
-                GRNet significantly improves the G-PCC anchor and remarkably outperforms state-of-the-art methods on a great variety of point clouds (e.g., solid, dense, and sparse samples) both quantitatively and qualitatively.
-                Meanwhile, GRNet runs fairly fast and uses a smaller-size model when compared with existing learning-based approaches, making it attractive to industry practitioners. <br>
-                <a class="label label-info" href="https://arxiv.org/abs/2311.12775"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Paper</a>
-                <a class="label label-info" href="https://github.com/RuixiangXue/NeRI"><i class="fa fa-code fa-lg" style="vertical-align: center; margin-top: 0px"></i>&nbsp;&nbsp;Code</a>
-                <a class="label label-info" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    <i class="fa fa-commenting fa-lg" style="vertical-align:center;margin-top:0px"></i>&nbsp;&nbsp;BibTeX
-                </a>
-                <div class="collapse" id="collapse3">
-                    <div class="card"> 
-                        <div class="card-block">
-                            <pre class="card-text clickselect">
-                                @misc{guedon2023sugar,
-                                    title={SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering}, 
-                                    author={Antoine Guédon and Vincent Lepetit},
-                                    year={2023},
-                                    eprint={2311.12775},
-                                    archivePrefix={arXiv},
-                                    primaryClass={cs.GR}
-                              }
-                        </div>
-                      </div>
+              </li>
+
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry</div>
+                    <div class="author"><strong>Ruixiang Xue et al.</strong></div>
+                    <div class="periodical"><em><strong>IEEE Transactions on Pattern Analysis and Machine Intelligence</strong></em></div>
+                    <div class="links">SCI Q1, CCF-A, impact factor 18.6, co-first author</div>
+                  </div>
                 </div>
+              </li>
 
-            </div>
-        </div><br>
-
-        
-
-    <div class="container">
-        <h2>Preprint</h2>
-	<hr/>
-	<!-- NPFormer -->
-	<div class="container" style="text-align:left; padding-top: 2rem; padding-bottom: 2rem;">
-            <div class="col-lg-4" style="text-align:left; padding-top: 2rem;">
-                <img src="./media/NPFormer.png" alt="neri" style="width: 350px;">
-            </div>
-            <div  class="col-lg-8" style="text-align: left;">
-                <a href="https://RuixiangXue.github.io/neri/">
-                    <h4>Efficient LiDAR Point Cloud Geometry Compression Through Neighborhood Point Attention</h4>
-                </a>
-                <div>
-                    <a href="https://RuixiangXue.github.io/"><b>Ruxiang Xue</b></a>, 
-                    Jianqiang Wang </a>
-                    Zhan Ma </a>
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence</div>
+                    <div class="author"><strong>Ruixiang Xue et al.</strong></div>
+                    <div class="periodical"><em><strong>IEEE International Conference on Acoustics, Speech, and Signal Processing 2024</strong></em></div>
+                    <div class="links">CCF-B, first author</div>
+                  </div>
                 </div>
-                Although convolutional representation of multiscale sparse tensor demonstrated its superior efficiency to accurately model the occupancy probability for the compression of geometry component of dense object point clouds,
-                its capacity for representing sparse LiDAR point cloud geometry (PCG) was largely limited.
-                This is because 1) fixed receptive field of the convolution cannot characterize extremely and unevenly distributed sparse LiDAR points very well; 
-                and 2) pretrained convolutions with fixed weights are insufficient to dynamically capture information conditioned on the input.
-                This work therefore suggests the neighborhood point attention (NPA) to tackle them, where we first use k nearest neighbors (kNN) to construct adaptive local neighborhood;
-                and then leverage the self-attention mechanism to dynamically aggregate information within this neighborhood. Such NPA is devised as a NPAFormer to best exploit cross-scale and same-scale correlations for geometric occupancy probability estimation.
-                Compared with the anchor using standardized G-PCC, our method provides >17% BD-rate gains for lossy compres- sion,
-                and >14% bitrate reduction for lossless scenario using popular LiDAR point clouds in SemanticKITTI and Ford datasets.
-                Compared with the state-of-the-art (SOTA) solution using attention optimized octree coding method, our approach requires much less decoding runtime with about 640× speedup on average, while still presenting better compression efficiency.
-                <br>
-                <a class="label label-info" href="https://arxiv.org/abs/2311.12775"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Paper</a>
-                <a class="label label-info" href="https://github.com/RuixiangXue/SparsePCGCv2_Lossless"><i class="fa fa-code fa-lg" style="vertical-align: center; margin-top: 0px"></i>&nbsp;&nbsp;Code</a>
-                <a class="label label-info" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    <i class="fa fa-commenting fa-lg" style="vertical-align:center;margin-top:0px"></i>&nbsp;&nbsp;BibTeX
-                </a>
-                <div class="collapse" id="collapse3">
-                    <div class="card"> 
-                        <div class="card-block">
-                            <pre class="card-text clickselect">
-                                @article{xue2022efficient,
-				  title={Efficient lidar point cloud geometry compression through neighborhood point attention},
-				  author={Xue, Ruixiang and Wang, Jianqiang and Ma, Zhan},
-				  journal={arXiv preprint arXiv:2208.12573},
-				  year={2022}
-				}
-                        </div>
-                      </div>
+              </li>
+
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part II Attribute</div>
+                    <div class="author"><strong>Ruixiang Xue et al.</strong></div>
+                    <div class="periodical"><em><strong>IEEE Transactions on Pattern Analysis and Machine Intelligence</strong></em></div>
+                    <div class="links">SCI Q1, CCF-A, impact factor 18.6, second author</div>
+                  </div>
                 </div>
+              </li>
 
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling</div>
+                    <div class="author"><strong>Ruixiang Xue et al.</strong></div>
+                    <div class="periodical"><em><strong>IEEE Transactions on Visualization and Computer Graphics</strong></em></div>
+                    <div class="links">SCI Q1, CCF-A, impact factor 6.5, second author</div>
+                  </div>
+                </div>
+              </li>
+
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="awards">
+        <h2 class="section-title">Awards</h2>
+        <div class="section-body">
+          <div class="awards-grid">
+            
+            <div class="award-item">
+              <span class="award-icon">* </span>
+              <div class="award-text"><strong>First Prize Scholarship, Nanjing University</strong><br>2021 - 2025</div>
             </div>
-        </div><be>
-    </div>
-    <p style="text-align: center; padding-top: 2rem; font-size: 15px;">
-        &copy You are welcome to copy the code, please attribute the source with a link back to this page.<br>
-        Template inspired from <a href="https://www.tmonnier.com/">Tom Monnier</a> and <a href="https://mathis.petrovich.fr/">Mathis Petrovich</a>.
-    </p>
 
+            <div class="award-item">
+              <span class="award-icon">* </span>
+              <div class="award-text"><strong>Special Prize, 12th Zhejiang College Student Entrepreneurship Plan Competition</strong><br>2020</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    <footer class="site-footer">
+      <p>
+        &copy; 2026 Ruixiang Xue. All rights reserved.
+        <br>
+        <span class="template-credit">Design adapted from <a href="https://github.com/xyjoey/PRISM">PRISM</a></span>
+      </p>
+    </footer>
+  </main>
+
+  <script src="assets/js/scale.fix.js"></script>
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
+
+      function setTheme(isDark) {
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        icon.classList.toggle('fa-sun', isDark);
+        icon.classList.toggle('fa-moon', !isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }
+
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
+
+      themeToggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        setTheme(!isDark);
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.section').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
 </body>
+</html>

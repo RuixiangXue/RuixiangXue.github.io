@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>研究简历</title>
+  <link rel="stylesheet" href="../css/resume.css">
+</head>
+<body>
+
+    <main class="resume">
+      <header class="resume-head">
+        <div>
+          <h1>Ruixiang Xue <span>薛瑞翔</span></h1>
+          <p>南京大学博士研究生</p>
+        </div>
+        <address>
+          xrxee@smail.nju.edu.cn<br>
+          +86-13777803815<br>
+          南京，中国
+        </address>
+      </header>
+
+      <section>
+        <h2>研究简历</h2>
+        <p>面向点云压缩、三维高斯泼溅压缩、神经场景表示、自动驾驶世界模型和 AI 多媒体系统等研究/算法岗位。</p>
+      </section>
+
+      <section>
+        <h2>教育经历</h2>
+        <article><h3>南京大学 <span>2021.09 - 2027.06</span></h3><p>信息与通信工程博士研究生</p></article><article><h3>杭州电子科技大学 <span>2017.09 - 2021.06</span></h3><p>电子信息工程工学学士</p></article>
+      </section>
+
+      <section>
+        <h2>工作经历</h2>
+        <article><h3>吉利人工智能中心 <span>2026 - 至今</span></h3><p><strong>研究实习生</strong> - 围绕自动驾驶世界模型、动态街景新视角合成，以及世界模型/三维场景生成 artifact 修复开展研究。</p><ul><li>调研并分析 Vista、StreetCrafter、SymDrive、FreeFix、DriveFix 等自动驾驶世界模型与街景合成方法。</li><li>围绕 StreetCrafter 与 UniSplat 类基线搭建动态街景生成实验的评测与部署流程。</li><li>探索面向驾驶场景新视角 artifact 的修复训练对构造、置信过滤与异常值过滤策略。</li></ul></article><article><h3>OPPO 研究院星云实验室 <span>2024.02 - 2024.11</span></h3><p><strong>算法实习生</strong> - 围绕智能点云压缩算法研究与 MPEG AI-PCC 标准化开展工作。</p><ul><li>研发和评估面向 MPEG AI-PCC 标准化的智能点云压缩算法。</li><li>开发点云编解码器软件，并在不同测试序列上评估压缩性能。</li><li>多次参加 MPEG 国际会议，提交 8 份标准化提案，并参与 5 项发明专利申请。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>研究项目</h2>
+        <article><h3>智能点云压缩</h3><p>面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。</p><ul><li>针对点云数据表征设计 Transformer 网络，提高空间特征提取效率。</li><li>利用点云降采样过程中的密度变化指导重建模式选择。</li><li>在公开测试条件下，相较基线实现 39% 几何压缩增益和 34% 属性压缩增益。</li></ul></article><article><h3>三维高斯泼溅编码</h3><p>面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。</p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知的分层表示，并结合提示驱动的目标区域提取与渐进蒸馏。</li><li>提出 LayeredCGS，通过跨层上下文建模实现前馈式分层 3DGS 压缩，并生成可截断码流。</li><li>相较前馈基线 FCGS 实现 35% BD-Rate 增益，在相近码率下 ROI PSNR 最高提升 2 dB。</li><li>相关论文 3D Gaussian Splatting Compression with Object Scalability 已被 ECCV 2026 接收，尚未发布 arXiv。</li></ul></article><article><h3>自动驾驶世界模型与街景修复</h3><p>围绕动态街景生成、新视角 artifact 与自动驾驶仿真修复管线开展研究探索。</p><ul><li>调研 Vista 类自动驾驶世界模型与 StreetCrafter 类可控街景视频扩散方法。</li><li>比较 Difix3D+、SymDrive、FreeFix、DriveFix 等修复与细化方向，分析 artifact 分布、时序一致性与输入要求差异。</li><li>探索 StreetCrafter 与 UniSplat 基线的评测矩阵，包括生成视图、真实参考与定量汇总。</li><li>聚焦构造更接近推理阶段新视角 artifact 的 degraded-clean pair，并过滤不可靠伪监督。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>代表论文</h2>
+        <article><h3>3D Gaussian Splatting Compression with Object Scalability</h3><p>Ruixiang Xue et al. <em>European Conference on Computer Vision (ECCV), 2026</em>. 已接收，尚未发布 arXiv</p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知分层表示，实现目标级和 ROI 自适应质量控制。</li><li>提出 LayeredCGS，通过跨层依赖建模生成可截断码流，支持快速预览与渐进式质量提升。</li></ul></article><article><h3>A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry</h3><p>Ruixiang Xue et al. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>. SCI 一区，CCF-A，影响因子 18.6，共同一作</p><ul><li>提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云压缩。</li><li>相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率，无损压缩率提升 30%，有损压缩总体增益 92%。</li></ul></article><article><h3>NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence</h3><p>Ruixiang Xue et al. <em>IEEE International Conference on Acoustics, Speech, and Signal Processing 2024</em>. CCF-B，第一作者</p><ul><li>提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列并使用时空条件神经网络编码。</li><li>实现 376 FPS 实时解码，并在低码率段相较 MPEG G-PCC、HEVC 和其他智能点云压缩方法实现 91% 总体增益。</li></ul></article>
+      </section>
+
+      <section>
+        <h2>技能</h2>
+        <div class="resume-skills">
+          <p><strong>编码与压缩</strong>: 深度学习点云编码, 三维高斯泼溅编码, 自动驾驶世界模型, 街景合成与修复, MPEG AI-PCC 标准化, G-PCC 与 V-PCC</p><p><strong>编程</strong>: Python, PyTorch, Linux, AI Coding 工作流</p><p><strong>沟通</strong>: CET-6, 国际会议英文展示, 技术文献检索与阅读</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>荣誉</h2>
+        <p><strong>南京大学学业一等奖学金</strong>, 2021 - 2025</p><p><strong>浙江省第十二届大学生创业计划竞赛特等奖</strong>, 2020</p>
+      </section>
+    </main>
+
+</body>
+</html>

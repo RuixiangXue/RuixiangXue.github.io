@@ -1,0 +1,40 @@
+{
+  "mountains": [
+    {
+      "name": "Matterhorn",
+      "name_zh": "马特洪峰",
+      "location": "Zermatt, Switzerland / Cervinia, Italy",
+      "region": "Alps",
+      "elevation_m": 4478,
+      "status": "wishlist",
+      "coordinates": {
+        "lat": 45.9763,
+        "lon": 7.6586
+      },
+      "note": "A sharp alpine icon on the Swiss-Italian border. Keep this as a future alpine objective or visual reference point rather than a claimed climb.",
+      "tags": [
+        "alps",
+        "wishlist",
+        "iconic-peak"
+      ]
+    },
+    {
+      "name": "Mount Fuji",
+      "name_zh": "富士山",
+      "location": "Honshu, Japan",
+      "region": "Japan",
+      "elevation_m": 3776,
+      "status": "wishlist",
+      "coordinates": {
+        "lat": 35.3606,
+        "lon": 138.7274
+      },
+      "note": "A clean volcanic silhouette and a good candidate for a future high-altitude hiking log.",
+      "tags": [
+        "japan",
+        "wishlist",
+        "volcano"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "person": {
+    "name": "Ruixiang Xue",
+    "name_zh": "薛瑞翔",
+    "title": "Ph.D. Student, Nanjing University",
+    "email": "xrxee@smail.nju.edu.cn",
+    "phone": "+86-13777803815",
+    "location": "Nanjing, China",
+    "avatar": "assets/media/profile.jpg",
+    "affiliation": "NJU Vision Lab",
+    "advisor": "Prof. Zhan Ma",
+    "summary": "Ph.D. student in Information and Communication Engineering at Nanjing University, working on intelligent point cloud compression, 3D Gaussian splatting compression, driving world models, and practical AI-assisted imaging systems.",
+    "research_interests": [
+      "Intelligent point cloud compression",
+      "3D Gaussian splatting compression",
+      "Neural representations for LiDAR point clouds",
+      "Driving world models and dynamic street-scene restoration",
+      "AI-assisted computational photography"
+    ]
+  },
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/RuixiangXue"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:xrxee@smail.nju.edu.cn"
+    }
+  ],
+  "education": [
+    {
+      "school": "Nanjing University",
+      "logo": "assets/logos/nju.png",
+      "degree": "Ph.D. Student, Information and Communication Engineering",
+      "period": "2021.09 - 2027.06",
+      "details": [
+        "NJU Vision Lab, advised by Prof. Zhan Ma",
+        "Research fields: intelligent point cloud compression and 3D Gaussian splatting compression",
+        "Excellent result in doctoral qualification assessment"
+      ]
+    },
+    {
+      "school": "Hangzhou Dianzi University",
+      "logo": "assets/logos/hdu.svg",
+      "degree": "B.Eng., Electronic Information Engineering",
+      "period": "2017.09 - 2021.06",
+      "details": []
+    }
+  ],
+  "experience": [
+    {
+      "organization": "Geely Artificial Intelligence Center",
+      "logo": "assets/logos/geely.svg",
+      "role": "Research Intern",
+      "period": "2026 - Present",
+      "summary": "Working on driving world models, dynamic street-scene novel-view synthesis, and restoration of world-model or 3D scene generation artifacts.",
+      "bullets": [
+        "Studied and analyzed driving world model and street-view synthesis methods including Vista, StreetCrafter, SymDrive, FreeFix, and DriveFix.",
+        "Built evaluation and deployment workflows around StreetCrafter and UniSplat-style baselines for dynamic street-scene generation experiments.",
+        "Explored restoration training pairs and confidence or outlier filtering strategies for novel-view artifacts in driving scenes."
+      ],
+      "tags": [
+        "driving",
+        "world-model",
+        "street-view",
+        "restoration",
+        "ai-internship"
+      ]
+    },
+    {
+      "organization": "OPPO Research Institute, Nebula Lab",
+      "logo": "assets/logos/oppo.svg",
+      "role": "Algorithm Intern",
+      "period": "2024.02 - 2024.11",
+      "summary": "Worked on intelligent point cloud compression research and MPEG AI-PCC standardization.",
+      "bullets": [
+        "Developed and evaluated intelligent point cloud compression algorithms around MPEG AI-PCC standardization.",
+        "Implemented point cloud codec software and evaluated performance across standard test sequences.",
+        "Participated in multiple MPEG meetings, submitted 8 standardization proposals, and filed 5 invention patents."
+      ],
+      "tags": [
+        "compression",
+        "standardization",
+        "codec"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Intelligent Point Cloud Compression",
+      "tags": [
+        "compression",
+        "point-cloud",
+        "standardization"
+      ],
+      "summary": "Research and development of deep learning based point cloud compression methods for MPEG AI-PCC.",
+      "image": "assets/media/neri.png",
+      "bullets": [
+        "Designed Transformer models for point cloud representation and efficient spatial feature extraction.",
+        "Used density changes during point cloud downsampling to guide reconstruction mode selection.",
+        "Achieved 39% geometry compression gain and 34% attribute compression gain over the baseline under public test conditions."
+      ]
+    },
+    {
+      "name": "3D Gaussian Splatting Coding",
+      "tags": [
+        "compression",
+        "3dgs",
+        "neural-rendering"
+      ],
+      "summary": "Compact and progressive compression for 3D Gaussian splatting scenes.",
+      "image": "assets/media/macarons.png",
+      "bullets": [
+        "Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.",
+        "Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.",
+        "Proposed LayeredCGS, a feed-forward layered 3DGS compressor with cross-layer context modeling and truncatable bitstreams.",
+        "Achieved 35% BD-Rate gain over the feed-forward FCGS baseline, with up to 2 dB higher ROI PSNR under comparable bitrates.",
+        "The resulting paper, 3D Gaussian Splatting Compression with Object Scalability, has been accepted by ECCV 2026 and is not yet on arXiv."
+      ]
+    },
+    {
+      "name": "Driving World Model and Street-Scene Restoration",
+      "tags": [
+        "driving",
+        "world-model",
+        "street-view",
+        "restoration",
+        "ai-demo"
+      ],
+      "summary": "Research exploration on dynamic street-scene generation, novel-view artifacts, and restoration pipelines for driving simulation.",
+      "image": "assets/media/GRNet.png",
+      "bullets": [
+        "Surveyed Vista-style driving world models and StreetCrafter-style controllable street-view video diffusion methods.",
+        "Compared restoration and refinement directions including Difix3D+, SymDrive, FreeFix, and DriveFix to identify gaps in artifact distribution, temporal consistency, and input requirements.",
+        "Explored evaluation matrices for StreetCrafter and UniSplat baselines, including generated views, real references, and quantitative summaries.",
+        "Focused on constructing degraded-clean pairs closer to inference-time novel-view artifacts and filtering unreliable pseudo supervision."
+      ]
+    },
+    {
+      "name": "Intelligent Camera Assistant",
+      "tags": [
+        "ai-demo",
+        "coding",
+        "photography"
+      ],
+      "summary": "A user-friendly camera assistant prototype for composition guidance and shooting suggestions.",
+      "bullets": [
+        "Surveyed photo composition, feed-forward 3DGS reconstruction, and large-model based aesthetic quality assessment methods.",
+        "Built an AI coding demo with image analysis, composition advice, composition preview generation, and step-by-step shooting guidance."
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "3D Gaussian Splatting Compression with Object Scalability",
+      "authors": "Ruixiang Xue et al.",
+      "venue": "European Conference on Computer Vision (ECCV), 2026",
+      "notes": "Accepted, not yet on arXiv",
+      "bullets": [
+        "Introduced RecastGS, a post-training method that reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control.",
+        "Introduced LayeredCGS, a feed-forward layered 3DGS compressor that models cross-layer dependencies and generates truncatable bitstreams for fast preview and progressive refinement.",
+        "Achieved 35% BD-Rate gain over FCGS and up to 2 dB higher ROI PSNR than uniform quality allocation at comparable bitrates."
+      ],
+      "tags": [
+        "compression",
+        "3dgs",
+        "publication",
+        "eccv"
+      ]
+    },
+    {
+      "title": "A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
+      "authors": "Ruixiang Xue et al.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "notes": "SCI Q1, CCF-A, impact factor 18.6, co-first author",
+      "bullets": [
+        "Proposed a universal multiscale conditional point cloud geometry coding framework supporting lossy/lossless, static/dynamic, and diverse point cloud data.",
+        "Outperformed MPEG G-PCC, V-PCC, and learning-based methods with second-level codec complexity; improved lossless compression by 30% and lossy compression by 92% overall."
+      ],
+      "tags": [
+        "compression",
+        "point-cloud",
+        "publication"
+      ]
+    },
+    {
+      "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
+      "authors": "Ruixiang Xue et al.",
+      "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing 2024",
+      "notes": "CCF-B, first author",
+      "bullets": [
+        "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into 2D range images and coding them with spatiotemporal conditional neural networks.",
+        "Reached 376 FPS real-time decoding and achieved 91% overall gain at low bitrates over MPEG G-PCC, HEVC, and other learning-based point cloud compression methods."
+      ],
+      "tags": [
+        "compression",
+        "lidar",
+        "publication"
+      ]
+    },
+    {
+      "title": "A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part II Attribute",
+      "authors": "Ruixiang Xue et al.",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "notes": "SCI Q1, CCF-A, impact factor 18.6, second author",
+      "bullets": [],
+      "tags": [
+        "compression",
+        "point-cloud",
+        "publication"
+      ]
+    },
+    {
+      "title": "GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling",
+      "authors": "Ruixiang Xue et al.",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "notes": "SCI Q1, CCF-A, impact factor 6.5, second author",
+      "bullets": [],
+      "tags": [
+        "compression",
+        "point-cloud",
+        "publication"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": "Codec and Compression",
+      "items": [
+        "Deep learning based point cloud coding",
+        "3D Gaussian splatting coding",
+        "Driving world models",
+        "Street-view synthesis and restoration",
+        "MPEG AI-PCC standardization",
+        "G-PCC and V-PCC"
+      ]
+    },
+    {
+      "group": "Programming",
+      "items": [
+        "Python",
+        "PyTorch",
+        "Linux",
+        "AI coding workflows"
+      ]
+    },
+    {
+      "group": "Communication",
+      "items": [
+        "CET-6",
+        "English presentations at international meetings",
+        "Technical literature search and reading"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "name": "First Prize Scholarship, Nanjing University",
+      "period": "2021 - 2025"
+    },
+    {
+      "name": "Special Prize, 12th Zhejiang College Student Entrepreneurship Plan Competition",
+      "period": "2020"
+    }
+  ]
+}

@@ -1,0 +1,643 @@
+from __future__ import annotations
+
+import argparse
+import html
+import json
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_json_or(path: Path, fallback: dict[str, Any]) -> dict[str, Any]:
+    if not path.exists():
+        return fallback
+    return load_json(path)
+
+
+def render_site(
+    *,
+    root: Path = ROOT,
+    profile_path: Path | None = None,
+    target_path: Path | None = None,
+    lang: str = "en",
+) -> dict[str, Path]:
+    if lang not in ("en", "zh"):
+        raise ValueError(f"unsupported lang: {lang}")
+    if profile_path is None:
+        profile_path = root / "data" / ("profile.zh.json" if lang == "zh" and (root / "data" / "profile.zh.json").exists() else "profile.json")
+    if target_path is None:
+        target_path = root / "targets" / ("default.zh.json" if lang == "zh" and (root / "targets" / "default.zh.json").exists() else "default.json")
+    profile = load_json(profile_path)
+    target = load_json(target_path)
+    pipeline = load_json_or(root / "jobs" / "pipeline.json", {"jobs": []})
+
+    suffix = "" if lang == "en" else "-zh"
+    home_path = root / f"index{suffix}.html"
+    resume_path = root / "assets" / "cv" / target.get("resume_filename", f"resume{suffix}.html")
+    jobs_path = root / f"jobs{suffix}.html"
+    resume_path.parent.mkdir(parents=True, exist_ok=True)
+
+    home_path.write_text(render_home(profile, lang=lang), encoding="utf-8")
+    resume_path.write_text(render_resume(profile, target, lang=lang), encoding="utf-8")
+    jobs_path.write_text(render_jobs(profile, pipeline, lang=lang), encoding="utf-8")
+    return {
+        "home": home_path,
+        "resume": resume_path,
+        "jobs": jobs_path,
+    }
+
+
+def labels(lang: str) -> dict[str, str]:
+    if lang == "zh":
+        return {
+            "home": "首页",
+            "publications": "论文",
+            "projects": "项目",
+            "jobs": "求职进程",
+            "research_focus": "研究方向",
+            "about": "关于我",
+            "about_prefix": "我是",
+            "affiliation": "单位",
+            "advisor": "导师",
+            "download_cv": "下载简历",
+            "education": "教育经历",
+            "experience": "工作经历",
+            "awards": "荣誉",
+            "job_blurb": "轻量求职看板：JD、定制简历、下一步行动和状态保持联动。",
+            "profile": "概览",
+            "research_projects": "研究项目",
+            "selected_publications": "代表论文",
+            "skills": "技能",
+            "resume_title": "研究简历",
+            "language_label": "English",
+        }
+    return {
+        "home": "Home",
+        "publications": "Publications",
+        "projects": "Projects",
+        "jobs": "Jobs",
+        "research_focus": "Research Focus",
+        "about": "About Me",
+        "about_prefix": "I am",
+        "affiliation": "Affiliation",
+        "advisor": "Advisor",
+        "download_cv": "Download my CV",
+        "education": "Education",
+        "experience": "Work Experience",
+        "awards": "Awards",
+        "job_blurb": "A lightweight ATS: JD, target resume, next action, and status stay linked.",
+        "profile": "Profile",
+        "research_projects": "Research Projects",
+        "selected_publications": "Selected Publications",
+        "skills": "Skills",
+        "resume_title": "Research Resume",
+        "language_label": "中文",
+    }
+
+
+def lang_attr(lang: str) -> str:
+    return "zh-CN" if lang == "zh" else "en"
+
+
+def local_path(path: str, lang: str) -> str:
+    if lang == "en":
+        return path
+    if path == "./":
+        return "index-zh.html"
+    stem, dot, ext = path.partition(".html")
+    return f"{stem}-zh.html" if dot else path
+
+
+def switch_path(path: str, lang: str) -> str:
+    if lang == "en":
+        stem, dot, ext = path.partition(".html")
+        return f"{stem}-zh.html" if dot else "index-zh.html"
+    return path.replace("-zh.html", ".html").replace("index.html", "index.html")
+
+
+def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
+    person = profile["person"]
+    links = profile.get("links", [])
+    t = labels(lang)
+    resume_link = "assets/cv/resume-zh.html" if lang == "zh" else "assets/cv/resume.html"
+    lang_switch = "index.html" if lang == "zh" else "index-zh.html"
+    return page(
+        title=f"{person['name']} - Homepage",
+        description=person["summary"],
+        body=f"""
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="{local_path('./', lang)}">{t['home']}</a>
+        <a href="#publications">{t['publications']}</a>
+        <a href="#projects">{t['projects']}</a>
+        <a href="{local_path('jobs.html', lang)}">{t['jobs']}</a>
+      </div>
+      <div class="nav-right">
+        <a class="language-link" href="{lang_switch}">{t['language_label']}</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="portfolio-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">{esc(person.get('affiliation', ''))} / {esc(person.get('advisor', ''))}</p>
+        <h1>{esc(person['name'])}<span>{esc(person['name_zh'])}</span></h1>
+        <p class="hero-role">{esc(person['title'])}</p>
+        <p class="hero-summary">{esc(person['summary'])}</p>
+        <div class="hero-social">
+          {render_social_links(links, resume_link=resume_link)}
+        </div>
+        {render_home_highlights(profile, lang)}
+      </div>
+      <aside class="hero-visual">
+        <div class="portrait-frame">
+          <img src="{esc(person.get('avatar', 'assets/img/avatar.svg'))}" alt="{esc(person['name'])} portrait">
+        </div>
+        {render_logo_cloud(profile)}
+      </aside>
+    </section>
+
+    <section class="section focus-section" id="about">
+      <div>
+        <p class="section-kicker">{t['research_focus']}</p>
+        <h2 class="section-title">{t['about']}</h2>
+      </div>
+      <div class="focus-list">
+        {render_interest_list(person.get("research_interests", []))}
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <div class="section" id="experience">
+        <h2 class="section-title">{t['experience']}</h2>
+        <div class="section-body">
+          {''.join(render_experience(item) for item in profile.get('experience', []))}
+        </div>
+      </div>
+
+      <div class="section" id="education">
+        <h2 class="section-title">{t['education']}</h2>
+        <div class="section-body">
+          {''.join(render_education(item) for item in profile.get('education', []))}
+        </div>
+      </div>
+    </div>
+
+      <div class="section" id="projects">
+        <h2 class="section-title">{t['projects']}</h2>
+        <div class="section-body">
+          <div class="project-grid">
+          {''.join(render_project_card(item) for item in profile.get('projects', []))}
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="publications">
+        <h2 class="section-title">{t['publications']}</h2>
+        <div class="section-body">
+          <div class="publications">
+            <ol class="bibliography">
+              {''.join(render_publication(item) for item in profile.get('publications', []))}
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="awards">
+        <h2 class="section-title">{t['awards']}</h2>
+        <div class="section-body">
+          <div class="awards-grid">
+            {''.join(render_award(item) for item in profile.get('awards', []))}
+          </div>
+        </div>
+      </div>
+
+    <footer class="site-footer">
+      <p>
+        &copy; 2026 {esc(person['name'])}. All rights reserved.
+        <br>
+        <span class="template-credit">Design adapted from <a href="https://github.com/xyjoey/PRISM">PRISM</a></span>
+      </p>
+    </footer>
+  </main>
+""",
+        lang=lang,
+    )
+
+
+def render_jobs(profile: dict[str, Any], data: dict[str, Any], *, lang: str = "en") -> str:
+    person = profile["person"]
+    jobs = data.get("jobs", [])
+    t = labels(lang)
+    return page(
+        title=f"{person['name']} - Job Pipeline",
+        description="Private-facing job search pipeline generated from structured data.",
+        body=f"""
+  {simple_nav(lang, "jobs.html")}
+  <div class="wrapper single-column">
+    <section class="content wide-content">
+      <div class="section visible">
+        <h2 class="section-title">{t['jobs']}</h2>
+        <div class="section-body">
+          <p class="muted-line">{t['job_blurb']}</p>
+          <div class="job-board">
+            {''.join(render_job_card(item) for item in jobs)}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+""",
+        lang=lang,
+    )
+
+
+def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str = "en") -> str:
+    person = profile["person"]
+    t = labels(lang)
+    resume_title = target.get("title") if lang == "en" else target.get("title_zh", t["resume_title"])
+    tags = set(target.get("include_project_tags", []))
+    projects = [item for item in profile.get("projects", []) if match_tags(item, tags)]
+    publications = [item for item in profile.get("publications", []) if match_tags(item, tags)]
+    experiences = [item for item in profile.get("experience", []) if match_tags(item, tags)]
+
+    return resume_page(
+        title=resume_title or target.get("title", "Resume"),
+        body=f"""
+    <main class="resume">
+      <header class="resume-head">
+        <div>
+          <h1>{esc(person['name'])} <span>{esc(person['name_zh'])}</span></h1>
+          <p>{esc(person['title'])}</p>
+        </div>
+        <address>
+          {esc(person['email'])}<br>
+          {esc(person['phone'])}<br>
+          {esc(person['location'])}
+        </address>
+      </header>
+
+      <section>
+        <h2>{esc(resume_title or t['profile'])}</h2>
+        <p>{esc(target.get('focus') or person.get('summary', ''))}</p>
+      </section>
+
+      <section>
+        <h2>{t['education']}</h2>
+        {''.join(render_resume_education(item) for item in profile.get('education', []))}
+      </section>
+
+      <section>
+        <h2>{t['experience']}</h2>
+        {''.join(render_resume_experience(item) for item in experiences)}
+      </section>
+
+      <section>
+        <h2>{t['research_projects']}</h2>
+        {''.join(render_resume_project(item) for item in projects)}
+      </section>
+
+      <section>
+        <h2>{t['selected_publications']}</h2>
+        {''.join(render_resume_publication(item) for item in publications)}
+      </section>
+
+      <section>
+        <h2>{t['skills']}</h2>
+        <div class="resume-skills">
+          {''.join(render_skill(item) for item in profile.get('skills', []))}
+        </div>
+      </section>
+
+      <section>
+        <h2>{t['awards']}</h2>
+        {''.join(f"<p><strong>{esc(item['name'])}</strong>, {esc(item['period'])}</p>" for item in profile.get('awards', []))}
+      </section>
+    </main>
+""",
+    )
+
+
+def match_tags(item: dict[str, Any], tags: set[str]) -> bool:
+    return not tags or bool(tags.intersection(item.get("tags", [])))
+
+
+def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
+    return f"""<!DOCTYPE html>
+<html lang="{lang_attr(lang)}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(description)}">
+  <meta name="keywords" content="Ruixiang Xue, point cloud compression, 3D Gaussian splatting, Nanjing University">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/font_sans_serif.css">
+  <link rel="stylesheet" href="assets/css/prism-static.css">
+</head>
+<body class="theme-prism">
+{body}
+  <script src="assets/js/scale.fix.js"></script>
+  <script>
+    (function() {{
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
+
+      function setTheme(isDark) {{
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        icon.classList.toggle('fa-sun', isDark);
+        icon.classList.toggle('fa-moon', !isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      }}
+
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
+
+      themeToggle.addEventListener('click', function() {{
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        setTheme(!isDark);
+      }});
+
+      if ('IntersectionObserver' in window) {{
+        const observer = new IntersectionObserver(function(entries) {{
+          entries.forEach(function(entry) {{
+            if (entry.isIntersecting) {{
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }}
+          }});
+        }}, {{ threshold: 0.1 }});
+
+        document.querySelectorAll('.section').forEach(function(el) {{
+          observer.observe(el);
+        }});
+      }} else {{
+        document.querySelectorAll('.section').forEach(function(el) {{
+          el.classList.add('visible');
+        }});
+      }}
+    }})();
+  </script>
+</body>
+</html>
+"""
+
+
+def simple_nav(lang: str = "en", current: str = "index.html") -> str:
+    t = labels(lang)
+    lang_switch = switch_path(current, lang)
+    return f"""
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="{local_path('./', lang)}">{t['home']}</a>
+        <a href="{local_path('jobs.html', lang)}">{t['jobs']}</a>
+      </div>
+      <div class="nav-right">
+        <a class="language-link" href="{lang_switch}">{t['language_label']}</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+"""
+
+
+def resume_page(*, title: str, body: str) -> str:
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(title)}</title>
+  <link rel="stylesheet" href="../css/resume.css">
+</head>
+<body>
+{body}
+</body>
+</html>
+"""
+
+
+def render_social_links(links: list[dict[str, str]], resume_link: str | None = None) -> str:
+    icons = {"GitHub": "fa-brands fa-github", "Email": "fa-solid fa-envelope"}
+    rendered = "".join(
+        f'<a href="{esc(link["url"])}" title="{esc(link["label"])}"><i class="{icons.get(link["label"], "fa-solid fa-link")}"></i></a>'
+        for link in links
+    )
+    if resume_link:
+        rendered += f'<a href="{esc(resume_link)}" title="CV" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i></a>'
+    return rendered
+
+
+def render_home_highlights(profile: dict[str, Any], lang: str) -> str:
+    if lang == "zh":
+        items = [
+            ("ECCV 2026", "3DGS 目标级可扩展压缩"),
+            ("Geely AI", "自动驾驶世界模型实习"),
+            ("MPEG AI-PCC", "8 提案 / 5 专利"),
+        ]
+    else:
+        items = [
+            ("ECCV 2026", "3DGS object-scalable compression"),
+            ("Geely AI", "Driving world model intern"),
+            ("MPEG AI-PCC", "8 proposals / 5 patents"),
+        ]
+    cards = "".join(
+        f'<div class="highlight-card"><span>{esc(title)}</span><strong>{esc(text)}</strong></div>'
+        for title, text in items
+    )
+    return f'<div class="highlight-strip">{cards}</div>'
+
+
+def render_interest_list(interests: list[str]) -> str:
+    return "".join(f"<span>{esc(item)}</span>" for item in interests)
+
+
+def render_logo_cloud(profile: dict[str, Any]) -> str:
+    seen: set[str] = set()
+    logos: list[tuple[str, str]] = []
+    for section in ("education", "experience"):
+        for item in profile.get(section, []):
+            name = item.get("school") or item.get("organization") or ""
+            logo = item.get("logo")
+            if logo and logo not in seen:
+                logos.append((name, logo))
+                seen.add(logo)
+    return '<div class="logo-cloud">' + "".join(
+        f'<img src="{esc(logo)}" alt="{esc(name)} logo">' for name, logo in logos
+    ) + "</div>"
+
+
+def render_education(item: dict[str, Any]) -> str:
+    details = "".join(f"<li>{esc(detail)}</li>" for detail in item.get("details", []))
+    logo = item.get("logo", "assets/logos/nju.svg")
+    return f"""
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="{esc(logo)}" alt="{esc(item['school'])} logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>{esc(item['school'])}</strong></p>
+                <p class="exp-detail">{esc(item['degree'])}</p>
+                <p class="exp-period">{esc(item['period'])}</p>
+                {f'<ul>{details}</ul>' if details else ''}
+              </div>
+            </div>
+          </div>
+"""
+
+
+def render_experience(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    logo = item.get("logo", "assets/img/institution.svg")
+    return f"""
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="{esc(logo)}" alt="{esc(item['organization'])} logo" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>{esc(item['organization'])}</strong></p>
+                <p class="exp-detail">{esc(item['role'])}</p>
+                <p class="exp-period">{esc(item['period'])}</p>
+                <p>{esc(item.get('summary', ''))}</p>
+                <ul>{bullets}</ul>
+              </div>
+            </div>
+          </div>
+"""
+
+
+def render_project_card(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", [])[:2])
+    image = item.get("image")
+    image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
+    return f"""
+          <div class="card project-card">
+            {image_html}
+            <div class="project-copy">
+            <strong>{esc(item['name'])}</strong>
+            <p>{esc(item.get('summary', ''))}</p>
+            <ul>{bullets}</ul>
+            </div>
+          </div>
+"""
+
+
+def render_publication(item: dict[str, Any]) -> str:
+    return f"""
+              <li>
+                <div class="pub-row">
+                  <div class="pub-content">
+                    <div class="title">{esc(item['title'])}</div>
+                    <div class="author"><strong>{esc(item['authors'])}</strong></div>
+                    <div class="periodical"><em><strong>{esc(item['venue'])}</strong></em></div>
+                    <div class="links">{esc(item.get('notes', ''))}</div>
+                  </div>
+                </div>
+              </li>
+"""
+
+
+def render_award(item: dict[str, Any]) -> str:
+    return f"""
+            <div class="award-item">
+              <span class="award-icon">* </span>
+              <div class="award-text"><strong>{esc(item['name'])}</strong><br>{esc(item['period'])}</div>
+            </div>
+"""
+
+
+def render_job_card(item: dict[str, Any]) -> str:
+    contacts = ", ".join(item.get("contacts", [])) or "No contacts yet"
+    return f"""
+          <article class="card job-card">
+            <div class="job-topline">
+              <span>{esc(item.get('status', ''))}</span>
+              <strong>{esc(item.get('priority', ''))}</strong>
+            </div>
+            <h3>{esc(item['company'])}</h3>
+            <p><strong>{esc(item['role'])}</strong> · {esc(item.get('location', ''))}</p>
+            <p>Next: {esc(item.get('next_action', ''))}</p>
+            <p>Date: {esc(item.get('next_action_date', ''))}</p>
+            <p>Resume: {esc(item.get('resume_file', ''))}</p>
+            <p>Contacts: {esc(contacts)}</p>
+          </article>
+"""
+
+
+def render_resume_education(item: dict[str, Any]) -> str:
+    return f'<article><h3>{esc(item["school"])} <span>{esc(item["period"])}</span></h3><p>{esc(item["degree"])}</p></article>'
+
+
+def render_resume_experience(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
+    return f'<article><h3>{esc(item["organization"])} <span>{esc(item["period"])}</span></h3><p><strong>{esc(item["role"])}</strong> - {esc(item.get("summary", ""))}</p>{bullet_list}</article>'
+
+
+def render_resume_project(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
+    return f'<article><h3>{esc(item["name"])}</h3><p>{esc(item.get("summary", ""))}</p>{bullet_list}</article>'
+
+
+def render_resume_publication(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", [])[:2])
+    bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
+    authors = sentence_end(item["authors"])
+    return f'<article><h3>{esc(item["title"])}</h3><p>{esc(authors)} <em>{esc(item["venue"])}</em>. {esc(item.get("notes", ""))}</p>{bullet_list}</article>'
+
+
+def render_skill(item: dict[str, Any]) -> str:
+    return f'<p><strong>{esc(item["group"])}</strong>: {esc(", ".join(item.get("items", [])))}</p>'
+
+
+def esc(value: Any) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def sentence_end(value: Any) -> str:
+    text = str(value)
+    return text if text.endswith((".", "!", "?")) else f"{text}."
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Render homepage and resume from profile data.")
+    parser.add_argument("--profile", type=Path, default=ROOT / "data" / "profile.json")
+    parser.add_argument("--target", type=Path, default=ROOT / "targets" / "default.json")
+    parser.add_argument("--lang", choices=["en", "zh"], default="en")
+    args = parser.parse_args()
+    profile_arg = args.profile
+    target_arg = args.target
+    if args.lang == "zh" and profile_arg == ROOT / "data" / "profile.json":
+        profile_arg = None
+    if args.lang == "zh" and target_arg == ROOT / "targets" / "default.json":
+        target_arg = None
+    outputs = render_site(root=ROOT, profile_path=profile_arg, target_path=target_arg, lang=args.lang)
+    for label, path in outputs.items():
+        print(f"{label}: {path}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,15 @@
+{
+  "title": "自动驾驶世界模型 / 场景生成简历",
+  "title_zh": "自动驾驶世界模型 / 场景生成简历",
+  "focus": "面向自动驾驶 AI 岗位，重点覆盖 driving world model、街景合成、动态场景生成、新视角 artifact 修复与评测管线。",
+  "include_project_tags": [
+    "driving",
+    "world-model",
+    "street-view",
+    "restoration",
+    "ai-internship",
+    "ai-demo",
+    "3dgs"
+  ],
+  "resume_filename": "resume-driving-world-model-zh.html"
+}
