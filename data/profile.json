@@ -250,37 +250,93 @@
         "coding",
         "photography"
       ],
-      "summary": "Virtual photography and spatial reframing workflows that combine single-image 3DGS reconstruction, Unreal Engine capture, human-scene compositing, and generative neural rendering.",
+      "summary": "A virtual photography system that turns single photos into controllable 3D shooting spaces, then repairs raw 3DGS renders with generative neural rendering.",
       "bullets": [
-        "Built a virtual studio pipeline from **single-image Marble 3DGS world creation** to **SplatTransform preprocessing**, Unreal Engine import, immersive navigation, and controllable capture.",
-        "Composited reconstructed scene splats with a separate **human 3DGS asset pipeline**, then used generative neural rendering to improve photo realism when raw 3DGS renders are not yet photography-grade.",
-        "Replicated an **Apple Spatial Reframing-style** workflow for constrained camera-angle changes from a single photo, enabling practical nearby-view recomposition."
+        "**Virtual studio**: Marble 3DGS, SplatTransform, UE import, immersive capture.",
+        "**Human-scene compositing**: scene splats plus a separate human 3DGS asset pipeline.",
+        "**Spatial reframing**: Apple-like nearby-view recomposition from a single photo."
       ],
       "flows": [
         {
           "title": "Virtual Studio Pipeline",
           "caption": "From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.",
           "steps": [
-            "Reference image",
-            "Marble 3DGS world",
-            "SplatTransform preprocessing",
-            "Unreal Engine import",
-            "Immersive camera capture",
-            "Human 3DGS composite",
-            "Generative neural rendering"
+            {
+              "label": "Reference image",
+              "detail": "single photo",
+              "icon": "fa-solid fa-image"
+            },
+            {
+              "label": "Marble 3DGS",
+              "detail": "world asset",
+              "icon": "fa-solid fa-cubes"
+            },
+            {
+              "label": "SplatTransform",
+              "detail": "preprocess",
+              "icon": "fa-solid fa-wand-magic-sparkles"
+            },
+            {
+              "label": "Unreal Engine",
+              "detail": "virtual stage",
+              "icon": "fa-solid fa-cube"
+            },
+            {
+              "label": "Camera capture",
+              "detail": "navigation",
+              "icon": "fa-solid fa-camera-retro"
+            },
+            {
+              "label": "Human 3DGS",
+              "detail": "composite",
+              "icon": "fa-solid fa-user"
+            },
+            {
+              "label": "Neural render",
+              "detail": "photo polish",
+              "icon": "fa-solid fa-wand-magic-sparkles"
+            }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
           "caption": "Apple-like nearby-view recomposition under constrained viewpoint changes.",
           "steps": [
-            "Input photo",
-            "Single-image 3DGS reconstruction",
-            "Subject mask and geometry cues",
-            "Constrained camera reframe",
-            "Confidence and hole map",
-            "Generative repair",
-            "Reframed photo"
+            {
+              "label": "Input photo",
+              "detail": "user image",
+              "icon": "fa-solid fa-image"
+            },
+            {
+              "label": "Single-image 3DGS",
+              "detail": "geometry prior",
+              "icon": "fa-solid fa-dice-d6"
+            },
+            {
+              "label": "Subject cues",
+              "detail": "mask + depth",
+              "icon": "fa-solid fa-object-group"
+            },
+            {
+              "label": "Reframe camera",
+              "detail": "small motion",
+              "icon": "fa-solid fa-video"
+            },
+            {
+              "label": "Confidence map",
+              "detail": "holes + alpha",
+              "icon": "fa-solid fa-map"
+            },
+            {
+              "label": "Generative repair",
+              "detail": "low-confidence only",
+              "icon": "fa-solid fa-brush"
+            },
+            {
+              "label": "Reframed photo",
+              "detail": "final view",
+              "icon": "fa-solid fa-camera"
+            }
           ]
         }
       ]

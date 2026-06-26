@@ -678,8 +678,7 @@ def render_experience(item: dict[str, Any]) -> str:
 
 
 def render_project_card(item: dict[str, Any]) -> str:
-    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", [])[:3])
-    bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
+    bullet_list = render_project_highlights(item) if item.get("flows") else render_project_bullets(item)
     image = item.get("image")
     image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
     card_class = "card project-card has-flows" if item.get("flows") else "card project-card"
@@ -698,6 +697,25 @@ def render_project_card(item: dict[str, Any]) -> str:
 """
 
 
+def render_project_bullets(item: dict[str, Any]) -> str:
+    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", [])[:3])
+    return f"<ul>{bullets}</ul>" if bullets else ""
+
+
+def render_project_highlights(item: dict[str, Any]) -> str:
+    icons = ["fa-solid fa-vr-cardboard", "fa-solid fa-layer-group", "fa-solid fa-crop-simple"]
+    cards = "".join(
+        f"""
+                <div class="project-highlight">
+                  <i class="{esc(icons[index % len(icons)])}"></i>
+                  <span>{format_inline(bullet)}</span>
+                </div>
+"""
+        for index, bullet in enumerate(item.get("bullets", [])[:3])
+    )
+    return f'<div class="project-highlights">{cards}</div>' if cards else ""
+
+
 def render_project_flows(item: dict[str, Any]) -> str:
     flows = item.get("flows", [])
     if not flows:
@@ -711,7 +729,7 @@ def render_project_flows(item: dict[str, Any]) -> str:
 
 def render_project_flow(flow: dict[str, Any], index: int) -> str:
     steps = flow.get("steps", [])
-    nodes = "".join(f'<span class="flow-node">{esc(step)}</span>' for step in steps)
+    nodes = "\n".join(render_flow_step(step) for step in steps)
     return f"""
                 <div class="flow-card flow-card-{index % 2}">
                   <div class="flow-head">
@@ -722,6 +740,25 @@ def render_project_flow(flow: dict[str, Any], index: int) -> str:
                     {nodes}
                   </div>
                 </div>
+"""
+
+
+def render_flow_step(step: Any) -> str:
+    if isinstance(step, dict):
+        icon = step.get("icon", "fa-solid fa-circle-nodes")
+        label = step.get("label", "")
+        detail = step.get("detail", "")
+    else:
+        icon = "fa-solid fa-circle-nodes"
+        label = str(step)
+        detail = ""
+    detail_html = f'<small>{esc(detail)}</small>' if detail else ""
+    return f"""
+                    <span class="flow-node">
+                      <i class="{esc(icon)}"></i>
+                      <span>{esc(label)}</span>
+                      {detail_html}
+                    </span>
 """
 
 

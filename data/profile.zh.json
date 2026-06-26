@@ -249,37 +249,93 @@
         "coding",
         "photography"
       ],
-      "summary": "围绕虚拟摄影与空间重构开展项目实践，结合单图 3DGS 重建、UE 虚拟拍摄、人物与场景合成以及生成式神经渲染。",
+      "summary": "面向虚拟摄影的空间重构系统：从单张照片生成可控三维拍摄空间，再用生成式神经渲染提升照片观感。",
       "bullets": [
-        "搭建从 **Marble 单图 3DGS 场景生成**、**SplatTransform 预处理** 到 Unreal Engine 导入、沉浸式漫游和可控拍摄的虚拟摄影棚流程。",
-        "将重建得到的场景 3DGS 与独立的人物 3DGS 资产流程组合，并利用生成式神经渲染改善原始 3DGS 渲染达不到摄影质量的问题。",
-        "复刻 **Apple Spatial Reframing** 类似能力，在有限角度变化下从单张照片实现拍摄视角重构与重新取景。"
+        "**虚拟摄影棚**：Marble 3DGS、SplatTransform、UE 导入、沉浸式拍摄。",
+        "**人物场景合成**：场景 splats 与独立人物 3DGS 资产流程组合。",
+        "**空间重构取景**：从单张照片复刻 Apple-like 近邻视角重构。"
       ],
       "flows": [
         {
           "title": "Virtual Studio Pipeline",
           "caption": "从单张参考图到 UE 虚拟摄影棚，再到生成式神经渲染照片。",
           "steps": [
-            "参考图片",
-            "Marble 3DGS 场景",
-            "SplatTransform 预处理",
-            "Unreal Engine 导入",
-            "沉浸式相机拍摄",
-            "人物 3DGS 合成",
-            "生成式神经渲染"
+            {
+              "label": "参考图片",
+              "detail": "单张照片",
+              "icon": "fa-solid fa-image"
+            },
+            {
+              "label": "Marble 3DGS",
+              "detail": "场景资产",
+              "icon": "fa-solid fa-cubes"
+            },
+            {
+              "label": "SplatTransform",
+              "detail": "预处理",
+              "icon": "fa-solid fa-wand-magic-sparkles"
+            },
+            {
+              "label": "Unreal Engine",
+              "detail": "虚拟摄影棚",
+              "icon": "fa-solid fa-cube"
+            },
+            {
+              "label": "相机拍摄",
+              "detail": "沉浸漫游",
+              "icon": "fa-solid fa-camera-retro"
+            },
+            {
+              "label": "人物 3DGS",
+              "detail": "合成入镜",
+              "icon": "fa-solid fa-user"
+            },
+            {
+              "label": "神经渲染",
+              "detail": "照片级修饰",
+              "icon": "fa-solid fa-wand-magic-sparkles"
+            }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
           "caption": "面向有限角度变化的 Apple-like 重新取景流程。",
           "steps": [
-            "输入照片",
-            "单图 3DGS 重建",
-            "主体掩码与几何线索",
-            "受限相机重构",
-            "置信度与空洞区域",
-            "生成式修复",
-            "重新取景照片"
+            {
+              "label": "输入照片",
+              "detail": "用户图片",
+              "icon": "fa-solid fa-image"
+            },
+            {
+              "label": "单图 3DGS",
+              "detail": "几何先验",
+              "icon": "fa-solid fa-dice-d6"
+            },
+            {
+              "label": "主体线索",
+              "detail": "mask + depth",
+              "icon": "fa-solid fa-object-group"
+            },
+            {
+              "label": "相机重构",
+              "detail": "小范围运动",
+              "icon": "fa-solid fa-video"
+            },
+            {
+              "label": "置信度图",
+              "detail": "空洞 + alpha",
+              "icon": "fa-solid fa-map"
+            },
+            {
+              "label": "生成式修复",
+              "detail": "低置信区域",
+              "icon": "fa-solid fa-brush"
+            },
+            {
+              "label": "重构照片",
+              "detail": "最终视角",
+              "icon": "fa-solid fa-camera"
+            }
           ]
         }
       ]

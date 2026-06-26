@@ -244,8 +244,23 @@
             
             <div class="project-copy">
               <strong>智能辅助摄影</strong>
-              <p>围绕虚拟摄影与空间重构开展项目实践，结合单图 3DGS 重建、UE 虚拟拍摄、人物与场景合成以及生成式神经渲染。</p>
-              <ul><li>搭建从 <strong>Marble 单图 3DGS 场景生成</strong>、<strong>SplatTransform 预处理</strong> 到 Unreal Engine 导入、沉浸式漫游和可控拍摄的虚拟摄影棚流程。</li><li>将重建得到的场景 3DGS 与独立的人物 3DGS 资产流程组合，并利用生成式神经渲染改善原始 3DGS 渲染达不到摄影质量的问题。</li><li>复刻 <strong>Apple Spatial Reframing</strong> 类似能力，在有限角度变化下从单张照片实现拍摄视角重构与重新取景。</li></ul>
+              <p>面向虚拟摄影的空间重构系统：从单张照片生成可控三维拍摄空间，再用生成式神经渲染提升照片观感。</p>
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <i class="fa-solid fa-vr-cardboard"></i>
+                  <span><strong>虚拟摄影棚</strong>：Marble 3DGS、SplatTransform、UE 导入、沉浸式拍摄。</span>
+                </div>
+
+                <div class="project-highlight">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span><strong>人物场景合成</strong>：场景 splats 与独立人物 3DGS 资产流程组合。</span>
+                </div>
+
+                <div class="project-highlight">
+                  <i class="fa-solid fa-crop-simple"></i>
+                  <span><strong>空间重构取景</strong>：从单张照片复刻 Apple-like 近邻视角重构。</span>
+                </div>
+</div>
               
               <div class="project-flow-grid">
                 
@@ -255,7 +270,55 @@
                     <span>从单张参考图到 UE 虚拟摄影棚，再到生成式神经渲染照片。</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
-                    <span class="flow-node">参考图片</span><span class="flow-node">Marble 3DGS 场景</span><span class="flow-node">SplatTransform 预处理</span><span class="flow-node">Unreal Engine 导入</span><span class="flow-node">沉浸式相机拍摄</span><span class="flow-node">人物 3DGS 合成</span><span class="flow-node">生成式神经渲染</span>
+                    
+                    <span class="flow-node">
+                      <i class="fa-solid fa-image"></i>
+                      <span>参考图片</span>
+                      <small>单张照片</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-cubes"></i>
+                      <span>Marble 3DGS</span>
+                      <small>场景资产</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      <span>SplatTransform</span>
+                      <small>预处理</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-cube"></i>
+                      <span>Unreal Engine</span>
+                      <small>虚拟摄影棚</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-camera-retro"></i>
+                      <span>相机拍摄</span>
+                      <small>沉浸漫游</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-user"></i>
+                      <span>人物 3DGS</span>
+                      <small>合成入镜</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      <span>神经渲染</span>
+                      <small>照片级修饰</small>
+                    </span>
+
                   </div>
                 </div>
 
@@ -265,7 +328,55 @@
                     <span>面向有限角度变化的 Apple-like 重新取景流程。</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
-                    <span class="flow-node">输入照片</span><span class="flow-node">单图 3DGS 重建</span><span class="flow-node">主体掩码与几何线索</span><span class="flow-node">受限相机重构</span><span class="flow-node">置信度与空洞区域</span><span class="flow-node">生成式修复</span><span class="flow-node">重新取景照片</span>
+                    
+                    <span class="flow-node">
+                      <i class="fa-solid fa-image"></i>
+                      <span>输入照片</span>
+                      <small>用户图片</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-dice-d6"></i>
+                      <span>单图 3DGS</span>
+                      <small>几何先验</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-object-group"></i>
+                      <span>主体线索</span>
+                      <small>mask + depth</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-video"></i>
+                      <span>相机重构</span>
+                      <small>小范围运动</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-map"></i>
+                      <span>置信度图</span>
+                      <small>空洞 + alpha</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-brush"></i>
+                      <span>生成式修复</span>
+                      <small>低置信区域</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-camera"></i>
+                      <span>重构照片</span>
+                      <small>最终视角</small>
+                    </span>
+
                   </div>
                 </div>
 

@@ -244,8 +244,23 @@
             
             <div class="project-copy">
               <strong>AI-assisted photography</strong>
-              <p>Virtual photography and spatial reframing workflows that combine single-image 3DGS reconstruction, Unreal Engine capture, human-scene compositing, and generative neural rendering.</p>
-              <ul><li>Built a virtual studio pipeline from <strong>single-image Marble 3DGS world creation</strong> to <strong>SplatTransform preprocessing</strong>, Unreal Engine import, immersive navigation, and controllable capture.</li><li>Composited reconstructed scene splats with a separate <strong>human 3DGS asset pipeline</strong>, then used generative neural rendering to improve photo realism when raw 3DGS renders are not yet photography-grade.</li><li>Replicated an <strong>Apple Spatial Reframing-style</strong> workflow for constrained camera-angle changes from a single photo, enabling practical nearby-view recomposition.</li></ul>
+              <p>A virtual photography system that turns single photos into controllable 3D shooting spaces, then repairs raw 3DGS renders with generative neural rendering.</p>
+              <div class="project-highlights">
+                <div class="project-highlight">
+                  <i class="fa-solid fa-vr-cardboard"></i>
+                  <span><strong>Virtual studio</strong>: Marble 3DGS, SplatTransform, UE import, immersive capture.</span>
+                </div>
+
+                <div class="project-highlight">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <span><strong>Human-scene compositing</strong>: scene splats plus a separate human 3DGS asset pipeline.</span>
+                </div>
+
+                <div class="project-highlight">
+                  <i class="fa-solid fa-crop-simple"></i>
+                  <span><strong>Spatial reframing</strong>: Apple-like nearby-view recomposition from a single photo.</span>
+                </div>
+</div>
               
               <div class="project-flow-grid">
                 
@@ -255,7 +270,55 @@
                     <span>From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
-                    <span class="flow-node">Reference image</span><span class="flow-node">Marble 3DGS world</span><span class="flow-node">SplatTransform preprocessing</span><span class="flow-node">Unreal Engine import</span><span class="flow-node">Immersive camera capture</span><span class="flow-node">Human 3DGS composite</span><span class="flow-node">Generative neural rendering</span>
+                    
+                    <span class="flow-node">
+                      <i class="fa-solid fa-image"></i>
+                      <span>Reference image</span>
+                      <small>single photo</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-cubes"></i>
+                      <span>Marble 3DGS</span>
+                      <small>world asset</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      <span>SplatTransform</span>
+                      <small>preprocess</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-cube"></i>
+                      <span>Unreal Engine</span>
+                      <small>virtual stage</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-camera-retro"></i>
+                      <span>Camera capture</span>
+                      <small>navigation</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-user"></i>
+                      <span>Human 3DGS</span>
+                      <small>composite</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      <span>Neural render</span>
+                      <small>photo polish</small>
+                    </span>
+
                   </div>
                 </div>
 
@@ -265,7 +328,55 @@
                     <span>Apple-like nearby-view recomposition under constrained viewpoint changes.</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
-                    <span class="flow-node">Input photo</span><span class="flow-node">Single-image 3DGS reconstruction</span><span class="flow-node">Subject mask and geometry cues</span><span class="flow-node">Constrained camera reframe</span><span class="flow-node">Confidence and hole map</span><span class="flow-node">Generative repair</span><span class="flow-node">Reframed photo</span>
+                    
+                    <span class="flow-node">
+                      <i class="fa-solid fa-image"></i>
+                      <span>Input photo</span>
+                      <small>user image</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-dice-d6"></i>
+                      <span>Single-image 3DGS</span>
+                      <small>geometry prior</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-object-group"></i>
+                      <span>Subject cues</span>
+                      <small>mask + depth</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-video"></i>
+                      <span>Reframe camera</span>
+                      <small>small motion</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-map"></i>
+                      <span>Confidence map</span>
+                      <small>holes + alpha</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-brush"></i>
+                      <span>Generative repair</span>
+                      <small>low-confidence only</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-camera"></i>
+                      <span>Reframed photo</span>
+                      <small>final view</small>
+                    </span>
+
                   </div>
                 </div>
 
