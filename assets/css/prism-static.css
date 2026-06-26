@@ -576,6 +576,7 @@ body.theme-prism li {
 body.theme-prism .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 18px;
 }
 
@@ -664,6 +665,7 @@ body.theme-prism .project-contributions {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
+  margin-bottom: 0;
   padding-top: 16px;
   border-top: 1px solid var(--line);
   scroll-margin-top: 92px;
