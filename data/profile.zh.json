@@ -96,7 +96,6 @@
         "standardization"
       ],
       "summary": "面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。",
-      "image": "assets/media/neri.png",
       "bullets": [
         "针对点云数据表征设计 Transformer 网络，提高空间特征提取效率。",
         "利用点云降采样过程中的密度变化指导重建模式选择。",
@@ -106,26 +105,102 @@
         {
           "type": "标准化提案",
           "items": [
-            "MPEG m70061, AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track1), 2024.11.",
-            "MPEG m70062, AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track2), 2024.11.",
-            "MPEG m70395, [AI-GC][CfP-related] Improved Cross-Platform Reproducibility for AI-Based Point Cloud Compression, 2024.11.",
-            "MPEG m70396, [AI-GC][CfP-related] On Model Quantization for AI-Based Point Cloud Compression, 2024.11.",
-            "MPEG m64417, [AI-3DGC EE 5.4] Update On the Training Datasets for Attribute Compression, 2023.07.",
-            "MPEG m64418, [AI-3DGC EE 5.1] Performance Comparison of Dynamic Point Cloud Geometry Compression for LiDAR Point Clouds, 2023.07.",
-            "MPEG m62176, [AI-3DGC] On the Training Datasets for Attribute Compression, 2023.01.",
-            "MPEG m62177, [AI-3DGC][EE5.1-related][EE5.3-related] Dynamic Point Cloud Geometry Compression for LiDAR Point Cloud with Ego-Motion Compensation, 2023.01.",
-            "MPEG m60353, SparsePCGCv2: Multihead Neighborhood Point Attention for Sparse Point Cloud, 2022.07.",
-            "MPEG m59552, SparsePCGCv2: Improved SparsePCGC with attention mechanism, 2022.04."
+            {
+              "id": "MPEG m70061",
+              "title": "AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track1)",
+              "authors": "T. Chen, R. Xue, J. Zhang, J. Wang, Z. Ma, S. Xia, R. Xue, Z. Sun, C. Ma, Y. Yu, H. Yu, D. Wang",
+              "date": "2024.11"
+            },
+            {
+              "id": "MPEG m70062",
+              "title": "AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track2)",
+              "authors": "T. Chen, R. Xue, J. Zhang, J. Wang, Z. Ma, S. Xia, R. Xue, Z. Sun, C. Ma, Y. Yu, H. Yu, D. Wang",
+              "date": "2024.11"
+            },
+            {
+              "id": "MPEG m70395",
+              "title": "[AI-GC][CfP-related] Improved Cross-Platform Reproducibility for AI-Based Point Cloud Compression",
+              "authors": "J. Zhang, T. Chen, R. Xue, Z. Ma, S. Xia, Z. Sun, C. Ma, Y. Yu, H. Yu, D. Wang",
+              "date": "2024.11"
+            },
+            {
+              "id": "MPEG m70396",
+              "title": "[AI-GC][CfP-related] On Model Quantization for AI-Based Point Cloud Compression",
+              "authors": "J. Zhang, T. Chen, R. Xue, Z. Ma, S. Xia, Z. Sun, C. Ma, Y. Yu, H. Yu, D. Wang",
+              "date": "2024.11"
+            },
+            {
+              "id": "MPEG m64417",
+              "title": "[AI-3DGC EE 5.4] Update On the Training Datasets for Attribute Compression",
+              "authors": "J. Wang, R. Xue, J. Li, Z. Ma, H. Wei, Y. Yu, V. Zakharchenko, D. Wang",
+              "date": "2023.07"
+            },
+            {
+              "id": "MPEG m64418",
+              "title": "[AI-3DGC EE 5.1] Performance Comparison of Dynamic Point Cloud Geometry Compression for LiDAR Point Clouds",
+              "authors": "R. Xue, J. Wang, J. Li, Z. Ma, H. Wei, Y. Yu, V. Zakharchenko, D. Wang",
+              "date": "2023.07"
+            },
+            {
+              "id": "MPEG m62176",
+              "title": "[AI-3DGC] On the Training Datasets for Attribute Compression",
+              "authors": "J. Wang, R. Xue, J. Li, Z. Ma, H. Wei, Y. Yu, V. Zakharchenko, D. Wang",
+              "date": "2023.01"
+            },
+            {
+              "id": "MPEG m62177",
+              "title": "[AI-3DGC][EE5.1-related][EE5.3-related] Dynamic Point Cloud Geometry Compression for LiDAR Point Cloud with Ego-Motion Compensation",
+              "authors": "R. Xue, J. Wang, J. Li, Z. Ma, H. Wei, Y. Yu, V. Zakharchenko, D. Wang",
+              "date": "2023.01"
+            },
+            {
+              "id": "MPEG m60353",
+              "title": "SparsePCGCv2: Multihead Neighborhood Point Attention for Sparse Point Cloud",
+              "authors": "Ruixiang Xue, Jianqiang Wang, Zhan Ma, Honglian Wei, Yue Yu, Vladyslav Zakharchenko, Dong Wang",
+              "date": "2022.07"
+            },
+            {
+              "id": "MPEG m59552",
+              "title": "SparsePCGCv2: Improved SparsePCGC with attention mechanism",
+              "authors": "Jianqiang Wang, Ruixiang Xue, Zhan Ma, Honglian Wei, Yue Yu, Vladyslav Zakharchenko, Dong Wang",
+              "date": "2022.04"
+            }
           ]
         },
         {
           "type": "专利申请",
           "items": [
-            "编解码方法、编码器、解码器以及存储介质。",
-            "基于隐式神经网络和深度图投影的激光雷达点云序列表征方法。",
-            "基于神经网络的动态激光雷达点云多尺度几何无损压缩方法。",
-            "基于神经网络的点云几何压缩后处理方法。",
-            "基于注意力机制和稀疏卷积的点云几何无损压缩方法；对应申请名：点云几何信息的压缩、解压缩及点云视频编解码方法、装置。"
+            {
+              "id": "南大二期-13",
+              "title": "编解码方法、编码器、解码器以及存储介质",
+              "authors": "马展，薛瑞翔，魏红莲",
+              "date": "2024"
+            },
+            {
+              "id": "南大二期-12",
+              "title": "基于隐式神经网络和深度图投影的激光雷达点云序列表征方法",
+              "authors": "薛瑞翔，李嘉欣，马展",
+              "date": "2023"
+            },
+            {
+              "id": "南大二期-09",
+              "title": "基于神经网络的动态激光雷达点云多尺度几何无损压缩方法",
+              "authors": "马展，薛瑞翔",
+              "date": "2023"
+            },
+            {
+              "id": "南大二期-06",
+              "title": "基于神经网络的点云几何压缩后处理方法",
+              "authors": "马展，薛瑞翔",
+              "date": "2022"
+            },
+            {
+              "id": "南大二期-01",
+              "title": "基于注意力机制和稀疏卷积的点云几何无损压缩方法",
+              "authors": "薛瑞翔，王剑强，马展",
+              "date": "2022",
+              "note": "对应申请名：点云几何信息的压缩、解压缩及点云视频编解码方法、装置"
+            }
           ]
         }
       ]

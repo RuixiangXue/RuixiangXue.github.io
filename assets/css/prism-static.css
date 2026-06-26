@@ -532,7 +532,7 @@ body.theme-prism .exp-title {
 }
 
 body.theme-prism .exp-title strong,
-body.theme-prism .project-card strong,
+body.theme-prism .project-copy > strong,
 body.theme-prism .pub-content .title,
 body.theme-prism .award-text strong,
 body.theme-prism .job-card h3 {
@@ -614,7 +614,7 @@ body.theme-prism .project-topline {
   text-transform: uppercase;
 }
 
-body.theme-prism .project-card strong {
+body.theme-prism .project-copy > strong {
   display: block;
   margin-bottom: 8px;
   font-size: 1.16rem;
@@ -677,6 +677,36 @@ body.theme-prism .contribution-group ol {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+body.theme-prism .contribution-group li {
+  padding-left: 2px;
+}
+
+body.theme-prism .contribution-group li strong,
+body.theme-prism .contribution-meta,
+body.theme-prism .contribution-authors,
+body.theme-prism .contribution-note {
+  display: block;
+}
+
+body.theme-prism .contribution-group li strong {
+  margin: 2px 0 1px;
+  color: var(--foreground);
+  font-size: 0.92rem;
+  font-weight: 760;
+}
+
+body.theme-prism .contribution-meta {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+body.theme-prism .contribution-authors,
+body.theme-prism .contribution-note {
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
 body.theme-prism .bibliography {

@@ -606,7 +606,10 @@ def find_project_for_interest(interest: str, projects: list[dict[str, Any]]) -> 
     interest_norm = normalize_key(interest)
     for project in projects:
         if normalize_key(project.get("interest", "")) == interest_norm:
-            return project.get("id", "projects")
+            target = project.get("id", "projects")
+            if project.get("contributions"):
+                return f"{target}-contributions"
+            return target
     return None
 
 
@@ -666,7 +669,6 @@ def render_project_card(item: dict[str, Any]) -> str:
           <article class="card project-card" id="{esc(item.get('id', project_id(item['name'])))}">
             {image_html}
             <div class="project-copy">
-              <div class="project-topline">{esc(item.get('interest', item['name']))}</div>
               <strong>{esc(item['name'])}</strong>
               <p>{esc(item.get('summary', ''))}</p>
               {bullet_list}
@@ -691,14 +693,6 @@ def render_project_links(item: dict[str, Any]) -> str:
         for key, icon, label in link_items
         if (url := links.get(key))
     )
-    if item.get("contributions"):
-        target = f"#{project_id(item['name'])}-contributions"
-        rendered += (
-            f'<a href="{esc(target)}">'
-            f'<i class="{esc(action_icons.get("contributions", "fa-solid fa-list-check"))}"></i>'
-            f'<span>{esc(action_labels.get("contributions", "Contributions"))}</span>'
-            "</a>"
-        )
     return f'<div class="project-actions">{rendered}</div>' if rendered else ""
 
 
@@ -708,7 +702,7 @@ def render_project_contributions(item: dict[str, Any]) -> str:
         return ""
     body = []
     for group in groups:
-        entries = "".join(f"<li>{esc(entry)}</li>" for entry in group.get("items", []))
+        entries = "".join(render_contribution_item(entry) for entry in group.get("items", []))
         body.append(
             f"""
                 <div class="contribution-group">
@@ -721,6 +715,25 @@ def render_project_contributions(item: dict[str, Any]) -> str:
               <div class="project-contributions" id="{esc(project_id(item['name']))}-contributions">
                 {''.join(body)}
               </div>
+"""
+
+
+def render_contribution_item(entry: Any) -> str:
+    if not isinstance(entry, dict):
+        return f"<li>{esc(str(entry))}</li>"
+    meta = " · ".join(esc(str(value)) for key in ("id", "date") if (value := entry.get(key)))
+    meta_html = f'<span class="contribution-meta">{meta}</span>' if meta else ""
+    authors = entry.get("authors", "")
+    authors_html = f'<span class="contribution-authors">{esc(str(authors))}</span>' if authors else ""
+    note = entry.get("note", "")
+    note_html = f'<span class="contribution-note">{esc(str(note))}</span>' if note else ""
+    return f"""
+                    <li>
+                      {meta_html}
+                      <strong>{esc(str(entry.get('title', '')))}</strong>
+                      {authors_html}
+                      {note_html}
+                    </li>
 """
 
 
