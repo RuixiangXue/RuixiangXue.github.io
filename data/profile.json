@@ -9,13 +9,14 @@
     "avatar": "assets/media/profile.jpg",
     "affiliation": "NJU Vision Lab",
     "advisor": "Prof. Zhan Ma",
-    "summary": "Ph.D. student in Information and Communication Engineering at Nanjing University, working on intelligent point cloud compression, 3D Gaussian splatting compression, driving world models, and practical AI-assisted imaging systems.",
+    "summary": "Spatial intelligence: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, driving world models, street-scene novel-view synthesis, and AI-assisted photography.",
     "research_interests": [
       "Intelligent point cloud compression",
       "3D Gaussian splatting compression",
-      "Neural representations for LiDAR point clouds",
-      "Driving world models and dynamic street-scene restoration",
-      "AI-assisted computational photography"
+      "Implicit neural representations",
+      "Driving world models",
+      "Street-scene novel-view synthesis",
+      "AI-assisted photography"
     ]
   },
   "links": [
@@ -50,10 +51,11 @@
   ],
   "experience": [
     {
-      "organization": "Geely Artificial Intelligence Center",
+      "organization": "Geely",
+      "department": "Artificial Intelligence Center",
       "logo": "assets/logos/geely.svg",
-      "role": "Research Intern",
-      "period": "2026 - Present",
+      "role": "Algorithm Intern",
+      "period": "2026.05 - Present",
       "summary": "Working on driving world models, dynamic street-scene novel-view synthesis, and restoration of world-model or 3D scene generation artifacts.",
       "bullets": [
         "Studied and analyzed driving world model and street-view synthesis methods including Vista, StreetCrafter, SymDrive, FreeFix, and DriveFix.",
@@ -69,7 +71,8 @@
       ]
     },
     {
-      "organization": "OPPO Research Institute, Nebula Lab",
+      "organization": "OPPO",
+      "department": "Research Institute, Nebula Lab",
       "logo": "assets/logos/oppo.svg",
       "role": "Algorithm Intern",
       "period": "2024.02 - 2024.11",
@@ -154,9 +157,19 @@
   "publications": [
     {
       "title": "3D Gaussian Splatting Compression with Object Scalability",
-      "authors": "Ruixiang Xue et al.",
+      "authors": "Ruixiang Xue et al. (authors to be finalized after public release)",
+      "venue_short": "ECCV 2026",
+      "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
       "notes": "Accepted, not yet on arXiv",
+      "badges": ["ECCV 2026", "Accepted", "3DGS Compression"],
+      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3D Gaussian Splatting compression. RecastGS reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control. LayeredCGS then compresses position with a lightweight point cloud codec and attributes with cross-layer context modeling, producing truncatable bitstreams for low-latency preview and progressive refinement.",
+      "links": {
+        "homepage": "",
+        "paper": "",
+        "code": "",
+        "bibtex": ""
+      },
       "bullets": [
         "Introduced RecastGS, a post-training method that reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control.",
         "Introduced LayeredCGS, a feed-forward layered 3DGS compressor that models cross-layer dependencies and generates truncatable bitstreams for fast preview and progressive refinement.",
@@ -170,10 +183,20 @@
       ]
     },
     {
-      "title": "A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
-      "authors": "Ruixiang Xue et al.",
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
+      "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
+      "venue_short": "TPAMI",
+      "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "notes": "SCI Q1, CCF-A, impact factor 18.6, co-first author",
+      "badges": ["SCI Q1", "CCF-A", "IF 18.6", "Co-first author"],
+      "abstract": "Proposed a universal multiscale conditional point cloud geometry coding framework that supports lossy/lossless, static/dynamic, and diverse point cloud data, outperforming MPEG G-PCC, V-PCC, and learning-based baselines with strong compression efficiency.",
+      "links": {
+        "homepage": "https://github.com/NJUVISION/Unicorn",
+        "paper": "https://pubmed.ncbi.nlm.nih.gov/39288049/",
+        "code": "https://github.com/NJUVISION/Unicorn",
+        "bibtex": ""
+      },
       "bullets": [
         "Proposed a universal multiscale conditional point cloud geometry coding framework supporting lossy/lossless, static/dynamic, and diverse point cloud data.",
         "Outperformed MPEG G-PCC, V-PCC, and learning-based methods with second-level codec complexity; improved lossless compression by 30% and lossy compression by 92% overall."
@@ -186,9 +209,19 @@
     },
     {
       "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
-      "authors": "Ruixiang Xue et al.",
+      "authors": "Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma",
+      "venue_short": "ICASSP 2024",
+      "venue_full": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
       "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing 2024",
       "notes": "CCF-B, first author",
+      "badges": ["CCF-B", "First author", "LiDAR Compression"],
+      "abstract": "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into range image sequences and coding them with spatiotemporal conditional neural networks, reaching real-time decoding and strong low-bitrate gains.",
+      "links": {
+        "homepage": "",
+        "paper": "https://ieeexplore.ieee.org/document/10446596/",
+        "code": "",
+        "bibtex": ""
+      },
       "bullets": [
         "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into 2D range images and coding them with spatiotemporal conditional neural networks.",
         "Reached 376 FPS real-time decoding and achieved 91% overall gain at low bitrates over MPEG G-PCC, HEVC, and other learning-based point cloud compression methods."

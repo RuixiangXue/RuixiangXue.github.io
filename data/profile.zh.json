@@ -9,13 +9,14 @@
     "avatar": "assets/media/profile.jpg",
     "affiliation": "NJU Vision Lab",
     "advisor": "马展教授",
-    "summary": "南京大学信息与通信工程博士研究生，研究方向包括智能点云压缩、三维高斯泼溅压缩、自动驾驶世界模型以及实用型 AI 影像系统。",
+    "summary": "空间智能方向：智能点云压缩、三维高斯泼溅压缩、隐式神经表示、自动驾驶世界模型、街景新视角合成、智能辅助摄影。",
     "research_interests": [
       "智能点云压缩",
       "三维高斯泼溅压缩",
-      "LiDAR 点云神经表示",
-      "自动驾驶世界模型与动态街景修复",
-      "AI 辅助计算摄影"
+      "隐式神经表示",
+      "自动驾驶世界模型",
+      "街景新视角合成",
+      "智能辅助摄影"
     ]
   },
   "links": [
@@ -50,10 +51,11 @@
   ],
   "experience": [
     {
-      "organization": "吉利人工智能中心",
+      "organization": "吉利",
+      "department": "人工智能中心",
       "logo": "assets/logos/geely.svg",
-      "role": "研究实习生",
-      "period": "2026 - 至今",
+      "role": "算法实习生",
+      "period": "2026.05 - 至今",
       "summary": "围绕自动驾驶世界模型、动态街景新视角合成，以及世界模型/三维场景生成 artifact 修复开展研究。",
       "bullets": [
         "调研并分析 Vista、StreetCrafter、SymDrive、FreeFix、DriveFix 等自动驾驶世界模型与街景合成方法。",
@@ -69,7 +71,8 @@
       ]
     },
     {
-      "organization": "OPPO 研究院星云实验室",
+      "organization": "OPPO",
+      "department": "研究院星云实验室",
       "logo": "assets/logos/oppo.svg",
       "role": "算法实习生",
       "period": "2024.02 - 2024.11",
@@ -153,9 +156,19 @@
   "publications": [
     {
       "title": "3D Gaussian Splatting Compression with Object Scalability",
-      "authors": "Ruixiang Xue et al.",
+      "authors": "Ruixiang Xue et al. (authors to be finalized after public release)",
+      "venue_short": "ECCV 2026",
+      "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
       "notes": "已接收，尚未发布 arXiv",
+      "badges": ["ECCV 2026", "Accepted", "3DGS Compression"],
+      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3D Gaussian Splatting compression. RecastGS reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control. LayeredCGS then compresses position with a lightweight point cloud codec and attributes with cross-layer context modeling, producing truncatable bitstreams for low-latency preview and progressive refinement.",
+      "links": {
+        "homepage": "",
+        "paper": "",
+        "code": "",
+        "bibtex": ""
+      },
       "bullets": [
         "提出 RecastGS，将预训练 3DGS 重组为区域感知分层表示，实现目标级和 ROI 自适应质量控制。",
         "提出 LayeredCGS，通过跨层依赖建模生成可截断码流，支持快速预览与渐进式质量提升。",
@@ -169,10 +182,20 @@
       ]
     },
     {
-      "title": "A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
-      "authors": "Ruixiang Xue et al.",
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
+      "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
+      "venue_short": "TPAMI",
+      "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "notes": "SCI 一区，CCF-A，影响因子 18.6，共同一作",
+      "badges": ["SCI Q1", "CCF-A", "IF 18.6", "共同一作"],
+      "abstract": "提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云数据；相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率。",
+      "links": {
+        "homepage": "https://github.com/NJUVISION/Unicorn",
+        "paper": "https://pubmed.ncbi.nlm.nih.gov/39288049/",
+        "code": "https://github.com/NJUVISION/Unicorn",
+        "bibtex": ""
+      },
       "bullets": [
         "提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云压缩。",
         "相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率，无损压缩率提升 30%，有损压缩总体增益 92%。"
@@ -185,9 +208,19 @@
     },
     {
       "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
-      "authors": "Ruixiang Xue et al.",
+      "authors": "Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma",
+      "venue_short": "ICASSP 2024",
+      "venue_full": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
       "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing 2024",
       "notes": "CCF-B，第一作者",
+      "badges": ["CCF-B", "第一作者", "LiDAR Compression"],
+      "abstract": "提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列，并使用时空条件神经网络编码；实现 376 FPS 实时解码，在低码率段取得显著压缩增益。",
+      "links": {
+        "homepage": "",
+        "paper": "https://ieeexplore.ieee.org/document/10446596/",
+        "code": "",
+        "bibtex": ""
+      },
       "bullets": [
         "提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列并使用时空条件神经网络编码。",
         "实现 376 FPS 实时解码，并在低码率段相较 MPEG G-PCC、HEVC 和其他智能点云压缩方法实现 91% 总体增益。"

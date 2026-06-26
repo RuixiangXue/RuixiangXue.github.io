@@ -60,8 +60,8 @@ def labels(lang: str) -> dict[str, str]:
             "publications": "论文",
             "projects": "项目",
             "jobs": "求职进程",
-            "research_focus": "研究方向",
-            "about": "关于我",
+            "research_focus": "研究内容",
+            "about": "空间智能",
             "about_prefix": "我是",
             "affiliation": "单位",
             "advisor": "导师",
@@ -82,8 +82,8 @@ def labels(lang: str) -> dict[str, str]:
         "publications": "Publications",
         "projects": "Projects",
         "jobs": "Jobs",
-        "research_focus": "Research Focus",
-        "about": "About Me",
+        "research_focus": "Research Areas",
+        "about": "Spatial Intelligence",
         "about_prefix": "I am",
         "affiliation": "Affiliation",
         "advisor": "Advisor",
@@ -125,7 +125,18 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     person = profile["person"]
     links = profile.get("links", [])
     t = labels(lang)
-    resume_link = "assets/cv/resume-zh.html" if lang == "zh" else "assets/cv/resume.html"
+    resume_links = [
+        {
+            "label": "CV EN",
+            "url": "https://ruixiangxue.github.io/assets/cv/resume-en.pdf",
+            "icon": "fa-solid fa-file-arrow-down",
+        },
+        {
+            "label": "CV 中文",
+            "url": "https://ruixiangxue.github.io/assets/cv/resume-zh.pdf",
+            "icon": "fa-solid fa-file-pdf",
+        },
+    ]
     lang_switch = "index.html" if lang == "zh" else "index-zh.html"
     return page(
         title=f"{person['name']} - Homepage",
@@ -134,10 +145,11 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
   <nav class="top-nav">
     <div class="nav-container">
       <div class="nav-left">
-        <a href="{local_path('./', lang)}">{t['home']}</a>
-        <a href="#publications">{t['publications']}</a>
-        <a href="#projects">{t['projects']}</a>
-        <a href="{local_path('jobs.html', lang)}">{t['jobs']}</a>
+        <a href="#top" data-section-link="top">{t['home']}</a>
+        <a href="#about" data-section-link="about">{t['research_focus']}</a>
+        <a href="#experience" data-section-link="experience">{t['experience']}</a>
+        <a href="#publications" data-section-link="publications">{t['publications']}</a>
+        <a href="#awards" data-section-link="awards">{t['awards']}</a>
       </div>
       <div class="nav-right">
         <a class="language-link" href="{lang_switch}">{t['language_label']}</a>
@@ -148,45 +160,40 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     </div>
   </nav>
 
-  <main class="portfolio-shell">
-    <section class="hero-panel">
+  <main class="portfolio-shell" id="top">
+    <section class="hero-panel section" data-section="top">
       <div class="hero-copy">
-        <p class="eyebrow">{esc(person.get('affiliation', ''))} / {esc(person.get('advisor', ''))}</p>
         <h1>{esc(person['name'])}<span>{esc(person['name_zh'])}</span></h1>
-        <p class="hero-role">{esc(person['title'])}</p>
+        <p class="hero-role">{esc(t['research_focus'])}</p>
         <p class="hero-summary">{esc(person['summary'])}</p>
         <div class="hero-social">
-          {render_social_links(links, resume_link=resume_link)}
+          {render_social_links(links, resume_links=resume_links)}
         </div>
-        {render_home_highlights(profile, lang)}
       </div>
       <aside class="hero-visual">
         <div class="portrait-frame">
           <img src="{esc(person.get('avatar', 'assets/img/avatar.svg'))}" alt="{esc(person['name'])} portrait">
         </div>
-        {render_logo_cloud(profile)}
       </aside>
     </section>
 
-    <section class="section focus-section" id="about">
+    <section class="section focus-section" id="about" data-section="about">
       <div>
         <p class="section-kicker">{t['research_focus']}</p>
         <h2 class="section-title">{t['about']}</h2>
       </div>
-      <div class="focus-list">
-        {render_interest_list(person.get("research_interests", []))}
-      </div>
+      {render_research_bubbles(person.get("research_interests", []))}
     </section>
 
     <div class="content-grid">
-      <div class="section" id="experience">
+      <div class="section" id="experience" data-section="experience">
         <h2 class="section-title">{t['experience']}</h2>
         <div class="section-body">
           {''.join(render_experience(item) for item in profile.get('experience', []))}
         </div>
       </div>
 
-      <div class="section" id="education">
+      <div class="section" id="education" data-section="education">
         <h2 class="section-title">{t['education']}</h2>
         <div class="section-body">
           {''.join(render_education(item) for item in profile.get('education', []))}
@@ -194,16 +201,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
       </div>
     </div>
 
-      <div class="section" id="projects">
-        <h2 class="section-title">{t['projects']}</h2>
-        <div class="section-body">
-          <div class="project-grid">
-          {''.join(render_project_card(item) for item in profile.get('projects', []))}
-          </div>
-        </div>
-      </div>
-
-      <div class="section" id="publications">
+      <div class="section" id="publications" data-section="publications">
         <h2 class="section-title">{t['publications']}</h2>
         <div class="section-body">
           <div class="publications">
@@ -214,7 +212,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
         </div>
       </div>
 
-      <div class="section" id="awards">
+      <div class="section" id="awards" data-section="awards">
         <h2 class="section-title">{t['awards']}</h2>
         <div class="section-body">
           <div class="awards-grid">
@@ -392,6 +390,22 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         document.querySelectorAll('.section').forEach(function(el) {{
           observer.observe(el);
         }});
+
+        const navLinks = Array.from(document.querySelectorAll('[data-section-link]'));
+        const activeObserver = new IntersectionObserver(function(entries) {{
+          const visible = entries
+            .filter(function(entry) {{ return entry.isIntersecting; }})
+            .sort(function(a, b) {{ return b.intersectionRatio - a.intersectionRatio; }})[0];
+          if (!visible) return;
+          const section = visible.target.getAttribute('data-section') || visible.target.id;
+          navLinks.forEach(function(link) {{
+            link.classList.toggle('active', link.getAttribute('data-section-link') === section);
+          }});
+        }}, {{ rootMargin: '-25% 0px -60% 0px', threshold: [0.1, 0.35, 0.65] }});
+
+        document.querySelectorAll('[data-section]').forEach(function(el) {{
+          activeObserver.observe(el);
+        }});
       }} else {{
         document.querySelectorAll('.section').forEach(function(el) {{
           el.classList.add('visible');
@@ -441,54 +455,39 @@ def resume_page(*, title: str, body: str) -> str:
 """
 
 
-def render_social_links(links: list[dict[str, str]], resume_link: str | None = None) -> str:
+def render_social_links(
+    links: list[dict[str, str]],
+    resume_links: list[dict[str, str]] | None = None,
+) -> str:
     icons = {"GitHub": "fa-brands fa-github", "Email": "fa-solid fa-envelope"}
     rendered = "".join(
         f'<a href="{esc(link["url"])}" title="{esc(link["label"])}"><i class="{icons.get(link["label"], "fa-solid fa-link")}"></i></a>'
         for link in links
     )
-    if resume_link:
-        rendered += f'<a href="{esc(resume_link)}" title="CV" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i></a>'
+    for link in resume_links or []:
+        rendered += (
+            f'<a href="{esc(link["url"])}" title="{esc(link["label"])}" '
+            f'target="_blank" rel="noopener" download>'
+            f'<i class="{esc(link.get("icon", "fa-solid fa-file-lines"))}"></i></a>'
+        )
     return rendered
-
-
-def render_home_highlights(profile: dict[str, Any], lang: str) -> str:
-    if lang == "zh":
-        items = [
-            ("ECCV 2026", "3DGS 目标级可扩展压缩"),
-            ("Geely AI", "自动驾驶世界模型实习"),
-            ("MPEG AI-PCC", "8 提案 / 5 专利"),
-        ]
-    else:
-        items = [
-            ("ECCV 2026", "3DGS object-scalable compression"),
-            ("Geely AI", "Driving world model intern"),
-            ("MPEG AI-PCC", "8 proposals / 5 patents"),
-        ]
-    cards = "".join(
-        f'<div class="highlight-card"><span>{esc(title)}</span><strong>{esc(text)}</strong></div>'
-        for title, text in items
-    )
-    return f'<div class="highlight-strip">{cards}</div>'
 
 
 def render_interest_list(interests: list[str]) -> str:
     return "".join(f"<span>{esc(item)}</span>" for item in interests)
 
 
-def render_logo_cloud(profile: dict[str, Any]) -> str:
-    seen: set[str] = set()
-    logos: list[tuple[str, str]] = []
-    for section in ("education", "experience"):
-        for item in profile.get(section, []):
-            name = item.get("school") or item.get("organization") or ""
-            logo = item.get("logo")
-            if logo and logo not in seen:
-                logos.append((name, logo))
-                seen.add(logo)
-    return '<div class="logo-cloud">' + "".join(
-        f'<img src="{esc(logo)}" alt="{esc(name)} logo">' for name, logo in logos
-    ) + "</div>"
+def render_research_bubbles(interests: list[str]) -> str:
+    bubbles = "".join(
+        f'<span class="research-bubble bubble-{index % 6}">{esc(item)}</span>'
+        for index, item in enumerate(interests)
+    )
+    return f"""
+      <div class="research-map" aria-label="Spatial intelligence research map">
+        <div class="research-core">Spatial<br>Intelligence</div>
+        {bubbles}
+      </div>
+"""
 
 
 def render_education(item: dict[str, Any]) -> str:
@@ -512,13 +511,14 @@ def render_education(item: dict[str, Any]) -> str:
 def render_experience(item: dict[str, Any]) -> str:
     bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
     logo = item.get("logo", "assets/img/institution.svg")
+    department = item.get("department", "")
     return f"""
           <div class="card timeline-item">
             <div class="experience-item">
               <img src="{esc(logo)}" alt="{esc(item['organization'])} logo" class="institution-logo">
               <div class="experience-content">
                 <p class="exp-title"><strong>{esc(item['organization'])}</strong></p>
-                <p class="exp-detail">{esc(item['role'])}</p>
+                <p class="exp-detail">{esc(department)} · {esc(item['role'])}</p>
                 <p class="exp-period">{esc(item['period'])}</p>
                 <p>{esc(item.get('summary', ''))}</p>
                 <ul>{bullets}</ul>
@@ -545,18 +545,48 @@ def render_project_card(item: dict[str, Any]) -> str:
 
 
 def render_publication(item: dict[str, Any]) -> str:
+    links = item.get("links", {})
+    badges = "".join(f'<span>{esc(badge)}</span>' for badge in item.get("badges", []))
+    link_items = [
+        ("homepage", "fa-solid fa-globe", "Project"),
+        ("paper", "fa-solid fa-file-lines", "Paper"),
+        ("code", "fa-brands fa-github", "Code"),
+        ("bibtex", "fa-solid fa-quote-right", "BibTeX"),
+    ]
+    actions = "".join(render_publication_action(links.get(key, ""), icon, label) for key, icon, label in link_items)
+    abstract = item.get("abstract") or "Abstract will be added when the public version is available."
+    venue_short = item.get("venue_short") or item.get("venue", "")
+    venue_full = item.get("venue_full") or item.get("venue", "")
     return f"""
               <li>
-                <div class="pub-row">
+                <article class="pub-card">
                   <div class="pub-content">
                     <div class="title">{esc(item['title'])}</div>
-                    <div class="author"><strong>{esc(item['authors'])}</strong></div>
-                    <div class="periodical"><em><strong>{esc(item['venue'])}</strong></em></div>
+                    <div class="periodical"><strong>{esc(venue_short)}</strong> · {esc(venue_full)}</div>
+                    <div class="author">{esc(item['authors'])}</div>
+                    <div class="pub-badges">{badges}</div>
+                    <div class="pub-actions">{actions}</div>
+                    <details class="pub-abstract">
+                      <summary>Abstract</summary>
+                      <p>{esc(abstract)}</p>
+                    </details>
                     <div class="links">{esc(item.get('notes', ''))}</div>
                   </div>
-                </div>
+                </article>
               </li>
 """
+
+
+def render_publication_action(url: str, icon: str, label: str) -> str:
+    if url:
+        return (
+            f'<a class="pub-action" href="{esc(url)}" target="_blank" rel="noopener" '
+            f'title="{esc(label)}"><i class="{esc(icon)}"></i><span>{esc(label)}</span></a>'
+        )
+    return (
+        f'<span class="pub-action disabled" title="{esc(label)} coming soon">'
+        f'<i class="{esc(icon)}"></i><span>{esc(label)}</span></span>'
+    )
 
 
 def render_award(item: dict[str, Any]) -> str:
