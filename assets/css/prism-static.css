@@ -857,6 +857,13 @@ body.theme-prism .pub-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+  scroll-margin-top: 92px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.theme-prism .pub-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 20px 44px rgba(45, 79, 70, 0.16);
 }
 
 body.theme-prism .pub-content .title {

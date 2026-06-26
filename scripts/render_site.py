@@ -704,13 +704,17 @@ def render_project_links(item: dict[str, Any]) -> str:
         ("homepage", "fa-solid fa-globe", "Project"),
         ("paper", "fa-solid fa-file-lines", "Paper"),
         ("code", "fa-brands fa-github", "Code"),
+        ("publication", "fa-solid fa-award", "Publication"),
     ]
-    rendered = "".join(
-        f'<a href="{esc(url)}" target="_blank" rel="noopener"><i class="{esc(action_icons.get(key, icon))}"></i><span>{esc(action_labels.get(key, label))}</span></a>'
-        for key, icon, label in link_items
-        if (url := links.get(key))
-    )
+    rendered = "".join(render_project_action_link(key, links.get(key, ""), action_icons.get(key, icon), action_labels.get(key, label)) for key, icon, label in link_items)
     return f'<div class="project-actions">{rendered}</div>' if rendered else ""
+
+
+def render_project_action_link(key: str, url: str, icon: str, label: str) -> str:
+    if not url:
+        return ""
+    target_attrs = "" if url.startswith("#") else ' target="_blank" rel="noopener"'
+    return f'<a href="{esc(url)}"{target_attrs}><i class="{esc(icon)}"></i><span>{esc(label)}</span></a>'
 
 
 def render_project_contributions(item: dict[str, Any]) -> str:
@@ -798,7 +802,7 @@ def render_publication(item: dict[str, Any]) -> str:
     meta_line = " · ".join(meta_parts)
     return f"""
               <li>
-                <article class="pub-card">
+                <article class="pub-card" id="{esc(item.get('id', publication_id(item)))}">
                   <div class="pub-content">
                     <div class="title">{esc(item['title'])}</div>
                     <div class="periodical"><strong>{esc(venue_short)}</strong> · {esc(venue_full)}</div>
@@ -895,6 +899,15 @@ def poster_id(item: dict[str, Any]) -> str:
     base = "".join(ch.lower() if ch.isalnum() else "-" for ch in item["title"])
     slug = "-".join(part for part in base.split("-") if part)[:48]
     return f"poster-{slug}"
+
+
+def publication_id(item: dict[str, Any]) -> str:
+    base = "".join(ch.lower() if ch.isalnum() else "-" for ch in item["title"])
+    suffix_source = item.get("doi") or item.get("venue_short") or item.get("title")
+    suffix = "".join(ch.lower() if ch.isalnum() else "-" for ch in suffix_source)
+    slug = "-".join(part for part in base.split("-") if part)[:56]
+    suffix_slug = "-".join(part for part in suffix.split("-") if part)[-18:]
+    return f"publication-{slug}-{suffix_slug}"
 
 
 def format_inline(text: Any) -> str:

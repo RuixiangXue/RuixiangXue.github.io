@@ -214,7 +214,16 @@
         "Proposed **LayeredCGS**, a feed-forward layered 3DGS compressor with **cross-layer context modeling** and **truncatable bitstreams**.",
         "Achieved **35% BD-Rate gain** over the feed-forward FCGS baseline, with up to **2 dB higher ROI PSNR** under comparable bitrates.",
         "The resulting paper, **3D Gaussian Splatting Compression with Object Scalability**, has been accepted by **ECCV 2026** and is not yet on arXiv."
-      ]
+      ],
+      "links": {
+        "publication": "#publication-3dgs-object-scalability"
+      },
+      "action_labels": {
+        "publication": "ECCV26"
+      },
+      "action_icons": {
+        "publication": "fa-solid fa-award"
+      }
     },
     {
       "name": "Street Generative Novel-View Synthesis",
@@ -250,6 +259,7 @@
   ],
   "publications": [
     {
+      "id": "publication-3dgs-object-scalability",
       "title": "3D Gaussian Splatting Compression with Object Scalability",
       "authors": "Ruixiang Xue, Tong Chen, Zhan Ma",
       "venue_short": "ECCV 2026",
