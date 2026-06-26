@@ -126,6 +126,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     person = profile["person"]
     links = profile.get("links", [])
     t = labels(lang)
+    project_previews = build_project_previews(profile, lang=lang)
     resume_links = [
         {
             "label": "CV EN",
@@ -148,6 +149,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
       <div class="nav-left">
         <a href="#top" data-section-link="top">{t['home']}</a>
         <a href="#about" data-section-link="about">{t['research_focus']}</a>
+        <a href="#projects" data-section-link="projects">{t['projects']}</a>
         <a href="#experience" data-section-link="experience">{t['experience']}</a>
         <a href="#publications" data-section-link="publications">{t['publications']}</a>
         <a href="#awards" data-section-link="awards">{t['awards']}</a>
@@ -185,7 +187,16 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
         <p class="section-kicker">{t['research_focus']}</p>
         <h2 class="section-title">{t['about']}</h2>
       </div>
-      {render_research_bubbles(person.get("research_interests", []))}
+      {render_research_bubbles(person.get("research_interests", []), project_previews)}
+    </section>
+
+    <section class="section" id="projects" data-section="projects">
+      <h2 class="section-title">{t['projects']}</h2>
+      <div class="section-body">
+        <div class="project-grid">
+          {''.join(render_project_card(item) for item in project_previews)}
+        </div>
+      </div>
     </section>
 
     <div class="content-grid">
@@ -532,9 +543,9 @@ def render_interest_list(interests: list[str]) -> str:
     return "".join(f"<span>{esc(item)}</span>" for item in interests)
 
 
-def render_research_bubbles(interests: list[str]) -> str:
+def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]]) -> str:
     bubbles = "".join(
-        f'<span class="research-bubble bubble-{index % 6}">{esc(item)}</span>'
+        f'<a class="research-bubble bubble-{index % 6}" href="#{esc(find_project_for_interest(item, projects))}">{esc(item)}</a>'
         for index, item in enumerate(interests)
     )
     return f"""
@@ -543,6 +554,88 @@ def render_research_bubbles(interests: list[str]) -> str:
         {bubbles}
       </div>
 """
+
+
+def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[str, Any]]:
+    projects = [dict(item) for item in profile.get("projects", [])]
+    interests = profile.get("person", {}).get("research_interests", [])
+    previews: list[dict[str, Any]] = []
+    used: set[int] = set()
+    for interest in interests:
+        index = best_project_index(interest, projects, used)
+        if index is not None:
+            item = dict(projects[index])
+            used.add(index)
+        else:
+            item = fallback_project_for_interest(interest, profile, lang=lang)
+        item["id"] = project_id(item.get("name", interest))
+        item["interest"] = interest
+        previews.append(item)
+    return previews
+
+
+def best_project_index(interest: str, projects: list[dict[str, Any]], used: set[int]) -> int | None:
+    interest_norm = normalize_key(interest)
+    alias_groups = [
+        (("point", "cloud"), ("point", "cloud")),
+        (("3d", "gaussian"), ("gaussian", "splatting")),
+        (("splatting",), ("3dgs", "gaussian")),
+        (("street", "novel"), ("street", "novel")),
+        (("街景",), ("街景",)),
+        (("photography",), ("camera", "photography")),
+        (("摄影",), ("相机", "摄影")),
+    ]
+    for index, project in enumerate(projects):
+        if index in used:
+            continue
+        project_text = normalize_key(" ".join([project.get("name", ""), project.get("summary", ""), " ".join(project.get("tags", []))]))
+        if interest_norm and interest_norm in project_text:
+            return index
+        for interest_terms, project_terms in alias_groups:
+            if all(term in interest_norm for term in interest_terms) and any(term in project_text for term in project_terms):
+                return index
+    return None
+
+
+def fallback_project_for_interest(interest: str, profile: dict[str, Any], *, lang: str) -> dict[str, Any]:
+    interest_norm = normalize_key(interest)
+    if "implicit" in interest_norm or "隐式" in interest_norm:
+        neri = next((item for item in profile.get("publications", []) if item.get("title", "").startswith("NeRI")), {})
+        return {
+            "name": interest,
+            "summary": (
+                "Implicit neural representation for LiDAR point cloud compression, using range image sequences and pose-conditioned neural fitting."
+                if lang == "en"
+                else "围绕 LiDAR 点云的隐式神经表示压缩，利用距离图序列与位姿条件神经网络进行建模。"
+            ),
+            "image": "assets/media/neri.png",
+            "bullets": neri.get("bullets", [])[:3],
+            "links": neri.get("links", {}),
+            "action_labels": neri.get("action_labels", {}),
+            "action_icons": neri.get("action_icons", {}),
+        }
+    return {
+        "name": interest,
+        "summary": "Project preview will be expanded with additional materials." if lang == "en" else "项目预览内容待后续补充。",
+        "bullets": [],
+    }
+
+
+def find_project_for_interest(interest: str, projects: list[dict[str, Any]]) -> str:
+    interest_norm = normalize_key(interest)
+    for project in projects:
+        if normalize_key(project.get("interest", "")) == interest_norm:
+            return project.get("id", "projects")
+    return "projects"
+
+
+def project_id(name: str) -> str:
+    base = "".join(ch.lower() if ch.isalnum() else "-" for ch in name)
+    return "project-" + "-".join(part for part in base.split("-") if part)
+
+
+def normalize_key(value: str) -> str:
+    return "".join(ch.lower() if ch.isalnum() or "\u4e00" <= ch <= "\u9fff" else " " for ch in value)
 
 
 def render_education(item: dict[str, Any]) -> str:
@@ -584,19 +677,39 @@ def render_experience(item: dict[str, Any]) -> str:
 
 
 def render_project_card(item: dict[str, Any]) -> str:
-    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", [])[:2])
+    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", [])[:3])
+    bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
     image = item.get("image")
     image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
     return f"""
-          <div class="card project-card">
+          <article class="card project-card" id="{esc(item.get('id', project_id(item['name'])))}">
             {image_html}
             <div class="project-copy">
-            <strong>{esc(item['name'])}</strong>
-            <p>{esc(item.get('summary', ''))}</p>
-            <ul>{bullets}</ul>
+              <div class="project-topline">{esc(item.get('interest', item['name']))}</div>
+              <strong>{esc(item['name'])}</strong>
+              <p>{esc(item.get('summary', ''))}</p>
+              {bullet_list}
+              {render_project_links(item)}
             </div>
-          </div>
+          </article>
 """
+
+
+def render_project_links(item: dict[str, Any]) -> str:
+    links = item.get("links", {})
+    action_labels = item.get("action_labels", {})
+    action_icons = item.get("action_icons", {})
+    link_items = [
+        ("homepage", "fa-solid fa-globe", "Project"),
+        ("paper", "fa-solid fa-file-lines", "Paper"),
+        ("code", "fa-brands fa-github", "Code"),
+    ]
+    rendered = "".join(
+        f'<a href="{esc(url)}" target="_blank" rel="noopener"><i class="{esc(action_icons.get(key, icon))}"></i><span>{esc(action_labels.get(key, label))}</span></a>'
+        for key, icon, label in link_items
+        if (url := links.get(key))
+    )
+    return f'<div class="project-actions">{rendered}</div>' if rendered else ""
 
 
 def render_publication(item: dict[str, Any]) -> str:

@@ -26,6 +26,7 @@
       <div class="nav-left">
         <a href="#top" data-section-link="top">首页</a>
         <a href="#about" data-section-link="about">研究内容</a>
+        <a href="#projects" data-section-link="projects">项目</a>
         <a href="#experience" data-section-link="experience">工作经历</a>
         <a href="#publications" data-section-link="publications">论文</a>
         <a href="#awards" data-section-link="awards">荣誉</a>
@@ -66,9 +67,73 @@
       
       <div class="research-map" aria-label="Spatial intelligence research map">
         <div class="research-core">Spatial<br>Intelligence</div>
-        <span class="research-bubble bubble-0">智能点云压缩</span><span class="research-bubble bubble-1">三维高斯泼溅压缩</span><span class="research-bubble bubble-2">隐式神经表示</span><span class="research-bubble bubble-3">街景生成式新视角合成</span><span class="research-bubble bubble-4">智能辅助摄影</span>
+        <a class="research-bubble bubble-0" href="#project-智能点云压缩">智能点云压缩</a><a class="research-bubble bubble-1" href="#project-三维高斯泼溅压缩">三维高斯泼溅压缩</a><a class="research-bubble bubble-2" href="#project-隐式神经表示">隐式神经表示</a><a class="research-bubble bubble-3" href="#project-街景生成式新视角合成">街景生成式新视角合成</a><a class="research-bubble bubble-4" href="#project-智能相机助手">智能辅助摄影</a>
       </div>
 
+    </section>
+
+    <section class="section" id="projects" data-section="projects">
+      <h2 class="section-title">项目</h2>
+      <div class="section-body">
+        <div class="project-grid">
+          
+          <article class="card project-card" id="project-智能点云压缩">
+            <img class="project-image" src="assets/media/neri.png" alt="智能点云压缩 preview">
+            <div class="project-copy">
+              <div class="project-topline">智能点云压缩</div>
+              <strong>智能点云压缩</strong>
+              <p>面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。</p>
+              <ul><li>针对点云数据表征设计 Transformer 网络，提高空间特征提取效率。</li><li>利用点云降采样过程中的密度变化指导重建模式选择。</li><li>在公开测试条件下，相较基线实现 39% 几何压缩增益和 34% 属性压缩增益。</li></ul>
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-三维高斯泼溅压缩">
+            
+            <div class="project-copy">
+              <div class="project-topline">三维高斯泼溅压缩</div>
+              <strong>三维高斯泼溅压缩</strong>
+              <p>项目预览内容待后续补充。</p>
+              
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-隐式神经表示">
+            <img class="project-image" src="assets/media/neri.png" alt="隐式神经表示 preview">
+            <div class="project-copy">
+              <div class="project-topline">隐式神经表示</div>
+              <strong>隐式神经表示</strong>
+              <p>围绕 LiDAR 点云的隐式神经表示压缩，利用距离图序列与位姿条件神经网络进行建模。</p>
+              <ul><li>提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列并使用时空条件神经网络编码。</li><li>实现 376 FPS 实时解码，并在低码率段相较 MPEG G-PCC、HEVC 和其他智能点云压缩方法实现 91% 总体增益。</li></ul>
+              <div class="project-actions"><a href="assets/posters/neri-poster.html" target="_blank" rel="noopener"><i class="fa-solid fa-image"></i><span>Poster</span></a><a href="https://doi.org/10.1109/ICASSP48485.2024.10446596" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a href="https://github.com/RuixiangXue/NeRI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>Code</span></a></div>
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-街景生成式新视角合成">
+            <img class="project-image" src="assets/media/GRNet.png" alt="街景生成式新视角合成 preview">
+            <div class="project-copy">
+              <div class="project-topline">街景生成式新视角合成</div>
+              <strong>街景生成式新视角合成</strong>
+              <p>围绕街景前馈重建与生成先验辅助的大幅度新视角外推开展研究。</p>
+              <ul><li>利用前馈街景重建模型提升生成式新视角合成模型的几何一致性。</li><li>利用生成先验改进前馈街景重建方法的渲染质量损失。</li><li>面向自动驾驶场景中的大幅度街景新视角外推。</li></ul>
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-智能相机助手">
+            
+            <div class="project-copy">
+              <div class="project-topline">智能辅助摄影</div>
+              <strong>智能相机助手</strong>
+              <p>面向构图建议与拍摄指导的用户友好型相机助手原型。</p>
+              <ul><li>调研照片构图、前馈 3DGS 重建以及基于大模型的美学质量评价方法。</li><li>使用 AI Coding 实现图像分析、构图建议、构图预览生成和拍照步骤指导 Demo。</li></ul>
+              
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
 
     <div class="content-grid">

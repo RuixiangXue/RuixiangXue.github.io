@@ -26,6 +26,7 @@
       <div class="nav-left">
         <a href="#top" data-section-link="top">Home</a>
         <a href="#about" data-section-link="about">Research Area</a>
+        <a href="#projects" data-section-link="projects">Projects</a>
         <a href="#experience" data-section-link="experience">Work Experience</a>
         <a href="#publications" data-section-link="publications">Publications</a>
         <a href="#awards" data-section-link="awards">Awards</a>
@@ -66,9 +67,73 @@
       
       <div class="research-map" aria-label="Spatial intelligence research map">
         <div class="research-core">Spatial<br>Intelligence</div>
-        <span class="research-bubble bubble-0">Intelligent point cloud compression</span><span class="research-bubble bubble-1">3D Gaussian splatting compression</span><span class="research-bubble bubble-2">Implicit neural representations</span><span class="research-bubble bubble-3">Street generative novel-view synthesis</span><span class="research-bubble bubble-4">AI-assisted photography</span>
+        <a class="research-bubble bubble-0" href="#project-intelligent-point-cloud-compression">Intelligent point cloud compression</a><a class="research-bubble bubble-1" href="#project-3d-gaussian-splatting-coding">3D Gaussian splatting compression</a><a class="research-bubble bubble-2" href="#project-implicit-neural-representations">Implicit neural representations</a><a class="research-bubble bubble-3" href="#project-street-generative-novel-view-synthesis">Street generative novel-view synthesis</a><a class="research-bubble bubble-4" href="#project-intelligent-camera-assistant">AI-assisted photography</a>
       </div>
 
+    </section>
+
+    <section class="section" id="projects" data-section="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-body">
+        <div class="project-grid">
+          
+          <article class="card project-card" id="project-intelligent-point-cloud-compression">
+            <img class="project-image" src="assets/media/neri.png" alt="Intelligent Point Cloud Compression preview">
+            <div class="project-copy">
+              <div class="project-topline">Intelligent point cloud compression</div>
+              <strong>Intelligent Point Cloud Compression</strong>
+              <p>Research and development of deep learning based point cloud compression methods for MPEG AI-PCC.</p>
+              <ul><li>Designed Transformer models for point cloud representation and efficient spatial feature extraction.</li><li>Used density changes during point cloud downsampling to guide reconstruction mode selection.</li><li>Achieved 39% geometry compression gain and 34% attribute compression gain over the baseline under public test conditions.</li></ul>
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-3d-gaussian-splatting-coding">
+            <img class="project-image" src="assets/media/macarons.png" alt="3D Gaussian Splatting Coding preview">
+            <div class="project-copy">
+              <div class="project-topline">3D Gaussian splatting compression</div>
+              <strong>3D Gaussian Splatting Coding</strong>
+              <p>Compact and progressive compression for 3D Gaussian splatting scenes.</p>
+              <ul><li>Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.</li><li>Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.</li><li>Proposed LayeredCGS, a feed-forward layered 3DGS compressor with cross-layer context modeling and truncatable bitstreams.</li></ul>
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-implicit-neural-representations">
+            <img class="project-image" src="assets/media/neri.png" alt="Implicit neural representations preview">
+            <div class="project-copy">
+              <div class="project-topline">Implicit neural representations</div>
+              <strong>Implicit neural representations</strong>
+              <p>Implicit neural representation for LiDAR point cloud compression, using range image sequences and pose-conditioned neural fitting.</p>
+              <ul><li>Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into 2D range images and coding them with spatiotemporal conditional neural networks.</li><li>Reached 376 FPS real-time decoding and achieved 91% overall gain at low bitrates over MPEG G-PCC, HEVC, and other learning-based point cloud compression methods.</li></ul>
+              <div class="project-actions"><a href="assets/posters/neri-poster.html" target="_blank" rel="noopener"><i class="fa-solid fa-image"></i><span>Poster</span></a><a href="https://doi.org/10.1109/ICASSP48485.2024.10446596" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a href="https://github.com/RuixiangXue/NeRI" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>Code</span></a></div>
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-street-generative-novel-view-synthesis">
+            <img class="project-image" src="assets/media/GRNet.png" alt="Street Generative Novel-View Synthesis preview">
+            <div class="project-copy">
+              <div class="project-topline">Street generative novel-view synthesis</div>
+              <strong>Street Generative Novel-View Synthesis</strong>
+              <p>Feed-forward street-scene reconstruction and generative-prior assisted large-baseline novel-view extrapolation.</p>
+              <ul><li>Used feed-forward reconstruction to improve geometric consistency in generative novel-view synthesis.</li><li>Leveraged generative priors to improve rendering-quality losses for feed-forward reconstruction.</li><li>Targeted large-baseline street-scene novel-view extrapolation under practical autonomous-driving scenarios.</li></ul>
+              
+            </div>
+          </article>
+
+          <article class="card project-card" id="project-intelligent-camera-assistant">
+            
+            <div class="project-copy">
+              <div class="project-topline">AI-assisted photography</div>
+              <strong>Intelligent Camera Assistant</strong>
+              <p>A user-friendly camera assistant prototype for composition guidance and shooting suggestions.</p>
+              <ul><li>Surveyed photo composition, feed-forward 3DGS reconstruction, and large-model based aesthetic quality assessment methods.</li><li>Built an AI coding demo with image analysis, composition advice, composition preview generation, and step-by-step shooting guidance.</li></ul>
+              
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
 
     <div class="content-grid">

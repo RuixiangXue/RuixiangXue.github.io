@@ -402,8 +402,16 @@ body.theme-prism .research-bubble {
   font-weight: 720;
   line-height: 1.2;
   text-align: center;
+  text-decoration: none;
   animation: bubbleFloat 6s ease-in-out infinite;
   z-index: 2;
+}
+
+body.theme-prism .research-bubble:hover,
+body.theme-prism .research-bubble:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: 0;
 }
 
 body.theme-prism .bubble-0 {
@@ -555,6 +563,14 @@ body.theme-prism .project-grid {
 body.theme-prism .project-card {
   overflow: hidden;
   margin: 0;
+  scroll-margin-top: 92px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+body.theme-prism .project-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 20px 44px rgba(45, 79, 70, 0.16);
+  transform: translateY(-2px);
 }
 
 body.theme-prism .project-image {
@@ -570,10 +586,44 @@ body.theme-prism .project-copy {
   padding: 18px;
 }
 
+body.theme-prism .project-topline {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 body.theme-prism .project-card strong {
   display: block;
   margin-bottom: 8px;
   font-size: 1.16rem;
+}
+
+body.theme-prism .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+body.theme-prism .project-actions a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 720;
+}
+
+body.theme-prism .project-actions a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 body.theme-prism .bibliography {
