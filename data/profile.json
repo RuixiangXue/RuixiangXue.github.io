@@ -9,13 +9,12 @@
     "avatar": "assets/media/profile.jpg",
     "affiliation": "NJU Vision Lab",
     "advisor": "Prof. Zhan Ma",
-    "summary": "Spatial intelligence: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, driving world models, street-scene novel-view synthesis, and AI-assisted photography.",
+    "summary": "Spatial intelligence: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, street generative novel-view synthesis, and AI-assisted photography.",
     "research_interests": [
       "Intelligent point cloud compression",
       "3D Gaussian splatting compression",
       "Implicit neural representations",
-      "Driving world models",
-      "Street-scene novel-view synthesis",
+      "Street generative novel-view synthesis",
       "AI-assisted photography"
     ]
   },
