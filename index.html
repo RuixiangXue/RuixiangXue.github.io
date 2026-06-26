@@ -418,26 +418,39 @@
           observer.observe(el);
         });
 
-        const navLinks = Array.from(document.querySelectorAll('[data-section-link]'));
-        const activeObserver = new IntersectionObserver(function(entries) {
-          const visible = entries
-            .filter(function(entry) { return entry.isIntersecting; })
-            .sort(function(a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
-          if (!visible) return;
-          const section = visible.target.getAttribute('data-section') || visible.target.id;
-          navLinks.forEach(function(link) {
-            link.classList.toggle('active', link.getAttribute('data-section-link') === section);
-          });
-        }, { rootMargin: '-25% 0px -60% 0px', threshold: [0.1, 0.35, 0.65] });
-
-        document.querySelectorAll('[data-section]').forEach(function(el) {
-          activeObserver.observe(el);
-        });
       } else {
         document.querySelectorAll('.section').forEach(function(el) {
           el.classList.add('visible');
         });
       }
+
+      const navLinks = Array.from(document.querySelectorAll('[data-section-link]'));
+      const sections = Array.from(document.querySelectorAll('[data-section]'));
+
+      function setActiveSection(section) {
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('data-section-link') === section);
+        });
+      }
+
+      function updateActiveNav() {
+        if (!sections.length) return;
+        const scrollProbe = window.scrollY + window.innerHeight * 0.35;
+        let current = sections[0].getAttribute('data-section');
+        sections.forEach(function(section) {
+          if (section.offsetTop <= scrollProbe) {
+            current = section.getAttribute('data-section');
+          }
+        });
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+          current = sections[sections.length - 1].getAttribute('data-section');
+        }
+        setActiveSection(current);
+      }
+
+      updateActiveNav();
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      window.addEventListener('resize', updateActiveNav);
     })();
   </script>
 </body>
