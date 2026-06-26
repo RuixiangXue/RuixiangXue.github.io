@@ -605,15 +605,16 @@ def render_publication(item: dict[str, Any]) -> str:
     venue_full = item.get("venue_full") or item.get("venue", "")
     metadata = item.get("metadata", "")
     doi = item.get("doi", "")
+    meta_parts = [part for part in (metadata, f"DOI: {doi}" if doi else "") if part]
+    meta_line = " · ".join(meta_parts)
     return f"""
               <li>
                 <article class="pub-card">
                   <div class="pub-content">
                     <div class="title">{esc(item['title'])}</div>
                     <div class="periodical"><strong>{esc(venue_short)}</strong> · {esc(venue_full)}</div>
-                    {f'<div class="pub-meta">{esc(metadata)}</div>' if metadata else ''}
+                    {f'<div class="pub-meta">{esc(meta_line)}</div>' if meta_line else ''}
                     <div class="author">{esc(item['authors'])}</div>
-                    {f'<div class="pub-doi">DOI: {esc(doi)}</div>' if doi else ''}
                     <div class="pub-badges">{badges}</div>
                     <div class="pub-actions">{actions}</div>
                     <details class="pub-abstract">

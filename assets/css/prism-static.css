@@ -580,16 +580,11 @@ body.theme-prism .pub-content .title {
   line-height: 1.35;
 }
 
-body.theme-prism .pub-meta,
-body.theme-prism .pub-doi {
+body.theme-prism .pub-meta {
   margin-top: 6px;
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-body.theme-prism .pub-doi {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 0.82rem;
 }
 
 body.theme-prism .pub-badges,

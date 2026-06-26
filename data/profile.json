@@ -157,7 +157,7 @@
   "publications": [
     {
       "title": "3D Gaussian Splatting Compression with Object Scalability",
-      "authors": "Ruixiang Xue et al. (authors to be finalized after public release)",
+      "authors": "Ruixiang Xue, Tong Chen, Zhan Ma",
       "venue_short": "ECCV 2026",
       "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
@@ -167,11 +167,11 @@
         "Accepted",
         "3DGS Compression"
       ],
-      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement.",
+      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement. The code will be released at https://github.com/RuixiangXue/ScalableGSC.",
       "links": {
-        "homepage": "",
-        "paper": "",
-        "code": "",
+        "homepage": "https://github.com/RuixiangXue/ScalableGSC",
+        "paper": "assets/papers/3dgs-object-scalability-eccv2026.pdf",
+        "code": "https://github.com/RuixiangXue/ScalableGSC",
         "bibtex": "#bibtex"
       },
       "bullets": [
@@ -185,7 +185,7 @@
         "publication",
         "eccv"
       ],
-      "bibtex": "@inproceedings{xue2026objectscalable3dgs,\n  title={3D Gaussian Splatting Compression with Object Scalability},\n  author={Xue, Ruixiang and others},\n  booktitle={European Conference on Computer Vision (ECCV)},\n  year={2026},\n  note={Accepted, not yet publicly released}\n}"
+      "bibtex": "@inproceedings{xue2026objectscalable3dgs,\n  title={3D Gaussian Splatting Compression with Object Scalability},\n  author={Xue, Ruixiang and Chen, Tong and Ma, Zhan},\n  booktitle={European Conference on Computer Vision (ECCV)},\n  year={2026}\n}"
     },
     {
       "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry",
@@ -231,7 +231,7 @@
         "CCF-B",
         "First author"
       ],
-      "abstract": "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into range image sequences and coding them with spatiotemporal conditional neural networks, reaching real-time decoding and strong low-bitrate gains.",
+      "abstract": "This paper proposes the NeRI, an implicit neural representation (INR) based LiDAR point cloud compressor. In NeRI, we first transform a sequence of 3D LiDAR frames into a 2D range image sequence through range image projection over time. Then, we employ a neural network conditioned on the temporal frame index and associated LiDAR sensor pose to fit input range images as closely as possible. The optimized network parameters, which implicitly represent the input LiDAR data, are later lossily compressed. NeRI decoder is then initialized using decoded parameters to generate range images for reconstructing the 3D LiDAR sequence accordingly. Extensive experimental results demonstrate the significant superiority of NeRI regarding the compression efficiency and decoding speed compared to state-of-the-art 2D and 3D compressors for LiDAR point cloud.",
       "links": {
         "homepage": "https://github.com/RuixiangXue/NeRI",
         "paper": "https://doi.org/10.1109/ICASSP48485.2024.10446596",
@@ -279,7 +279,7 @@
         "bibtex": "#bibtex"
       },
       "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to code the geometry and attribute of any given point cloud. Attribute compression is discussed in Part II of this paper, while geometry compression is given in Part I of this paper. We first construct the multiscale sparse tensors of each voxelized point cloud attribute frame. Since attribute components exhibit very different intrinsic characteristics from the geometry element, e.g., 8-bit RGB color versus 1-bit occupancy, we process the attribute residual between lower-scale reconstruction and current-scale data. Similarly, we leverage spatially lower-scale priors in the current frame and (previously processed) temporal reference frame to improve the probability estimation of attribute intensity through conditional residual prediction in lossless mode or enhance the attribute reconstruction through progressive residual refinement in lossy mode for better performance. The proposed Unicorn is a versatile, learning-based solution capable of compressing a great variety of static and dynamic point clouds in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency with affordable encoding/decoding runtime.",
-      "bibtex": "@article{wang2025unicorngeometry,\n  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part I: Geometry},\n  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  volume={47},\n  number={1},\n  pages={269--287},\n  year={2025},\n  doi={10.1109/TPAMI.2024.3462938}\n}"
+      "bibtex": "@article{wang2025unicornattribute,\n  title={A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding -- Part II: Attribute},\n  author={Wang, Jianqiang and Xue, Ruixiang and Li, Jiaxin and Ding, Dandan and Yi, Lin and Ma, Zhan},\n  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},\n  volume={47},\n  number={1},\n  pages={252--268},\n  year={2025},\n  doi={10.1109/TPAMI.2024.3462945}\n}"
     },
     {
       "title": "GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling",
