@@ -593,6 +593,8 @@ def render_project_card(item: dict[str, Any]) -> str:
 
 def render_publication(item: dict[str, Any]) -> str:
     links = item.get("links", {})
+    action_labels = item.get("action_labels", {})
+    action_icons = item.get("action_icons", {})
     badges = "".join(f'<span>{esc(badge)}</span>' for badge in item.get("badges", []))
     link_items = [
         ("homepage", "fa-solid fa-globe", "Project"),
@@ -600,7 +602,16 @@ def render_publication(item: dict[str, Any]) -> str:
         ("code", "fa-brands fa-github", "Code"),
         ("bibtex", "fa-solid fa-quote-right", "BibTeX"),
     ]
-    actions = "".join(render_publication_action(links.get(key, ""), icon, label, item) for key, icon, label in link_items)
+    actions = "".join(
+        render_publication_action(
+            key,
+            links.get(key, ""),
+            action_icons.get(key, icon),
+            action_labels.get(key, label),
+            item,
+        )
+        for key, icon, label in link_items
+    )
     abstract = item.get("abstract") or "Abstract will be added when the public version is available."
     venue_short = item.get("venue_short") or item.get("venue", "")
     venue_full = item.get("venue_full") or item.get("venue", "")
@@ -629,7 +640,7 @@ def render_publication(item: dict[str, Any]) -> str:
 """
 
 
-def render_publication_action(url: str, icon: str, label: str, item: dict[str, Any]) -> str:
+def render_publication_action(key: str, url: str, icon: str, label: str, item: dict[str, Any]) -> str:
     if label == "BibTeX" and item.get("bibtex"):
         return (
             f'<button class="pub-action" type="button" data-bibtex-target="{esc(bibtex_id(item))}" '
@@ -640,6 +651,8 @@ def render_publication_action(url: str, icon: str, label: str, item: dict[str, A
             f'<a class="pub-action" href="{esc(url)}" target="_blank" rel="noopener" '
             f'title="{esc(label)}"><i class="{esc(icon)}"></i><span>{esc(label)}</span></a>'
         )
+    if key in item.get("hide_missing_actions", []):
+        return ""
     return (
         f'<span class="pub-action disabled" title="{esc(label)} coming soon">'
         f'<i class="{esc(icon)}"></i><span>{esc(label)}</span></span>'
