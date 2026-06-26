@@ -101,6 +101,33 @@
         "Designed Transformer models for point cloud representation and efficient spatial feature extraction.",
         "Used density changes during point cloud downsampling to guide reconstruction mode selection.",
         "Achieved 39% geometry compression gain and 34% attribute compression gain over the baseline under public test conditions."
+      ],
+      "contributions": [
+        {
+          "type": "Standardization proposals",
+          "items": [
+            "MPEG m70061, AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track1), Nov. 2024.",
+            "MPEG m70062, AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track2), Nov. 2024.",
+            "MPEG m70395, [AI-GC][CfP-related] Improved Cross-Platform Reproducibility for AI-Based Point Cloud Compression, Nov. 2024.",
+            "MPEG m70396, [AI-GC][CfP-related] On Model Quantization for AI-Based Point Cloud Compression, Nov. 2024.",
+            "MPEG m64417, [AI-3DGC EE 5.4] Update On the Training Datasets for Attribute Compression, Jul. 2023.",
+            "MPEG m64418, [AI-3DGC EE 5.1] Performance Comparison of Dynamic Point Cloud Geometry Compression for LiDAR Point Clouds, Jul. 2023.",
+            "MPEG m62176, [AI-3DGC] On the Training Datasets for Attribute Compression, Jan. 2023.",
+            "MPEG m62177, [AI-3DGC][EE5.1-related][EE5.3-related] Dynamic Point Cloud Geometry Compression for LiDAR Point Cloud with Ego-Motion Compensation, Jan. 2023.",
+            "MPEG m60353, SparsePCGCv2: Multihead Neighborhood Point Attention for Sparse Point Cloud, Jul. 2022.",
+            "MPEG m59552, SparsePCGCv2: Improved SparsePCGC with attention mechanism, Apr. 2022."
+          ]
+        },
+        {
+          "type": "Patent applications",
+          "items": [
+            "编解码方法、编码器、解码器以及存储介质.",
+            "基于隐式神经网络和深度图投影的激光雷达点云序列表征方法.",
+            "基于神经网络的动态激光雷达点云多尺度几何无损压缩方法.",
+            "基于神经网络的点云几何压缩后处理方法.",
+            "基于注意力机制和稀疏卷积的点云几何无损压缩方法; also filed as 点云几何信息的压缩、解压缩及点云视频编解码方法、装置."
+          ]
+        }
       ]
     },
     {
@@ -111,7 +138,6 @@
         "neural-rendering"
       ],
       "summary": "Compact and progressive compression for 3D Gaussian splatting scenes.",
-      "image": "assets/media/macarons.png",
       "bullets": [
         "Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.",
         "Proposed RecastGS to reorganize pretrained 3DGS into a region-aware layered hierarchy with prompt-driven object extraction and progressive distillation.",

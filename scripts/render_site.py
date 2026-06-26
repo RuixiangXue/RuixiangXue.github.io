@@ -671,6 +671,7 @@ def render_project_card(item: dict[str, Any]) -> str:
               <p>{esc(item.get('summary', ''))}</p>
               {bullet_list}
               {render_project_links(item)}
+              {render_project_contributions(item)}
             </div>
           </article>
 """
@@ -690,7 +691,37 @@ def render_project_links(item: dict[str, Any]) -> str:
         for key, icon, label in link_items
         if (url := links.get(key))
     )
+    if item.get("contributions"):
+        target = f"#{project_id(item['name'])}-contributions"
+        rendered += (
+            f'<a href="{esc(target)}">'
+            f'<i class="{esc(action_icons.get("contributions", "fa-solid fa-list-check"))}"></i>'
+            f'<span>{esc(action_labels.get("contributions", "Contributions"))}</span>'
+            "</a>"
+        )
     return f'<div class="project-actions">{rendered}</div>' if rendered else ""
+
+
+def render_project_contributions(item: dict[str, Any]) -> str:
+    groups = item.get("contributions", [])
+    if not groups:
+        return ""
+    body = []
+    for group in groups:
+        entries = "".join(f"<li>{esc(entry)}</li>" for entry in group.get("items", []))
+        body.append(
+            f"""
+                <div class="contribution-group">
+                  <h3>{esc(group.get('type', 'Contributions'))}</h3>
+                  <ol>{entries}</ol>
+                </div>
+"""
+        )
+    return f"""
+              <div class="project-contributions" id="{esc(project_id(item['name']))}-contributions">
+                {''.join(body)}
+              </div>
+"""
 
 
 def render_publication(item: dict[str, Any]) -> str:

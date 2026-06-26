@@ -645,6 +645,40 @@ body.theme-prism .project-actions a:hover {
   color: var(--accent);
 }
 
+body.theme-prism .project-contributions {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 92px;
+}
+
+body.theme-prism .project-contributions:target {
+  border-top-color: var(--accent);
+}
+
+body.theme-prism .contribution-group + .contribution-group {
+  margin-top: 14px;
+}
+
+body.theme-prism .contribution-group h3 {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.theme-prism .contribution-group ol {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 body.theme-prism .bibliography {
   display: grid;
   gap: 12px;
