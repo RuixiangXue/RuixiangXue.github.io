@@ -325,11 +325,22 @@ body.theme-prism .muted-line {
 
 body.theme-prism .focus-section {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 42px;
+  grid-template-columns: minmax(320px, 0.38fr) minmax(0, 1fr);
+  gap: 72px;
   align-items: start;
   padding: 46px 0;
   border-bottom: 1px solid var(--line);
+}
+
+body.theme-prism .focus-section > div:first-child {
+  position: relative;
+  z-index: 8;
+  min-width: 0;
+  padding-right: 12px;
+}
+
+body.theme-prism .focus-section .section-title {
+  max-width: 360px;
 }
 
 body.theme-prism .focus-list {
@@ -339,6 +350,7 @@ body.theme-prism .focus-list {
 }
 
 body.theme-prism .research-map {
+  isolation: isolate;
   position: relative;
   min-height: 420px;
   overflow: hidden;
