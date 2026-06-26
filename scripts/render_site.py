@@ -82,7 +82,7 @@ def labels(lang: str) -> dict[str, str]:
         "publications": "Publications",
         "projects": "Projects",
         "jobs": "Jobs",
-        "research_focus": "Research Areas",
+        "research_focus": "Research Area",
         "about": "Spatial Intelligence",
         "about_prefix": "I am",
         "affiliation": "Affiliation",
