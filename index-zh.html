@@ -50,6 +50,10 @@
       <aside class="hero-visual">
         <div class="portrait-frame">
           <img src="assets/media/profile.jpg" alt="Ruixiang Xue portrait">
+          <a class="say-hi" href="mailto:xrxee@smail.nju.edu.cn" title="Say Hi">
+            <i class="fa-solid fa-hand-sparkles"></i>
+            <span>Say Hi</span>
+          </a>
         </div>
       </aside>
     </section>
@@ -79,7 +83,7 @@
                 <p class="exp-title"><strong>南京大学</strong></p>
                 <p class="exp-detail">信息与通信工程博士研究生</p>
                 <p class="exp-period">2021.09 - 2027.06</p>
-                <ul><li>NJU Vision Lab，导师：马展教授</li><li>研究方向：智能点云压缩、三维高斯泼溅压缩</li><li>博士资格考核优秀</li></ul>
+                <ul><li>NJU Vision Lab，导师：马展教授</li><li>研究方向：智能点云压缩、三维高斯泼溅压缩、隐式神经表达、AI-assisted photography</li><li>博士资格考核优秀</li></ul>
               </div>
             </div>
           </div>
@@ -144,7 +148,9 @@
                   <div class="pub-content">
                     <div class="title">3D Gaussian Splatting Compression with Object Scalability</div>
                     <div class="periodical"><strong>ECCV 2026</strong> · European Conference on Computer Vision</div>
+                    
                     <div class="author">Ruixiang Xue et al. (authors to be finalized after public release)</div>
+                    
                     <div class="pub-badges"><span>ECCV 2026</span><span>Accepted</span><span>3DGS Compression</span></div>
                     <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><span class="pub-action disabled" title="Paper coming soon"><i class="fa-solid fa-file-lines"></i><span>Paper</span></span><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
                     <details class="pub-abstract">
@@ -158,11 +164,13 @@
               <li>
                 <article class="pub-card">
                   <div class="pub-content">
-                    <div class="title">A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry</div>
+                    <div class="title">A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry</div>
                     <div class="periodical"><strong>TPAMI</strong> · IEEE Transactions on Pattern Analysis and Machine Intelligence</div>
+                    <div class="pub-meta">Vol. 47, No. 1, pp. 269-287, Jan. 2025</div>
                     <div class="author">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma</div>
-                    <div class="pub-badges"><span>SCI Q1</span><span>CCF-A</span><span>IF 18.6</span><span>共同一作</span></div>
-                    <div class="pub-actions"><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Project"><i class="fa-solid fa-globe"></i><span>Project</span></a><a class="pub-action" href="https://pubmed.ncbi.nlm.nih.gov/39288049/" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-doi">DOI: 10.1109/TPAMI.2024.3462938</div>
+                    <div class="pub-badges"><span>SCI 一区</span><span>CCF-A</span><span>IF 18.6</span><span>共同一作</span></div>
+                    <div class="pub-actions"><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Project"><i class="fa-solid fa-globe"></i><span>Project</span></a><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462938" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/NJUVISION/Unicorn" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.</p>
@@ -176,12 +184,50 @@
                   <div class="pub-content">
                     <div class="title">NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence</div>
                     <div class="periodical"><strong>ICASSP 2024</strong> · IEEE International Conference on Acoustics, Speech, and Signal Processing</div>
+                    <div class="pub-meta">ICASSP 2024, pp. 8020-8024</div>
                     <div class="author">Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma</div>
+                    <div class="pub-doi">DOI: 10.1109/ICASSP48485.2024.10446596</div>
                     <div class="pub-badges"><span>CCF-B</span><span>第一作者</span><span>LiDAR Compression</span></div>
-                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://ieeexplore.ieee.org/document/10446596/" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/ICASSP48485.2024.10446596" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列，并使用时空条件神经网络编码；实现 376 FPS 实时解码，在低码率段取得显著压缩增益。</p>
+                    </details>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article class="pub-card">
+                  <div class="pub-content">
+                    <div class="title">A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute</div>
+                    <div class="periodical"><strong>TPAMI</strong> · IEEE Transactions on Pattern Analysis and Machine Intelligence</div>
+                    <div class="pub-meta">Vol. 47, No. 1, pp. 252-268, Jan. 2025</div>
+                    <div class="author">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma</div>
+                    <div class="pub-doi">DOI: 10.1109/TPAMI.2024.3462945</div>
+                    <div class="pub-badges"><span>SCI 一区</span><span>CCF-A</span><span>IF 18.6</span><span>第二作者</span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TPAMI.2024.3462945" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <details class="pub-abstract">
+                      <summary>Abstract</summary>
+                      <p>该文是 Unicorn 通用多尺度条件编码框架的属性压缩部分。公开元数据已确认作者、DOI、期刊、卷期和页码；完整摘要将在获得出版社摘要或论文文本后补充。</p>
+                    </details>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article class="pub-card">
+                  <div class="pub-content">
+                    <div class="title">GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling</div>
+                    <div class="periodical"><strong>TVCG</strong> · IEEE Transactions on Visualization and Computer Graphics</div>
+                    <div class="pub-meta">Vol. 30, No. 10, pp. 6740-6753, Oct. 2024</div>
+                    <div class="author">Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma</div>
+                    <div class="pub-doi">DOI: 10.1109/TVCG.2023.3336936</div>
+                    <div class="pub-badges"><span>SCI 一区</span><span>CCF-A</span><span>IF 6.5</span><span>第二作者</span></div>
+                    <div class="pub-actions"><span class="pub-action disabled" title="Project coming soon"><i class="fa-solid fa-globe"></i><span>Project</span></span><a class="pub-action" href="https://doi.org/10.1109/TVCG.2023.3336936" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><span class="pub-action disabled" title="Code coming soon"><i class="fa-brands fa-github"></i><span>Code</span></span><span class="pub-action disabled" title="BibTeX coming soon"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></span></div>
+                    <details class="pub-abstract">
+                      <summary>Abstract</summary>
+                      <p>公开元数据已确认作者、DOI、期刊、卷期和页码；完整摘要将在获得出版社摘要或论文文本后补充。</p>
                     </details>
                   </div>
                 </article>

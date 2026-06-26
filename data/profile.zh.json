@@ -37,7 +37,7 @@
       "period": "2021.09 - 2027.06",
       "details": [
         "NJU Vision Lab，导师：马展教授",
-        "研究方向：智能点云压缩、三维高斯泼溅压缩",
+        "研究方向：智能点云压缩、三维高斯泼溅压缩、隐式神经表达、AI-assisted photography",
         "博士资格考核优秀"
       ]
     },
@@ -186,14 +186,14 @@
       ]
     },
     {
-      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry",
       "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
       "venue_short": "TPAMI",
       "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 47(1):269-287, 2025",
       "notes": "SCI 一区，CCF-A，影响因子 18.6，共同一作",
       "badges": [
-        "SCI Q1",
+        "SCI 一区",
         "CCF-A",
         "IF 18.6",
         "共同一作"
@@ -201,7 +201,7 @@
       "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.",
       "links": {
         "homepage": "https://github.com/NJUVISION/Unicorn",
-        "paper": "https://pubmed.ncbi.nlm.nih.gov/39288049/",
+        "paper": "https://doi.org/10.1109/TPAMI.2024.3462938",
         "code": "https://github.com/NJUVISION/Unicorn",
         "bibtex": ""
       },
@@ -213,7 +213,9 @@
         "compression",
         "point-cloud",
         "publication"
-      ]
+      ],
+      "doi": "10.1109/TPAMI.2024.3462938",
+      "metadata": "Vol. 47, No. 1, pp. 269-287, Jan. 2025"
     },
     {
       "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
@@ -230,7 +232,7 @@
       "abstract": "提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列，并使用时空条件神经网络编码；实现 376 FPS 实时解码，在低码率段取得显著压缩增益。",
       "links": {
         "homepage": "",
-        "paper": "https://ieeexplore.ieee.org/document/10446596/",
+        "paper": "https://doi.org/10.1109/ICASSP48485.2024.10446596",
         "code": "",
         "bibtex": ""
       },
@@ -241,6 +243,64 @@
       "tags": [
         "compression",
         "lidar",
+        "publication"
+      ],
+      "doi": "10.1109/ICASSP48485.2024.10446596",
+      "metadata": "ICASSP 2024, pp. 8020-8024"
+    },
+    {
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute",
+      "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
+      "venue_short": "TPAMI",
+      "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 47(1):252-268, 2025",
+      "notes": "SCI 一区，CCF-A，影响因子 18.6，第二作者",
+      "badges": [
+        "SCI 一区",
+        "CCF-A",
+        "IF 18.6",
+        "第二作者"
+      ],
+      "doi": "10.1109/TPAMI.2024.3462945",
+      "metadata": "Vol. 47, No. 1, pp. 252-268, Jan. 2025",
+      "abstract": "该文是 Unicorn 通用多尺度条件编码框架的属性压缩部分。公开元数据已确认作者、DOI、期刊、卷期和页码；完整摘要将在获得出版社摘要或论文文本后补充。",
+      "links": {
+        "homepage": "",
+        "paper": "https://doi.org/10.1109/TPAMI.2024.3462945",
+        "code": "",
+        "bibtex": ""
+      },
+      "tags": [
+        "compression",
+        "point-cloud",
+        "publication"
+      ]
+    },
+    {
+      "title": "GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling",
+      "authors": "Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma",
+      "venue_short": "TVCG",
+      "venue_full": "IEEE Transactions on Visualization and Computer Graphics",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, 30(10):6740-6753, 2024",
+      "notes": "SCI 一区，CCF-A，影响因子 6.5，第二作者",
+      "badges": [
+        "SCI 一区",
+        "CCF-A",
+        "IF 6.5",
+        "第二作者"
+      ],
+      "doi": "10.1109/TVCG.2023.3336936",
+      "metadata": "Vol. 30, No. 10, pp. 6740-6753, Oct. 2024",
+      "abstract": "公开元数据已确认作者、DOI、期刊、卷期和页码；完整摘要将在获得出版社摘要或论文文本后补充。",
+      "links": {
+        "homepage": "",
+        "paper": "https://doi.org/10.1109/TVCG.2023.3336936",
+        "code": "",
+        "bibtex": ""
+      },
+      "tags": [
+        "compression",
+        "point-cloud",
         "publication"
       ]
     }

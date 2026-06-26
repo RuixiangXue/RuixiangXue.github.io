@@ -37,14 +37,14 @@
       "period": "2021.09 - 2027.06",
       "details": [
         "NJU Vision Lab, advised by Prof. Zhan Ma",
-        "Research fields: intelligent point cloud compression and 3D Gaussian splatting compression",
+        "Research fields: intelligent point cloud compression, 3D Gaussian splatting compression, implicit neural representations, and AI-assisted photography",
         "Excellent result in doctoral qualification assessment"
       ]
     },
     {
       "school": "Hangzhou Dianzi University",
       "logo": "assets/logos/hdu.svg",
-      "degree": "B.Eng., Electronic Information Engineering",
+      "degree": "B.Eng. in Electronic Information Engineering",
       "period": "2017.09 - 2021.06",
       "details": []
     }
@@ -187,11 +187,11 @@
       ]
     },
     {
-      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part I Geometry",
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry",
       "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
       "venue_short": "TPAMI",
       "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 47(1):269-287, 2025",
       "notes": "SCI Q1, CCF-A, impact factor 18.6, co-first author",
       "badges": [
         "SCI Q1",
@@ -202,7 +202,7 @@
       "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.",
       "links": {
         "homepage": "https://github.com/NJUVISION/Unicorn",
-        "paper": "https://pubmed.ncbi.nlm.nih.gov/39288049/",
+        "paper": "https://doi.org/10.1109/TPAMI.2024.3462938",
         "code": "https://github.com/NJUVISION/Unicorn",
         "bibtex": ""
       },
@@ -214,7 +214,9 @@
         "compression",
         "point-cloud",
         "publication"
-      ]
+      ],
+      "doi": "10.1109/TPAMI.2024.3462938",
+      "metadata": "Vol. 47, No. 1, pp. 269-287, Jan. 2025"
     },
     {
       "title": "NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence",
@@ -231,7 +233,7 @@
       "abstract": "Proposed the first implicit neural representation method for LiDAR point cloud compression by converting 3D point clouds into range image sequences and coding them with spatiotemporal conditional neural networks, reaching real-time decoding and strong low-bitrate gains.",
       "links": {
         "homepage": "",
-        "paper": "https://ieeexplore.ieee.org/document/10446596/",
+        "paper": "https://doi.org/10.1109/ICASSP48485.2024.10446596",
         "code": "",
         "bibtex": ""
       },
@@ -243,31 +245,64 @@
         "compression",
         "lidar",
         "publication"
-      ]
+      ],
+      "doi": "10.1109/ICASSP48485.2024.10446596",
+      "metadata": "ICASSP 2024, pp. 8020-8024"
     },
     {
-      "title": "A Unified Point Cloud Compressor Using Universal Multiscale Conditional Coding-Part II Attribute",
-      "authors": "Ruixiang Xue et al.",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "title": "A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute",
+      "authors": "Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 47(1):252-268, 2025",
       "notes": "SCI Q1, CCF-A, impact factor 18.6, second author",
       "bullets": [],
       "tags": [
         "compression",
         "point-cloud",
         "publication"
-      ]
+      ],
+      "venue_short": "TPAMI",
+      "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "doi": "10.1109/TPAMI.2024.3462945",
+      "metadata": "Vol. 47, No. 1, pp. 252-268, Jan. 2025",
+      "badges": [
+        "SCI Q1",
+        "CCF-A",
+        "IF 18.6",
+        "Second author"
+      ],
+      "links": {
+        "homepage": "",
+        "paper": "https://doi.org/10.1109/TPAMI.2024.3462945",
+        "code": "",
+        "bibtex": ""
+      },
+      "abstract": "Attribute compression is discussed in Part II of the Unicorn framework. Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages; the full abstract will be added after the publisher abstract or manuscript text is available."
     },
     {
       "title": "GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling",
-      "authors": "Ruixiang Xue et al.",
-      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "authors": "Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics, 30(10):6740-6753, 2024",
       "notes": "SCI Q1, CCF-A, impact factor 6.5, second author",
       "bullets": [],
       "tags": [
         "compression",
         "point-cloud",
         "publication"
-      ]
+      ],
+      "venue_short": "TVCG",
+      "venue_full": "IEEE Transactions on Visualization and Computer Graphics",
+      "doi": "10.1109/TVCG.2023.3336936",
+      "metadata": "Vol. 30, No. 10, pp. 6740-6753, Oct. 2024",
+      "badges": [
+        "SCI Q1",
+        "CCF-A",
+        "IF 6.5",
+        "Second author"
+      ],
+      "links": {
+        "paper": "https://doi.org/10.1109/TVCG.2023.3336936"
+      },
+      "abstract": "Public metadata confirms the article record, authors, DOI, venue, volume, issue, and pages. The full abstract will be added after the publisher abstract or manuscript text is available."
     }
   ],
   "skills": [

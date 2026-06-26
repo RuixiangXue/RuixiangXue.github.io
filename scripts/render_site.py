@@ -171,6 +171,10 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
       <aside class="hero-visual">
         <div class="portrait-frame">
           <img src="{esc(person.get('avatar', 'assets/img/avatar.svg'))}" alt="{esc(person['name'])} portrait">
+          <a class="say-hi" href="mailto:{esc(person['email'])}" title="Say Hi">
+            <i class="fa-solid fa-hand-sparkles"></i>
+            <span>Say Hi</span>
+          </a>
         </div>
       </aside>
     </section>
@@ -555,13 +559,17 @@ def render_publication(item: dict[str, Any]) -> str:
     abstract = item.get("abstract") or "Abstract will be added when the public version is available."
     venue_short = item.get("venue_short") or item.get("venue", "")
     venue_full = item.get("venue_full") or item.get("venue", "")
+    metadata = item.get("metadata", "")
+    doi = item.get("doi", "")
     return f"""
               <li>
                 <article class="pub-card">
                   <div class="pub-content">
                     <div class="title">{esc(item['title'])}</div>
                     <div class="periodical"><strong>{esc(venue_short)}</strong> · {esc(venue_full)}</div>
+                    {f'<div class="pub-meta">{esc(metadata)}</div>' if metadata else ''}
                     <div class="author">{esc(item['authors'])}</div>
+                    {f'<div class="pub-doi">DOI: {esc(doi)}</div>' if doi else ''}
                     <div class="pub-badges">{badges}</div>
                     <div class="pub-actions">{actions}</div>
                     <details class="pub-abstract">

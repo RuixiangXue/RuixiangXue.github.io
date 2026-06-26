@@ -224,6 +224,7 @@ body.theme-prism .hero-visual {
 }
 
 body.theme-prism .portrait-frame {
+  position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -238,6 +239,35 @@ body.theme-prism .portrait-frame img {
   min-height: 440px;
   object-fit: cover;
   object-position: center;
+}
+
+body.theme-prism .say-hi {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 780;
+  backdrop-filter: blur(14px);
+}
+
+body.theme-prism .say-hi i {
+  color: var(--accent);
+}
+
+body.theme-prism .say-hi:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 body.theme-prism .institution-logo[src*="hdu.svg"] {
@@ -524,6 +554,18 @@ body.theme-prism .pub-content .title {
   font-size: 1.22rem;
   font-weight: 800;
   line-height: 1.35;
+}
+
+body.theme-prism .pub-meta,
+body.theme-prism .pub-doi {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+body.theme-prism .pub-doi {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
 }
 
 body.theme-prism .pub-badges,
