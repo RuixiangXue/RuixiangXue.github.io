@@ -87,9 +87,17 @@
               
               <div class="project-contributions" id="project-intelligent-point-cloud-compression-contributions">
                 
-                <div class="contribution-group">
-                  <h3>Standardization proposals</h3>
-                  <ol>
+                  <div class="contribution-group contribution-actions">
+                    <button type="button" class="project-action-button" data-dialog-target="project-intelligent-point-cloud-compression-standardization-proposals-dialog">
+                      <i class="fa-solid fa-file-lines"></i><span>Standardization proposals</span>
+                    </button>
+                    <dialog class="project-dialog" id="project-intelligent-point-cloud-compression-standardization-proposals-dialog">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>Standardization proposals</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <ol class="dialog-contribution-list">
                     <li>
                       <span class="contribution-meta">MPEG m70061 · Nov. 2024</span>
                       <strong>AI-PCC CfP Response Proposal from Nanjing University and OPPO (Track1)</strong>
@@ -160,47 +168,49 @@
                       
                     </li>
 </ol>
-                </div>
+                      </div>
+                    </dialog>
+                  </div>
 
-                <div class="contribution-group">
-                  <h3>Patent applications</h3>
-                  <ol>
+                  <div class="contribution-group">
+                    <h3>Patent applications</h3>
+                    <ol>
                     <li>
-                      <span class="contribution-meta">南大二期-13 · 2024</span>
+                      <span class="contribution-meta">2024</span>
                       <strong>编解码方法、编码器、解码器以及存储介质</strong>
                       <span class="contribution-authors">马展，薛瑞翔，魏红莲</span>
                       
                     </li>
 
                     <li>
-                      <span class="contribution-meta">南大二期-12 · 2023</span>
+                      <span class="contribution-meta">2023</span>
                       <strong>基于隐式神经网络和深度图投影的激光雷达点云序列表征方法</strong>
                       <span class="contribution-authors">薛瑞翔，李嘉欣，马展</span>
                       
                     </li>
 
                     <li>
-                      <span class="contribution-meta">南大二期-09 · 2023</span>
+                      <span class="contribution-meta">2023</span>
                       <strong>基于神经网络的动态激光雷达点云多尺度几何无损压缩方法</strong>
                       <span class="contribution-authors">马展，薛瑞翔</span>
                       
                     </li>
 
                     <li>
-                      <span class="contribution-meta">南大二期-06 · 2022</span>
+                      <span class="contribution-meta">2022</span>
                       <strong>基于神经网络的点云几何压缩后处理方法</strong>
                       <span class="contribution-authors">马展，薛瑞翔</span>
                       
                     </li>
 
                     <li>
-                      <span class="contribution-meta">南大二期-01 · 2022</span>
+                      <span class="contribution-meta">2022</span>
                       <strong>基于注意力机制和稀疏卷积的点云几何无损压缩方法</strong>
                       <span class="contribution-authors">薛瑞翔，王剑强，马展</span>
                       <span class="contribution-note">also filed as 点云几何信息的压缩、解压缩及点云视频编解码方法、装置</span>
                     </li>
 </ol>
-                </div>
+                  </div>
 
               </div>
 
@@ -557,6 +567,31 @@
           const oldText = button.innerText;
           button.innerText = 'Copied';
           window.setTimeout(function() { button.innerText = oldText; }, 1200);
+        });
+      });
+
+      document.querySelectorAll('[data-dialog-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const dialog = document.getElementById(button.getAttribute('data-dialog-target'));
+          if (!dialog) return;
+          if (typeof dialog.showModal === 'function') {
+            dialog.showModal();
+          } else {
+            dialog.setAttribute('open', '');
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-dialog-close]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const dialog = button.closest('dialog');
+          if (dialog) dialog.close();
+        });
+      });
+
+      document.querySelectorAll('dialog.project-dialog').forEach(function(dialog) {
+        dialog.addEventListener('click', function(event) {
+          if (event.target === dialog) dialog.close();
         });
       });
 

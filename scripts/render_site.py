@@ -430,6 +430,31 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
+      document.querySelectorAll('[data-dialog-target]').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const dialog = document.getElementById(button.getAttribute('data-dialog-target'));
+          if (!dialog) return;
+          if (typeof dialog.showModal === 'function') {{
+            dialog.showModal();
+          }} else {{
+            dialog.setAttribute('open', '');
+          }}
+        }});
+      }});
+
+      document.querySelectorAll('[data-dialog-close]').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const dialog = button.closest('dialog');
+          if (dialog) dialog.close();
+        }});
+      }});
+
+      document.querySelectorAll('dialog.project-dialog').forEach(function(dialog) {{
+        dialog.addEventListener('click', function(event) {{
+          if (event.target === dialog) dialog.close();
+        }});
+      }});
+
       if ('IntersectionObserver' in window) {{
         const observer = new IntersectionObserver(function(entries) {{
           entries.forEach(function(entry) {{
@@ -702,19 +727,49 @@ def render_project_contributions(item: dict[str, Any]) -> str:
         return ""
     body = []
     for group in groups:
-        entries = "".join(render_contribution_item(entry) for entry in group.get("items", []))
-        body.append(
-            f"""
-                <div class="contribution-group">
-                  <h3>{esc(group.get('type', 'Contributions'))}</h3>
-                  <ol>{entries}</ol>
-                </div>
+        if is_standardization_group(group):
+            body.append(render_contribution_dialog_group(item, group))
+        else:
+            entries = "".join(render_contribution_item(entry) for entry in group.get("items", []))
+            body.append(
+                f"""
+                  <div class="contribution-group">
+                    <h3>{esc(group.get('type', 'Contributions'))}</h3>
+                    <ol>{entries}</ol>
+                  </div>
 """
-        )
+            )
     return f"""
               <div class="project-contributions" id="{esc(project_id(item['name']))}-contributions">
                 {''.join(body)}
               </div>
+"""
+
+
+def is_standardization_group(group: dict[str, Any]) -> bool:
+    name = normalize_key(group.get("type", ""))
+    return "standardization" in name or "标准化" in name
+
+
+def render_contribution_dialog_group(item: dict[str, Any], group: dict[str, Any]) -> str:
+    label = group.get("type", "Standardization proposals")
+    dialog_id = f"{project_id(item['name'])}-{normalize_key(label).replace(' ', '-')}-dialog"
+    entries = "".join(render_contribution_item(entry) for entry in group.get("items", []))
+    return f"""
+                  <div class="contribution-group contribution-actions">
+                    <button type="button" class="project-action-button" data-dialog-target="{esc(dialog_id)}">
+                      <i class="fa-solid fa-file-lines"></i><span>{esc(label)}</span>
+                    </button>
+                    <dialog class="project-dialog" id="{esc(dialog_id)}">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>{esc(label)}</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <ol class="dialog-contribution-list">{entries}</ol>
+                      </div>
+                    </dialog>
+                  </div>
 """
 
 
