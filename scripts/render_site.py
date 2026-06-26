@@ -544,7 +544,7 @@ def render_interest_list(interests: list[str]) -> str:
 
 
 def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]], *, lang: str) -> str:
-    bubbles = "".join(render_research_bubble(item, index, projects, lang=lang) for index, item in enumerate(interests))
+    bubbles = "".join(render_research_bubble(item, index, projects) for index, item in enumerate(interests))
     return f"""
       <div class="research-map" aria-label="Spatial intelligence research map">
         <div class="research-core">Spatial<br>Intelligence</div>
@@ -553,15 +553,11 @@ def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]]
 """
 
 
-def render_research_bubble(interest: str, index: int, projects: list[dict[str, Any]], *, lang: str) -> str:
+def render_research_bubble(interest: str, index: int, projects: list[dict[str, Any]]) -> str:
     target = find_project_for_interest(interest, projects)
     if target:
         return f'<a class="research-bubble bubble-{index % 6}" href="#{esc(target)}">{esc(interest)}</a>'
-    note = "Coming soon" if lang == "en" else "待补充"
-    return (
-        f'<span class="research-bubble bubble-{index % 6} is-disabled">'
-        f'{esc(interest)}<small>{esc(note)}</small></span>'
-    )
+    return f'<span class="research-bubble bubble-{index % 6} is-static"><strong>{esc(interest)}</strong></span>'
 
 
 def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[str, Any]]:

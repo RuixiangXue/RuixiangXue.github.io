@@ -95,7 +95,7 @@ class RenderSiteTest(unittest.TestCase):
         self.assertIn("research-map", home)
         self.assertIn('href="#project-point-cloud-compression"', home)
         self.assertIn('id="project-point-cloud-compression"', home)
-        self.assertIn("Coming soon", home)
+        self.assertNotIn("Coming soon", home)
         self.assertNotIn("logo-cloud", home)
         self.assertNotIn("Field Notes", home)
         self.assertIn("Point Cloud Compression", resume)

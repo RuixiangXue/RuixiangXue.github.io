@@ -416,19 +416,14 @@ body.theme-prism .research-bubble:focus-visible {
 }
 
 body.theme-prism .research-bubble small {
-  margin-top: 2px;
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 760;
-  text-transform: uppercase;
+  display: none;
 }
 
-body.theme-prism .research-bubble.is-disabled {
+body.theme-prism .research-bubble.is-static {
   cursor: default;
-  opacity: 0.72;
 }
 
-body.theme-prism .research-bubble.is-disabled:hover {
+body.theme-prism .research-bubble.is-static:hover {
   border-color: var(--line);
   color: var(--foreground);
 }
