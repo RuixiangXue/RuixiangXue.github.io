@@ -623,28 +623,13 @@ body.theme-prism .project-copy > strong {
 body.theme-prism .project-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
 }
 
-body.theme-prism .project-actions a {
-  display: inline-flex;
-  min-height: 32px;
-  align-items: center;
-  gap: 7px;
-  padding: 0 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--foreground);
-  font-size: 0.84rem;
-  font-weight: 720;
-}
-
-body.theme-prism .project-actions a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
+body.theme-prism .project-actions a,
 body.theme-prism .project-action-button {
   display: inline-flex;
   min-height: 34px;
@@ -653,12 +638,20 @@ body.theme-prism .project-action-button {
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
   color: var(--foreground);
-  cursor: pointer;
-  font: inherit;
   font-size: 0.86rem;
   font-weight: 760;
+}
+
+body.theme-prism .project-actions a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+body.theme-prism .project-action-button {
+  background: var(--surface);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 body.theme-prism .project-action-button:hover {
@@ -682,6 +675,10 @@ body.theme-prism .project-contributions:target {
 
 body.theme-prism .contribution-group + .contribution-group {
   margin-top: 14px;
+}
+
+body.theme-prism .contribution-actions + .contribution-actions {
+  margin-top: 0;
 }
 
 body.theme-prism .contribution-actions {
