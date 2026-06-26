@@ -410,14 +410,6 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
-      document.querySelectorAll('[data-bibtex-target]').forEach(function(button) {{
-        button.addEventListener('click', function() {{
-          const target = document.getElementById(button.getAttribute('data-bibtex-target'));
-          if (!target) return;
-          target.hidden = !target.hidden;
-        }});
-      }});
-
       document.querySelectorAll('[data-copy-bibtex]').forEach(function(button) {{
         button.addEventListener('click', async function() {{
           const target = document.getElementById(button.getAttribute('data-copy-bibtex'));
@@ -819,6 +811,7 @@ def render_publication(item: dict[str, Any]) -> str:
                       <p>{esc(abstract)}</p>
                     </details>
                     {render_bibtex_box(item)}
+                    {render_poster_dialog(item)}
                   </div>
                 </article>
               </li>
@@ -828,7 +821,12 @@ def render_publication(item: dict[str, Any]) -> str:
 def render_publication_action(key: str, url: str, icon: str, label: str, item: dict[str, Any]) -> str:
     if label == "BibTeX" and item.get("bibtex"):
         return (
-            f'<button class="pub-action" type="button" data-bibtex-target="{esc(bibtex_id(item))}" '
+            f'<button class="pub-action" type="button" data-dialog-target="{esc(bibtex_id(item))}" '
+            f'title="{esc(label)}"><i class="{esc(icon)}"></i><span>{esc(label)}</span></button>'
+        )
+    if label == "Poster" and item.get("poster_image"):
+        return (
+            f'<button class="pub-action" type="button" data-dialog-target="{esc(poster_id(item))}" '
             f'title="{esc(label)}"><i class="{esc(icon)}"></i><span>{esc(label)}</span></button>'
         )
     if url:
@@ -850,13 +848,37 @@ def render_bibtex_box(item: dict[str, Any]) -> str:
         return ""
     box_id = bibtex_id(item)
     return f"""
-                    <div class="bibtex-box" id="{esc(box_id)}" hidden>
-                      <div class="bibtex-head">
-                        <strong>BibTeX</strong>
-                        <button type="button" data-copy-bibtex="{esc(box_id)}">Copy</button>
+                    <dialog class="project-dialog pub-dialog" id="{esc(box_id)}">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>BibTeX</strong>
+                          <div class="dialog-head-actions">
+                            <button type="button" data-copy-bibtex="{esc(box_id)}">Copy</button>
+                            <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                          </div>
+                        </div>
+                        <pre class="bibtex-dialog-code"><code>{esc(bibtex)}</code></pre>
                       </div>
-                      <pre><code>{esc(bibtex)}</code></pre>
-                    </div>
+                    </dialog>
+"""
+
+
+def render_poster_dialog(item: dict[str, Any]) -> str:
+    poster = item.get("poster_image")
+    if not poster:
+        return ""
+    return f"""
+                    <dialog class="project-dialog poster-dialog" id="{esc(poster_id(item))}">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>Poster</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="poster-dialog-body">
+                          <img src="{esc(poster)}" alt="{esc(item.get('title', 'Publication'))} poster">
+                        </div>
+                      </div>
+                    </dialog>
 """
 
 
@@ -867,6 +889,12 @@ def bibtex_id(item: dict[str, Any]) -> str:
     slug = "-".join(part for part in base.split("-") if part)[:48]
     suffix_slug = "-".join(part for part in suffix.split("-") if part)[-18:]
     return f"bibtex-{slug}-{suffix_slug}"
+
+
+def poster_id(item: dict[str, Any]) -> str:
+    base = "".join(ch.lower() if ch.isalnum() else "-" for ch in item["title"])
+    slug = "-".join(part for part in base.split("-") if part)[:48]
+    return f"poster-{slug}"
 
 
 def format_inline(text: Any) -> str:

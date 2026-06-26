@@ -97,14 +97,6 @@
         });
       });
 
-      document.querySelectorAll('[data-bibtex-target]').forEach(function(button) {
-        button.addEventListener('click', function() {
-          const target = document.getElementById(button.getAttribute('data-bibtex-target'));
-          if (!target) return;
-          target.hidden = !target.hidden;
-        });
-      });
-
       document.querySelectorAll('[data-copy-bibtex]').forEach(function(button) {
         button.addEventListener('click', async function() {
           const target = document.getElementById(button.getAttribute('data-copy-bibtex'));

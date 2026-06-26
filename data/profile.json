@@ -338,6 +338,7 @@
         "code": "https://github.com/RuixiangXue/NeRI",
         "bibtex": "#bibtex"
       },
+      "poster_image": "assets/posters/neri-poster.png",
       "action_labels": {
         "homepage": "Poster"
       },
