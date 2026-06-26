@@ -557,7 +557,7 @@ def render_research_bubble(interest: str, index: int, projects: list[dict[str, A
     target = find_project_for_interest(interest, projects)
     if target:
         return f'<a class="research-bubble bubble-{index % 6}" href="#{esc(target)}">{esc(interest)}</a>'
-    return f'<span class="research-bubble bubble-{index % 6} is-static"><strong>{esc(interest)}</strong></span>'
+    return f'<span class="research-bubble bubble-{index % 6} is-static">{esc(interest)}</span>'
 
 
 def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[str, Any]]:

@@ -415,6 +415,11 @@ body.theme-prism .research-bubble:focus-visible {
   outline: 0;
 }
 
+body.theme-prism a.research-bubble {
+  color: var(--accent);
+  font-weight: 780;
+}
+
 body.theme-prism .research-bubble small {
   display: none;
 }
