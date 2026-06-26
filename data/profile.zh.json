@@ -35,9 +35,9 @@
       "degree": "信息与通信工程博士研究生",
       "period": "2021.09 - 2027.06",
       "details": [
-        "NJU Vision Lab，导师：马展教授、陈曈研究员",
-        "研究方向：**智能点云压缩**、**三维高斯泼溅压缩**、**隐式神经表达**、**AI-assisted photography**",
-        "博士资格考核**优秀**"
+        "[NJU Vision Lab](https://vision.nju.edu.cn/)，导师：马展教授、陈曈研究员",
+        "研究方向：**智能点云压缩**、**三维高斯泼溅压缩**、**隐式神经表达**、**智能辅助摄影**",
+        "博士中期考核**优秀**"
       ]
     },
     {
@@ -55,11 +55,10 @@
       "logo": "assets/logos/geely.svg",
       "role": "算法实习生",
       "period": "2026.05 - 至今",
-      "summary": "围绕自动驾驶世界模型、动态街景新视角合成，以及世界模型/三维场景生成 artifact 修复开展研究。",
+      "summary": "围绕街景前馈重建与 Rendering-Conditioned Generative Model 开展大幅度外插视角新视角合成研究。",
       "bullets": [
-        "调研并分析 Vista、StreetCrafter、SymDrive、FreeFix、DriveFix 等自动驾驶世界模型与街景合成方法。",
-        "围绕 StreetCrafter 与 UniSplat 类基线搭建动态街景生成实验的评测与部署流程。",
-        "探索面向驾驶场景新视角 artifact 的修复训练对构造、置信过滤与异常值过滤策略。"
+        "聚焦面向大幅度外插视角新视角合成的街景前馈重建。",
+        "探索以渲染结果作为条件的生成式建模流程，提升大视角变化下的街景新视角合成效果。"
       ],
       "tags": [
         "driving",
@@ -71,7 +70,7 @@
     },
     {
       "organization": "OPPO",
-      "department": "研究院星云实验室",
+      "department": "研究院",
       "logo": "assets/logos/oppo.svg",
       "role": "算法实习生",
       "period": "2024.02 - 2024.11",
@@ -79,7 +78,7 @@
       "bullets": [
         "研发和评估面向 MPEG AI-PCC 标准化的智能点云压缩算法。",
         "开发点云编解码器软件，并在不同测试序列上评估压缩性能。",
-        "多次参加 MPEG 国际会议，提交 8 份标准化提案，并参与 5 项发明专利申请。"
+        "多次参加 MPEG 国际会议，提交 **8** 份标准化提案，并参与 **5** 项发明专利申请。"
       ],
       "tags": [
         "compression",
@@ -161,9 +160,9 @@
       "venue": "European Conference on Computer Vision (ECCV), 2026",
       "notes": "已接收，尚未发布 arXiv",
       "badges": [
-        "ECCV 2026",
+        "CCF-B",
         "Accepted",
-        "3DGS Compression"
+        "三维高斯泼溅压缩"
       ],
       "abstract": "We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement. The code will be released at https://github.com/RuixiangXue/ScalableGSC.",
       "links": {
@@ -196,11 +195,12 @@
         "SCI 一区",
         "CCF-A",
         "IF 18.6",
-        "共同一作"
+        "共同一作",
+        "智能点云压缩"
       ],
       "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.",
       "links": {
-        "homepage": "",
+        "homepage": "https://njuvision.github.io/Unicorn/",
         "paper": "https://doi.org/10.1109/TPAMI.2024.3462938",
         "code": "https://github.com/NJUVISION/Unicorn",
         "bibtex": "#bibtex"
@@ -227,7 +227,9 @@
       "notes": "CCF-B，第一作者",
       "badges": [
         "CCF-B",
-        "第一作者"
+        "第一作者",
+        "隐式神经表达",
+        "智能点云压缩"
       ],
       "abstract": "This paper proposes the NeRI, an implicit neural representation (INR) based LiDAR point cloud compressor. In NeRI, we first transform a sequence of 3D LiDAR frames into a 2D range image sequence through range image projection over time. Then, we employ a neural network conditioned on the temporal frame index and associated LiDAR sensor pose to fit input range images as closely as possible. The optimized network parameters, which implicitly represent the input LiDAR data, are later lossily compressed. NeRI decoder is then initialized using decoded parameters to generate range images for reconstructing the 3D LiDAR sequence accordingly. Extensive experimental results demonstrate the significant superiority of NeRI regarding the compression efficiency and decoding speed compared to state-of-the-art 2D and 3D compressors for LiDAR point cloud.",
       "links": {
@@ -260,15 +262,16 @@
         "SCI 一区",
         "CCF-A",
         "IF 18.6",
-        "第二作者"
+        "第二作者",
+        "智能点云压缩"
       ],
       "doi": "10.1109/TPAMI.2024.3462945",
       "metadata": "Vol. 47, No. 1, pp. 252-268, Jan. 2025",
       "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to code the geometry and attribute of any given point cloud. Attribute compression is discussed in Part II of this paper, while geometry compression is given in Part I of this paper. We first construct the multiscale sparse tensors of each voxelized point cloud attribute frame. Since attribute components exhibit very different intrinsic characteristics from the geometry element, e.g., 8-bit RGB color versus 1-bit occupancy, we process the attribute residual between lower-scale reconstruction and current-scale data. Similarly, we leverage spatially lower-scale priors in the current frame and (previously processed) temporal reference frame to improve the probability estimation of attribute intensity through conditional residual prediction in lossless mode or enhance the attribute reconstruction through progressive residual refinement in lossy mode for better performance. The proposed Unicorn is a versatile, learning-based solution capable of compressing a great variety of static and dynamic point clouds in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency with affordable encoding/decoding runtime.",
       "links": {
-        "homepage": "",
+        "homepage": "https://njuvision.github.io/Unicorn/",
         "paper": "https://doi.org/10.1109/TPAMI.2024.3462945",
-        "code": "",
+        "code": "https://github.com/NJUVISION/Unicorn",
         "bibtex": "#bibtex"
       },
       "tags": [
@@ -289,7 +292,8 @@
         "SCI 一区",
         "CCF-A",
         "IF 6.5",
-        "第二作者"
+        "第二作者",
+        "智能点云压缩"
       ],
       "doi": "10.1109/TVCG.2023.3336936",
       "metadata": "Vol. 30, No. 10, pp. 6740-6753, Oct. 2024",

@@ -518,6 +518,11 @@ body.theme-prism .exp-detail {
   font-weight: 720;
 }
 
+body.theme-prism .experience-content a {
+  color: var(--accent);
+  font-weight: 780;
+}
+
 body.theme-prism .exp-period {
   display: inline-flex;
   padding: 2px 9px;

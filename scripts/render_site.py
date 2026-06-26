@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -555,7 +556,7 @@ def render_education(item: dict[str, Any]) -> str:
 
 
 def render_experience(item: dict[str, Any]) -> str:
-    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", []))
     logo = item.get("logo", "assets/img/institution.svg")
     department = item.get("department", "")
     return f"""
@@ -663,7 +664,11 @@ def render_bibtex_box(item: dict[str, Any]) -> str:
 
 def bibtex_id(item: dict[str, Any]) -> str:
     base = "".join(ch.lower() if ch.isalnum() else "-" for ch in item["title"])
-    return "bibtex-" + "-".join(part for part in base.split("-") if part)[:56]
+    suffix_source = item.get("doi") or item.get("venue_short") or item.get("title")
+    suffix = "".join(ch.lower() if ch.isalnum() else "-" for ch in suffix_source)
+    slug = "-".join(part for part in base.split("-") if part)[:48]
+    suffix_slug = "-".join(part for part in suffix.split("-") if part)[-18:]
+    return f"bibtex-{slug}-{suffix_slug}"
 
 
 def format_inline(text: Any) -> str:
@@ -671,7 +676,7 @@ def format_inline(text: Any) -> str:
     parts = raw.split("**")
     rendered: list[str] = []
     for index, part in enumerate(parts):
-        escaped = esc(part)
+        escaped = format_links(part)
         if index % 2 == 1:
             rendered.append(f"<strong>{escaped}</strong>")
         else:
@@ -679,11 +684,24 @@ def format_inline(text: Any) -> str:
     return "".join(rendered)
 
 
+def format_links(text: str) -> str:
+    pattern = re.compile(r"\[([^\]]+)\]\((https?://[^)]+)\)")
+    rendered: list[str] = []
+    last = 0
+    for match in pattern.finditer(text):
+        rendered.append(esc(text[last:match.start()]))
+        label, url = match.groups()
+        rendered.append(f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)}</a>')
+        last = match.end()
+    rendered.append(esc(text[last:]))
+    return "".join(rendered)
+
+
 def render_award(item: dict[str, Any]) -> str:
     return f"""
             <div class="award-item">
               <span class="award-icon">* </span>
-              <div class="award-text"><strong>{esc(item['name'])}</strong><br>{esc(item['period'])}</div>
+              <div class="award-text"><strong>{esc(item['name'])}</strong><br><span class="exp-period">{esc(item['period'])}</span></div>
             </div>
 """
 
@@ -711,7 +729,7 @@ def render_resume_education(item: dict[str, Any]) -> str:
 
 
 def render_resume_experience(item: dict[str, Any]) -> str:
-    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", []))
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
     return f'<article><h3>{esc(item["organization"])} <span>{esc(item["period"])}</span></h3><p><strong>{esc(item["role"])}</strong> - {esc(item.get("summary", ""))}</p>{bullet_list}</article>'
 
