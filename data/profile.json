@@ -121,7 +121,7 @@
       ]
     },
     {
-      "name": "Driving World Model and Street-Scene Restoration",
+      "name": "Street Generative Novel-View Synthesis",
       "tags": [
         "driving",
         "world-model",
@@ -129,13 +129,12 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "Research exploration on dynamic street-scene generation, novel-view artifacts, and restoration pipelines for driving simulation.",
+      "summary": "Feed-forward street-scene reconstruction and generative-prior assisted large-baseline novel-view extrapolation.",
       "image": "assets/media/GRNet.png",
       "bullets": [
-        "Surveyed Vista-style driving world models and StreetCrafter-style controllable street-view video diffusion methods.",
-        "Compared restoration and refinement directions including Difix3D+, SymDrive, FreeFix, and DriveFix to identify gaps in artifact distribution, temporal consistency, and input requirements.",
-        "Explored evaluation matrices for StreetCrafter and UniSplat baselines, including generated views, real references, and quantitative summaries.",
-        "Focused on constructing degraded-clean pairs closer to inference-time novel-view artifacts and filtering unreliable pseudo supervision."
+        "Used feed-forward reconstruction to improve geometric consistency in generative novel-view synthesis.",
+        "Leveraged generative priors to improve rendering-quality losses for feed-forward reconstruction.",
+        "Targeted large-baseline street-scene novel-view extrapolation under practical autonomous-driving scenarios."
       ]
     },
     {

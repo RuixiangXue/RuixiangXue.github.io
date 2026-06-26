@@ -120,7 +120,7 @@
       ]
     },
     {
-      "name": "自动驾驶世界模型与街景修复",
+      "name": "街景生成式新视角合成",
       "tags": [
         "driving",
         "world-model",
@@ -128,13 +128,12 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "围绕动态街景生成、新视角 artifact 与自动驾驶仿真修复管线开展研究探索。",
+      "summary": "围绕街景前馈重建与生成先验辅助的大幅度新视角外推开展研究。",
       "image": "assets/media/GRNet.png",
       "bullets": [
-        "调研 Vista 类自动驾驶世界模型与 StreetCrafter 类可控街景视频扩散方法。",
-        "比较 Difix3D+、SymDrive、FreeFix、DriveFix 等修复与细化方向，分析 artifact 分布、时序一致性与输入要求差异。",
-        "探索 StreetCrafter 与 UniSplat 基线的评测矩阵，包括生成视图、真实参考与定量汇总。",
-        "聚焦构造更接近推理阶段新视角 artifact 的 degraded-clean pair，并过滤不可靠伪监督。"
+        "利用前馈街景重建模型提升生成式新视角合成模型的几何一致性。",
+        "利用生成先验改进前馈街景重建方法的渲染质量损失。",
+        "面向自动驾驶场景中的大幅度街景新视角外推。"
       ]
     },
     {

@@ -279,18 +279,14 @@ def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str 
     <main class="resume">
       <header class="resume-head">
         <div>
+          <p class="resume-label">{esc(resume_title or t['resume_title'])}</p>
           <h1>{esc(person['name'])} <span>{esc(person['name_zh'])}</span></h1>
-          <p>{esc(person['title'])}</p>
+          <p class="resume-subtitle">{esc(person['title'])}</p>
         </div>
-        <address>
-          {esc(person['email'])}<br>
-          {esc(person['phone'])}<br>
-          {esc(person['location'])}
-        </address>
+        <address>{render_resume_contacts(person, profile.get('links', []))}</address>
       </header>
 
-      <section>
-        <h2>{esc(resume_title or t['profile'])}</h2>
+      <section class="resume-summary">
         <p>{esc(target.get('focus') or person.get('summary', ''))}</p>
       </section>
 
@@ -323,11 +319,23 @@ def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str 
 
       <section>
         <h2>{t['awards']}</h2>
-        {''.join(f"<p><strong>{esc(item['name'])}</strong>, {esc(item['period'])}</p>" for item in profile.get('awards', []))}
+        {''.join(render_resume_award(item) for item in profile.get('awards', []))}
       </section>
     </main>
 """,
     )
+
+
+def render_resume_contacts(person: dict[str, Any], links: list[dict[str, str]]) -> str:
+    github = next((item.get("url", "") for item in links if item.get("label", "").lower() == "github"), "")
+    parts = [
+        esc(person.get("email", "")),
+        esc(person.get("phone", "")),
+        esc(person.get("location", "")),
+    ]
+    if github:
+        parts.append(f'<a href="{esc(github)}">{esc(github.replace("https://", ""))}</a>')
+    return "<br>".join(part for part in parts if part)
 
 
 def match_tags(item: dict[str, Any], tags: set[str]) -> bool:
@@ -738,30 +746,51 @@ def render_job_card(item: dict[str, Any]) -> str:
 
 
 def render_resume_education(item: dict[str, Any]) -> str:
-    return f'<article><h3>{esc(item["school"])} <span>{esc(item["period"])}</span></h3><p>{esc(item["degree"])}</p></article>'
+    details = "".join(f"<li>{format_inline(detail)}</li>" for detail in item.get("details", []))
+    detail_list = f"<ul>{details}</ul>" if details else ""
+    return (
+        f'<article><h3>{esc(item["school"])} <span>{esc(item["period"])}</span></h3>'
+        f'<p class="resume-line">{esc(item["degree"])}</p>{detail_list}</article>'
+    )
 
 
 def render_resume_experience(item: dict[str, Any]) -> str:
     bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", []))
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
-    return f'<article><h3>{esc(item["organization"])} <span>{esc(item["period"])}</span></h3><p><strong>{esc(item["role"])}</strong> - {esc(item.get("summary", ""))}</p>{bullet_list}</article>'
+    role_parts = [item.get("department", ""), item.get("role", "")]
+    role_line = " · ".join(part for part in role_parts if part)
+    return (
+        f'<article><h3>{esc(item["organization"])} <span>{esc(item["period"])}</span></h3>'
+        f'<p class="resume-line"><strong>{esc(role_line)}</strong> - {esc(item.get("summary", ""))}</p>'
+        f'{bullet_list}</article>'
+    )
 
 
 def render_resume_project(item: dict[str, Any]) -> str:
-    bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", []))
+    bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", [])[:3])
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
-    return f'<article><h3>{esc(item["name"])}</h3><p>{esc(item.get("summary", ""))}</p>{bullet_list}</article>'
+    return f'<article><h3>{esc(item["name"])}</h3><p class="resume-line">{esc(item.get("summary", ""))}</p>{bullet_list}</article>'
 
 
 def render_resume_publication(item: dict[str, Any]) -> str:
     bullets = "".join(f"<li>{esc(bullet)}</li>" for bullet in item.get("bullets", [])[:2])
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
     authors = sentence_end(item["authors"])
-    return f'<article><h3>{esc(item["title"])}</h3><p>{esc(authors)} <em>{esc(item["venue"])}</em>. {esc(item.get("notes", ""))}</p>{bullet_list}</article>'
+    venue = item.get("venue_short") or item.get("venue", "")
+    notes = item.get("notes", "")
+    meta = " · ".join(part for part in [venue, notes] if part)
+    return (
+        f'<article><h3>{esc(item["title"])}</h3>'
+        f'<p class="resume-line">{esc(authors)} <em>{esc(meta)}</em></p>{bullet_list}</article>'
+    )
 
 
 def render_skill(item: dict[str, Any]) -> str:
     return f'<p><strong>{esc(item["group"])}</strong>: {esc(", ".join(item.get("items", [])))}</p>'
+
+
+def render_resume_award(item: dict[str, Any]) -> str:
+    return f'<p class="award-line"><strong>{esc(item["name"])}</strong><span>{esc(item["period"])}</span></p>'
 
 
 def esc(value: Any) -> str:
