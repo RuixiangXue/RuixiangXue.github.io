@@ -161,8 +161,12 @@
       "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
       "notes": "已接收，尚未发布 arXiv",
-      "badges": ["ECCV 2026", "Accepted", "3DGS Compression"],
-      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3D Gaussian Splatting compression. RecastGS reorganizes pretrained 3DGS into a region-aware layered hierarchy for object-level and ROI-adaptive quality control. LayeredCGS then compresses position with a lightweight point cloud codec and attributes with cross-layer context modeling, producing truncatable bitstreams for low-latency preview and progressive refinement.",
+      "badges": [
+        "ECCV 2026",
+        "Accepted",
+        "3DGS Compression"
+      ],
+      "abstract": "We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement.",
       "links": {
         "homepage": "",
         "paper": "",
@@ -188,8 +192,13 @@
       "venue_full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "notes": "SCI 一区，CCF-A，影响因子 18.6，共同一作",
-      "badges": ["SCI Q1", "CCF-A", "IF 18.6", "共同一作"],
-      "abstract": "提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云数据；相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率。",
+      "badges": [
+        "SCI Q1",
+        "CCF-A",
+        "IF 18.6",
+        "共同一作"
+      ],
+      "abstract": "A universal multiscale conditional coding framework, Unicorn, is proposed to compress the geometry and attribute of any given point cloud. Geometry compression is addressed in Part I of this paper, while attribute compression is discussed in Part II. We construct the multiscale sparse tensors of each voxelized point cloud frame and properly leverage lower-scale priors in the current and (previously processed) temporal reference frames to improve the conditional probability approximation or content-aware predictive reconstruction of geometry occupancy in compression. Unicorn is a versatile, learning-based solution capable of compressing static and dynamic point clouds with diverse source characteristics in both lossy and lossless modes. Following the same evaluation criteria, Unicorn significantly outperforms standard-compliant approaches like MPEG G-PCC, V-PCC, and other learning-based solutions, yielding state-of-the-art compression efficiency while presenting affordable complexity for practical implementations.",
       "links": {
         "homepage": "https://github.com/NJUVISION/Unicorn",
         "paper": "https://pubmed.ncbi.nlm.nih.gov/39288049/",
@@ -213,7 +222,11 @@
       "venue_full": "IEEE International Conference on Acoustics, Speech, and Signal Processing",
       "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing 2024",
       "notes": "CCF-B，第一作者",
-      "badges": ["CCF-B", "第一作者", "LiDAR Compression"],
+      "badges": [
+        "CCF-B",
+        "第一作者",
+        "LiDAR Compression"
+      ],
       "abstract": "提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列，并使用时空条件神经网络编码；实现 376 FPS 实时解码，在低码率段取得显著压缩增益。",
       "links": {
         "homepage": "",

@@ -395,8 +395,8 @@ body.theme-prism .focus-list span {
 
 body.theme-prism .content-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.9fr);
-  gap: 38px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: start;
 }
 

@@ -164,8 +164,6 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     <section class="hero-panel section" data-section="top">
       <div class="hero-copy">
         <h1>{esc(person['name'])}<span>{esc(person['name_zh'])}</span></h1>
-        <p class="hero-role">{esc(t['research_focus'])}</p>
-        <p class="hero-summary">{esc(person['summary'])}</p>
         <div class="hero-social">
           {render_social_links(links, resume_links=resume_links)}
         </div>
@@ -186,17 +184,17 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     </section>
 
     <div class="content-grid">
-      <div class="section" id="experience" data-section="experience">
-        <h2 class="section-title">{t['experience']}</h2>
-        <div class="section-body">
-          {''.join(render_experience(item) for item in profile.get('experience', []))}
-        </div>
-      </div>
-
       <div class="section" id="education" data-section="education">
         <h2 class="section-title">{t['education']}</h2>
         <div class="section-body">
           {''.join(render_education(item) for item in profile.get('education', []))}
+        </div>
+      </div>
+
+      <div class="section" id="experience" data-section="experience">
+        <h2 class="section-title">{t['experience']}</h2>
+        <div class="section-body">
+          {''.join(render_experience(item) for item in profile.get('experience', []))}
         </div>
       </div>
     </div>
@@ -570,7 +568,6 @@ def render_publication(item: dict[str, Any]) -> str:
                       <summary>Abstract</summary>
                       <p>{esc(abstract)}</p>
                     </details>
-                    <div class="links">{esc(item.get('notes', ''))}</div>
                   </div>
                 </article>
               </li>
