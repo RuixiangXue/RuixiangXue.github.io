@@ -229,8 +229,8 @@
             
             <div class="project-copy">
               <strong>三维高斯泼溅编码</strong>
-              <p>面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。</p>
-              <ul><li>提出 <strong>RecastGS</strong>，将预训练 3DGS 重组为 <strong>区域感知的分层表示</strong>，并结合提示驱动的目标区域提取与渐进蒸馏。</li><li>提出 <strong>LayeredCGS</strong>，通过 <strong>跨层上下文建模</strong> 实现前馈式分层 3DGS 压缩，并生成 <strong>可截断码流</strong>。</li><li>相较前馈基线 FCGS 实现 <strong>35% BD-Rate 增益</strong>，在相近码率下 <strong>ROI PSNR 最高提升 2 dB</strong>。</li></ul>
+              <p>面向 3D Gaussian Splatting 场景的紧凑化、压缩、渐进式传输与区域自适应质量控制。</p>
+              <ul><li>提出表示重组方法，将预训练 3DGS 重构为区域感知的分层表示，实现灵活的区域自适应质量控制。</li><li>提出前馈式分层压缩方法，利用跨层依赖关系建模，支持可截断码流、渐进式压缩与流式传输。</li><li>在紧凑化/压缩性能上相较基线实现 <strong>70% / 35% 总体增益</strong>，并支持基于 ROI 的 3DGS 渐进式压缩。</li></ul>
               
               <div class="project-actions"><a href="#publication-3dgs-object-scalability"><i class="fa-solid fa-award"></i><span>ECCV26</span></a></div>
               

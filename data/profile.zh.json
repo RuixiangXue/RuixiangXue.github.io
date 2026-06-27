@@ -208,11 +208,11 @@
         "3dgs",
         "neural-rendering"
       ],
-      "summary": "面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。",
+      "summary": "面向 3D Gaussian Splatting 场景的紧凑化、压缩、渐进式传输与区域自适应质量控制。",
       "bullets": [
-        "提出 **RecastGS**，将预训练 3DGS 重组为 **区域感知的分层表示**，并结合提示驱动的目标区域提取与渐进蒸馏。",
-        "提出 **LayeredCGS**，通过 **跨层上下文建模** 实现前馈式分层 3DGS 压缩，并生成 **可截断码流**。",
-        "相较前馈基线 FCGS 实现 **35% BD-Rate 增益**，在相近码率下 **ROI PSNR 最高提升 2 dB**。",
+        "提出表示重组方法，将预训练 3DGS 重构为区域感知的分层表示，实现灵活的区域自适应质量控制。",
+        "提出前馈式分层压缩方法，利用跨层依赖关系建模，支持可截断码流、渐进式压缩与流式传输。",
+        "在紧凑化/压缩性能上相较基线实现 **70% / 35% 总体增益**，并支持基于 ROI 的 3DGS 渐进式压缩。",
         "相关论文 **3D Gaussian Splatting Compression with Object Scalability** 已被 **ECCV 2026** 接收。"
       ],
       "links": {

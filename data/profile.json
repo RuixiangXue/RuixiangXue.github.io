@@ -208,12 +208,11 @@
         "3dgs",
         "neural-rendering"
       ],
-      "summary": "Compact and progressive compression for 3D Gaussian splatting scenes.",
+      "summary": "Compactification, compression, progressive transmission, and region-adaptive quality control for 3D Gaussian splatting scenes.",
       "bullets": [
-        "Investigated compactification, compression, and reconstruction methods for 3D Gaussian splatting.",
-        "Proposed **RecastGS** to reorganize pretrained 3DGS into a **region-aware layered hierarchy** with prompt-driven object extraction and progressive distillation.",
-        "Proposed **LayeredCGS**, a feed-forward layered 3DGS compressor with **cross-layer context modeling** and **truncatable bitstreams**.",
-        "Achieved **35% BD-Rate gain** over the feed-forward FCGS baseline, with up to **2 dB higher ROI PSNR** under comparable bitrates.",
+        "Proposed a representation-reorganization method that restructures pretrained 3DGS into a region-aware layered representation for flexible region-adaptive quality control.",
+        "Proposed a feed-forward layered compression method with cross-layer dependency modeling, truncatable bitstreams, progressive compression, and streaming transmission.",
+        "Achieved **70% / 35% overall gains** over baselines in compactification/compression performance, while supporting ROI-based progressive 3DGS compression.",
         "The resulting paper, **3D Gaussian Splatting Compression with Object Scalability**, has been accepted by **ECCV 2026**."
       ],
       "links": {
