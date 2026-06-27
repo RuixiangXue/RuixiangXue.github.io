@@ -239,9 +239,8 @@
       "summary": "Contributed to the driving world model direction in a National Key R&D Program project, covering street-scene novel-view extrapolation and 3D/4D world-model technology scouting.",
       "image": "assets/media/GRNet.png",
       "bullets": [
-        "Explored mutual enhancement between feed-forward reconstruction models (UniSplat) and generative models (VISTA) for large-baseline street-scene novel-view extrapolation.",
-        "Used feed-forward reconstruction to constrain geometric consistency in generated views, and leveraged generative priors to improve rendering-quality losses for feed-forward reconstruction.",
-        "Surveyed industrial and academic roadmaps from 3D/4D reconstruction and reconstruction-generation coupling to driving world models, including Tesla Occupancy Network, Waabi Copilot4D, Wayve PRISM/GAIA, and VISTA."
+        "Explored mutual enhancement between feed-forward reconstruction models (UniSplat) and generative models (VISTA) for large-baseline street-scene novel-view extrapolation: using feed-forward reconstruction to constrain geometric consistency in generated views, and leveraging generative priors to improve rendering-quality losses for feed-forward reconstruction.",
+        "Researched industrial and academic directions from 3D/4D reconstruction and reconstruction-generation coupling to driving world models, with reference to representative systems such as Tesla Occupancy Network, Waabi Copilot4D, Wayve PRISM/GAIA, and VISTA."
       ]
     },
     {
