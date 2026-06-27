@@ -266,63 +266,228 @@
                   
                   <div class="flow-track flow-layout-grid-branches" style="--step-count: 8; --flow-columns: 6; --flow-rows: 2">
                     
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-0" aria-pressed="false" style="--flow-col: 2; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>参考场景图</span>
                       <small>输入</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-1" aria-pressed="false" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-cubes"></i>
                       <span>Marble</span>
                       <small>场景 3DGS</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 1; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-2" aria-pressed="false" style="--flow-col: 1; --flow-row: 2">
                       <i class="fa-solid fa-user"></i>
                       <span>参考人物图</span>
                       <small>输入</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-3" aria-pressed="false" style="--flow-col: 2; --flow-row: 2">
                       <i class="fa-solid fa-object-group"></i>
                       <span>SAM</span>
                       <small>人物 mask</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-4" aria-pressed="false" style="--flow-col: 3; --flow-row: 2">
                       <i class="fa-solid fa-person-rays"></i>
                       <span>SHARP</span>
                       <small>人物 3DGS</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node is-merge" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node is-merge has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-5" aria-pressed="false" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
                       <small>组合导入</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-6" aria-pressed="false" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-camera-retro"></i>
                       <span>虚拟 Shooting</span>
                       <small>沉浸漫游</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-0-dialog-preview-7" aria-pressed="false" style="--flow-col: 6; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-wand-magic-sparkles"></i>
                       <span>神经渲染</span>
                       <small>摄影仿真</small>
-                    </span>
+                    </button>
 
                   </div>
                           </div>
+                          
+                          <div class="flow-preview-stage">
+                            
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-0" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>参考场景图</strong>
+                                <p>单张场景图像作为虚拟摄影棚的世界创建输入。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-image.png" alt="输入场景" loading="lazy">
+                                  <figcaption>输入场景</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-1" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Marble 场景 3DGS</strong>
+                                <p>由单张场景图像生成可导入后续流程的场景 3DGS。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-3dgs-1.png" alt="场景重建 1" loading="lazy">
+                                  <figcaption>场景重建 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-3dgs-2.png" alt="场景重建 2" loading="lazy">
+                                  <figcaption>场景重建 2</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-2" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>参考人物图</strong>
+                                <p>人物图像作为独立主体资产重建输入。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human1.png" alt="人物样例 1" loading="lazy">
+                                  <figcaption>人物样例 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human2.png" alt="人物样例 2" loading="lazy">
+                                  <figcaption>人物样例 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human4.png" alt="人物样例 3" loading="lazy">
+                                  <figcaption>人物样例 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-3" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SAM 人物分割</strong>
+                                <p>先得到人物 mask，为人物 3DGS 重建提供干净主体。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg1.png" alt="分割样例 1" loading="lazy">
+                                  <figcaption>分割样例 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg2.png" alt="分割样例 2" loading="lazy">
+                                  <figcaption>分割样例 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg4.png" alt="分割样例 3" loading="lazy">
+                                  <figcaption>分割样例 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-4" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SHARP 人物 3DGS</strong>
+                                <p>将分割后的人物重建为可组合的人物 3DGS 资产。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs1.png" alt="人物 3DGS 1" loading="lazy">
+                                  <figcaption>人物 3DGS 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs2.png" alt="人物 3DGS 2" loading="lazy">
+                                  <figcaption>人物 3DGS 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs4.png" alt="人物 3DGS 3" loading="lazy">
+                                  <figcaption>人物 3DGS 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-5" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>UE 组合导入</strong>
+                                <p>场景资产与人物资产组合导入 UE，形成可漫游拍摄空间。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/ue-scene.png" alt="UE 场景" loading="lazy">
+                                  <figcaption>UE 场景</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/shooting1.png" alt="人物场景组合" loading="lazy">
+                                  <figcaption>人物场景组合</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-6" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>虚拟 Shooting</strong>
+                                <p>在虚拟摄影棚中调整视角并生成拍摄候选结果。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/shooting1.png" alt="虚拟拍摄结果" loading="lazy">
+                                  <figcaption>虚拟拍摄结果</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-0-dialog-preview-7" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>神经渲染结果</strong>
+                                <p>对原始渲染结果进行生成式修复，提升照片观感。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/nr1.png" alt="神经渲染输出" loading="lazy">
+                                  <figcaption>神经渲染输出</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                          </div>
+
                         </div>
                       </div>
                     </dialog>
@@ -338,56 +503,196 @@
                   
                   <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7; --flow-rows: 1">
                     
-                    <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-0" aria-pressed="false" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>输入照片</span>
                       <small>用户图片</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-1" aria-pressed="false" style="--flow-col: 2; --flow-row: 1">
                       <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
                       <span>Outpaint</span>
                       <small>图像外扩</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-2" aria-pressed="false" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-dice-d6"></i>
                       <span>SHARP</span>
                       <small>3DGS 模型</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 4; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-3" aria-pressed="false" style="--flow-col: 4; --flow-row: 1">
                       <i class="fa-solid fa-video"></i>
                       <span>相机姿态</span>
                       <small>视角变换</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-4" aria-pressed="false" style="--flow-col: 5; --flow-row: 1">
                       <i class="fa-solid fa-cube"></i>
                       <span>渲染</span>
                       <small>新视角</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-5" aria-pressed="false" style="--flow-col: 6; --flow-row: 1">
                       <i class="fa-solid fa-brush"></i>
                       <span>先验修复</span>
                       <small>图像模型</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 7; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-智能辅助摄影-flow-1-dialog-preview-6" aria-pressed="false" style="--flow-col: 7; --flow-row: 1">
                       <i class="fa-solid fa-camera"></i>
                       <span>重构照片</span>
                       <small>最终视角</small>
-                    </span>
+                    </button>
 
                   </div>
                           </div>
+                          
+                          <div class="flow-preview-stage">
+                            
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-0" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>输入照片</strong>
+                                <p>用户提供单张参考图像。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/source_oriented.png" alt="参考图像" loading="lazy">
+                                  <figcaption>参考图像</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-1" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>图像外扩</strong>
+                                <p>对输入图像进行外扩，补充视角变换所需画布。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_input.png" alt="外扩输入" loading="lazy">
+                                  <figcaption>外扩输入</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_mask.png" alt="外扩 mask" loading="lazy">
+                                  <figcaption>外扩 mask</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_result.png" alt="外扩结果" loading="lazy">
+                                  <figcaption>外扩结果</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-2" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SHARP 3DGS</strong>
+                                <p>从图像重建 3DGS，并生成点云/分割预览。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/point_cloud.png" alt="点云预览" loading="lazy">
+                                  <figcaption>点云预览</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/segmented_point_cloud.png" alt="分割点云" loading="lazy">
+                                  <figcaption>分割点云</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-3" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>相机姿态变换</strong>
+                                <p>在重建结果上执行受限视角变换。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/final_render.png" alt="新视角渲染" loading="lazy">
+                                  <figcaption>新视角渲染</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-4" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>新视角渲染</strong>
+                                <p>得到几何驱动的新视角渲染结果。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/final_render.png" alt="渲染结果" loading="lazy">
+                                  <figcaption>渲染结果</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-5" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>生成先验修复</strong>
+                                <p>对渲染结果中的空洞和视觉瑕疵进行生成式修复。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_input.png" alt="修复输入" loading="lazy">
+                                  <figcaption>修复输入</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_mask.png" alt="修复 mask" loading="lazy">
+                                  <figcaption>修复 mask</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_output.png" alt="修复输出" loading="lazy">
+                                  <figcaption>修复输出</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-智能辅助摄影-flow-1-dialog-preview-6" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>重构照片</strong>
+                                <p>输出最终 Spatial Reframing 结果。</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_upscaled.png" alt="最终结果" loading="lazy">
+                                  <figcaption>最终结果</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_output.png" alt="修复结果" loading="lazy">
+                                  <figcaption>修复结果</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                          </div>
+
                         </div>
                       </div>
                     </dialog>
@@ -785,6 +1090,29 @@
         dialog.addEventListener('click', function(event) {
           if (event.target === dialog) dialog.close();
         });
+      });
+
+      document.querySelectorAll('.flow-dialog').forEach(function(dialog) {
+        const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
+        const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
+        function activate(targetId) {
+          buttons.forEach(function(button) {
+            const active = button.getAttribute('data-flow-preview-target') === targetId;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          panels.forEach(function(panel) {
+            panel.classList.toggle('is-active', panel.id === targetId);
+          });
+        }
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            activate(button.getAttribute('data-flow-preview-target'));
+          });
+        });
+        if (buttons.length) {
+          activate(buttons[0].getAttribute('data-flow-preview-target'));
+        }
       });
 
       if ('IntersectionObserver' in window) {

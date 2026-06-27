@@ -453,6 +453,29 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
+      document.querySelectorAll('.flow-dialog').forEach(function(dialog) {{
+        const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
+        const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
+        function activate(targetId) {{
+          buttons.forEach(function(button) {{
+            const active = button.getAttribute('data-flow-preview-target') === targetId;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          }});
+          panels.forEach(function(panel) {{
+            panel.classList.toggle('is-active', panel.id === targetId);
+          }});
+        }}
+        buttons.forEach(function(button) {{
+          button.addEventListener('click', function() {{
+            activate(button.getAttribute('data-flow-preview-target'));
+          }});
+        }});
+        if (buttons.length) {{
+          activate(buttons[0].getAttribute('data-flow-preview-target'));
+        }}
+      }});
+
       if ('IntersectionObserver' in window) {{
         const observer = new IntersectionObserver(function(entries) {{
           entries.forEach(function(entry) {{
@@ -757,7 +780,9 @@ def flow_dialog_id(item_id: str, index: int) -> str:
 
 def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -> str:
     steps = flow.get("steps", [])
-    nodes = "\n".join(render_flow_step(step) for step in steps)
+    flow_id = flow_dialog_id(item_id, index)
+    nodes = "\n".join(render_flow_step(step, flow_id=flow_id, step_index=step_index) for step_index, step in enumerate(steps))
+    previews = render_flow_previews(steps, flow_id)
     caption = flow.get("caption", "")
     caption_html = f"""
                   <div class="flow-head">
@@ -768,7 +793,7 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
     columns = flow.get("columns", max(len(steps), 1))
     rows = flow.get("rows", 2 if layout == "grid-branches" else 1)
     return f"""
-                    <dialog class="project-dialog flow-dialog" id="{esc(flow_dialog_id(item_id, index))}">
+                    <dialog class="project-dialog flow-dialog" id="{esc(flow_id)}">
                       <div class="project-dialog-panel">
                         <div class="project-dialog-head">
                           <strong>{esc(flow.get('title', 'Pipeline'))}</strong>
@@ -781,13 +806,14 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
                     {nodes}
                   </div>
                           </div>
+                          {previews}
                         </div>
                       </div>
                     </dialog>
 """
 
 
-def render_flow_step(step: Any) -> str:
+def render_flow_step(step: Any, *, flow_id: str, step_index: int) -> str:
     if isinstance(step, dict):
         icon = step.get("icon", "fa-solid fa-circle-nodes")
         label = step.get("label", "")
@@ -798,12 +824,14 @@ def render_flow_step(step: Any) -> str:
         classes = ["flow-node"]
         if step.get("merge"):
             classes.append("is-merge")
+        preview = step.get("preview")
     else:
         icon = "fa-solid fa-circle-nodes"
         label = str(step)
         detail = ""
         col = row = span_rows = None
         classes = ["flow-node"]
+        preview = None
     detail_html = f'<small>{esc(detail)}</small>' if detail else ""
     styles = []
     if col:
@@ -813,12 +841,79 @@ def render_flow_step(step: Any) -> str:
     if span_rows:
         styles.append(f"--flow-row-span: {int(span_rows)}")
     style_attr = f' style="{"; ".join(styles)}"' if styles else ""
+    preview_id = flow_preview_id(flow_id, step_index)
+    if preview:
+        return f"""
+                    <button class="{esc(' '.join(classes + ['has-preview']))}" type="button" data-flow-preview-target="{esc(preview_id)}" aria-pressed="false"{style_attr}>
+                      <i class="{esc(icon)}"></i>
+                      <span>{esc(label)}</span>
+                      {detail_html}
+                    </button>
+"""
     return f"""
                     <span class="{esc(' '.join(classes))}"{style_attr}>
                       <i class="{esc(icon)}"></i>
                       <span>{esc(label)}</span>
                       {detail_html}
                     </span>
+"""
+
+
+def flow_preview_id(flow_id: str, step_index: int) -> str:
+    return f"{flow_id}-preview-{step_index}"
+
+
+def render_flow_previews(steps: list[Any], flow_id: str) -> str:
+    panels = []
+    for index, step in enumerate(steps):
+        if isinstance(step, dict) and step.get("preview"):
+            panels.append(render_flow_preview_panel(step["preview"], flow_preview_id(flow_id, index)))
+    if not panels:
+        return ""
+    return f"""
+                          <div class="flow-preview-stage">
+                            {''.join(panels)}
+                          </div>
+"""
+
+
+def render_flow_preview_panel(preview: dict[str, Any], panel_id: str) -> str:
+    title = preview.get("title", "")
+    caption = preview.get("caption", "")
+    media = preview.get("media", [])
+    title_html = f"<strong>{esc(title)}</strong>" if title else ""
+    caption_html = f"<p>{esc(caption)}</p>" if caption else ""
+    media_html = "".join(render_flow_preview_media(item) for item in media)
+    return f"""
+                            <div class="flow-preview-panel" id="{esc(panel_id)}" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                {title_html}
+                                {caption_html}
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                {media_html}
+                              </div>
+                            </div>
+"""
+
+
+def render_flow_preview_media(item: dict[str, Any]) -> str:
+    src = item.get("src", "")
+    if not src:
+        return ""
+    kind = item.get("type", "image")
+    alt = item.get("alt", item.get("label", "Preview"))
+    label = item.get("label", "")
+    label_html = f"<figcaption>{esc(label)}</figcaption>" if label else ""
+    if kind == "video":
+        media_html = f'<video src="{esc(src)}" controls muted playsinline preload="metadata"></video>'
+    else:
+        media_html = f'<img src="{esc(src)}" alt="{esc(alt)}" loading="lazy">'
+    return f"""
+                                <figure>
+                                  {media_html}
+                                  {label_html}
+                                </figure>
 """
 
 

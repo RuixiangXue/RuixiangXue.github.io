@@ -280,35 +280,125 @@
               "detail": "reference",
               "icon": "fa-solid fa-image",
               "col": 2,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Scene image",
+                "caption": "A single scene image is used as the virtual studio world-creation input.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/scene-image.png",
+                    "label": "Input scene",
+                    "alt": "Input scene"
+                  }
+                ]
+              }
             },
             {
               "label": "Marble",
               "detail": "scene 3DGS",
               "icon": "fa-solid fa-cubes",
               "col": 3,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Marble scene 3DGS",
+                "caption": "The scene image is reconstructed into scene 3DGS for downstream composition.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/scene-3dgs-1.png",
+                    "label": "Scene reconstruction 1",
+                    "alt": "Scene reconstruction 1"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/scene-3dgs-2.png",
+                    "label": "Scene reconstruction 2",
+                    "alt": "Scene reconstruction 2"
+                  }
+                ]
+              }
             },
             {
               "label": "Person image",
               "detail": "reference",
               "icon": "fa-solid fa-user",
               "col": 1,
-              "row": 2
+              "row": 2,
+              "preview": {
+                "title": "Person image",
+                "caption": "A person image is used as an independent subject-asset input.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/human1.png",
+                    "label": "Person sample 1",
+                    "alt": "Person sample 1"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/human2.png",
+                    "label": "Person sample 2",
+                    "alt": "Person sample 2"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/human4.png",
+                    "label": "Person sample 3",
+                    "alt": "Person sample 3"
+                  }
+                ]
+              }
             },
             {
               "label": "SAM",
               "detail": "person mask",
               "icon": "fa-solid fa-object-group",
               "col": 2,
-              "row": 2
+              "row": 2,
+              "preview": {
+                "title": "SAM person mask",
+                "caption": "SAM extracts clean person masks before human 3DGS reconstruction.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/humanseg1.png",
+                    "label": "Mask sample 1",
+                    "alt": "Mask sample 1"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/humanseg2.png",
+                    "label": "Mask sample 2",
+                    "alt": "Mask sample 2"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/humanseg4.png",
+                    "label": "Mask sample 3",
+                    "alt": "Mask sample 3"
+                  }
+                ]
+              }
             },
             {
               "label": "SHARP",
               "detail": "human 3DGS",
               "icon": "fa-solid fa-person-rays",
               "col": 3,
-              "row": 2
+              "row": 2,
+              "preview": {
+                "title": "SHARP human 3DGS",
+                "caption": "The segmented person is reconstructed into a composable human 3DGS asset.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/humangs1.png",
+                    "label": "Human 3DGS 1",
+                    "alt": "Human 3DGS 1"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/humangs2.png",
+                    "label": "Human 3DGS 2",
+                    "alt": "Human 3DGS 2"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/humangs4.png",
+                    "label": "Human 3DGS 3",
+                    "alt": "Human 3DGS 3"
+                  }
+                ]
+              }
             },
             {
               "label": "Unreal Engine",
@@ -317,7 +407,23 @@
               "col": 4,
               "row": 1,
               "span_rows": 2,
-              "merge": true
+              "merge": true,
+              "preview": {
+                "title": "Unreal Engine composite",
+                "caption": "Scene and human assets are combined in UE to form a controllable shooting space.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/ue-scene.png",
+                    "label": "UE scene",
+                    "alt": "UE scene"
+                  },
+                  {
+                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "label": "Scene-person composite",
+                    "alt": "Scene-person composite"
+                  }
+                ]
+              }
             },
             {
               "label": "Virtual shooting",
@@ -325,7 +431,18 @@
               "icon": "fa-solid fa-camera-retro",
               "col": 5,
               "row": 1,
-              "span_rows": 2
+              "span_rows": 2,
+              "preview": {
+                "title": "Virtual shooting",
+                "caption": "Camera viewpoints are adjusted inside the virtual studio to create shooting candidates.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "label": "Virtual shooting result",
+                    "alt": "Virtual shooting result"
+                  }
+                ]
+              }
             },
             {
               "label": "Neural render",
@@ -333,7 +450,18 @@
               "icon": "fa-solid fa-wand-magic-sparkles",
               "col": 6,
               "row": 1,
-              "span_rows": 2
+              "span_rows": 2,
+              "preview": {
+                "title": "Neural-rendered photo",
+                "caption": "Generative neural rendering improves the raw virtual capture into a photo-like result.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/virtual-studio/nr1.png",
+                    "label": "Neural render output",
+                    "alt": "Neural render output"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -349,49 +477,156 @@
               "detail": "user image",
               "icon": "fa-solid fa-image",
               "col": 1,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Input photo",
+                "caption": "A single reference photo is used as input.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/source_oriented.png",
+                    "label": "Reference photo",
+                    "alt": "Reference photo"
+                  }
+                ]
+              }
             },
             {
               "label": "Outpaint",
               "detail": "image expansion",
               "icon": "fa-solid fa-up-right-and-down-left-from-center",
               "col": 2,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Image outpainting",
+                "caption": "The input is expanded to support constrained viewpoint changes.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/outpaint_input.png",
+                    "label": "Outpaint input",
+                    "alt": "Outpaint input"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/outpaint_mask.png",
+                    "label": "Outpaint mask",
+                    "alt": "Outpaint mask"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/outpaint_result.png",
+                    "label": "Outpaint result",
+                    "alt": "Outpaint result"
+                  }
+                ]
+              }
             },
             {
               "label": "SHARP",
               "detail": "3DGS model",
               "icon": "fa-solid fa-dice-d6",
               "col": 3,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "SHARP 3DGS",
+                "caption": "The image is reconstructed into 3DGS with point-cloud previews.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/point_cloud.png",
+                    "label": "Point cloud",
+                    "alt": "Point cloud"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/segmented_point_cloud.png",
+                    "label": "Segmented point cloud",
+                    "alt": "Segmented point cloud"
+                  }
+                ]
+              }
             },
             {
               "label": "Camera pose",
               "detail": "view transform",
               "icon": "fa-solid fa-video",
               "col": 4,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Camera-pose transform",
+                "caption": "A constrained pose transform is applied on the reconstructed scene.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "label": "Novel-view render",
+                    "alt": "Novel-view render"
+                  }
+                ]
+              }
             },
             {
               "label": "Render",
               "detail": "novel view",
               "icon": "fa-solid fa-cube",
               "col": 5,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Novel-view render",
+                "caption": "A geometry-driven novel-view render is produced.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "label": "Rendered view",
+                    "alt": "Rendered view"
+                  }
+                ]
+              }
             },
             {
               "label": "Prior repair",
               "detail": "image model",
               "icon": "fa-solid fa-brush",
               "col": 6,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Generative repair",
+                "caption": "Generative priors repair holes and visual artifacts in the rendered view.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/repair_input.png",
+                    "label": "Repair input",
+                    "alt": "Repair input"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/repair_mask.png",
+                    "label": "Repair mask",
+                    "alt": "Repair mask"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "label": "Repair output",
+                    "alt": "Repair output"
+                  }
+                ]
+              }
             },
             {
               "label": "Reframed photo",
               "detail": "final view",
               "icon": "fa-solid fa-camera",
               "col": 7,
-              "row": 1
+              "row": 1,
+              "preview": {
+                "title": "Reframed photo",
+                "caption": "The final Spatial Reframing output.",
+                "media": [
+                  {
+                    "src": "assets/media/photography/spatial-reframing/repair_upscaled.png",
+                    "label": "Final result",
+                    "alt": "Final result"
+                  },
+                  {
+                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "label": "Repair result",
+                    "alt": "Repair result"
+                  }
+                ]
+              }
             }
           ]
         }

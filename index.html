@@ -266,63 +266,228 @@
                   
                   <div class="flow-track flow-layout-grid-branches" style="--step-count: 8; --flow-columns: 6; --flow-rows: 2">
                     
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-0" aria-pressed="false" style="--flow-col: 2; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>Scene image</span>
                       <small>reference</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-1" aria-pressed="false" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-cubes"></i>
                       <span>Marble</span>
                       <small>scene 3DGS</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 1; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-2" aria-pressed="false" style="--flow-col: 1; --flow-row: 2">
                       <i class="fa-solid fa-user"></i>
                       <span>Person image</span>
                       <small>reference</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-3" aria-pressed="false" style="--flow-col: 2; --flow-row: 2">
                       <i class="fa-solid fa-object-group"></i>
                       <span>SAM</span>
                       <small>person mask</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-4" aria-pressed="false" style="--flow-col: 3; --flow-row: 2">
                       <i class="fa-solid fa-person-rays"></i>
                       <span>SHARP</span>
                       <small>human 3DGS</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node is-merge" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node is-merge has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-5" aria-pressed="false" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
                       <small>composite</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-6" aria-pressed="false" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-camera-retro"></i>
                       <span>Virtual shooting</span>
                       <small>immersive</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1; --flow-row-span: 2">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-7" aria-pressed="false" style="--flow-col: 6; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-wand-magic-sparkles"></i>
                       <span>Neural render</span>
                       <small>simulation</small>
-                    </span>
+                    </button>
 
                   </div>
                           </div>
+                          
+                          <div class="flow-preview-stage">
+                            
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-0" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Scene image</strong>
+                                <p>A single scene image is used as the virtual studio world-creation input.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-image.png" alt="Input scene" loading="lazy">
+                                  <figcaption>Input scene</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-1" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Marble scene 3DGS</strong>
+                                <p>The scene image is reconstructed into scene 3DGS for downstream composition.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-3dgs-1.png" alt="Scene reconstruction 1" loading="lazy">
+                                  <figcaption>Scene reconstruction 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/scene-3dgs-2.png" alt="Scene reconstruction 2" loading="lazy">
+                                  <figcaption>Scene reconstruction 2</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-2" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Person image</strong>
+                                <p>A person image is used as an independent subject-asset input.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human1.png" alt="Person sample 1" loading="lazy">
+                                  <figcaption>Person sample 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human2.png" alt="Person sample 2" loading="lazy">
+                                  <figcaption>Person sample 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/human4.png" alt="Person sample 3" loading="lazy">
+                                  <figcaption>Person sample 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-3" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SAM person mask</strong>
+                                <p>SAM extracts clean person masks before human 3DGS reconstruction.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg1.png" alt="Mask sample 1" loading="lazy">
+                                  <figcaption>Mask sample 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg2.png" alt="Mask sample 2" loading="lazy">
+                                  <figcaption>Mask sample 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humanseg4.png" alt="Mask sample 3" loading="lazy">
+                                  <figcaption>Mask sample 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-4" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SHARP human 3DGS</strong>
+                                <p>The segmented person is reconstructed into a composable human 3DGS asset.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs1.png" alt="Human 3DGS 1" loading="lazy">
+                                  <figcaption>Human 3DGS 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs2.png" alt="Human 3DGS 2" loading="lazy">
+                                  <figcaption>Human 3DGS 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/humangs4.png" alt="Human 3DGS 3" loading="lazy">
+                                  <figcaption>Human 3DGS 3</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-5" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Unreal Engine composite</strong>
+                                <p>Scene and human assets are combined in UE to form a controllable shooting space.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/ue-scene.png" alt="UE scene" loading="lazy">
+                                  <figcaption>UE scene</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/shooting1.png" alt="Scene-person composite" loading="lazy">
+                                  <figcaption>Scene-person composite</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-6" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Virtual shooting</strong>
+                                <p>Camera viewpoints are adjusted inside the virtual studio to create shooting candidates.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/shooting1.png" alt="Virtual shooting result" loading="lazy">
+                                  <figcaption>Virtual shooting result</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-7" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Neural-rendered photo</strong>
+                                <p>Generative neural rendering improves the raw virtual capture into a photo-like result.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/virtual-studio/nr1.png" alt="Neural render output" loading="lazy">
+                                  <figcaption>Neural render output</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                          </div>
+
                         </div>
                       </div>
                     </dialog>
@@ -338,56 +503,196 @@
                   
                   <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7; --flow-rows: 1">
                     
-                    <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-0" aria-pressed="false" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>Input photo</span>
                       <small>user image</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-1" aria-pressed="false" style="--flow-col: 2; --flow-row: 1">
                       <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
                       <span>Outpaint</span>
                       <small>image expansion</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-2" aria-pressed="false" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-dice-d6"></i>
                       <span>SHARP</span>
                       <small>3DGS model</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 4; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-3" aria-pressed="false" style="--flow-col: 4; --flow-row: 1">
                       <i class="fa-solid fa-video"></i>
                       <span>Camera pose</span>
                       <small>view transform</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-4" aria-pressed="false" style="--flow-col: 5; --flow-row: 1">
                       <i class="fa-solid fa-cube"></i>
                       <span>Render</span>
                       <small>novel view</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-5" aria-pressed="false" style="--flow-col: 6; --flow-row: 1">
                       <i class="fa-solid fa-brush"></i>
                       <span>Prior repair</span>
                       <small>image model</small>
-                    </span>
+                    </button>
 
 
-                    <span class="flow-node" style="--flow-col: 7; --flow-row: 1">
+                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-6" aria-pressed="false" style="--flow-col: 7; --flow-row: 1">
                       <i class="fa-solid fa-camera"></i>
                       <span>Reframed photo</span>
                       <small>final view</small>
-                    </span>
+                    </button>
 
                   </div>
                           </div>
+                          
+                          <div class="flow-preview-stage">
+                            
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-0" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Input photo</strong>
+                                <p>A single reference photo is used as input.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/source_oriented.png" alt="Reference photo" loading="lazy">
+                                  <figcaption>Reference photo</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-1" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Image outpainting</strong>
+                                <p>The input is expanded to support constrained viewpoint changes.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_input.png" alt="Outpaint input" loading="lazy">
+                                  <figcaption>Outpaint input</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_mask.png" alt="Outpaint mask" loading="lazy">
+                                  <figcaption>Outpaint mask</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/outpaint_result.png" alt="Outpaint result" loading="lazy">
+                                  <figcaption>Outpaint result</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-2" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>SHARP 3DGS</strong>
+                                <p>The image is reconstructed into 3DGS with point-cloud previews.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/point_cloud.png" alt="Point cloud" loading="lazy">
+                                  <figcaption>Point cloud</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/segmented_point_cloud.png" alt="Segmented point cloud" loading="lazy">
+                                  <figcaption>Segmented point cloud</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-3" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Camera-pose transform</strong>
+                                <p>A constrained pose transform is applied on the reconstructed scene.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/final_render.png" alt="Novel-view render" loading="lazy">
+                                  <figcaption>Novel-view render</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-4" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Novel-view render</strong>
+                                <p>A geometry-driven novel-view render is produced.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/final_render.png" alt="Rendered view" loading="lazy">
+                                  <figcaption>Rendered view</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-5" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Generative repair</strong>
+                                <p>Generative priors repair holes and visual artifacts in the rendered view.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_input.png" alt="Repair input" loading="lazy">
+                                  <figcaption>Repair input</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_mask.png" alt="Repair mask" loading="lazy">
+                                  <figcaption>Repair mask</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_output.png" alt="Repair output" loading="lazy">
+                                  <figcaption>Repair output</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-6" data-flow-preview-panel>
+                              <div class="flow-preview-copy">
+                                <strong>Reframed photo</strong>
+                                <p>The final Spatial Reframing output.</p>
+                              </div>
+                              <div class="flow-preview-media-grid">
+                                
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_upscaled.png" alt="Final result" loading="lazy">
+                                  <figcaption>Final result</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography/spatial-reframing/repair_output.png" alt="Repair result" loading="lazy">
+                                  <figcaption>Repair result</figcaption>
+                                </figure>
+
+                              </div>
+                            </div>
+
+                          </div>
+
                         </div>
                       </div>
                     </dialog>
@@ -785,6 +1090,29 @@
         dialog.addEventListener('click', function(event) {
           if (event.target === dialog) dialog.close();
         });
+      });
+
+      document.querySelectorAll('.flow-dialog').forEach(function(dialog) {
+        const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
+        const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
+        function activate(targetId) {
+          buttons.forEach(function(button) {
+            const active = button.getAttribute('data-flow-preview-target') === targetId;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          panels.forEach(function(panel) {
+            panel.classList.toggle('is-active', panel.id === targetId);
+          });
+        }
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            activate(button.getAttribute('data-flow-preview-target'));
+          });
+        });
+        if (buttons.length) {
+          activate(buttons[0].getAttribute('data-flow-preview-target'));
+        }
       });
 
       if ('IntersectionObserver' in window) {

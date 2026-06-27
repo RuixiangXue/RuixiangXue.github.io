@@ -134,6 +134,29 @@
         });
       });
 
+      document.querySelectorAll('.flow-dialog').forEach(function(dialog) {
+        const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
+        const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
+        function activate(targetId) {
+          buttons.forEach(function(button) {
+            const active = button.getAttribute('data-flow-preview-target') === targetId;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          panels.forEach(function(panel) {
+            panel.classList.toggle('is-active', panel.id === targetId);
+          });
+        }
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            activate(button.getAttribute('data-flow-preview-target'));
+          });
+        });
+        if (buttons.length) {
+          activate(buttons[0].getAttribute('data-flow-preview-target'));
+        }
+      });
+
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
