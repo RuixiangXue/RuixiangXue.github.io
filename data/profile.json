@@ -286,7 +286,7 @@
                 "caption": "A single scene image is used as the virtual studio world-creation input.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-image.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image.jpg",
                     "label": "Input scene",
                     "alt": "Input scene"
                   }
@@ -304,12 +304,12 @@
                 "caption": "The scene image is reconstructed into scene 3DGS for downstream composition.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-3dgs-1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-1.jpg",
                     "label": "Scene reconstruction 1",
                     "alt": "Scene reconstruction 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-3dgs-2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-2.jpg",
                     "label": "Scene reconstruction 2",
                     "alt": "Scene reconstruction 2"
                   }
@@ -327,17 +327,17 @@
                 "caption": "A person image is used as an independent subject-asset input.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/human1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human1.jpg",
                     "label": "Person sample 1",
                     "alt": "Person sample 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/human2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human2.jpg",
                     "label": "Person sample 2",
                     "alt": "Person sample 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/human4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human4.jpg",
                     "label": "Person sample 3",
                     "alt": "Person sample 3"
                   }
@@ -355,17 +355,17 @@
                 "caption": "SAM extracts clean person masks before human 3DGS reconstruction.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg1.jpg",
                     "label": "Mask sample 1",
                     "alt": "Mask sample 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg2.jpg",
                     "label": "Mask sample 2",
                     "alt": "Mask sample 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg4.jpg",
                     "label": "Mask sample 3",
                     "alt": "Mask sample 3"
                   }
@@ -383,17 +383,17 @@
                 "caption": "The segmented person is reconstructed into a composable human 3DGS asset.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs1.jpg",
                     "label": "Human 3DGS 1",
                     "alt": "Human 3DGS 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs2.jpg",
                     "label": "Human 3DGS 2",
                     "alt": "Human 3DGS 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs4.jpg",
                     "label": "Human 3DGS 3",
                     "alt": "Human 3DGS 3"
                   }
@@ -413,12 +413,12 @@
                 "caption": "Scene and human assets are combined in UE to form a controllable shooting space.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/ue-scene.png",
+                    "src": "assets/media/photography-preview/virtual-studio/ue-scene.jpg",
                     "label": "UE scene",
                     "alt": "UE scene"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/shooting1.jpg",
                     "label": "Scene-person composite",
                     "alt": "Scene-person composite"
                   }
@@ -437,7 +437,7 @@
                 "caption": "Camera viewpoints are adjusted inside the virtual studio to create shooting candidates.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/shooting1.jpg",
                     "label": "Virtual shooting result",
                     "alt": "Virtual shooting result"
                   }
@@ -456,7 +456,7 @@
                 "caption": "Generative neural rendering improves the raw virtual capture into a photo-like result.",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/nr1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/nr1.jpg",
                     "label": "Neural render output",
                     "alt": "Neural render output"
                   }
@@ -483,7 +483,7 @@
                 "caption": "A single reference photo is used as input.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/source_oriented.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/source_oriented.jpg",
                     "label": "Reference photo",
                     "alt": "Reference photo"
                   }
@@ -501,17 +501,17 @@
                 "caption": "The input is expanded to support constrained viewpoint changes.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_input.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_input.jpg",
                     "label": "Outpaint input",
                     "alt": "Outpaint input"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_mask.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_mask.jpg",
                     "label": "Outpaint mask",
                     "alt": "Outpaint mask"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_result.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_result.jpg",
                     "label": "Outpaint result",
                     "alt": "Outpaint result"
                   }
@@ -529,12 +529,12 @@
                 "caption": "The image is reconstructed into 3DGS with point-cloud previews.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/point_cloud.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/point_cloud.jpg",
                     "label": "Point cloud",
                     "alt": "Point cloud"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/segmented_point_cloud.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/segmented_point_cloud.jpg",
                     "label": "Segmented point cloud",
                     "alt": "Segmented point cloud"
                   }
@@ -552,7 +552,7 @@
                 "caption": "A constrained pose transform is applied on the reconstructed scene.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
                     "label": "Novel-view render",
                     "alt": "Novel-view render"
                   }
@@ -570,7 +570,7 @@
                 "caption": "A geometry-driven novel-view render is produced.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
                     "label": "Rendered view",
                     "alt": "Rendered view"
                   }
@@ -588,17 +588,17 @@
                 "caption": "Generative priors repair holes and visual artifacts in the rendered view.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_input.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_input.jpg",
                     "label": "Repair input",
                     "alt": "Repair input"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_mask.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_mask.jpg",
                     "label": "Repair mask",
                     "alt": "Repair mask"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
                     "label": "Repair output",
                     "alt": "Repair output"
                   }
@@ -616,12 +616,12 @@
                 "caption": "The final Spatial Reframing output.",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_upscaled.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_upscaled.jpg",
                     "label": "Final result",
                     "alt": "Final result"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
                     "label": "Repair result",
                     "alt": "Repair result"
                   }

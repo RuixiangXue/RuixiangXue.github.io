@@ -285,7 +285,7 @@
                 "caption": "单张场景图像作为虚拟摄影棚的世界创建输入。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-image.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image.jpg",
                     "label": "输入场景",
                     "alt": "输入场景"
                   }
@@ -303,12 +303,12 @@
                 "caption": "由单张场景图像生成可导入后续流程的场景 3DGS。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-3dgs-1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-1.jpg",
                     "label": "场景重建 1",
                     "alt": "场景重建 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/scene-3dgs-2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-2.jpg",
                     "label": "场景重建 2",
                     "alt": "场景重建 2"
                   }
@@ -326,17 +326,17 @@
                 "caption": "人物图像作为独立主体资产重建输入。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/human1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human1.jpg",
                     "label": "人物样例 1",
                     "alt": "人物样例 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/human2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human2.jpg",
                     "label": "人物样例 2",
                     "alt": "人物样例 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/human4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/human4.jpg",
                     "label": "人物样例 3",
                     "alt": "人物样例 3"
                   }
@@ -354,17 +354,17 @@
                 "caption": "先得到人物 mask，为人物 3DGS 重建提供干净主体。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg1.jpg",
                     "label": "分割样例 1",
                     "alt": "分割样例 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg2.jpg",
                     "label": "分割样例 2",
                     "alt": "分割样例 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humanseg4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg4.jpg",
                     "label": "分割样例 3",
                     "alt": "分割样例 3"
                   }
@@ -382,17 +382,17 @@
                 "caption": "将分割后的人物重建为可组合的人物 3DGS 资产。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs1.jpg",
                     "label": "人物 3DGS 1",
                     "alt": "人物 3DGS 1"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs2.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs2.jpg",
                     "label": "人物 3DGS 2",
                     "alt": "人物 3DGS 2"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/humangs4.png",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs4.jpg",
                     "label": "人物 3DGS 3",
                     "alt": "人物 3DGS 3"
                   }
@@ -412,12 +412,12 @@
                 "caption": "场景资产与人物资产组合导入 UE，形成可漫游拍摄空间。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/ue-scene.png",
+                    "src": "assets/media/photography-preview/virtual-studio/ue-scene.jpg",
                     "label": "UE 场景",
                     "alt": "UE 场景"
                   },
                   {
-                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/shooting1.jpg",
                     "label": "人物场景组合",
                     "alt": "人物场景组合"
                   }
@@ -436,7 +436,7 @@
                 "caption": "在虚拟摄影棚中调整视角并生成拍摄候选结果。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/shooting1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/shooting1.jpg",
                     "label": "虚拟拍摄结果",
                     "alt": "虚拟拍摄结果"
                   }
@@ -455,7 +455,7 @@
                 "caption": "对原始渲染结果进行生成式修复，提升照片观感。",
                 "media": [
                   {
-                    "src": "assets/media/photography/virtual-studio/nr1.png",
+                    "src": "assets/media/photography-preview/virtual-studio/nr1.jpg",
                     "label": "神经渲染输出",
                     "alt": "神经渲染输出"
                   }
@@ -482,7 +482,7 @@
                 "caption": "用户提供单张参考图像。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/source_oriented.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/source_oriented.jpg",
                     "label": "参考图像",
                     "alt": "参考图像"
                   }
@@ -500,17 +500,17 @@
                 "caption": "对输入图像进行外扩，补充视角变换所需画布。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_input.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_input.jpg",
                     "label": "外扩输入",
                     "alt": "外扩输入"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_mask.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_mask.jpg",
                     "label": "外扩 mask",
                     "alt": "外扩 mask"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/outpaint_result.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_result.jpg",
                     "label": "外扩结果",
                     "alt": "外扩结果"
                   }
@@ -528,12 +528,12 @@
                 "caption": "从图像重建 3DGS，并生成点云/分割预览。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/point_cloud.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/point_cloud.jpg",
                     "label": "点云预览",
                     "alt": "点云预览"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/segmented_point_cloud.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/segmented_point_cloud.jpg",
                     "label": "分割点云",
                     "alt": "分割点云"
                   }
@@ -551,7 +551,7 @@
                 "caption": "在重建结果上执行受限视角变换。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
                     "label": "新视角渲染",
                     "alt": "新视角渲染"
                   }
@@ -569,7 +569,7 @@
                 "caption": "得到几何驱动的新视角渲染结果。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/final_render.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
                     "label": "渲染结果",
                     "alt": "渲染结果"
                   }
@@ -587,17 +587,17 @@
                 "caption": "对渲染结果中的空洞和视觉瑕疵进行生成式修复。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_input.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_input.jpg",
                     "label": "修复输入",
                     "alt": "修复输入"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_mask.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_mask.jpg",
                     "label": "修复 mask",
                     "alt": "修复 mask"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
                     "label": "修复输出",
                     "alt": "修复输出"
                   }
@@ -615,12 +615,12 @@
                 "caption": "输出最终 Spatial Reframing 结果。",
                 "media": [
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_upscaled.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_upscaled.jpg",
                     "label": "最终结果",
                     "alt": "最终结果"
                   },
                   {
-                    "src": "assets/media/photography/spatial-reframing/repair_output.png",
+                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
                     "label": "修复结果",
                     "alt": "修复结果"
                   }

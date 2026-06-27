@@ -947,9 +947,11 @@ body.theme-prism .flow-preview-media-grid img,
 body.theme-prism .flow-preview-media-grid video {
   display: block;
   width: 100%;
-  height: 138px;
-  object-fit: cover;
-  background: color-mix(in srgb, var(--background) 82%, #000);
+  height: clamp(150px, 18vw, 220px);
+  padding: 6px;
+  object-fit: contain;
+  object-position: center;
+  background: color-mix(in srgb, var(--surface) 72%, var(--background));
 }
 
 body.theme-prism .flow-preview-media-grid figcaption {
@@ -1433,7 +1435,7 @@ body.theme-prism .site-footer a {
 
   body.theme-prism .flow-preview-media-grid img,
   body.theme-prism .flow-preview-media-grid video {
-    height: 180px;
+    height: clamp(170px, 54vw, 240px);
   }
 
   body.theme-prism .research-map {
