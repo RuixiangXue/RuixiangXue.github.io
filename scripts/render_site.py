@@ -346,9 +346,13 @@ def render_resume_contacts(person: dict[str, Any], links: list[dict[str, str]]) 
         esc(person.get("email", "")),
         esc(person.get("phone", "")),
     ]
+    contact_lines = "<br>".join(part for part in parts if part)
     if homepage:
-        parts.append(f'<a href="{esc(homepage)}">{esc(homepage.replace("https://", ""))}</a>')
-    return "<br>".join(part for part in parts if part)
+        contact_lines += (
+            f'<br><a class="homepage-cta" href="{esc(homepage)}">'
+            f'<span>Homepage</span>{esc(homepage.replace("https://", ""))}</a>'
+        )
+    return contact_lines
 
 
 def match_tags(item: dict[str, Any], tags: set[str]) -> bool:
