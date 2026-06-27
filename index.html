@@ -242,27 +242,22 @@
             
             <div class="project-copy">
               <strong>AI-assisted photography</strong>
-              <p>A virtual photography system that turns single photos into controllable 3D shooting spaces, then repairs raw 3DGS renders with generative neural rendering.</p>
+              
               <div class="project-highlights">
-                <div class="project-highlight">
+                <button class="project-highlight" type="button" data-flow-target="project-ai-assisted-photography-flow-0">
                   <i class="fa-solid fa-vr-cardboard"></i>
                   <span><strong>Virtual studio</strong>: Marble 3DGS, SplatTransform, UE import, immersive capture.</span>
-                </div>
+                </button>
 
-                <div class="project-highlight">
+                <button class="project-highlight" type="button" data-flow-target="project-ai-assisted-photography-flow-1">
                   <i class="fa-solid fa-layer-group"></i>
-                  <span><strong>Human-scene compositing</strong>: scene splats plus a separate human 3DGS asset pipeline.</span>
-                </div>
-
-                <div class="project-highlight">
-                  <i class="fa-solid fa-crop-simple"></i>
                   <span><strong>Spatial reframing</strong>: Apple-like nearby-view recomposition from a single photo.</span>
-                </div>
+                </button>
 </div>
               
               <div class="project-flow-grid">
                 
-                <div class="flow-card flow-card-0">
+                <div class="flow-card flow-card-0" id="project-ai-assisted-photography-flow-0" data-flow-panel hidden>
                   <div class="flow-head">
                     <strong>Virtual Studio Pipeline</strong>
                     <span>From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.</span>
@@ -320,7 +315,7 @@
                   </div>
                 </div>
 
-                <div class="flow-card flow-card-1">
+                <div class="flow-card flow-card-1" id="project-ai-assisted-photography-flow-1" data-flow-panel hidden>
                   <div class="flow-head">
                     <strong>Spatial Reframing Pipeline</strong>
                     <span>Apple-like nearby-view recomposition under constrained viewpoint changes.</span>
@@ -759,6 +754,20 @@
           } else {
             dialog.setAttribute('open', '');
           }
+        });
+      });
+
+      document.querySelectorAll('[data-flow-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const project = button.closest('.project-card');
+          if (!project) return;
+          const targetId = button.getAttribute('data-flow-target');
+          project.querySelectorAll('[data-flow-target]').forEach(function(item) {
+            item.classList.toggle('active', item === button);
+          });
+          project.querySelectorAll('[data-flow-panel]').forEach(function(panel) {
+            panel.hidden = panel.id !== targetId;
+          });
         });
       });
 

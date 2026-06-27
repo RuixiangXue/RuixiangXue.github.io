@@ -249,10 +249,9 @@
         "coding",
         "photography"
       ],
-      "summary": "面向虚拟摄影的空间重构系统：从单张照片生成可控三维拍摄空间，再用生成式神经渲染提升照片观感。",
+      "summary": "",
       "bullets": [
         "**虚拟摄影棚**：Marble 3DGS、SplatTransform、UE 导入、沉浸式拍摄。",
-        "**人物场景合成**：场景 splats 与独立人物 3DGS 资产流程组合。",
         "**空间重构取景**：从单张照片复刻 Apple-like 近邻视角重构。"
       ],
       "flows": [

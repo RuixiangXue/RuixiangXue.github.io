@@ -433,6 +433,20 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
+      document.querySelectorAll('[data-flow-target]').forEach(function(button) {{
+        button.addEventListener('click', function() {{
+          const project = button.closest('.project-card');
+          if (!project) return;
+          const targetId = button.getAttribute('data-flow-target');
+          project.querySelectorAll('[data-flow-target]').forEach(function(item) {{
+            item.classList.toggle('active', item === button);
+          }});
+          project.querySelectorAll('[data-flow-panel]').forEach(function(panel) {{
+            panel.hidden = panel.id !== targetId;
+          }});
+        }});
+      }});
+
       document.querySelectorAll('[data-dialog-close]').forEach(function(button) {{
         button.addEventListener('click', function() {{
           const dialog = button.closest('dialog');
@@ -680,12 +694,14 @@ def render_project_card(item: dict[str, Any]) -> str:
     image = item.get("image")
     image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
     card_class = "card project-card has-flows" if item.get("flows") else "card project-card"
+    summary = item.get("summary", "")
+    summary_html = f"<p>{esc(summary)}</p>" if summary else ""
     return f"""
           <article class="{card_class}" id="{esc(item.get('id', project_id(item['name'])))}">
             {image_html}
             <div class="project-copy">
               <strong>{esc(item['name'])}</strong>
-              <p>{esc(item.get('summary', ''))}</p>
+              {summary_html}
               {bullet_list}
               {render_project_flows(item)}
               {render_project_links(item)}
@@ -702,8 +718,17 @@ def render_project_bullets(item: dict[str, Any]) -> str:
 
 def render_project_highlights(item: dict[str, Any]) -> str:
     icons = ["fa-solid fa-vr-cardboard", "fa-solid fa-layer-group", "fa-solid fa-crop-simple"]
+    flows = item.get("flows", [])
+    item_id = item.get("id", project_id(item["name"]))
     cards = "".join(
         f"""
+                <button class="project-highlight" type="button" data-flow-target="{esc(flow_panel_id(item_id, index))}">
+                  <i class="{esc(icons[index % len(icons)])}"></i>
+                  <span>{format_inline(bullet)}</span>
+                </button>
+"""
+        if index < len(flows)
+        else f"""
                 <div class="project-highlight">
                   <i class="{esc(icons[index % len(icons)])}"></i>
                   <span>{format_inline(bullet)}</span>
@@ -718,18 +743,23 @@ def render_project_flows(item: dict[str, Any]) -> str:
     flows = item.get("flows", [])
     if not flows:
         return ""
+    item_id = item.get("id", project_id(item["name"]))
     return f"""
               <div class="project-flow-grid">
-                {''.join(render_project_flow(flow, index) for index, flow in enumerate(flows))}
+                {''.join(render_project_flow(flow, index, item_id) for index, flow in enumerate(flows))}
               </div>
 """
 
 
-def render_project_flow(flow: dict[str, Any], index: int) -> str:
+def flow_panel_id(item_id: str, index: int) -> str:
+    return f"{item_id}-flow-{index}"
+
+
+def render_project_flow(flow: dict[str, Any], index: int, item_id: str) -> str:
     steps = flow.get("steps", [])
     nodes = "\n".join(render_flow_step(step) for step in steps)
     return f"""
-                <div class="flow-card flow-card-{index % 2}">
+                <div class="flow-card flow-card-{index % 2}" id="{esc(flow_panel_id(item_id, index))}" data-flow-panel hidden>
                   <div class="flow-head">
                     <strong>{esc(flow.get('title', 'Pipeline'))}</strong>
                     <span>{esc(flow.get('caption', ''))}</span>

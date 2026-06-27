@@ -250,10 +250,9 @@
         "coding",
         "photography"
       ],
-      "summary": "A virtual photography system that turns single photos into controllable 3D shooting spaces, then repairs raw 3DGS renders with generative neural rendering.",
+      "summary": "",
       "bullets": [
         "**Virtual studio**: Marble 3DGS, SplatTransform, UE import, immersive capture.",
-        "**Human-scene compositing**: scene splats plus a separate human 3DGS asset pipeline.",
         "**Spatial reframing**: Apple-like nearby-view recomposition from a single photo."
       ],
       "flows": [

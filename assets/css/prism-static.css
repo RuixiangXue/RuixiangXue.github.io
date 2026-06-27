@@ -678,6 +678,26 @@ body.theme-prism .project-highlight {
   border-radius: 10px;
   background: color-mix(in srgb, var(--surface-soft) 72%, transparent);
   box-shadow: 0 10px 24px rgba(20, 28, 26, 0.08);
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+
+body.theme-prism button.project-highlight {
+  cursor: pointer;
+}
+
+body.theme-prism button.project-highlight:hover,
+body.theme-prism button.project-highlight:focus-visible,
+body.theme-prism button.project-highlight.active {
+  border-color: var(--accent);
+  outline: 0;
+  box-shadow: 0 14px 34px rgba(20, 28, 26, 0.12);
+  transform: translateY(-1px);
+}
+
+body.theme-prism button.project-highlight.active {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
 }
 
 body.theme-prism .project-highlight i {
@@ -716,6 +736,10 @@ body.theme-prism .flow-card {
     linear-gradient(135deg, color-mix(in srgb, var(--surface) 74%, transparent), color-mix(in srgb, var(--surface-soft) 58%, transparent));
   backdrop-filter: blur(16px) saturate(1.25);
   box-shadow: 0 18px 44px rgba(18, 27, 24, 0.12);
+}
+
+body.theme-prism .flow-card[hidden] {
+  display: none;
 }
 
 body.theme-prism .flow-card::before {

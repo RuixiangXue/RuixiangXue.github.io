@@ -121,6 +121,20 @@
         });
       });
 
+      document.querySelectorAll('[data-flow-target]').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const project = button.closest('.project-card');
+          if (!project) return;
+          const targetId = button.getAttribute('data-flow-target');
+          project.querySelectorAll('[data-flow-target]').forEach(function(item) {
+            item.classList.toggle('active', item === button);
+          });
+          project.querySelectorAll('[data-flow-panel]').forEach(function(panel) {
+            panel.hidden = panel.id !== targetId;
+          });
+        });
+      });
+
       document.querySelectorAll('[data-dialog-close]').forEach(function(button) {
         button.addEventListener('click', function() {
           const dialog = button.closest('dialog');
