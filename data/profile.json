@@ -236,10 +236,10 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "Contributed to a National Key R&D Program project on driving world models, covering street-scene novel-view extrapolation and 3D/4D world-model technology scouting.",
+      "summary": "Contributed to a **National Key R&D Program** project on **driving world models**, focusing on **large-baseline street-scene novel-view extrapolation** and **3D/4D world-model scouting**.",
       "bullets": [
-        "Explored mutual enhancement between feed-forward reconstruction models (UniSplat) and generative models (VISTA) for large-baseline street-scene novel-view extrapolation: using feed-forward reconstruction to constrain geometric consistency in generated views, and leveraging generative priors to improve rendering-quality losses for feed-forward reconstruction.",
-        "Researched industrial and academic directions from 3D/4D reconstruction and reconstruction-generation coupling to driving world models."
+        "Explored mutual enhancement between **UniSplat feed-forward reconstruction** and **VISTA generative models**: geometry constraints improve consistency, while generative priors improve rendering quality.",
+        "Surveyed **3D/4D reconstruction**, **reconstruction-generation coupling**, and **driving world model** directions."
       ]
     },
     {
@@ -264,7 +264,7 @@
       "bullets": [
         "Built a virtual studio pipeline where reference scene images are reconstructed into scene 3DGS with Marble, while person images are segmented by SAM and reconstructed into human 3DGS with SHARP.",
         "Combined scene and human assets in Unreal Engine for immersive roaming and virtual shooting, then refined raw captures with neural rendering for photography simulation.",
-        "Prototyped Spatial Reframing with image outpainting, interactive foreground-background SHARP 3DGS composition, constrained camera-pose transformation, novel-view rendering, and final reframed-photo output."
+        "Prototyped Spatial Reframing with image outpainting, foreground-background SHARP 3DGS composition, constrained view transformation, novel-view rendering, and final reframed-photo output."
       ],
       "flows": [
         {
@@ -587,16 +587,15 @@
               "col": 3,
               "row": 1,
               "preview": {
-                "title": "SHARP 3DGS",
-                "caption": "Interactive foreground-background 3DGS composition with drag range clamped by camera_limits from the package.",
+                "title": "SHARP 3DGS preview",
+                "caption": "Screen recording of foreground-background SHARP 3DGS composition and constrained-view reframing.",
                 "media": [
                   {
-                    "type": "splat-viewer",
-                    "background": "assets/media/reframe-splats/background-points.bin",
-                    "foreground": "assets/media/reframe-splats/foreground-points.bin",
-                    "limits": "assets/media/reframe-splats/camera_limits.json",
-                    "label": "Interactive foreground-background 3DGS point preview",
-                    "alt": "Interactive SHARP 3DGS viewer"
+                    "type": "video",
+                    "src": "assets/media/photography-preview/spatial-reframing/sharp-reframe-demo.mov",
+                    "label": "SHARP/3DGS Reframe recording",
+                    "alt": "SHARP/3DGS Reframe recording",
+                    "wide": true
                   }
                 ]
               }

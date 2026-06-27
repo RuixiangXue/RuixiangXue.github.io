@@ -235,10 +235,10 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "参与自动驾驶世界模型方向的国家重点研发项目，围绕街景新视角外推与 3D/4D 世界模型技术路线调研开展工作。",
+      "summary": "参与 **自动驾驶世界模型方向国家重点研发项目**，聚焦 **街景大幅度新视角外推** 与 **3D/4D 世界模型路线调研**。",
       "bullets": [
-        "面向街景大幅度新视角外推，探索前馈重建模型（UniSplat）与生成模型（VISTA）的双向增强：利用前馈重建约束生成结果的几何一致性，并利用生成先验改进前馈重建方法的渲染质量损失。",
-        "调研工业界和学界从 3D/4D 重建、reconstruction-generation coupling 到 driving world model 的技术路线。"
+        "探索 **UniSplat 前馈重建** 与 **VISTA 生成模型** 的双向增强：用几何约束提升生成一致性，用生成先验改进前馈渲染质量。",
+        "调研 **3D/4D 重建**、**reconstruction-generation coupling** 与 **driving world model** 技术路线。"
       ]
     },
     {
@@ -263,7 +263,7 @@
       "bullets": [
         "构建虚拟摄影棚流程：参考场景图像通过 Marble 重建场景 3DGS，参考人物图像经 SAM 分割后通过 SHARP 重建人物 3DGS。",
         "将场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染提升原始拍摄结果的照片观感。",
-        "原型实现 Spatial Reframing：图像外扩、可交互前景-背景 SHARP 3DGS 组合、受限相机姿态变换、新视角渲染与最终重新构图图片输出。"
+        "原型实现 Spatial Reframing：图像外扩、前景-背景 SHARP 3DGS 组合、受限视角变换、新视角渲染与最终重新构图输出。"
       ],
       "flows": [
         {
@@ -586,16 +586,15 @@
               "col": 3,
               "row": 1,
               "preview": {
-                "title": "SHARP 3DGS",
-                "caption": "可拖动查看前景与背景 3DGS 的组合，拖动范围按压缩包中的 camera_limits 限制。",
+                "title": "SHARP 3DGS 预览",
+                "caption": "录屏展示前景-背景 SHARP 3DGS 组合与受限视角重构效果。",
                 "media": [
                   {
-                    "type": "splat-viewer",
-                    "background": "assets/media/reframe-splats/background-points.bin",
-                    "foreground": "assets/media/reframe-splats/foreground-points.bin",
-                    "limits": "assets/media/reframe-splats/camera_limits.json",
-                    "label": "可交互前景-背景 3DGS 点云预览",
-                    "alt": "可交互 SHARP 3DGS 预览"
+                    "type": "video",
+                    "src": "assets/media/photography-preview/spatial-reframing/sharp-reframe-demo.mov",
+                    "label": "SHARP/3DGS Reframe 录屏",
+                    "alt": "SHARP/3DGS Reframe 录屏",
+                    "wide": true
                   }
                 ]
               }

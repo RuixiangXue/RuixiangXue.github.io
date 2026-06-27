@@ -377,14 +377,6 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
-  <script type="importmap">
-    {{
-      "imports": {{
-        "three": "./assets/vendor/three-0.179.1.bundle.mjs"
-      }}
-    }}
-  </script>
-
   <link rel="stylesheet" href="assets/css/font_sans_serif.css">
   <link rel="stylesheet" href="assets/css/prism-static.css">
 </head>
@@ -460,155 +452,6 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
-      const splatViewerState = new WeakMap();
-      async function initSplatViewers(root) {{
-        const viewers = Array.from(root.querySelectorAll('[data-splat-viewer]'));
-        if (!viewers.length) return;
-        let THREE;
-        try {{
-          THREE = await import('three');
-        }} catch (error) {{
-          viewers.forEach(function(viewer) {{
-            const status = viewer.querySelector('[data-splat-status]');
-            if (status) status.textContent = '3D viewer failed to load: ' + (error && error.message ? error.message : String(error));
-          }});
-          return;
-        }}
-
-        function parsePointPreview(buffer) {{
-          const view = new DataView(buffer);
-          const count = view.getUint32(0, true);
-          const positions = new Float32Array(count * 3);
-          const colors = new Float32Array(count * 3);
-          let offset = 4;
-          for (let i = 0; i < count; i += 1) {{
-            positions[i * 3] = view.getFloat32(offset, true);
-            positions[i * 3 + 1] = view.getFloat32(offset + 4, true);
-            positions[i * 3 + 2] = view.getFloat32(offset + 8, true);
-            colors[i * 3] = view.getFloat32(offset + 12, true);
-            colors[i * 3 + 1] = view.getFloat32(offset + 16, true);
-            colors[i * 3 + 2] = view.getFloat32(offset + 20, true);
-            offset += 24;
-          }}
-          return {{ positions: positions, colors: colors, count: count }};
-        }}
-
-        viewers.forEach(async function(viewer) {{
-          if (splatViewerState.has(viewer)) return;
-          splatViewerState.set(viewer, true);
-          const canvas = viewer.querySelector('canvas');
-          const status = viewer.querySelector('[data-splat-status]');
-          const backgroundUrl = viewer.getAttribute('data-background');
-          const foregroundUrl = viewer.getAttribute('data-foreground');
-          const limitsUrl = viewer.getAttribute('data-limits');
-          if (!canvas || !backgroundUrl || !foregroundUrl) return;
-          try {{
-            if (status) status.textContent = 'Loading foreground/background 3DGS points...';
-            const renderer = new THREE.WebGLRenderer({{ canvas: canvas, antialias: false, alpha: false }});
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-            const scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x111611);
-            const camera = new THREE.PerspectiveCamera(55, 1, 0.01, 1000);
-            const limits = limitsUrl ? await fetch(limitsUrl).then(function(r) {{ return r.json(); }}) : {{}};
-            const backgroundBuffer = await fetch(backgroundUrl).then(function(r) {{ if (!r.ok) throw new Error('background points ' + r.status); return r.arrayBuffer(); }});
-            const foregroundBuffer = await fetch(foregroundUrl).then(function(r) {{ if (!r.ok) throw new Error('foreground points ' + r.status); return r.arrayBuffer(); }});
-            const backgroundData = parsePointPreview(backgroundBuffer);
-            const foregroundData = parsePointPreview(foregroundBuffer);
-
-            function makePoints(data, size, opacity) {{
-              const geometry = new THREE.BufferGeometry();
-              geometry.setAttribute('position', new THREE.BufferAttribute(data.positions, 3));
-              geometry.setAttribute('color', new THREE.BufferAttribute(data.colors, 3));
-              const material = new THREE.PointsMaterial({{ size: size, vertexColors: true, transparent: opacity < 1, opacity: opacity, depthWrite: false }});
-              return new THREE.Points(geometry, material);
-            }}
-
-            const background = makePoints(backgroundData, 0.010, 0.42);
-            const foreground = makePoints(foregroundData, 0.014, 0.98);
-            const group = new THREE.Group();
-            group.add(background);
-            group.add(foreground);
-            const box = new THREE.Box3().setFromObject(group);
-            const center = box.getCenter(new THREE.Vector3());
-            const size = box.getSize(new THREE.Vector3());
-            group.position.sub(center);
-            scene.add(group);
-            const radius = Math.max(size.x, size.y, size.z, 1.0) * 1.08;
-            let yaw = limits.initial_yaw_deg || 0;
-            let pitch = limits.initial_pitch_deg || 0;
-            let shiftX = limits.initial_shift_x || 0;
-            let shiftY = limits.initial_shift_y || 0;
-            let dolly = limits.initial_dolly || 0;
-            let dragging = false;
-            let lastX = 0;
-            let lastY = 0;
-            const keys = new Set();
-            const clamp = function(value, min, max) {{ return Math.max(min, Math.min(max, value)); }};
-
-            canvas.addEventListener('pointerdown', function(event) {{
-              dragging = true;
-              lastX = event.clientX;
-              lastY = event.clientY;
-              canvas.setPointerCapture(event.pointerId);
-            }});
-            canvas.addEventListener('pointermove', function(event) {{
-              if (!dragging) return;
-              const dx = event.clientX - lastX;
-              const dy = event.clientY - lastY;
-              lastX = event.clientX;
-              lastY = event.clientY;
-              yaw = clamp(yaw + dx * 0.045, -(limits.max_yaw_deg || 7), limits.max_yaw_deg || 7);
-              pitch = clamp(pitch + dy * 0.034, -(limits.max_pitch_deg || 5), limits.max_pitch_deg || 5);
-            }});
-            canvas.addEventListener('pointerup', function(event) {{
-              dragging = false;
-              canvas.releasePointerCapture(event.pointerId);
-            }});
-            window.addEventListener('keydown', function(event) {{ keys.add(event.key.toLowerCase()); }});
-            window.addEventListener('keyup', function(event) {{ keys.delete(event.key.toLowerCase()); }});
-
-            function updateSize() {{
-              const rect = viewer.getBoundingClientRect();
-              const width = Math.max(320, rect.width);
-              const height = Math.max(260, rect.height);
-              renderer.setSize(width, height, false);
-              camera.aspect = width / height;
-              camera.updateProjectionMatrix();
-            }}
-
-            let last = performance.now();
-            renderer.setAnimationLoop(function(now) {{
-              const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
-              last = now;
-              const shiftSpeed = dt * 0.010;
-              const dollySpeed = dt * 0.012;
-              if (keys.has('a')) shiftX = clamp(shiftX - shiftSpeed, -(limits.max_shift_x || 0.045), limits.max_shift_x || 0.045);
-              if (keys.has('d')) shiftX = clamp(shiftX + shiftSpeed, -(limits.max_shift_x || 0.045), limits.max_shift_x || 0.045);
-              if (keys.has('w')) shiftY = clamp(shiftY + shiftSpeed, -(limits.max_shift_y || 0.045), limits.max_shift_y || 0.045);
-              if (keys.has('s')) shiftY = clamp(shiftY - shiftSpeed, -(limits.max_shift_y || 0.045), limits.max_shift_y || 0.045);
-              if (keys.has('f')) dolly = clamp(dolly + dollySpeed, -(limits.max_dolly_backward || 0.025), limits.max_dolly_forward || 0.075);
-              if (keys.has('b')) dolly = clamp(dolly - dollySpeed, -(limits.max_dolly_backward || 0.025), limits.max_dolly_forward || 0.075);
-              updateSize();
-              const yawRad = yaw * Math.PI / 180;
-              const pitchRad = pitch * Math.PI / 180;
-              const viewRadius = radius * (1.65 - dolly * 2.2);
-              camera.position.set(
-                Math.sin(yawRad) * viewRadius + shiftX * radius,
-                Math.sin(pitchRad) * viewRadius - shiftY * radius,
-                Math.cos(yawRad) * Math.cos(pitchRad) * viewRadius
-              );
-              camera.near = Math.max(0.001, radius * 0.001);
-              camera.far = Math.max(1000, radius * 8);
-              camera.lookAt(0, 0, 0);
-              renderer.render(scene, camera);
-            }});
-            if (status) status.textContent = 'Drag to adjust view. W/A/S/D shift, F/B dolly.';
-          }} catch (error) {{
-            if (status) status.textContent = '3DGS point viewer failed: ' + (error && error.message ? error.message : String(error));
-          }}
-        }});
-      }}
-
       document.querySelectorAll('.flow-dialog').forEach(function(dialog) {{
         const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
         const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
@@ -620,7 +463,6 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
           }});
           panels.forEach(function(panel) {{
             panel.classList.toggle('is-active', panel.id === targetId);
-            if (panel.id === targetId) initSplatViewers(panel);
           }});
         }}
         buttons.forEach(function(button) {{
@@ -855,7 +697,7 @@ def render_experience(item: dict[str, Any]) -> str:
                 <p class="exp-title"><strong>{esc(item['organization'])}</strong></p>
                 <p class="exp-detail">{esc(department)} · {esc(item['role'])}</p>
                 <p class="exp-period">{esc(item['period'])}</p>
-                <p>{esc(item.get('summary', ''))}</p>
+                <p>{format_inline(item.get('summary', ''))}</p>
                 <ul>{bullets}</ul>
               </div>
             </div>
@@ -869,7 +711,7 @@ def render_project_card(item: dict[str, Any]) -> str:
     image_html = f'<img class="project-image" src="{esc(image)}" alt="{esc(item["name"])} preview">' if image else ""
     card_class = "card project-card has-flows" if item.get("flows") else "card project-card"
     summary = item.get("summary", "")
-    summary_html = f"<p>{esc(summary)}</p>" if summary else ""
+    summary_html = f"<p>{format_inline(summary)}</p>" if summary else ""
     return f"""
           <article class="{card_class}" id="{esc(item.get('id', project_id(item['name'])))}">
             {image_html}
@@ -1057,35 +899,19 @@ def render_flow_preview_panel(preview: dict[str, Any], panel_id: str) -> str:
 
 def render_flow_preview_media(item: dict[str, Any]) -> str:
     kind = item.get("type", "image")
-    if kind == "splat-viewer":
-        background = item.get("background", "")
-        foreground = item.get("foreground", "")
-        limits = item.get("limits", "")
-        label = item.get("label", "")
-        label_html = f"<figcaption>{esc(label)}</figcaption>" if label else ""
-        if not background or not foreground:
-            return ""
-        return f"""
-                                <figure class="flow-preview-viewer-figure">
-                                  <div class="flow-splat-viewer" data-splat-viewer data-background="{esc(background)}" data-foreground="{esc(foreground)}" data-limits="{esc(limits)}">
-                                    <canvas aria-label="{esc(item.get('alt', label or 'Interactive 3DGS viewer'))}"></canvas>
-                                    <div class="flow-splat-status" data-splat-status>Click this panel to load the interactive 3DGS viewer.</div>
-                                  </div>
-                                  {label_html}
-                                </figure>
-"""
     src = item.get("src", "")
     if not src:
         return ""
     alt = item.get("alt", item.get("label", "Preview"))
     label = item.get("label", "")
     label_html = f"<figcaption>{esc(label)}</figcaption>" if label else ""
+    figure_class = ' class="flow-preview-wide-figure"' if item.get("wide") else ""
     if kind == "video":
         media_html = f'<video src="{esc(src)}" controls muted playsinline preload="metadata"></video>'
     else:
         media_html = f'<img src="{esc(src)}" alt="{esc(alt)}" loading="lazy">'
     return f"""
-                                <figure>
+                                <figure{figure_class}>
                                   {media_html}
                                   {label_html}
                                 </figure>
@@ -1383,7 +1209,7 @@ def render_resume_experience(item: dict[str, Any]) -> str:
 def render_resume_project(item: dict[str, Any]) -> str:
     bullets = "".join(f"<li>{format_inline(bullet)}</li>" for bullet in item.get("bullets", [])[:3])
     bullet_list = f"<ul>{bullets}</ul>" if bullets else ""
-    return f'<article><h3>{esc(item["name"])}</h3><p class="resume-line">{esc(item.get("summary", ""))}</p>{bullet_list}</article>'
+    return f'<article><h3>{esc(item["name"])}</h3><p class="resume-line">{format_inline(item.get("summary", ""))}</p>{bullet_list}</article>'
 
 
 def render_resume_publication(item: dict[str, Any]) -> str:
