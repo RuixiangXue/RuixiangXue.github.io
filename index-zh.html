@@ -444,8 +444,8 @@
                 <p class="exp-title"><strong>吉利</strong></p>
                 <p class="exp-detail">人工智能中心 · 算法实习生</p>
                 <p class="exp-period">2026.05 - 至今</p>
-                <p>围绕街景新视角外推开展研究，探索前馈重建模型与生成模型之间的双向增强。</p>
-                <ul><li>利用前馈街景重建模型提升生成式新视角合成模型的几何一致性。</li><li>利用生成先验改进前馈街景重建方法的渲染质量损失，以提升大幅度新视角外推效果。</li></ul>
+                <p>围绕街景新视角外推开展研究，探索前馈重建模型（UniSplat）与生成模型（VISTA）之间的双向增强。</p>
+                <ul><li>利用前馈街景重建模型提升生成模型的几何一致性。</li><li>利用生成先验改进前馈街景重建方法的渲染质量损失，以提升大幅度新视角外推效果。</li></ul>
               </div>
             </div>
           </div>
@@ -477,22 +477,22 @@
                 <article class="pub-card" id="publication-3dgs-object-scalability">
                   <div class="pub-content">
                     <div class="title">3D Gaussian Splatting Compression with Object Scalability</div>
-                    <div class="periodical"><strong>ECCV 2026</strong> · European Conference on Computer Vision</div>
+                    <div class="periodical"><strong>ECCV2026</strong> · European Conference on Computer Vision</div>
                     
                     <div class="author">Ruixiang Xue, Tong Chen, Zhan Ma</div>
                     <div class="pub-badges"><span>CCF-B</span><span>三维高斯泼溅压缩</span></div>
-                    <div class="pub-actions"><a class="pub-action" href="assets/papers/3dgs-object-scalability-eccv2026.pdf" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/RuixiangXue/ScalableGSC" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><button class="pub-action" type="button" data-dialog-target="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv-2026" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
+                    <div class="pub-actions"><a class="pub-action" href="assets/papers/3dgs-object-scalability-eccv2026.pdf" target="_blank" rel="noopener" title="Paper"><i class="fa-solid fa-file-lines"></i><span>Paper</span></a><a class="pub-action" href="https://github.com/RuixiangXue/ScalableGSC" target="_blank" rel="noopener" title="Code"><i class="fa-brands fa-github"></i><span>Code</span></a><button class="pub-action" type="button" data-dialog-target="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv2026" title="BibTeX"><i class="fa-solid fa-quote-right"></i><span>BibTeX</span></button></div>
                     <details class="pub-abstract">
                       <summary>Abstract</summary>
                       <p>We introduce a framework towards scalable, finer-grained object-level 3DGS compression. First, a post-training method named RecastGS is proposed to reorganize pretrained 3DGS into a layered representation and progressively distills cumulative submodels to improve rate-distortion efficiency. Leveraging multi-view SAM predictions from user click prompts, Gaussians are further partitioned into user-defined regions of interest (ROI), enabling region-adaptive quality control without retraining. Second, built upon this reorganized region-aware layered hierarchy, a feed-forward 3DGS compression method named LayeredCGS is proposed to compress position using a lightweight point cloud codec and attributes with a layer-wise context model to exploit cross-layer correlations. Extensive experiments show that LayeredCGS achieves 35% BD-Rate gain over the existing feed-forward method FCGS. With progressive distillation in RecastGS enabled, our method further outperforms most per-scene optimization methods. Moreover, the proposed method supports ROI-aware compression and flexible bitstream truncation, achieving up to 2 dB higher ROI PSNR at comparable bitrates compared with the uniform quality allocation baseline while enabling low-latency preview and progressive quality refinement. The code will be released at https://github.com/RuixiangXue/ScalableGSC.</p>
                     </details>
                     
-                    <dialog class="project-dialog pub-dialog" id="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv-2026">
+                    <dialog class="project-dialog pub-dialog" id="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv2026">
                       <div class="project-dialog-panel">
                         <div class="project-dialog-head">
                           <strong>BibTeX</strong>
                           <div class="dialog-head-actions">
-                            <button type="button" data-copy-bibtex="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv-2026">Copy</button>
+                            <button type="button" data-copy-bibtex="bibtex-3d-gaussian-splatting-compression-with-object-sc-eccv2026">Copy</button>
                             <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                           </div>
                         </div>

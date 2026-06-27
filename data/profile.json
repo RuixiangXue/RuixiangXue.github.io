@@ -56,9 +56,9 @@
       "logo": "assets/logos/geely.svg",
       "role": "Algorithm Intern",
       "period": "2026.05 - Present",
-      "summary": "Research on street-scene novel-view extrapolation with mutual enhancement between feed-forward reconstruction and generative models.",
+      "summary": "Research on street-scene novel-view extrapolation with mutual enhancement between feed-forward reconstruction models (UniSplat) and generative models (VISTA).",
       "bullets": [
-        "Used feed-forward street-scene reconstruction to improve the geometric consistency of generative novel-view synthesis models.",
+        "Used feed-forward street-scene reconstruction to improve the geometric consistency of generative models.",
         "Leveraged generative priors to improve the rendering-quality loss for feed-forward street-scene reconstruction under large-baseline novel-view extrapolation."
       ],
       "tags": [
@@ -404,10 +404,10 @@
       "id": "publication-3dgs-object-scalability",
       "title": "3D Gaussian Splatting Compression with Object Scalability",
       "authors": "Ruixiang Xue, Tong Chen, Zhan Ma",
-      "venue_short": "ECCV 2026",
+      "venue_short": "ECCV2026",
       "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
-      "notes": "Accepted",
+      "notes": "CCF-B, first author",
       "badges": [
         "CCF-B",
         "3D Gaussian splatting compression"
