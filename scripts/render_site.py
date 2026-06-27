@@ -433,20 +433,6 @@ def page(*, title: str, description: str, body: str, lang: str = "en") -> str:
         }});
       }});
 
-      document.querySelectorAll('[data-flow-target]').forEach(function(button) {{
-        button.addEventListener('click', function() {{
-          const project = button.closest('.project-card');
-          if (!project) return;
-          const targetId = button.getAttribute('data-flow-target');
-          project.querySelectorAll('[data-flow-target]').forEach(function(item) {{
-            item.classList.toggle('active', item === button);
-          }});
-          project.querySelectorAll('[data-flow-panel]').forEach(function(panel) {{
-            panel.hidden = panel.id !== targetId;
-          }});
-        }});
-      }});
-
       document.querySelectorAll('[data-dialog-close]').forEach(function(button) {{
         button.addEventListener('click', function() {{
           const dialog = button.closest('dialog');
@@ -722,7 +708,7 @@ def render_project_highlights(item: dict[str, Any]) -> str:
     item_id = item.get("id", project_id(item["name"]))
     cards = "".join(
         f"""
-                <button class="project-highlight" type="button" data-flow-target="{esc(flow_panel_id(item_id, index))}">
+                <button class="project-highlight" type="button" data-dialog-target="{esc(flow_dialog_id(item_id, index))}">
                   <i class="{esc(icons[index % len(icons)])}"></i>
                   <span>{format_inline(bullet)}</span>
                 </button>
@@ -744,30 +730,35 @@ def render_project_flows(item: dict[str, Any]) -> str:
     if not flows:
         return ""
     item_id = item.get("id", project_id(item["name"]))
-    return f"""
-              <div class="project-flow-grid">
-                {''.join(render_project_flow(flow, index, item_id) for index, flow in enumerate(flows))}
-              </div>
-"""
+    return "".join(render_project_flow_dialog(flow, index, item_id) for index, flow in enumerate(flows))
 
 
-def flow_panel_id(item_id: str, index: int) -> str:
-    return f"{item_id}-flow-{index}"
+def flow_dialog_id(item_id: str, index: int) -> str:
+    return f"{item_id}-flow-{index}-dialog"
 
 
-def render_project_flow(flow: dict[str, Any], index: int, item_id: str) -> str:
+def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -> str:
     steps = flow.get("steps", [])
     nodes = "\n".join(render_flow_step(step) for step in steps)
     return f"""
-                <div class="flow-card flow-card-{index % 2}" id="{esc(flow_panel_id(item_id, index))}" data-flow-panel hidden>
+                    <dialog class="project-dialog flow-dialog" id="{esc(flow_dialog_id(item_id, index))}">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>{esc(flow.get('title', 'Pipeline'))}</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="flow-dialog-body">
+                          <div class="flow-card flow-card-{index % 2}">
                   <div class="flow-head">
-                    <strong>{esc(flow.get('title', 'Pipeline'))}</strong>
                     <span>{esc(flow.get('caption', ''))}</span>
                   </div>
                   <div class="flow-track" style="--step-count: {max(len(steps), 1)}">
                     {nodes}
                   </div>
-                </div>
+                          </div>
+                        </div>
+                      </div>
+                    </dialog>
 """
 
 

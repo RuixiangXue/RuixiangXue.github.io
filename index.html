@@ -244,22 +244,26 @@
               <strong>AI-assisted photography</strong>
               
               <div class="project-highlights">
-                <button class="project-highlight" type="button" data-flow-target="project-ai-assisted-photography-flow-0">
+                <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-0-dialog">
                   <i class="fa-solid fa-vr-cardboard"></i>
                   <span><strong>Virtual studio</strong>: Marble 3DGS, SplatTransform, UE import, immersive capture.</span>
                 </button>
 
-                <button class="project-highlight" type="button" data-flow-target="project-ai-assisted-photography-flow-1">
+                <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-1-dialog">
                   <i class="fa-solid fa-layer-group"></i>
                   <span><strong>Spatial reframing</strong>: Apple-like nearby-view recomposition from a single photo.</span>
                 </button>
 </div>
               
-              <div class="project-flow-grid">
-                
-                <div class="flow-card flow-card-0" id="project-ai-assisted-photography-flow-0" data-flow-panel hidden>
+                    <dialog class="project-dialog flow-dialog" id="project-ai-assisted-photography-flow-0-dialog">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>Virtual Studio Pipeline</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="flow-dialog-body">
+                          <div class="flow-card flow-card-0">
                   <div class="flow-head">
-                    <strong>Virtual Studio Pipeline</strong>
                     <span>From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
@@ -313,11 +317,20 @@
                     </span>
 
                   </div>
-                </div>
+                          </div>
+                        </div>
+                      </div>
+                    </dialog>
 
-                <div class="flow-card flow-card-1" id="project-ai-assisted-photography-flow-1" data-flow-panel hidden>
+                    <dialog class="project-dialog flow-dialog" id="project-ai-assisted-photography-flow-1-dialog">
+                      <div class="project-dialog-panel">
+                        <div class="project-dialog-head">
+                          <strong>Spatial Reframing Pipeline</strong>
+                          <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="flow-dialog-body">
+                          <div class="flow-card flow-card-1">
                   <div class="flow-head">
-                    <strong>Spatial Reframing Pipeline</strong>
                     <span>Apple-like nearby-view recomposition under constrained viewpoint changes.</span>
                   </div>
                   <div class="flow-track" style="--step-count: 7">
@@ -371,9 +384,10 @@
                     </span>
 
                   </div>
-                </div>
-
-              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </dialog>
 
               
               
@@ -754,20 +768,6 @@
           } else {
             dialog.setAttribute('open', '');
           }
-        });
-      });
-
-      document.querySelectorAll('[data-flow-target]').forEach(function(button) {
-        button.addEventListener('click', function() {
-          const project = button.closest('.project-card');
-          if (!project) return;
-          const targetId = button.getAttribute('data-flow-target');
-          project.querySelectorAll('[data-flow-target]').forEach(function(item) {
-            item.classList.toggle('active', item === button);
-          });
-          project.querySelectorAll('[data-flow-panel]').forEach(function(panel) {
-            panel.hidden = panel.id !== targetId;
-          });
         });
       });
 

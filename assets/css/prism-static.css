@@ -949,6 +949,10 @@ body.theme-prism .poster-dialog {
   width: min(1040px, calc(100vw - 28px));
 }
 
+body.theme-prism .flow-dialog {
+  width: min(1080px, calc(100vw - 28px));
+}
+
 body.theme-prism .project-dialog::backdrop {
   background: rgba(16, 24, 22, 0.52);
 }
@@ -1005,6 +1009,12 @@ body.theme-prism .dialog-contribution-list {
   margin: 0;
   overflow: auto;
   padding: 18px 22px 20px 38px;
+}
+
+body.theme-prism .flow-dialog-body {
+  max-height: min(680px, calc(100vh - 140px));
+  overflow: auto;
+  padding: 18px;
 }
 
 body.theme-prism .bibtex-dialog-code {
