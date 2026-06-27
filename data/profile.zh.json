@@ -264,7 +264,7 @@
       "bullets": [
         "构建虚拟摄影棚流程：参考场景图像通过 Marble 重建场景 3DGS，参考人物图像经 SAM 分割后通过 SHARP 重建人物 3DGS。",
         "将场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染提升原始拍摄结果的照片观感。",
-        "原型实现 Spatial Reframing：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
+        "原型实现 Spatial Reframing：图像外扩、可交互前景-背景 SHARP 3DGS 组合、受限相机姿态变换、新视角渲染与最终重新构图图片输出。"
       ],
       "flows": [
         {
@@ -282,12 +282,27 @@
               "row": 1,
               "preview": {
                 "title": "参考场景图",
-                "caption": "单张场景图像作为虚拟摄影棚的世界创建输入。",
+                "caption": "四张参考场景图像作为虚拟摄影棚世界创建输入。",
                 "media": [
                   {
-                    "src": "assets/media/photography-preview/virtual-studio/scene-image.jpg",
-                    "label": "输入场景",
-                    "alt": "输入场景"
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image-1.jpg",
+                    "label": "场景图像 1",
+                    "alt": "场景图像 1"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image-2.jpg",
+                    "label": "场景图像 2",
+                    "alt": "场景图像 2"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image-3.jpg",
+                    "label": "场景图像 3",
+                    "alt": "场景图像 3"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/scene-image-4.jpg",
+                    "label": "场景图像 4",
+                    "alt": "场景图像 4"
                   }
                 ]
               }
@@ -300,17 +315,31 @@
               "row": 1,
               "preview": {
                 "title": "Marble 场景 3DGS",
-                "caption": "由单张场景图像生成可导入后续流程的场景 3DGS。",
+                "caption": "四个场景 3DGS 视频预览；视频不会自动播放。",
                 "media": [
                   {
-                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-1.jpg",
-                    "label": "场景重建 1",
-                    "alt": "场景重建 1"
+                    "type": "video",
+                    "src": "assets/media/photography-preview/virtual-studio/marble-scene-3dgs-1.m4v",
+                    "label": "Marble 预览 1",
+                    "alt": "Marble 预览 1"
                   },
                   {
-                    "src": "assets/media/photography-preview/virtual-studio/scene-3dgs-2.jpg",
-                    "label": "场景重建 2",
-                    "alt": "场景重建 2"
+                    "type": "video",
+                    "src": "assets/media/photography-preview/virtual-studio/marble-scene-3dgs-2.m4v",
+                    "label": "Marble 预览 2",
+                    "alt": "Marble 预览 2"
+                  },
+                  {
+                    "type": "video",
+                    "src": "assets/media/photography-preview/virtual-studio/marble-scene-3dgs-3.m4v",
+                    "label": "Marble 预览 3",
+                    "alt": "Marble 预览 3"
+                  },
+                  {
+                    "type": "video",
+                    "src": "assets/media/photography-preview/virtual-studio/marble-scene-3dgs-4.m4v",
+                    "label": "Marble 预览 4",
+                    "alt": "Marble 预览 4"
                   }
                 ]
               }
@@ -323,22 +352,42 @@
               "row": 2,
               "preview": {
                 "title": "参考人物图",
-                "caption": "人物图像作为独立主体资产重建输入。",
+                "caption": "七张人物图像作为独立主体资产输入。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/virtual-studio/human1.jpg",
-                    "label": "人物样例 1",
-                    "alt": "人物样例 1"
+                    "label": "人物图像 1",
+                    "alt": "人物图像 1"
                   },
                   {
                     "src": "assets/media/photography-preview/virtual-studio/human2.jpg",
-                    "label": "人物样例 2",
-                    "alt": "人物样例 2"
+                    "label": "人物图像 2",
+                    "alt": "人物图像 2"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/human3.jpg",
+                    "label": "人物图像 3",
+                    "alt": "人物图像 3"
                   },
                   {
                     "src": "assets/media/photography-preview/virtual-studio/human4.jpg",
-                    "label": "人物样例 3",
-                    "alt": "人物样例 3"
+                    "label": "人物图像 4",
+                    "alt": "人物图像 4"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/human5.jpg",
+                    "label": "人物图像 5",
+                    "alt": "人物图像 5"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/human6.jpg",
+                    "label": "人物图像 6",
+                    "alt": "人物图像 6"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/human7.jpg",
+                    "label": "人物图像 7",
+                    "alt": "人物图像 7"
                   }
                 ]
               }
@@ -350,23 +399,43 @@
               "col": 2,
               "row": 2,
               "preview": {
-                "title": "SAM 人物分割",
-                "caption": "先得到人物 mask，为人物 3DGS 重建提供干净主体。",
+                "title": "SAM 人物 mask",
+                "caption": "SAM 输出七张人物 mask，为后续人物 3DGS 重建提供干净主体。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/virtual-studio/humanseg1.jpg",
-                    "label": "分割样例 1",
-                    "alt": "分割样例 1"
+                    "label": "SAM mask 1",
+                    "alt": "SAM mask 1"
                   },
                   {
                     "src": "assets/media/photography-preview/virtual-studio/humanseg2.jpg",
-                    "label": "分割样例 2",
-                    "alt": "分割样例 2"
+                    "label": "SAM mask 2",
+                    "alt": "SAM mask 2"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg3.jpg",
+                    "label": "SAM mask 3",
+                    "alt": "SAM mask 3"
                   },
                   {
                     "src": "assets/media/photography-preview/virtual-studio/humanseg4.jpg",
-                    "label": "分割样例 3",
-                    "alt": "分割样例 3"
+                    "label": "SAM mask 4",
+                    "alt": "SAM mask 4"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg5.jpg",
+                    "label": "SAM mask 5",
+                    "alt": "SAM mask 5"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg6.jpg",
+                    "label": "SAM mask 6",
+                    "alt": "SAM mask 6"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humanseg7.jpg",
+                    "label": "SAM mask 7",
+                    "alt": "SAM mask 7"
                   }
                 ]
               }
@@ -379,7 +448,7 @@
               "row": 2,
               "preview": {
                 "title": "SHARP 人物 3DGS",
-                "caption": "将分割后的人物重建为可组合的人物 3DGS 资产。",
+                "caption": "SHARP 将分割后的人物重建为七个可组合的人物 3DGS 资产。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/virtual-studio/humangs1.jpg",
@@ -392,9 +461,29 @@
                     "alt": "人物 3DGS 2"
                   },
                   {
-                    "src": "assets/media/photography-preview/virtual-studio/humangs4.jpg",
+                    "src": "assets/media/photography-preview/virtual-studio/humangs3.jpg",
                     "label": "人物 3DGS 3",
                     "alt": "人物 3DGS 3"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humangs4.jpg",
+                    "label": "人物 3DGS 4",
+                    "alt": "人物 3DGS 4"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humangs5.jpg",
+                    "label": "人物 3DGS 5",
+                    "alt": "人物 3DGS 5"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humangs6.jpg",
+                    "label": "人物 3DGS 6",
+                    "alt": "人物 3DGS 6"
+                  },
+                  {
+                    "src": "assets/media/photography-preview/virtual-studio/humangs7.jpg",
+                    "label": "人物 3DGS 7",
+                    "alt": "人物 3DGS 7"
                   }
                 ]
               }
@@ -406,23 +495,7 @@
               "col": 4,
               "row": 1,
               "span_rows": 2,
-              "merge": true,
-              "preview": {
-                "title": "UE 组合导入",
-                "caption": "场景资产与人物资产组合导入 UE，形成可漫游拍摄空间。",
-                "media": [
-                  {
-                    "src": "assets/media/photography-preview/virtual-studio/ue-scene.jpg",
-                    "label": "UE 场景",
-                    "alt": "UE 场景"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/virtual-studio/shooting1.jpg",
-                    "label": "人物场景组合",
-                    "alt": "人物场景组合"
-                  }
-                ]
-              }
+              "merge": true
             },
             {
               "label": "虚拟 Shooting",
@@ -451,8 +524,8 @@
               "row": 1,
               "span_rows": 2,
               "preview": {
-                "title": "神经渲染结果",
-                "caption": "对原始渲染结果进行生成式修复，提升照片观感。",
+                "title": "神经渲染照片",
+                "caption": "通过神经渲染将原始虚拟拍摄结果提升为更接近照片的结果。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/virtual-studio/nr1.jpg",
@@ -468,7 +541,7 @@
           "title": "Spatial Reframing Pipeline",
           "caption": "",
           "layout": "grid-branches",
-          "columns": 7,
+          "columns": 6,
           "rows": 1,
           "steps": [
             {
@@ -497,18 +570,8 @@
               "row": 1,
               "preview": {
                 "title": "图像外扩",
-                "caption": "对输入图像进行外扩，补充视角变换所需画布。",
+                "caption": "这里只展示外扩后的第三张结果。",
                 "media": [
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_input.jpg",
-                    "label": "外扩输入",
-                    "alt": "外扩输入"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/outpaint_mask.jpg",
-                    "label": "外扩 mask",
-                    "alt": "外扩 mask"
-                  },
                   {
                     "src": "assets/media/photography-preview/spatial-reframing/outpaint_result.jpg",
                     "label": "外扩结果",
@@ -525,17 +588,15 @@
               "row": 1,
               "preview": {
                 "title": "SHARP 3DGS",
-                "caption": "从图像重建 3DGS，并生成点云/分割预览。",
+                "caption": "可拖动查看前景与背景 3DGS 的组合，拖动范围按压缩包中的 camera_limits 限制。",
                 "media": [
                   {
-                    "src": "assets/media/photography-preview/spatial-reframing/point_cloud.jpg",
-                    "label": "点云预览",
-                    "alt": "点云预览"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/segmented_point_cloud.jpg",
-                    "label": "分割点云",
-                    "alt": "分割点云"
+                    "type": "splat-viewer",
+                    "background": "assets/media/reframe-splats/background-points.bin",
+                    "foreground": "assets/media/reframe-splats/foreground-points.bin",
+                    "limits": "assets/media/reframe-splats/camera_limits.json",
+                    "label": "可交互前景-背景 3DGS 点云预览",
+                    "alt": "可交互 SHARP 3DGS 预览"
                   }
                 ]
               }
@@ -545,18 +606,7 @@
               "detail": "视角变换",
               "icon": "fa-solid fa-video",
               "col": 4,
-              "row": 1,
-              "preview": {
-                "title": "相机姿态变换",
-                "caption": "在重建结果上执行受限视角变换。",
-                "media": [
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
-                    "label": "新视角渲染",
-                    "alt": "新视角渲染"
-                  }
-                ]
-              }
+              "row": 1
             },
             {
               "label": "渲染",
@@ -566,40 +616,12 @@
               "row": 1,
               "preview": {
                 "title": "新视角渲染",
-                "caption": "得到几何驱动的新视角渲染结果。",
-                "media": [
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/final_render.jpg",
-                    "label": "渲染结果",
-                    "alt": "渲染结果"
-                  }
-                ]
-              }
-            },
-            {
-              "label": "先验修复",
-              "detail": "图像模型",
-              "icon": "fa-solid fa-brush",
-              "col": 6,
-              "row": 1,
-              "preview": {
-                "title": "生成先验修复",
-                "caption": "对渲染结果中的空洞和视觉瑕疵进行生成式修复。",
+                "caption": "显示作为后续修复输入的新视角渲染结果。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/spatial-reframing/repair_input.jpg",
                     "label": "修复输入",
                     "alt": "修复输入"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/repair_mask.jpg",
-                    "label": "修复 mask",
-                    "alt": "修复 mask"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
-                    "label": "修复输出",
-                    "alt": "修复输出"
                   }
                 ]
               }
@@ -608,7 +630,7 @@
               "label": "重构照片",
               "detail": "最终视角",
               "icon": "fa-solid fa-camera",
-              "col": 7,
+              "col": 6,
               "row": 1,
               "preview": {
                 "title": "重构照片",
@@ -618,11 +640,6 @@
                     "src": "assets/media/photography-preview/spatial-reframing/repair_upscaled.jpg",
                     "label": "最终结果",
                     "alt": "最终结果"
-                  },
-                  {
-                    "src": "assets/media/photography-preview/spatial-reframing/repair_output.jpg",
-                    "label": "修复结果",
-                    "alt": "修复结果"
                   }
                 ]
               }

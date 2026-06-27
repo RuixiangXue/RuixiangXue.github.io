@@ -962,6 +962,45 @@ body.theme-prism .flow-preview-media-grid figcaption {
   line-height: 1.35;
 }
 
+body.theme-prism .flow-preview-viewer-figure {
+  grid-column: 1 / -1;
+}
+
+body.theme-prism .flow-splat-viewer {
+  position: relative;
+  min-height: clamp(280px, 40vw, 430px);
+  overflow: hidden;
+  border-radius: 11px;
+  background: #101511;
+  cursor: grab;
+}
+
+body.theme-prism .flow-splat-viewer:active {
+  cursor: grabbing;
+}
+
+body.theme-prism .flow-splat-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+body.theme-prism .flow-splat-status {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  max-width: calc(100% - 24px);
+  padding: 7px 9px;
+  border: 1px solid color-mix(in srgb, #fff 18%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, #101511 76%, transparent);
+  color: color-mix(in srgb, #fff 82%, var(--accent));
+  font-size: 0.72rem;
+  line-height: 1.35;
+  backdrop-filter: blur(12px);
+}
+
 @keyframes previewFade {
   from {
     opacity: 0;

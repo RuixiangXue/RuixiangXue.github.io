@@ -15,6 +15,13 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three-0.179.1.bundle.mjs"
+      }
+    }
+  </script>
 
   <link rel="stylesheet" href="assets/css/font_sans_serif.css">
   <link rel="stylesheet" href="assets/css/prism-static.css">
@@ -301,11 +308,11 @@
                     </button>
 
 
-                    <button class="flow-node is-merge has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-5" aria-pressed="false" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
+                    <span class="flow-node is-merge" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
                       <small>composite</small>
-                    </button>
+                    </span>
 
 
                     <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-0-dialog-preview-6" aria-pressed="false" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
@@ -329,13 +336,28 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-0" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Scene image</strong>
-                                <p>A single scene image is used as the virtual studio world-creation input.</p>
+                                <p>Four reference scene images are used as virtual-studio world-creation inputs.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/scene-image.jpg" alt="Input scene" loading="lazy">
-                                  <figcaption>Input scene</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/scene-image-1.jpg" alt="Scene image 1" loading="lazy">
+                                  <figcaption>Scene image 1</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/scene-image-2.jpg" alt="Scene image 2" loading="lazy">
+                                  <figcaption>Scene image 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/scene-image-3.jpg" alt="Scene image 3" loading="lazy">
+                                  <figcaption>Scene image 3</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/scene-image-4.jpg" alt="Scene image 4" loading="lazy">
+                                  <figcaption>Scene image 4</figcaption>
                                 </figure>
 
                               </div>
@@ -344,18 +366,28 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-1" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Marble scene 3DGS</strong>
-                                <p>The scene image is reconstructed into scene 3DGS for downstream composition.</p>
+                                <p>Four scene-3DGS video previews; videos do not autoplay.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/scene-3dgs-1.jpg" alt="Scene reconstruction 1" loading="lazy">
-                                  <figcaption>Scene reconstruction 1</figcaption>
+                                  <video src="assets/media/photography-preview/virtual-studio/marble-scene-3dgs-1.m4v" controls muted playsinline preload="metadata"></video>
+                                  <figcaption>Marble preview 1</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/scene-3dgs-2.jpg" alt="Scene reconstruction 2" loading="lazy">
-                                  <figcaption>Scene reconstruction 2</figcaption>
+                                  <video src="assets/media/photography-preview/virtual-studio/marble-scene-3dgs-2.m4v" controls muted playsinline preload="metadata"></video>
+                                  <figcaption>Marble preview 2</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <video src="assets/media/photography-preview/virtual-studio/marble-scene-3dgs-3.m4v" controls muted playsinline preload="metadata"></video>
+                                  <figcaption>Marble preview 3</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <video src="assets/media/photography-preview/virtual-studio/marble-scene-3dgs-4.m4v" controls muted playsinline preload="metadata"></video>
+                                  <figcaption>Marble preview 4</figcaption>
                                 </figure>
 
                               </div>
@@ -364,23 +396,43 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-2" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Person image</strong>
-                                <p>A person image is used as an independent subject-asset input.</p>
+                                <p>Seven person images are used as independent subject-asset inputs.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/human1.jpg" alt="Person sample 1" loading="lazy">
-                                  <figcaption>Person sample 1</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/human1.jpg" alt="Person image 1" loading="lazy">
+                                  <figcaption>Person image 1</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/human2.jpg" alt="Person sample 2" loading="lazy">
-                                  <figcaption>Person sample 2</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/human2.jpg" alt="Person image 2" loading="lazy">
+                                  <figcaption>Person image 2</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/human4.jpg" alt="Person sample 3" loading="lazy">
-                                  <figcaption>Person sample 3</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/human3.jpg" alt="Person image 3" loading="lazy">
+                                  <figcaption>Person image 3</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/human4.jpg" alt="Person image 4" loading="lazy">
+                                  <figcaption>Person image 4</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/human5.jpg" alt="Person image 5" loading="lazy">
+                                  <figcaption>Person image 5</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/human6.jpg" alt="Person image 6" loading="lazy">
+                                  <figcaption>Person image 6</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/human7.jpg" alt="Person image 7" loading="lazy">
+                                  <figcaption>Person image 7</figcaption>
                                 </figure>
 
                               </div>
@@ -389,23 +441,43 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-3" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>SAM person mask</strong>
-                                <p>SAM extracts clean person masks before human 3DGS reconstruction.</p>
+                                <p>SAM outputs seven person masks for cleaner human 3DGS reconstruction.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/humanseg1.jpg" alt="Mask sample 1" loading="lazy">
-                                  <figcaption>Mask sample 1</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg1.jpg" alt="SAM mask 1" loading="lazy">
+                                  <figcaption>SAM mask 1</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/humanseg2.jpg" alt="Mask sample 2" loading="lazy">
-                                  <figcaption>Mask sample 2</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg2.jpg" alt="SAM mask 2" loading="lazy">
+                                  <figcaption>SAM mask 2</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/humanseg4.jpg" alt="Mask sample 3" loading="lazy">
-                                  <figcaption>Mask sample 3</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg3.jpg" alt="SAM mask 3" loading="lazy">
+                                  <figcaption>SAM mask 3</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg4.jpg" alt="SAM mask 4" loading="lazy">
+                                  <figcaption>SAM mask 4</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg5.jpg" alt="SAM mask 5" loading="lazy">
+                                  <figcaption>SAM mask 5</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg6.jpg" alt="SAM mask 6" loading="lazy">
+                                  <figcaption>SAM mask 6</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humanseg7.jpg" alt="SAM mask 7" loading="lazy">
+                                  <figcaption>SAM mask 7</figcaption>
                                 </figure>
 
                               </div>
@@ -414,7 +486,7 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-4" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>SHARP human 3DGS</strong>
-                                <p>The segmented person is reconstructed into a composable human 3DGS asset.</p>
+                                <p>SHARP reconstructs the segmented persons into seven composable human 3DGS assets.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
@@ -429,28 +501,28 @@
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/humangs4.jpg" alt="Human 3DGS 3" loading="lazy">
+                                  <img src="assets/media/photography-preview/virtual-studio/humangs3.jpg" alt="Human 3DGS 3" loading="lazy">
                                   <figcaption>Human 3DGS 3</figcaption>
                                 </figure>
 
-                              </div>
-                            </div>
-
-                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-0-dialog-preview-5" data-flow-preview-panel>
-                              <div class="flow-preview-copy">
-                                <strong>Unreal Engine composite</strong>
-                                <p>Scene and human assets are combined in UE to form a controllable shooting space.</p>
-                              </div>
-                              <div class="flow-preview-media-grid">
-                                
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/ue-scene.jpg" alt="UE scene" loading="lazy">
-                                  <figcaption>UE scene</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/humangs4.jpg" alt="Human 3DGS 4" loading="lazy">
+                                  <figcaption>Human 3DGS 4</figcaption>
                                 </figure>
 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/shooting1.jpg" alt="Scene-person composite" loading="lazy">
-                                  <figcaption>Scene-person composite</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/humangs5.jpg" alt="Human 3DGS 5" loading="lazy">
+                                  <figcaption>Human 3DGS 5</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humangs6.jpg" alt="Human 3DGS 6" loading="lazy">
+                                  <figcaption>Human 3DGS 6</figcaption>
+                                </figure>
+
+                                <figure>
+                                  <img src="assets/media/photography-preview/virtual-studio/humangs7.jpg" alt="Human 3DGS 7" loading="lazy">
+                                  <figcaption>Human 3DGS 7</figcaption>
                                 </figure>
 
                               </div>
@@ -479,8 +551,8 @@
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
-                                  <img src="assets/media/photography-preview/virtual-studio/nr1.jpg" alt="Neural render output" loading="lazy">
-                                  <figcaption>Neural render output</figcaption>
+                                  <img src="assets/media/photography-preview/virtual-studio/nr1.jpg" alt="Neural-rendered photo" loading="lazy">
+                                  <figcaption>Neural-rendered photo</figcaption>
                                 </figure>
 
                               </div>
@@ -501,7 +573,7 @@
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-1 flow-rows-1">
                   
-                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7; --flow-rows: 1">
+                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 6; --flow-columns: 6; --flow-rows: 1">
                     
                     <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-0" aria-pressed="false" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
@@ -524,11 +596,11 @@
                     </button>
 
 
-                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-3" aria-pressed="false" style="--flow-col: 4; --flow-row: 1">
+                    <span class="flow-node" style="--flow-col: 4; --flow-row: 1">
                       <i class="fa-solid fa-video"></i>
                       <span>Camera pose</span>
                       <small>view transform</small>
-                    </button>
+                    </span>
 
 
                     <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-4" aria-pressed="false" style="--flow-col: 5; --flow-row: 1">
@@ -539,13 +611,6 @@
 
 
                     <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-5" aria-pressed="false" style="--flow-col: 6; --flow-row: 1">
-                      <i class="fa-solid fa-brush"></i>
-                      <span>Prior repair</span>
-                      <small>image model</small>
-                    </button>
-
-
-                    <button class="flow-node has-preview" type="button" data-flow-preview-target="project-ai-assisted-photography-flow-1-dialog-preview-6" aria-pressed="false" style="--flow-col: 7; --flow-row: 1">
                       <i class="fa-solid fa-camera"></i>
                       <span>Reframed photo</span>
                       <small>final view</small>
@@ -574,20 +639,10 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-1" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Image outpainting</strong>
-                                <p>The input is expanded to support constrained viewpoint changes.</p>
+                                <p>Only the third outpainted result is shown here.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/outpaint_input.jpg" alt="Outpaint input" loading="lazy">
-                                  <figcaption>Outpaint input</figcaption>
-                                </figure>
-
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/outpaint_mask.jpg" alt="Outpaint mask" loading="lazy">
-                                  <figcaption>Outpaint mask</figcaption>
-                                </figure>
-
                                 <figure>
                                   <img src="assets/media/photography-preview/spatial-reframing/outpaint_result.jpg" alt="Outpaint result" loading="lazy">
                                   <figcaption>Outpaint result</figcaption>
@@ -599,33 +654,16 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-2" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>SHARP 3DGS</strong>
-                                <p>The image is reconstructed into 3DGS with point-cloud previews.</p>
+                                <p>Interactive foreground-background 3DGS composition with drag range clamped by camera_limits from the package.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/point_cloud.jpg" alt="Point cloud" loading="lazy">
-                                  <figcaption>Point cloud</figcaption>
-                                </figure>
-
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/segmented_point_cloud.jpg" alt="Segmented point cloud" loading="lazy">
-                                  <figcaption>Segmented point cloud</figcaption>
-                                </figure>
-
-                              </div>
-                            </div>
-
-                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-3" data-flow-preview-panel>
-                              <div class="flow-preview-copy">
-                                <strong>Camera-pose transform</strong>
-                                <p>A constrained pose transform is applied on the reconstructed scene.</p>
-                              </div>
-                              <div class="flow-preview-media-grid">
-                                
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/final_render.jpg" alt="Novel-view render" loading="lazy">
-                                  <figcaption>Novel-view render</figcaption>
+                                <figure class="flow-preview-viewer-figure">
+                                  <div class="flow-splat-viewer" data-splat-viewer data-background="assets/media/reframe-splats/background-points.bin" data-foreground="assets/media/reframe-splats/foreground-points.bin" data-limits="assets/media/reframe-splats/camera_limits.json">
+                                    <canvas aria-label="Interactive SHARP 3DGS viewer"></canvas>
+                                    <div class="flow-splat-status" data-splat-status>Click this panel to load the interactive 3DGS viewer.</div>
+                                  </div>
+                                  <figcaption>Interactive foreground-background 3DGS point preview</figcaption>
                                 </figure>
 
                               </div>
@@ -634,22 +672,7 @@
                             <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-4" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Novel-view render</strong>
-                                <p>A geometry-driven novel-view render is produced.</p>
-                              </div>
-                              <div class="flow-preview-media-grid">
-                                
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/final_render.jpg" alt="Rendered view" loading="lazy">
-                                  <figcaption>Rendered view</figcaption>
-                                </figure>
-
-                              </div>
-                            </div>
-
-                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-5" data-flow-preview-panel>
-                              <div class="flow-preview-copy">
-                                <strong>Generative repair</strong>
-                                <p>Generative priors repair holes and visual artifacts in the rendered view.</p>
+                                <p>Shows the novel-view render used as the repair input.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
@@ -658,34 +681,19 @@
                                   <figcaption>Repair input</figcaption>
                                 </figure>
 
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/repair_mask.jpg" alt="Repair mask" loading="lazy">
-                                  <figcaption>Repair mask</figcaption>
-                                </figure>
-
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/repair_output.jpg" alt="Repair output" loading="lazy">
-                                  <figcaption>Repair output</figcaption>
-                                </figure>
-
                               </div>
                             </div>
 
-                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-6" data-flow-preview-panel>
+                            <div class="flow-preview-panel" id="project-ai-assisted-photography-flow-1-dialog-preview-5" data-flow-preview-panel>
                               <div class="flow-preview-copy">
                                 <strong>Reframed photo</strong>
-                                <p>The final Spatial Reframing output.</p>
+                                <p>The final Spatial Reframing result.</p>
                               </div>
                               <div class="flow-preview-media-grid">
                                 
                                 <figure>
                                   <img src="assets/media/photography-preview/spatial-reframing/repair_upscaled.jpg" alt="Final result" loading="lazy">
                                   <figcaption>Final result</figcaption>
-                                </figure>
-
-                                <figure>
-                                  <img src="assets/media/photography-preview/spatial-reframing/repair_output.jpg" alt="Repair result" loading="lazy">
-                                  <figcaption>Repair result</figcaption>
                                 </figure>
 
                               </div>
@@ -1092,6 +1100,155 @@
         });
       });
 
+      const splatViewerState = new WeakMap();
+      async function initSplatViewers(root) {
+        const viewers = Array.from(root.querySelectorAll('[data-splat-viewer]'));
+        if (!viewers.length) return;
+        let THREE;
+        try {
+          THREE = await import('three');
+        } catch (error) {
+          viewers.forEach(function(viewer) {
+            const status = viewer.querySelector('[data-splat-status]');
+            if (status) status.textContent = '3D viewer failed to load: ' + (error && error.message ? error.message : String(error));
+          });
+          return;
+        }
+
+        function parsePointPreview(buffer) {
+          const view = new DataView(buffer);
+          const count = view.getUint32(0, true);
+          const positions = new Float32Array(count * 3);
+          const colors = new Float32Array(count * 3);
+          let offset = 4;
+          for (let i = 0; i < count; i += 1) {
+            positions[i * 3] = view.getFloat32(offset, true);
+            positions[i * 3 + 1] = view.getFloat32(offset + 4, true);
+            positions[i * 3 + 2] = view.getFloat32(offset + 8, true);
+            colors[i * 3] = view.getFloat32(offset + 12, true);
+            colors[i * 3 + 1] = view.getFloat32(offset + 16, true);
+            colors[i * 3 + 2] = view.getFloat32(offset + 20, true);
+            offset += 24;
+          }
+          return { positions: positions, colors: colors, count: count };
+        }
+
+        viewers.forEach(async function(viewer) {
+          if (splatViewerState.has(viewer)) return;
+          splatViewerState.set(viewer, true);
+          const canvas = viewer.querySelector('canvas');
+          const status = viewer.querySelector('[data-splat-status]');
+          const backgroundUrl = viewer.getAttribute('data-background');
+          const foregroundUrl = viewer.getAttribute('data-foreground');
+          const limitsUrl = viewer.getAttribute('data-limits');
+          if (!canvas || !backgroundUrl || !foregroundUrl) return;
+          try {
+            if (status) status.textContent = 'Loading foreground/background 3DGS points...';
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x111611);
+            const camera = new THREE.PerspectiveCamera(55, 1, 0.01, 1000);
+            const limits = limitsUrl ? await fetch(limitsUrl).then(function(r) { return r.json(); }) : {};
+            const backgroundBuffer = await fetch(backgroundUrl).then(function(r) { if (!r.ok) throw new Error('background points ' + r.status); return r.arrayBuffer(); });
+            const foregroundBuffer = await fetch(foregroundUrl).then(function(r) { if (!r.ok) throw new Error('foreground points ' + r.status); return r.arrayBuffer(); });
+            const backgroundData = parsePointPreview(backgroundBuffer);
+            const foregroundData = parsePointPreview(foregroundBuffer);
+
+            function makePoints(data, size, opacity) {
+              const geometry = new THREE.BufferGeometry();
+              geometry.setAttribute('position', new THREE.BufferAttribute(data.positions, 3));
+              geometry.setAttribute('color', new THREE.BufferAttribute(data.colors, 3));
+              const material = new THREE.PointsMaterial({ size: size, vertexColors: true, transparent: opacity < 1, opacity: opacity, depthWrite: false });
+              return new THREE.Points(geometry, material);
+            }
+
+            const background = makePoints(backgroundData, 0.010, 0.42);
+            const foreground = makePoints(foregroundData, 0.014, 0.98);
+            const group = new THREE.Group();
+            group.add(background);
+            group.add(foreground);
+            const box = new THREE.Box3().setFromObject(group);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            group.position.sub(center);
+            scene.add(group);
+            const radius = Math.max(size.x, size.y, size.z, 1.0) * 1.08;
+            let yaw = limits.initial_yaw_deg || 0;
+            let pitch = limits.initial_pitch_deg || 0;
+            let shiftX = limits.initial_shift_x || 0;
+            let shiftY = limits.initial_shift_y || 0;
+            let dolly = limits.initial_dolly || 0;
+            let dragging = false;
+            let lastX = 0;
+            let lastY = 0;
+            const keys = new Set();
+            const clamp = function(value, min, max) { return Math.max(min, Math.min(max, value)); };
+
+            canvas.addEventListener('pointerdown', function(event) {
+              dragging = true;
+              lastX = event.clientX;
+              lastY = event.clientY;
+              canvas.setPointerCapture(event.pointerId);
+            });
+            canvas.addEventListener('pointermove', function(event) {
+              if (!dragging) return;
+              const dx = event.clientX - lastX;
+              const dy = event.clientY - lastY;
+              lastX = event.clientX;
+              lastY = event.clientY;
+              yaw = clamp(yaw + dx * 0.045, -(limits.max_yaw_deg || 7), limits.max_yaw_deg || 7);
+              pitch = clamp(pitch + dy * 0.034, -(limits.max_pitch_deg || 5), limits.max_pitch_deg || 5);
+            });
+            canvas.addEventListener('pointerup', function(event) {
+              dragging = false;
+              canvas.releasePointerCapture(event.pointerId);
+            });
+            window.addEventListener('keydown', function(event) { keys.add(event.key.toLowerCase()); });
+            window.addEventListener('keyup', function(event) { keys.delete(event.key.toLowerCase()); });
+
+            function updateSize() {
+              const rect = viewer.getBoundingClientRect();
+              const width = Math.max(320, rect.width);
+              const height = Math.max(260, rect.height);
+              renderer.setSize(width, height, false);
+              camera.aspect = width / height;
+              camera.updateProjectionMatrix();
+            }
+
+            let last = performance.now();
+            renderer.setAnimationLoop(function(now) {
+              const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
+              last = now;
+              const shiftSpeed = dt * 0.010;
+              const dollySpeed = dt * 0.012;
+              if (keys.has('a')) shiftX = clamp(shiftX - shiftSpeed, -(limits.max_shift_x || 0.045), limits.max_shift_x || 0.045);
+              if (keys.has('d')) shiftX = clamp(shiftX + shiftSpeed, -(limits.max_shift_x || 0.045), limits.max_shift_x || 0.045);
+              if (keys.has('w')) shiftY = clamp(shiftY + shiftSpeed, -(limits.max_shift_y || 0.045), limits.max_shift_y || 0.045);
+              if (keys.has('s')) shiftY = clamp(shiftY - shiftSpeed, -(limits.max_shift_y || 0.045), limits.max_shift_y || 0.045);
+              if (keys.has('f')) dolly = clamp(dolly + dollySpeed, -(limits.max_dolly_backward || 0.025), limits.max_dolly_forward || 0.075);
+              if (keys.has('b')) dolly = clamp(dolly - dollySpeed, -(limits.max_dolly_backward || 0.025), limits.max_dolly_forward || 0.075);
+              updateSize();
+              const yawRad = yaw * Math.PI / 180;
+              const pitchRad = pitch * Math.PI / 180;
+              const viewRadius = radius * (1.65 - dolly * 2.2);
+              camera.position.set(
+                Math.sin(yawRad) * viewRadius + shiftX * radius,
+                Math.sin(pitchRad) * viewRadius - shiftY * radius,
+                Math.cos(yawRad) * Math.cos(pitchRad) * viewRadius
+              );
+              camera.near = Math.max(0.001, radius * 0.001);
+              camera.far = Math.max(1000, radius * 8);
+              camera.lookAt(0, 0, 0);
+              renderer.render(scene, camera);
+            });
+            if (status) status.textContent = 'Drag to adjust view. W/A/S/D shift, F/B dolly.';
+          } catch (error) {
+            if (status) status.textContent = '3DGS point viewer failed: ' + (error && error.message ? error.message : String(error));
+          }
+        });
+      }
+
       document.querySelectorAll('.flow-dialog').forEach(function(dialog) {
         const buttons = Array.from(dialog.querySelectorAll('[data-flow-preview-target]'));
         const panels = Array.from(dialog.querySelectorAll('[data-flow-preview-panel]'));
@@ -1103,6 +1260,7 @@
           });
           panels.forEach(function(panel) {
             panel.classList.toggle('is-active', panel.id === targetId);
+            if (panel.id === targetId) initSplatViewers(panel);
           });
         }
         buttons.forEach(function(button) {

@@ -1,0 +1,13 @@
+{
+  "max_yaw_deg": 7.0,
+  "max_pitch_deg": 5.0,
+  "max_shift_x": 0.045,
+  "max_shift_y": 0.045,
+  "max_dolly_forward": 0.075,
+  "max_dolly_backward": 0.025,
+  "initial_yaw_deg": 0.0,
+  "initial_pitch_deg": 0.0,
+  "initial_shift_x": 0.0,
+  "initial_shift_y": 0.0,
+  "initial_dolly": 0.0
+}
