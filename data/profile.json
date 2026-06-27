@@ -252,7 +252,14 @@
       ],
       "summary": "",
       "homepage_bullets": [
-        "**Virtual studio**: generates a scene 3DGS from one reference scene image with Marble, creates a human 3DGS from one reference person image using a SHARP-based reconstruction pipeline, combines both assets in Unreal Engine for immersive roaming and virtual shooting, and produces neural-rendered images for photography simulation.",
+        {
+          "title": "Virtual studio",
+          "items": [
+            "Scene branch: one reference scene image is reconstructed into scene 3DGS with Marble and preprocessed by SplatTransform.",
+            "Human branch: one reference person image is reconstructed into human 3DGS with a SHARP-based pipeline.",
+            "Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation."
+          ]
+        },
         "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
       ],
       "bullets": [

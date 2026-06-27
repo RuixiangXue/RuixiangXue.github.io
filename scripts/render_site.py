@@ -711,19 +711,29 @@ def render_project_highlights(item: dict[str, Any]) -> str:
         f"""
                 <button class="project-highlight" type="button" data-dialog-target="{esc(flow_dialog_id(item_id, index))}">
                   <i class="{esc(icons[index % len(icons)])}"></i>
-                  <span>{format_inline(bullet)}</span>
+                  <span>{render_project_highlight_content(bullet)}</span>
                 </button>
 """
         if index < len(flows)
         else f"""
                 <div class="project-highlight">
                   <i class="{esc(icons[index % len(icons)])}"></i>
-                  <span>{format_inline(bullet)}</span>
+                  <span>{render_project_highlight_content(bullet)}</span>
                 </div>
 """
         for index, bullet in enumerate(bullets[:3])
     )
     return f'<div class="project-highlights">{cards}</div>' if cards else ""
+
+
+def render_project_highlight_content(bullet: Any) -> str:
+    if isinstance(bullet, dict):
+        title = bullet.get("title", "")
+        items = bullet.get("items", [])
+        item_html = "".join(f"<li>{format_inline(str(item))}</li>" for item in items)
+        title_html = f"<strong>{esc(title)}</strong>" if title else ""
+        return f'{title_html}<ul class="project-highlight-points">{item_html}</ul>'
+    return format_inline(str(bullet))
 
 
 def render_project_flows(item: dict[str, Any]) -> str:

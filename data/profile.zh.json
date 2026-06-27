@@ -251,7 +251,14 @@
       ],
       "summary": "",
       "homepage_bullets": [
-        "**虚拟摄影棚**：一张参考场景图像利用 Marble 生成场景 3DGS，一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS，两者组合导入 UE 实现沉浸式漫游与虚拟 shooting，最后得到神经渲染图像，用于摄影仿真。",
+        {
+          "title": "虚拟摄影棚",
+          "items": [
+            "场景分支：一张参考场景图像利用 Marble 生成场景 3DGS，并通过 SplatTransform 预处理。",
+            "人物分支：一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS。",
+            "仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染得到用于摄影仿真的结果。"
+          ]
+        },
         "**Spatial Reframing**：一张参考图像输入，快速实现 Spatial Reframing 功能。"
       ],
       "bullets": [
