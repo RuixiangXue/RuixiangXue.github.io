@@ -279,14 +279,14 @@
               "label": "Scene image",
               "detail": "reference",
               "icon": "fa-solid fa-image",
-              "col": 1,
+              "col": 2,
               "row": 1
             },
             {
               "label": "Marble",
               "detail": "scene 3DGS",
               "icon": "fa-solid fa-cubes",
-              "col": 2,
+              "col": 3,
               "row": 1
             },
             {
