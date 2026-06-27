@@ -62,7 +62,7 @@ def labels(lang: str) -> dict[str, str]:
             "projects": "项目",
             "jobs": "求职进程",
             "research_focus": "研究内容",
-            "about": "空间智能",
+            "about": "研究内容",
             "about_prefix": "我是",
             "affiliation": "单位",
             "advisor": "导师",
@@ -84,7 +84,7 @@ def labels(lang: str) -> dict[str, str]:
         "projects": "Projects",
         "jobs": "Jobs",
         "research_focus": "Research Area",
-        "about": "Spatial Intelligence",
+        "about": "Research Area",
         "about_prefix": "I am",
         "affiliation": "Affiliation",
         "advisor": "Advisor",
@@ -184,8 +184,7 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
 
     <section class="section focus-section" id="about" data-section="about">
       <div>
-        <p class="section-kicker">{t['research_focus']}</p>
-        <h2 class="section-title">{t['about']}</h2>
+        <h2 class="section-title">{t['research_focus']}</h2>
       </div>
       {render_research_bubbles(person.get("research_interests", []), project_previews, lang=lang)}
     </section>
@@ -563,8 +562,7 @@ def render_interest_list(interests: list[str]) -> str:
 def render_research_bubbles(interests: list[str], projects: list[dict[str, Any]], *, lang: str) -> str:
     bubbles = "".join(render_research_bubble(item, index, projects) for index, item in enumerate(interests))
     return f"""
-      <div class="research-map" aria-label="Spatial intelligence research map">
-        <div class="research-core">Spatial<br>Intelligence</div>
+      <div class="research-map" aria-label="Research area map">
         {bubbles}
       </div>
 """

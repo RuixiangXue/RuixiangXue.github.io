@@ -93,6 +93,8 @@ class RenderSiteTest(unittest.TestCase):
         self.assertNotIn("Download my CV", home)
         self.assertIn("Work Experience", home)
         self.assertIn("research-map", home)
+        self.assertIn("Research Area", home)
+        self.assertNotIn("Spatial Intelligence", home)
         self.assertIn('href="#project-point-cloud-compression"', home)
         self.assertIn('id="project-point-cloud-compression"', home)
         self.assertNotIn("Coming soon", home)
@@ -108,7 +110,8 @@ class RenderSiteTest(unittest.TestCase):
         self.assertIn("English", home_zh)
         self.assertIn('title="CV EN"', home_zh)
         self.assertIn('title="CV 中文"', home_zh)
-        self.assertIn("空间智能", home_zh)
+        self.assertIn("研究内容", home_zh)
+        self.assertNotIn("空间智能", home_zh)
         self.assertIn("研究简历", resume_zh)
 
 
