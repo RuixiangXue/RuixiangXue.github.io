@@ -254,15 +254,15 @@
         {
           "title": "虚拟摄影棚",
           "items": [
-            "场景分支：一张参考场景图像先输入 SAM，再通过 SHARP 重建得到场景 3DGS。",
-            "人物分支：一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS。",
+            "场景分支：一张参考场景图像输入 Marble，重建得到场景 3DGS。",
+            "人物分支：一张参考人物图像先输入 SAM，再通过 SHARP 重建得到人物 3DGS。",
             "仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染得到用于摄影仿真的结果。"
           ]
         },
         "**Spatial Reframing**：一张参考图像输入，快速实现 Spatial Reframing 功能。"
       ],
       "bullets": [
-        "构建虚拟摄影流程，结合 SAM 引导的场景 3DGS 重建、基于 SHARP 的人物 3DGS 重建与 UE 导入，实现沉浸式虚拟拍摄仿真。",
+        "构建虚拟摄影流程，结合 Marble 场景 3DGS 重建、SAM 引导的 SHARP 人物 3DGS 重建与 UE 导入，实现沉浸式虚拟拍摄仿真。",
         "利用神经渲染提升原始 3DGS 拍摄结果的照片观感。",
         "原型实现单张参考图像输入的 Spatial Reframing 近邻视角重构。"
       ],
@@ -272,6 +272,7 @@
           "caption": "",
           "layout": "grid-branches",
           "columns": 6,
+          "rows": 2,
           "steps": [
             {
               "label": "参考场景图",
@@ -281,23 +282,23 @@
               "row": 1
             },
             {
-              "label": "SAM",
-              "detail": "场景 mask",
-              "icon": "fa-solid fa-object-group",
-              "col": 2,
-              "row": 1
-            },
-            {
-              "label": "SHARP",
+              "label": "Marble",
               "detail": "场景 3DGS",
               "icon": "fa-solid fa-cubes",
-              "col": 3,
+              "col": 2,
               "row": 1
             },
             {
               "label": "参考人物图",
               "detail": "输入",
               "icon": "fa-solid fa-user",
+              "col": 1,
+              "row": 2
+            },
+            {
+              "label": "SAM",
+              "detail": "人物 mask",
+              "icon": "fa-solid fa-object-group",
               "col": 2,
               "row": 2
             },
@@ -340,6 +341,7 @@
           "caption": "",
           "layout": "grid-branches",
           "columns": 7,
+          "rows": 1,
           "steps": [
             {
               "label": "输入照片",

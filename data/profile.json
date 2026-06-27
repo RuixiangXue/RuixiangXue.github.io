@@ -255,15 +255,15 @@
         {
           "title": "Virtual studio",
           "items": [
-            "Scene branch: one reference scene image is first processed by SAM and then reconstructed into scene 3DGS with SHARP.",
-            "Human branch: one reference person image is reconstructed into human 3DGS with a SHARP-based pipeline.",
+            "Scene branch: one reference scene image is reconstructed into scene 3DGS with Marble.",
+            "Human branch: one reference person image is segmented by SAM and reconstructed into human 3DGS with SHARP.",
             "Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation."
           ]
         },
         "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
       ],
       "bullets": [
-        "Built a virtual photography pipeline combining SAM-guided scene 3DGS reconstruction, SHARP-based human 3DGS reconstruction, and Unreal Engine import for immersive shooting simulation.",
+        "Built a virtual photography pipeline combining Marble scene 3DGS reconstruction, SAM-guided SHARP human 3DGS reconstruction, and Unreal Engine import for immersive shooting simulation.",
         "Used neural rendering to improve raw 3DGS capture quality for photo-realistic virtual photography.",
         "Prototyped Spatial Reframing from a single reference image for nearby-view recomposition."
       ],
@@ -273,6 +273,7 @@
           "caption": "",
           "layout": "grid-branches",
           "columns": 6,
+          "rows": 2,
           "steps": [
             {
               "label": "Scene image",
@@ -282,23 +283,23 @@
               "row": 1
             },
             {
-              "label": "SAM",
-              "detail": "scene mask",
-              "icon": "fa-solid fa-object-group",
-              "col": 2,
-              "row": 1
-            },
-            {
-              "label": "SHARP",
+              "label": "Marble",
               "detail": "scene 3DGS",
               "icon": "fa-solid fa-cubes",
-              "col": 3,
+              "col": 2,
               "row": 1
             },
             {
               "label": "Person image",
               "detail": "reference",
               "icon": "fa-solid fa-user",
+              "col": 1,
+              "row": 2
+            },
+            {
+              "label": "SAM",
+              "detail": "person mask",
+              "icon": "fa-solid fa-object-group",
               "col": 2,
               "row": 2
             },
@@ -341,6 +342,7 @@
           "caption": "",
           "layout": "grid-branches",
           "columns": 7,
+          "rows": 1,
           "steps": [
             {
               "label": "Input photo",

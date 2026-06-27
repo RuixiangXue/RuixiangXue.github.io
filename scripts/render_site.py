@@ -759,6 +759,7 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
 """ if caption else ""
     layout = flow.get("layout", "linear")
     columns = flow.get("columns", max(len(steps), 1))
+    rows = flow.get("rows", 2 if layout == "grid-branches" else 1)
     return f"""
                     <dialog class="project-dialog flow-dialog" id="{esc(flow_dialog_id(item_id, index))}">
                       <div class="project-dialog-panel">
@@ -767,9 +768,9 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
                           <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                         <div class="flow-dialog-body">
-                          <div class="flow-card flow-card-{index % 2}">
+                          <div class="flow-card flow-card-{index % 2} flow-rows-{esc(str(rows))}">
                   {caption_html}
-                  <div class="flow-track flow-layout-{esc(layout)}" style="--step-count: {max(len(steps), 1)}; --flow-columns: {esc(str(columns))}">
+                  <div class="flow-track flow-layout-{esc(layout)}" style="--step-count: {max(len(steps), 1)}; --flow-columns: {esc(str(columns))}; --flow-rows: {esc(str(rows))}">
                     {nodes}
                   </div>
                           </div>

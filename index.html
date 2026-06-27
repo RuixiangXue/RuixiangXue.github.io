@@ -246,7 +246,7 @@
               <div class="project-highlights">
                 <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-0-dialog">
                   <i class="fa-solid fa-vr-cardboard"></i>
-                  <span><strong>Virtual studio</strong><ul class="project-highlight-points"><li>Scene branch: one reference scene image is first processed by SAM and then reconstructed into scene 3DGS with SHARP.</li><li>Human branch: one reference person image is reconstructed into human 3DGS with a SHARP-based pipeline.</li><li>Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation.</li></ul></span>
+                  <span><strong>Virtual studio</strong><ul class="project-highlight-points"><li>Scene branch: one reference scene image is reconstructed into scene 3DGS with Marble.</li><li>Human branch: one reference person image is segmented by SAM and reconstructed into human 3DGS with SHARP.</li><li>Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation.</li></ul></span>
                 </button>
 
                 <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-1-dialog">
@@ -262,9 +262,9 @@
                           <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                         <div class="flow-dialog-body">
-                          <div class="flow-card flow-card-0">
+                          <div class="flow-card flow-card-0 flow-rows-2">
                   
-                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 8; --flow-columns: 6">
+                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 8; --flow-columns: 6; --flow-rows: 2">
                     
                     <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
@@ -274,23 +274,23 @@
 
 
                     <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
-                      <i class="fa-solid fa-object-group"></i>
-                      <span>SAM</span>
-                      <small>scene mask</small>
-                    </span>
-
-
-                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-cubes"></i>
-                      <span>SHARP</span>
+                      <span>Marble</span>
                       <small>scene 3DGS</small>
                     </span>
 
 
-                    <span class="flow-node" style="--flow-col: 2; --flow-row: 2">
+                    <span class="flow-node" style="--flow-col: 1; --flow-row: 2">
                       <i class="fa-solid fa-user"></i>
                       <span>Person image</span>
                       <small>reference</small>
+                    </span>
+
+
+                    <span class="flow-node" style="--flow-col: 2; --flow-row: 2">
+                      <i class="fa-solid fa-object-group"></i>
+                      <span>SAM</span>
+                      <small>person mask</small>
                     </span>
 
 
@@ -334,9 +334,9 @@
                           <button type="button" data-dialog-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                         <div class="flow-dialog-body">
-                          <div class="flow-card flow-card-1">
+                          <div class="flow-card flow-card-1 flow-rows-1">
                   
-                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7">
+                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7; --flow-rows: 1">
                     
                     <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
