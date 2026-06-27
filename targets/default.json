@@ -5,13 +5,8 @@
     "compression",
     "point-cloud",
     "3dgs",
-    "driving",
-    "world-model",
-    "street-view",
-    "restoration",
     "standardization",
     "publication",
-    "ai-demo",
     "photography"
   ],
   "resume_filename": "resume.html"

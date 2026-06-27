@@ -263,9 +263,9 @@
         "**Spatial Reframing**：一张参考图像输入，快速实现 Spatial Reframing 功能。"
       ],
       "bullets": [
-        "构建虚拟摄影流程，结合 Marble 场景 3DGS 重建、SAM 引导的 SHARP 人物 3DGS 重建与 UE 导入，实现沉浸式虚拟拍摄仿真。",
-        "利用神经渲染提升原始 3DGS 拍摄结果的照片观感。",
-        "原型实现单张参考图像输入的 Spatial Reframing 近邻视角重构。"
+        "构建虚拟摄影棚流程：参考场景图像通过 Marble 重建场景 3DGS，参考人物图像经 SAM 分割后通过 SHARP 重建人物 3DGS。",
+        "将场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染提升原始拍摄结果的照片观感。",
+        "原型实现 Spatial Reframing：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
       ],
       "flows": [
         {

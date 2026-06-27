@@ -264,9 +264,9 @@
         "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
       ],
       "bullets": [
-        "Built a virtual photography pipeline combining Marble scene 3DGS reconstruction, SAM-guided SHARP human 3DGS reconstruction, and Unreal Engine import for immersive shooting simulation.",
-        "Used neural rendering to improve raw 3DGS capture quality for photo-realistic virtual photography.",
-        "Prototyped Spatial Reframing from a single reference image for nearby-view recomposition."
+        "Built a virtual studio pipeline where a reference scene image is reconstructed into scene 3DGS with Marble, while a reference person image is segmented by SAM and reconstructed into human 3DGS with SHARP.",
+        "Combined scene and human assets in Unreal Engine for immersive roaming and virtual shooting, then refined raw captures with neural rendering for photography simulation.",
+        "Prototyped Spatial Reframing: input photo outpainting, SHARP 3DGS reconstruction, camera-pose transformation, novel-view rendering, and generative-prior repair for final recomposition."
       ],
       "flows": [
         {
