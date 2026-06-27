@@ -246,12 +246,12 @@
               <div class="project-highlights">
                 <button class="project-highlight" type="button" data-dialog-target="project-智能辅助摄影-flow-0-dialog">
                   <i class="fa-solid fa-vr-cardboard"></i>
-                  <span><strong>虚拟摄影棚</strong>：Marble 3DGS、SplatTransform、UE 导入、沉浸式拍摄。</span>
+                  <span><strong>虚拟摄影棚</strong>：一张参考场景图像利用 Marble 生成场景 3DGS，一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS，两者组合导入 UE 实现沉浸式漫游与虚拟 shooting，最后得到神经渲染图像，用于摄影仿真。</span>
                 </button>
 
                 <button class="project-highlight" type="button" data-dialog-target="project-智能辅助摄影-flow-1-dialog">
                   <i class="fa-solid fa-layer-group"></i>
-                  <span><strong>空间重构取景</strong>：从单张照片复刻 Apple-like 近邻视角重构。</span>
+                  <span><strong>Spatial Reframing</strong>：一张参考图像输入，快速实现 Spatial Reframing 功能。</span>
                 </button>
 </div>
               
@@ -263,22 +263,20 @@
                         </div>
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-0">
-                  <div class="flow-head">
-                    <span>从单张参考图到 UE 虚拟摄影棚，再到生成式神经渲染照片。</span>
-                  </div>
-                  <div class="flow-track" style="--step-count: 7">
+                  
+                  <div class="flow-track" style="--step-count: 8">
                     
                     <span class="flow-node">
                       <i class="fa-solid fa-image"></i>
-                      <span>参考图片</span>
-                      <small>单张照片</small>
+                      <span>参考场景图</span>
+                      <small>输入</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-cubes"></i>
-                      <span>Marble 3DGS</span>
-                      <small>场景资产</small>
+                      <span>Marble</span>
+                      <small>场景 3DGS</small>
                     </span>
 
 
@@ -290,30 +288,37 @@
 
 
                     <span class="flow-node">
+                      <i class="fa-solid fa-user"></i>
+                      <span>参考人物图</span>
+                      <small>输入</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-person-rays"></i>
+                      <span>SHARP 流程</span>
+                      <small>人物 3DGS</small>
+                    </span>
+
+
+                    <span class="flow-node">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
-                      <small>虚拟摄影棚</small>
+                      <small>组合导入</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-camera-retro"></i>
-                      <span>相机拍摄</span>
+                      <span>虚拟 Shooting</span>
                       <small>沉浸漫游</small>
-                    </span>
-
-
-                    <span class="flow-node">
-                      <i class="fa-solid fa-user"></i>
-                      <span>人物 3DGS</span>
-                      <small>合成入镜</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-wand-magic-sparkles"></i>
                       <span>神经渲染</span>
-                      <small>照片级修饰</small>
+                      <small>摄影仿真</small>
                     </span>
 
                   </div>
@@ -330,9 +335,7 @@
                         </div>
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-1">
-                  <div class="flow-head">
-                    <span>面向有限角度变化的 Apple-like 重新取景流程。</span>
-                  </div>
+                  
                   <div class="flow-track" style="--step-count: 7">
                     
                     <span class="flow-node">

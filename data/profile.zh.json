@@ -250,23 +250,28 @@
         "photography"
       ],
       "summary": "",
+      "homepage_bullets": [
+        "**虚拟摄影棚**：一张参考场景图像利用 Marble 生成场景 3DGS，一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS，两者组合导入 UE 实现沉浸式漫游与虚拟 shooting，最后得到神经渲染图像，用于摄影仿真。",
+        "**Spatial Reframing**：一张参考图像输入，快速实现 Spatial Reframing 功能。"
+      ],
       "bullets": [
-        "**虚拟摄影棚**：Marble 3DGS、SplatTransform、UE 导入、沉浸式拍摄。",
-        "**空间重构取景**：从单张照片复刻 Apple-like 近邻视角重构。"
+        "构建虚拟摄影流程，结合 Marble 场景 3DGS、基于 SHARP 的人物 3DGS 重建、SplatTransform 预处理与 UE 导入，实现沉浸式虚拟拍摄仿真。",
+        "利用神经渲染提升原始 3DGS 拍摄结果的照片观感。",
+        "原型实现单张参考图像输入的 Spatial Reframing 近邻视角重构。"
       ],
       "flows": [
         {
           "title": "Virtual Studio Pipeline",
-          "caption": "从单张参考图到 UE 虚拟摄影棚，再到生成式神经渲染照片。",
+          "caption": "",
           "steps": [
             {
-              "label": "参考图片",
-              "detail": "单张照片",
+              "label": "参考场景图",
+              "detail": "输入",
               "icon": "fa-solid fa-image"
             },
             {
-              "label": "Marble 3DGS",
-              "detail": "场景资产",
+              "label": "Marble",
+              "detail": "场景 3DGS",
               "icon": "fa-solid fa-cubes"
             },
             {
@@ -275,30 +280,35 @@
               "icon": "fa-solid fa-wand-magic-sparkles"
             },
             {
+              "label": "参考人物图",
+              "detail": "输入",
+              "icon": "fa-solid fa-user"
+            },
+            {
+              "label": "SHARP 流程",
+              "detail": "人物 3DGS",
+              "icon": "fa-solid fa-person-rays"
+            },
+            {
               "label": "Unreal Engine",
-              "detail": "虚拟摄影棚",
+              "detail": "组合导入",
               "icon": "fa-solid fa-cube"
             },
             {
-              "label": "相机拍摄",
+              "label": "虚拟 Shooting",
               "detail": "沉浸漫游",
               "icon": "fa-solid fa-camera-retro"
             },
             {
-              "label": "人物 3DGS",
-              "detail": "合成入镜",
-              "icon": "fa-solid fa-user"
-            },
-            {
               "label": "神经渲染",
-              "detail": "照片级修饰",
+              "detail": "摄影仿真",
               "icon": "fa-solid fa-wand-magic-sparkles"
             }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
-          "caption": "面向有限角度变化的 Apple-like 重新取景流程。",
+          "caption": "",
           "steps": [
             {
               "label": "输入照片",

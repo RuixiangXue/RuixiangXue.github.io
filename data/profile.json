@@ -251,23 +251,28 @@
         "photography"
       ],
       "summary": "",
+      "homepage_bullets": [
+        "**Virtual studio**: generates a scene 3DGS from one reference scene image with Marble, creates a human 3DGS from one reference person image using a SHARP-based reconstruction pipeline, combines both assets in Unreal Engine for immersive roaming and virtual shooting, and produces neural-rendered images for photography simulation.",
+        "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
+      ],
       "bullets": [
-        "**Virtual studio**: Marble 3DGS, SplatTransform, UE import, immersive capture.",
-        "**Spatial reframing**: Apple-like nearby-view recomposition from a single photo."
+        "Built a virtual photography pipeline combining Marble scene 3DGS, SHARP-based human 3DGS reconstruction, SplatTransform preprocessing, and Unreal Engine import for immersive shooting simulation.",
+        "Used neural rendering to improve raw 3DGS capture quality for photo-realistic virtual photography.",
+        "Prototyped Spatial Reframing from a single reference image for nearby-view recomposition."
       ],
       "flows": [
         {
           "title": "Virtual Studio Pipeline",
-          "caption": "From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.",
+          "caption": "",
           "steps": [
             {
-              "label": "Reference image",
-              "detail": "single photo",
+              "label": "Scene image",
+              "detail": "reference",
               "icon": "fa-solid fa-image"
             },
             {
-              "label": "Marble 3DGS",
-              "detail": "world asset",
+              "label": "Marble",
+              "detail": "scene 3DGS",
               "icon": "fa-solid fa-cubes"
             },
             {
@@ -276,30 +281,35 @@
               "icon": "fa-solid fa-wand-magic-sparkles"
             },
             {
-              "label": "Unreal Engine",
-              "detail": "virtual stage",
-              "icon": "fa-solid fa-cube"
-            },
-            {
-              "label": "Camera capture",
-              "detail": "navigation",
-              "icon": "fa-solid fa-camera-retro"
-            },
-            {
-              "label": "Human 3DGS",
-              "detail": "composite",
+              "label": "Person image",
+              "detail": "reference",
               "icon": "fa-solid fa-user"
             },
             {
+              "label": "SHARP pipeline",
+              "detail": "human 3DGS",
+              "icon": "fa-solid fa-person-rays"
+            },
+            {
+              "label": "Unreal Engine",
+              "detail": "composite",
+              "icon": "fa-solid fa-cube"
+            },
+            {
+              "label": "Virtual shooting",
+              "detail": "immersive",
+              "icon": "fa-solid fa-camera-retro"
+            },
+            {
               "label": "Neural render",
-              "detail": "photo polish",
+              "detail": "simulation",
               "icon": "fa-solid fa-wand-magic-sparkles"
             }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
-          "caption": "Apple-like nearby-view recomposition under constrained viewpoint changes.",
+          "caption": "",
           "steps": [
             {
               "label": "Input photo",

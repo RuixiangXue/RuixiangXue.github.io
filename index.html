@@ -246,12 +246,12 @@
               <div class="project-highlights">
                 <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-0-dialog">
                   <i class="fa-solid fa-vr-cardboard"></i>
-                  <span><strong>Virtual studio</strong>: Marble 3DGS, SplatTransform, UE import, immersive capture.</span>
+                  <span><strong>Virtual studio</strong>: generates a scene 3DGS from one reference scene image with Marble, creates a human 3DGS from one reference person image using a SHARP-based reconstruction pipeline, combines both assets in Unreal Engine for immersive roaming and virtual shooting, and produces neural-rendered images for photography simulation.</span>
                 </button>
 
                 <button class="project-highlight" type="button" data-dialog-target="project-ai-assisted-photography-flow-1-dialog">
                   <i class="fa-solid fa-layer-group"></i>
-                  <span><strong>Spatial reframing</strong>: Apple-like nearby-view recomposition from a single photo.</span>
+                  <span><strong>Spatial reframing</strong>: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition.</span>
                 </button>
 </div>
               
@@ -263,22 +263,20 @@
                         </div>
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-0">
-                  <div class="flow-head">
-                    <span>From one reference image to an Unreal-based virtual shooting stage and final neural-rendered photo.</span>
-                  </div>
-                  <div class="flow-track" style="--step-count: 7">
+                  
+                  <div class="flow-track" style="--step-count: 8">
                     
                     <span class="flow-node">
                       <i class="fa-solid fa-image"></i>
-                      <span>Reference image</span>
-                      <small>single photo</small>
+                      <span>Scene image</span>
+                      <small>reference</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-cubes"></i>
-                      <span>Marble 3DGS</span>
-                      <small>world asset</small>
+                      <span>Marble</span>
+                      <small>scene 3DGS</small>
                     </span>
 
 
@@ -290,30 +288,37 @@
 
 
                     <span class="flow-node">
+                      <i class="fa-solid fa-user"></i>
+                      <span>Person image</span>
+                      <small>reference</small>
+                    </span>
+
+
+                    <span class="flow-node">
+                      <i class="fa-solid fa-person-rays"></i>
+                      <span>SHARP pipeline</span>
+                      <small>human 3DGS</small>
+                    </span>
+
+
+                    <span class="flow-node">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
-                      <small>virtual stage</small>
+                      <small>composite</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-camera-retro"></i>
-                      <span>Camera capture</span>
-                      <small>navigation</small>
-                    </span>
-
-
-                    <span class="flow-node">
-                      <i class="fa-solid fa-user"></i>
-                      <span>Human 3DGS</span>
-                      <small>composite</small>
+                      <span>Virtual shooting</span>
+                      <small>immersive</small>
                     </span>
 
 
                     <span class="flow-node">
                       <i class="fa-solid fa-wand-magic-sparkles"></i>
                       <span>Neural render</span>
-                      <small>photo polish</small>
+                      <small>simulation</small>
                     </span>
 
                   </div>
@@ -330,9 +335,7 @@
                         </div>
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-1">
-                  <div class="flow-head">
-                    <span>Apple-like nearby-view recomposition under constrained viewpoint changes.</span>
-                  </div>
+                  
                   <div class="flow-track" style="--step-count: 7">
                     
                     <span class="flow-node">

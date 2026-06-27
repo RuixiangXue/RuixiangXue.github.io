@@ -706,6 +706,7 @@ def render_project_highlights(item: dict[str, Any]) -> str:
     icons = ["fa-solid fa-vr-cardboard", "fa-solid fa-layer-group", "fa-solid fa-crop-simple"]
     flows = item.get("flows", [])
     item_id = item.get("id", project_id(item["name"]))
+    bullets = item.get("homepage_bullets", item.get("bullets", []))
     cards = "".join(
         f"""
                 <button class="project-highlight" type="button" data-dialog-target="{esc(flow_dialog_id(item_id, index))}">
@@ -720,7 +721,7 @@ def render_project_highlights(item: dict[str, Any]) -> str:
                   <span>{format_inline(bullet)}</span>
                 </div>
 """
-        for index, bullet in enumerate(item.get("bullets", [])[:3])
+        for index, bullet in enumerate(bullets[:3])
     )
     return f'<div class="project-highlights">{cards}</div>' if cards else ""
 
@@ -740,6 +741,12 @@ def flow_dialog_id(item_id: str, index: int) -> str:
 def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -> str:
     steps = flow.get("steps", [])
     nodes = "\n".join(render_flow_step(step) for step in steps)
+    caption = flow.get("caption", "")
+    caption_html = f"""
+                  <div class="flow-head">
+                    <span>{esc(caption)}</span>
+                  </div>
+""" if caption else ""
     return f"""
                     <dialog class="project-dialog flow-dialog" id="{esc(flow_dialog_id(item_id, index))}">
                       <div class="project-dialog-panel">
@@ -749,9 +756,7 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
                         </div>
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-{index % 2}">
-                  <div class="flow-head">
-                    <span>{esc(flow.get('caption', ''))}</span>
-                  </div>
+                  {caption_html}
                   <div class="flow-track" style="--step-count: {max(len(steps), 1)}">
                     {nodes}
                   </div>
