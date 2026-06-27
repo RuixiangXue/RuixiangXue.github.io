@@ -576,17 +576,6 @@
   ],
   "skills": [
     {
-      "group": "Codec and Compression",
-      "items": [
-        "Deep learning based point cloud coding",
-        "3D Gaussian splatting coding",
-        "Driving world models",
-        "Street-view synthesis and restoration",
-        "MPEG AI-PCC standardization",
-        "G-PCC and V-PCC"
-      ]
-    },
-    {
       "group": "Programming",
       "items": [
         "Python",
