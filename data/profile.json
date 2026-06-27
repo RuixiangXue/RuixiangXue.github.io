@@ -236,7 +236,7 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "Contributed to a National Key R&D Program project on driving world models, focusing on large-baseline street-scene novel-view extrapolation and 3D/4D world-model scouting.",
+      "summary": "Contributed to a National Key R&D Program project on driving world models and related technology scouting, with a focus on large-baseline street-scene novel-view extrapolation.",
       "bullets": [
         "Explored mutual enhancement between UniSplat feed-forward reconstruction and VISTA generative models: geometry constraints improve consistency, while generative priors improve rendering quality.",
         "Surveyed 3D/4D reconstruction, reconstruction-generation coupling, and driving world model directions."
