@@ -570,10 +570,6 @@ body.theme-prism .project-card:target {
   transform: translateY(-2px);
 }
 
-body.theme-prism .project-card.has-flows {
-  grid-column: 1 / -1;
-}
-
 body.theme-prism .project-image {
   display: block;
   width: 100%;
@@ -649,7 +645,7 @@ body.theme-prism .project-highlights {
 }
 
 body.theme-prism .project-card.has-flows .project-highlights {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 body.theme-prism .project-highlight {

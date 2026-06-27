@@ -765,17 +765,18 @@ def render_research_bubble(interest: str, index: int, projects: list[dict[str, A
 def build_project_previews(profile: dict[str, Any], *, lang: str) -> list[dict[str, Any]]:
     projects = [dict(item) for item in profile.get("projects", [])]
     interests = profile.get("person", {}).get("research_interests", [])
-    previews: list[dict[str, Any]] = []
     used: set[int] = set()
     for interest in interests:
         index = best_project_index(interest, projects, used)
         if index is not None and projects[index].get("homepage_project", True) is not False:
-            item = dict(projects[index])
             used.add(index)
-        else:
+            projects[index]["interest"] = interest
+    previews: list[dict[str, Any]] = []
+    for project in projects:
+        if project.get("homepage_project", True) is False:
             continue
-        item["id"] = project_id(item.get("name", interest))
-        item["interest"] = interest
+        item = dict(project)
+        item["id"] = project_id(item.get("name", "project"))
         previews.append(item)
     return previews
 

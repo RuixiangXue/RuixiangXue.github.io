@@ -4,12 +4,12 @@ render:
 	python3 scripts/render_site.py
 
 render-all:
-	python3 scripts/render_site.py
 	python3 scripts/render_site.py --target targets/ai-product.json
 	python3 scripts/render_site.py --target targets/driving-world-model.json
-	python3 scripts/render_site.py --lang zh
 	python3 scripts/render_site.py --lang zh --target targets/ai-product.zh.json
 	python3 scripts/render_site.py --lang zh --target targets/driving-world-model.zh.json
+	python3 scripts/render_site.py
+	python3 scripts/render_site.py --lang zh
 
 test:
 	python3 -m unittest discover -s tests
