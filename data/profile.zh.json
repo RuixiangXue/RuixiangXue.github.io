@@ -6,6 +6,7 @@
     "email": "xrxee@smail.nju.edu.cn",
     "phone": "+86-13777803815",
     "location": "南京，中国",
+    "homepage": "https://ruixiangxue.github.io",
     "avatar": "assets/media/profile.jpg",
     "affiliation": "NJU Vision Lab",
     "advisor": "马展教授",
@@ -212,7 +213,7 @@
         "提出 **RecastGS**，将预训练 3DGS 重组为 **区域感知的分层表示**，并结合提示驱动的目标区域提取与渐进蒸馏。",
         "提出 **LayeredCGS**，通过 **跨层上下文建模** 实现前馈式分层 3DGS 压缩，并生成 **可截断码流**。",
         "相较前馈基线 FCGS 实现 **35% BD-Rate 增益**，在相近码率下 **ROI PSNR 最高提升 2 dB**。",
-        "相关论文 **3D Gaussian Splatting Compression with Object Scalability** 已被 **ECCV 2026** 接收，尚未发布 arXiv。"
+        "相关论文 **3D Gaussian Splatting Compression with Object Scalability** 已被 **ECCV 2026** 接收。"
       ],
       "links": {
         "publication": "#publication-3dgs-object-scalability"
@@ -405,7 +406,7 @@
       "venue_short": "ECCV 2026",
       "venue_full": "European Conference on Computer Vision",
       "venue": "European Conference on Computer Vision (ECCV), 2026",
-      "notes": "已接收，尚未发布 arXiv",
+      "notes": "已接收",
       "badges": [
         "CCF-B",
         "三维高斯泼溅压缩"

@@ -75,7 +75,7 @@ def labels(lang: str) -> dict[str, str]:
             "research_projects": "研究项目",
             "selected_publications": "代表论文",
             "skills": "技能",
-            "resume_title": "研究简历",
+            "resume_title": "简历",
             "language_label": "English",
         }
     return {
@@ -97,7 +97,7 @@ def labels(lang: str) -> dict[str, str]:
         "research_projects": "Research Projects",
         "selected_publications": "Selected Publications",
         "skills": "Skills",
-        "resume_title": "Research Resume",
+        "resume_title": "Resume",
         "language_label": "中文",
     }
 
@@ -282,6 +282,12 @@ def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str 
     projects = [item for item in profile.get("projects", []) if match_tags(item, tags)]
     publications = [item for item in profile.get("publications", []) if match_tags(item, tags)]
     experiences = [item for item in profile.get("experience", []) if match_tags(item, tags)]
+    summary_text = target.get("focus", "")
+    summary_html = f"""
+      <section class="resume-summary">
+        <p>{esc(summary_text)}</p>
+      </section>
+""" if summary_text else ""
 
     return resume_page(
         title=resume_title or target.get("title", "Resume"),
@@ -296,9 +302,7 @@ def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str 
         <address>{render_resume_contacts(person, profile.get('links', []))}</address>
       </header>
 
-      <section class="resume-summary">
-        <p>{esc(target.get('focus') or person.get('summary', ''))}</p>
-      </section>
+      {summary_html}
 
       <section>
         <h2>{t['education']}</h2>
@@ -337,14 +341,13 @@ def render_resume(profile: dict[str, Any], target: dict[str, Any], *, lang: str 
 
 
 def render_resume_contacts(person: dict[str, Any], links: list[dict[str, str]]) -> str:
-    github = next((item.get("url", "") for item in links if item.get("label", "").lower() == "github"), "")
+    homepage = person.get("homepage", "https://ruixiangxue.github.io")
     parts = [
         esc(person.get("email", "")),
         esc(person.get("phone", "")),
-        esc(person.get("location", "")),
     ]
-    if github:
-        parts.append(f'<a href="{esc(github)}">{esc(github.replace("https://", ""))}</a>')
+    if homepage:
+        parts.append(f'<a href="{esc(homepage)}">{esc(homepage.replace("https://", ""))}</a>')
     return "<br>".join(part for part in parts if part)
 
 

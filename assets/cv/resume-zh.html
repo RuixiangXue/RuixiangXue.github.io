@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>研究简历</title>
+  <title>简历</title>
   <link rel="stylesheet" href="../css/resume.css">
 </head>
 <body>
@@ -11,16 +11,14 @@
     <main class="resume">
       <header class="resume-head">
         <div>
-          <p class="resume-label">研究简历</p>
+          <p class="resume-label">简历</p>
           <h1>Ruixiang Xue <span>薛瑞翔</span></h1>
           <p class="resume-subtitle">南京大学博士研究生</p>
         </div>
-        <address>xrxee@smail.nju.edu.cn<br>+86-13777803815<br>南京，中国<br><a href="https://github.com/RuixiangXue">github.com/RuixiangXue</a></address>
+        <address>xrxee@smail.nju.edu.cn<br>+86-13777803815<br><a href="https://ruixiangxue.github.io">ruixiangxue.github.io</a></address>
       </header>
 
-      <section class="resume-summary">
-        <p>面向点云压缩、三维高斯泼溅压缩、神经场景表示、自动驾驶世界模型和 AI 多媒体系统等研究/算法岗位。</p>
-      </section>
+      
 
       <section>
         <h2>教育经历</h2>
@@ -34,12 +32,12 @@
 
       <section>
         <h2>研究项目</h2>
-        <article><h3>智能点云压缩</h3><p class="resume-line">面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。</p><ul><li>针对点云数据表征设计 <strong>Transformer 网络</strong>，提高空间特征提取效率。</li><li>利用点云降采样过程中的 <strong>密度变化</strong> 指导重建模式选择。</li><li>在公开测试条件下，相较基线实现 <strong>39% 几何压缩增益</strong> 和 <strong>34% 属性压缩增益</strong>。</li></ul></article><article><h3>三维高斯泼溅编码</h3><p class="resume-line">面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。</p><ul><li>提出 <strong>RecastGS</strong>，将预训练 3DGS 重组为 <strong>区域感知的分层表示</strong>，并结合提示驱动的目标区域提取与渐进蒸馏。</li><li>提出 <strong>LayeredCGS</strong>，通过 <strong>跨层上下文建模</strong> 实现前馈式分层 3DGS 压缩，并生成 <strong>可截断码流</strong>。</li><li>相较前馈基线 FCGS 实现 <strong>35% BD-Rate 增益</strong>，在相近码率下 <strong>ROI PSNR 最高提升 2 dB</strong>。</li></ul></article><article><h3>街景生成式新视角合成</h3><p class="resume-line">围绕街景前馈重建与生成先验辅助的大幅度新视角外推开展研究。</p><ul><li>利用前馈街景重建模型提升生成式新视角合成模型的几何一致性。</li><li>利用生成先验改进前馈街景重建方法的渲染质量损失。</li><li>面向自动驾驶场景中的大幅度街景新视角外推。</li></ul></article>
+        <article><h3>智能点云压缩</h3><p class="resume-line">面向 MPEG AI-PCC 的深度学习点云压缩算法研究与开发。</p><ul><li>针对点云数据表征设计 <strong>Transformer 网络</strong>，提高空间特征提取效率。</li><li>利用点云降采样过程中的 <strong>密度变化</strong> 指导重建模式选择。</li><li>在公开测试条件下，相较基线实现 <strong>39% 几何压缩增益</strong> 和 <strong>34% 属性压缩增益</strong>。</li></ul></article><article><h3>三维高斯泼溅编码</h3><p class="resume-line">面向 3D Gaussian Splatting 场景的紧凑化、渐进式压缩与区域自适应质量控制。</p><ul><li>提出 <strong>RecastGS</strong>，将预训练 3DGS 重组为 <strong>区域感知的分层表示</strong>，并结合提示驱动的目标区域提取与渐进蒸馏。</li><li>提出 <strong>LayeredCGS</strong>，通过 <strong>跨层上下文建模</strong> 实现前馈式分层 3DGS 压缩，并生成 <strong>可截断码流</strong>。</li><li>相较前馈基线 FCGS 实现 <strong>35% BD-Rate 增益</strong>，在相近码率下 <strong>ROI PSNR 最高提升 2 dB</strong>。</li></ul></article><article><h3>街景生成式新视角合成</h3><p class="resume-line">围绕街景前馈重建与生成先验辅助的大幅度新视角外推开展研究。</p><ul><li>利用前馈街景重建模型提升生成式新视角合成模型的几何一致性。</li><li>利用生成先验改进前馈街景重建方法的渲染质量损失。</li><li>面向自动驾驶场景中的大幅度街景新视角外推。</li></ul></article><article><h3>智能辅助摄影</h3><p class="resume-line"></p><ul><li>构建虚拟摄影流程，结合 Marble 场景 3DGS 重建、SAM 引导的 SHARP 人物 3DGS 重建与 UE 导入，实现沉浸式虚拟拍摄仿真。</li><li>利用神经渲染提升原始 3DGS 拍摄结果的照片观感。</li><li>原型实现单张参考图像输入的 Spatial Reframing 近邻视角重构。</li></ul></article>
       </section>
 
       <section>
         <h2>代表论文</h2>
-        <article><h3>3D Gaussian Splatting Compression with Object Scalability</h3><p class="resume-line">Ruixiang Xue, Tong Chen, Zhan Ma. <em>ECCV 2026 · 已接收，尚未发布 arXiv</em></p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知分层表示，实现目标级和 ROI 自适应质量控制。</li><li>提出 LayeredCGS，通过跨层依赖建模生成可截断码流，支持快速预览与渐进式质量提升。</li></ul></article><article><h3>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry</h3><p class="resume-line">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma. <em>TPAMI · SCI 一区，CCF-A，影响因子 18.6，共同一作</em></p><ul><li>提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云压缩。</li><li>相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率，无损压缩率提升 30%，有损压缩总体增益 92%。</li></ul></article><article><h3>NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence</h3><p class="resume-line">Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma. <em>ICASSP 2024 · CCF-B，第一作者</em></p><ul><li>提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列并使用时空条件神经网络编码。</li><li>实现 376 FPS 实时解码，并在低码率段相较 MPEG G-PCC、HEVC 和其他智能点云压缩方法实现 91% 总体增益。</li></ul></article><article><h3>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute</h3><p class="resume-line">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma. <em>TPAMI · SCI 一区，CCF-A，影响因子 18.6，第二作者</em></p></article><article><h3>GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling</h3><p class="resume-line">Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma. <em>TVCG · SCI 一区，CCF-A，影响因子 6.5，第二作者</em></p></article>
+        <article><h3>3D Gaussian Splatting Compression with Object Scalability</h3><p class="resume-line">Ruixiang Xue, Tong Chen, Zhan Ma. <em>ECCV 2026 · 已接收</em></p><ul><li>提出 RecastGS，将预训练 3DGS 重组为区域感知分层表示，实现目标级和 ROI 自适应质量控制。</li><li>提出 LayeredCGS，通过跨层依赖建模生成可截断码流，支持快速预览与渐进式质量提升。</li></ul></article><article><h3>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part I: Geometry</h3><p class="resume-line">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma. <em>TPAMI · SCI 一区，CCF-A，影响因子 18.6，共同一作</em></p><ul><li>提出通用多尺度条件点云几何编码框架，统一支持有损/无损、静态/动态以及多类型点云压缩。</li><li>相较 MPEG G-PCC、V-PCC 以及现有智能点云压缩方案显著提升压缩效率，无损压缩率提升 30%，有损压缩总体增益 92%。</li></ul></article><article><h3>NeRI: Implicit Neural Representation of LiDAR Point Cloud Using Range Image Sequence</h3><p class="resume-line">Ruixiang Xue, Jiaxin Li, Tong Chen, Dandan Ding, Xun Cao, Zhan Ma. <em>ICASSP 2024 · CCF-B，第一作者</em></p><ul><li>提出首个基于隐式神经表示的 LiDAR 点云压缩方法，将三维点云转换为二维距离图序列并使用时空条件神经网络编码。</li><li>实现 376 FPS 实时解码，并在低码率段相较 MPEG G-PCC、HEVC 和其他智能点云压缩方法实现 91% 总体增益。</li></ul></article><article><h3>A Versatile Point Cloud Compressor Using Universal Multiscale Conditional Coding – Part II: Attribute</h3><p class="resume-line">Jianqiang Wang, Ruixiang Xue, Jiaxin Li, Dandan Ding, Yi Lin, Zhan Ma. <em>TPAMI · SCI 一区，CCF-A，影响因子 18.6，第二作者</em></p></article><article><h3>GRNet: Geometry Restoration for G-PCC Compressed Point Clouds Using Auxiliary Density Signaling</h3><p class="resume-line">Gexin Liu, Ruixiang Xue, Jiaxin Li, Dandan Ding, Zhan Ma. <em>TVCG · SCI 一区，CCF-A，影响因子 6.5，第二作者</em></p></article>
       </section>
 
       <section>

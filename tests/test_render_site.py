@@ -112,7 +112,10 @@ class RenderSiteTest(unittest.TestCase):
         self.assertIn('title="CV 中文"', home_zh)
         self.assertIn("研究内容", home_zh)
         self.assertNotIn("空间智能", home_zh)
-        self.assertIn("研究简历", resume_zh)
+        self.assertIn("简历", resume_zh)
+        self.assertNotIn("研究简历", resume_zh)
+        self.assertIn("ruixiangxue.github.io", resume_zh)
+        self.assertNotIn("github.com/RuixiangXue", resume_zh)
 
 
 if __name__ == "__main__":
