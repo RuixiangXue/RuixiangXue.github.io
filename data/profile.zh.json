@@ -254,7 +254,7 @@
         {
           "title": "虚拟摄影棚",
           "items": [
-            "场景分支：一张参考场景图像利用 Marble 生成场景 3DGS，并通过 SplatTransform 预处理。",
+            "场景分支：一张参考场景图像先输入 SAM，再通过 SHARP 重建得到场景 3DGS。",
             "人物分支：一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS。",
             "仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染得到用于摄影仿真的结果。"
           ]
@@ -262,7 +262,7 @@
         "**Spatial Reframing**：一张参考图像输入，快速实现 Spatial Reframing 功能。"
       ],
       "bullets": [
-        "构建虚拟摄影流程，结合 Marble 场景 3DGS、基于 SHARP 的人物 3DGS 重建、SplatTransform 预处理与 UE 导入，实现沉浸式虚拟拍摄仿真。",
+        "构建虚拟摄影流程，结合 SAM 引导的场景 3DGS 重建、基于 SHARP 的人物 3DGS 重建与 UE 导入，实现沉浸式虚拟拍摄仿真。",
         "利用神经渲染提升原始 3DGS 拍摄结果的照片观感。",
         "原型实现单张参考图像输入的 Spatial Reframing 近邻视角重构。"
       ],
@@ -270,87 +270,125 @@
         {
           "title": "Virtual Studio Pipeline",
           "caption": "",
+          "layout": "grid-branches",
+          "columns": 6,
           "steps": [
             {
               "label": "参考场景图",
               "detail": "输入",
-              "icon": "fa-solid fa-image"
+              "icon": "fa-solid fa-image",
+              "col": 1,
+              "row": 1
             },
             {
-              "label": "Marble",
+              "label": "SAM",
+              "detail": "场景 mask",
+              "icon": "fa-solid fa-object-group",
+              "col": 2,
+              "row": 1
+            },
+            {
+              "label": "SHARP",
               "detail": "场景 3DGS",
-              "icon": "fa-solid fa-cubes"
-            },
-            {
-              "label": "SplatTransform",
-              "detail": "预处理",
-              "icon": "fa-solid fa-wand-magic-sparkles"
+              "icon": "fa-solid fa-cubes",
+              "col": 3,
+              "row": 1
             },
             {
               "label": "参考人物图",
               "detail": "输入",
-              "icon": "fa-solid fa-user"
+              "icon": "fa-solid fa-user",
+              "col": 2,
+              "row": 2
             },
             {
-              "label": "SHARP 流程",
+              "label": "SHARP",
               "detail": "人物 3DGS",
-              "icon": "fa-solid fa-person-rays"
+              "icon": "fa-solid fa-person-rays",
+              "col": 3,
+              "row": 2
             },
             {
               "label": "Unreal Engine",
               "detail": "组合导入",
-              "icon": "fa-solid fa-cube"
+              "icon": "fa-solid fa-cube",
+              "col": 4,
+              "row": 1,
+              "span_rows": 2,
+              "merge": true
             },
             {
               "label": "虚拟 Shooting",
               "detail": "沉浸漫游",
-              "icon": "fa-solid fa-camera-retro"
+              "icon": "fa-solid fa-camera-retro",
+              "col": 5,
+              "row": 1,
+              "span_rows": 2
             },
             {
               "label": "神经渲染",
               "detail": "摄影仿真",
-              "icon": "fa-solid fa-wand-magic-sparkles"
+              "icon": "fa-solid fa-wand-magic-sparkles",
+              "col": 6,
+              "row": 1,
+              "span_rows": 2
             }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
           "caption": "",
+          "layout": "grid-branches",
+          "columns": 7,
           "steps": [
             {
               "label": "输入照片",
               "detail": "用户图片",
-              "icon": "fa-solid fa-image"
+              "icon": "fa-solid fa-image",
+              "col": 1,
+              "row": 1
             },
             {
-              "label": "单图 3DGS",
-              "detail": "几何先验",
-              "icon": "fa-solid fa-dice-d6"
+              "label": "Outpaint",
+              "detail": "图像外扩",
+              "icon": "fa-solid fa-up-right-and-down-left-from-center",
+              "col": 2,
+              "row": 1
             },
             {
-              "label": "主体线索",
-              "detail": "mask + depth",
-              "icon": "fa-solid fa-object-group"
+              "label": "SHARP",
+              "detail": "3DGS 模型",
+              "icon": "fa-solid fa-dice-d6",
+              "col": 3,
+              "row": 1
             },
             {
-              "label": "相机重构",
-              "detail": "小范围运动",
-              "icon": "fa-solid fa-video"
+              "label": "相机姿态",
+              "detail": "视角变换",
+              "icon": "fa-solid fa-video",
+              "col": 4,
+              "row": 1
             },
             {
-              "label": "置信度图",
-              "detail": "空洞 + alpha",
-              "icon": "fa-solid fa-map"
+              "label": "渲染",
+              "detail": "新视角",
+              "icon": "fa-solid fa-cube",
+              "col": 5,
+              "row": 1
             },
             {
-              "label": "生成式修复",
-              "detail": "低置信区域",
-              "icon": "fa-solid fa-brush"
+              "label": "先验修复",
+              "detail": "图像模型",
+              "icon": "fa-solid fa-brush",
+              "col": 6,
+              "row": 1
             },
             {
               "label": "重构照片",
               "detail": "最终视角",
-              "icon": "fa-solid fa-camera"
+              "icon": "fa-solid fa-camera",
+              "col": 7,
+              "row": 1
             }
           ]
         }

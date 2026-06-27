@@ -255,7 +255,7 @@
         {
           "title": "Virtual studio",
           "items": [
-            "Scene branch: one reference scene image is reconstructed into scene 3DGS with Marble and preprocessed by SplatTransform.",
+            "Scene branch: one reference scene image is first processed by SAM and then reconstructed into scene 3DGS with SHARP.",
             "Human branch: one reference person image is reconstructed into human 3DGS with a SHARP-based pipeline.",
             "Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation."
           ]
@@ -263,7 +263,7 @@
         "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
       ],
       "bullets": [
-        "Built a virtual photography pipeline combining Marble scene 3DGS, SHARP-based human 3DGS reconstruction, SplatTransform preprocessing, and Unreal Engine import for immersive shooting simulation.",
+        "Built a virtual photography pipeline combining SAM-guided scene 3DGS reconstruction, SHARP-based human 3DGS reconstruction, and Unreal Engine import for immersive shooting simulation.",
         "Used neural rendering to improve raw 3DGS capture quality for photo-realistic virtual photography.",
         "Prototyped Spatial Reframing from a single reference image for nearby-view recomposition."
       ],
@@ -271,87 +271,125 @@
         {
           "title": "Virtual Studio Pipeline",
           "caption": "",
+          "layout": "grid-branches",
+          "columns": 6,
           "steps": [
             {
               "label": "Scene image",
               "detail": "reference",
-              "icon": "fa-solid fa-image"
+              "icon": "fa-solid fa-image",
+              "col": 1,
+              "row": 1
             },
             {
-              "label": "Marble",
+              "label": "SAM",
+              "detail": "scene mask",
+              "icon": "fa-solid fa-object-group",
+              "col": 2,
+              "row": 1
+            },
+            {
+              "label": "SHARP",
               "detail": "scene 3DGS",
-              "icon": "fa-solid fa-cubes"
-            },
-            {
-              "label": "SplatTransform",
-              "detail": "preprocess",
-              "icon": "fa-solid fa-wand-magic-sparkles"
+              "icon": "fa-solid fa-cubes",
+              "col": 3,
+              "row": 1
             },
             {
               "label": "Person image",
               "detail": "reference",
-              "icon": "fa-solid fa-user"
+              "icon": "fa-solid fa-user",
+              "col": 2,
+              "row": 2
             },
             {
-              "label": "SHARP pipeline",
+              "label": "SHARP",
               "detail": "human 3DGS",
-              "icon": "fa-solid fa-person-rays"
+              "icon": "fa-solid fa-person-rays",
+              "col": 3,
+              "row": 2
             },
             {
               "label": "Unreal Engine",
               "detail": "composite",
-              "icon": "fa-solid fa-cube"
+              "icon": "fa-solid fa-cube",
+              "col": 4,
+              "row": 1,
+              "span_rows": 2,
+              "merge": true
             },
             {
               "label": "Virtual shooting",
               "detail": "immersive",
-              "icon": "fa-solid fa-camera-retro"
+              "icon": "fa-solid fa-camera-retro",
+              "col": 5,
+              "row": 1,
+              "span_rows": 2
             },
             {
               "label": "Neural render",
               "detail": "simulation",
-              "icon": "fa-solid fa-wand-magic-sparkles"
+              "icon": "fa-solid fa-wand-magic-sparkles",
+              "col": 6,
+              "row": 1,
+              "span_rows": 2
             }
           ]
         },
         {
           "title": "Spatial Reframing Pipeline",
           "caption": "",
+          "layout": "grid-branches",
+          "columns": 7,
           "steps": [
             {
               "label": "Input photo",
               "detail": "user image",
-              "icon": "fa-solid fa-image"
+              "icon": "fa-solid fa-image",
+              "col": 1,
+              "row": 1
             },
             {
-              "label": "Single-image 3DGS",
-              "detail": "geometry prior",
-              "icon": "fa-solid fa-dice-d6"
+              "label": "Outpaint",
+              "detail": "image expansion",
+              "icon": "fa-solid fa-up-right-and-down-left-from-center",
+              "col": 2,
+              "row": 1
             },
             {
-              "label": "Subject cues",
-              "detail": "mask + depth",
-              "icon": "fa-solid fa-object-group"
+              "label": "SHARP",
+              "detail": "3DGS model",
+              "icon": "fa-solid fa-dice-d6",
+              "col": 3,
+              "row": 1
             },
             {
-              "label": "Reframe camera",
-              "detail": "small motion",
-              "icon": "fa-solid fa-video"
+              "label": "Camera pose",
+              "detail": "view transform",
+              "icon": "fa-solid fa-video",
+              "col": 4,
+              "row": 1
             },
             {
-              "label": "Confidence map",
-              "detail": "holes + alpha",
-              "icon": "fa-solid fa-map"
+              "label": "Render",
+              "detail": "novel view",
+              "icon": "fa-solid fa-cube",
+              "col": 5,
+              "row": 1
             },
             {
-              "label": "Generative repair",
-              "detail": "low-confidence only",
-              "icon": "fa-solid fa-brush"
+              "label": "Prior repair",
+              "detail": "image model",
+              "icon": "fa-solid fa-brush",
+              "col": 6,
+              "row": 1
             },
             {
               "label": "Reframed photo",
               "detail": "final view",
-              "icon": "fa-solid fa-camera"
+              "icon": "fa-solid fa-camera",
+              "col": 7,
+              "row": 1
             }
           ]
         }

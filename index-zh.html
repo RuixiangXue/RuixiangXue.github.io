@@ -246,7 +246,7 @@
               <div class="project-highlights">
                 <button class="project-highlight" type="button" data-dialog-target="project-智能辅助摄影-flow-0-dialog">
                   <i class="fa-solid fa-vr-cardboard"></i>
-                  <span><strong>虚拟摄影棚</strong><ul class="project-highlight-points"><li>场景分支：一张参考场景图像利用 Marble 生成场景 3DGS，并通过 SplatTransform 预处理。</li><li>人物分支：一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS。</li><li>仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染得到用于摄影仿真的结果。</li></ul></span>
+                  <span><strong>虚拟摄影棚</strong><ul class="project-highlight-points"><li>场景分支：一张参考场景图像先输入 SAM，再通过 SHARP 重建得到场景 3DGS。</li><li>人物分支：一张参考人物图像利用基于 SHARP 的重建流程生成人物 3DGS。</li><li>仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染得到用于摄影仿真的结果。</li></ul></span>
                 </button>
 
                 <button class="project-highlight" type="button" data-dialog-target="project-智能辅助摄影-flow-1-dialog">
@@ -264,58 +264,58 @@
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-0">
                   
-                  <div class="flow-track" style="--step-count: 8">
+                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 8; --flow-columns: 6">
                     
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>参考场景图</span>
                       <small>输入</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                      <i class="fa-solid fa-object-group"></i>
+                      <span>SAM</span>
+                      <small>场景 mask</small>
+                    </span>
+
+
+                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-cubes"></i>
-                      <span>Marble</span>
+                      <span>SHARP</span>
                       <small>场景 3DGS</small>
                     </span>
 
 
-                    <span class="flow-node">
-                      <i class="fa-solid fa-wand-magic-sparkles"></i>
-                      <span>SplatTransform</span>
-                      <small>预处理</small>
-                    </span>
-
-
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 2; --flow-row: 2">
                       <i class="fa-solid fa-user"></i>
                       <span>参考人物图</span>
                       <small>输入</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 3; --flow-row: 2">
                       <i class="fa-solid fa-person-rays"></i>
-                      <span>SHARP 流程</span>
+                      <span>SHARP</span>
                       <small>人物 3DGS</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node is-merge" style="--flow-col: 4; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-cube"></i>
                       <span>Unreal Engine</span>
                       <small>组合导入</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-camera-retro"></i>
                       <span>虚拟 Shooting</span>
                       <small>沉浸漫游</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1; --flow-row-span: 2">
                       <i class="fa-solid fa-wand-magic-sparkles"></i>
                       <span>神经渲染</span>
                       <small>摄影仿真</small>
@@ -336,51 +336,51 @@
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-1">
                   
-                  <div class="flow-track" style="--step-count: 7">
+                  <div class="flow-track flow-layout-grid-branches" style="--step-count: 7; --flow-columns: 7">
                     
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 1; --flow-row: 1">
                       <i class="fa-solid fa-image"></i>
                       <span>输入照片</span>
                       <small>用户图片</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 2; --flow-row: 1">
+                      <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                      <span>Outpaint</span>
+                      <small>图像外扩</small>
+                    </span>
+
+
+                    <span class="flow-node" style="--flow-col: 3; --flow-row: 1">
                       <i class="fa-solid fa-dice-d6"></i>
-                      <span>单图 3DGS</span>
-                      <small>几何先验</small>
+                      <span>SHARP</span>
+                      <small>3DGS 模型</small>
                     </span>
 
 
-                    <span class="flow-node">
-                      <i class="fa-solid fa-object-group"></i>
-                      <span>主体线索</span>
-                      <small>mask + depth</small>
-                    </span>
-
-
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 4; --flow-row: 1">
                       <i class="fa-solid fa-video"></i>
-                      <span>相机重构</span>
-                      <small>小范围运动</small>
+                      <span>相机姿态</span>
+                      <small>视角变换</small>
                     </span>
 
 
-                    <span class="flow-node">
-                      <i class="fa-solid fa-map"></i>
-                      <span>置信度图</span>
-                      <small>空洞 + alpha</small>
+                    <span class="flow-node" style="--flow-col: 5; --flow-row: 1">
+                      <i class="fa-solid fa-cube"></i>
+                      <span>渲染</span>
+                      <small>新视角</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 6; --flow-row: 1">
                       <i class="fa-solid fa-brush"></i>
-                      <span>生成式修复</span>
-                      <small>低置信区域</small>
+                      <span>先验修复</span>
+                      <small>图像模型</small>
                     </span>
 
 
-                    <span class="flow-node">
+                    <span class="flow-node" style="--flow-col: 7; --flow-row: 1">
                       <i class="fa-solid fa-camera"></i>
                       <span>重构照片</span>
                       <small>最终视角</small>

@@ -757,6 +757,8 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
                     <span>{esc(caption)}</span>
                   </div>
 """ if caption else ""
+    layout = flow.get("layout", "linear")
+    columns = flow.get("columns", max(len(steps), 1))
     return f"""
                     <dialog class="project-dialog flow-dialog" id="{esc(flow_dialog_id(item_id, index))}">
                       <div class="project-dialog-panel">
@@ -767,7 +769,7 @@ def render_project_flow_dialog(flow: dict[str, Any], index: int, item_id: str) -
                         <div class="flow-dialog-body">
                           <div class="flow-card flow-card-{index % 2}">
                   {caption_html}
-                  <div class="flow-track" style="--step-count: {max(len(steps), 1)}">
+                  <div class="flow-track flow-layout-{esc(layout)}" style="--step-count: {max(len(steps), 1)}; --flow-columns: {esc(str(columns))}">
                     {nodes}
                   </div>
                           </div>
@@ -782,13 +784,29 @@ def render_flow_step(step: Any) -> str:
         icon = step.get("icon", "fa-solid fa-circle-nodes")
         label = step.get("label", "")
         detail = step.get("detail", "")
+        col = step.get("col")
+        row = step.get("row")
+        span_rows = step.get("span_rows")
+        classes = ["flow-node"]
+        if step.get("merge"):
+            classes.append("is-merge")
     else:
         icon = "fa-solid fa-circle-nodes"
         label = str(step)
         detail = ""
+        col = row = span_rows = None
+        classes = ["flow-node"]
     detail_html = f'<small>{esc(detail)}</small>' if detail else ""
+    styles = []
+    if col:
+        styles.append(f"--flow-col: {int(col)}")
+    if row:
+        styles.append(f"--flow-row: {int(row)}")
+    if span_rows:
+        styles.append(f"--flow-row-span: {int(span_rows)}")
+    style_attr = f' style="{"; ".join(styles)}"' if styles else ""
     return f"""
-                    <span class="flow-node">
+                    <span class="{esc(' '.join(classes))}"{style_attr}>
                       <i class="{esc(icon)}"></i>
                       <span>{esc(label)}</span>
                       {detail_html}
