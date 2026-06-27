@@ -227,7 +227,7 @@
       }
     },
     {
-      "name": "Street Generative Novel-View Synthesis",
+      "name": "Driving World Model",
       "homepage_project": false,
       "tags": [
         "driving",
@@ -236,12 +236,12 @@
         "restoration",
         "ai-demo"
       ],
-      "summary": "Feed-forward street-scene reconstruction and generative-prior assisted large-baseline novel-view extrapolation.",
+      "summary": "Contributed to the driving world model direction in a National Key R&D Program project, covering street-scene novel-view extrapolation and 3D/4D world-model technology scouting.",
       "image": "assets/media/GRNet.png",
       "bullets": [
-        "Used feed-forward reconstruction to improve geometric consistency in generative novel-view synthesis.",
-        "Leveraged generative priors to improve rendering-quality losses for feed-forward reconstruction.",
-        "Targeted large-baseline street-scene novel-view extrapolation under practical autonomous-driving scenarios."
+        "Explored mutual enhancement between feed-forward reconstruction models (UniSplat) and generative models (VISTA) for large-baseline street-scene novel-view extrapolation.",
+        "Used feed-forward reconstruction to constrain geometric consistency in generated views, and leveraged generative priors to improve rendering-quality losses for feed-forward reconstruction.",
+        "Surveyed industrial and academic roadmaps from 3D/4D reconstruction and reconstruction-generation coupling to driving world models, including Tesla Occupancy Network, Waabi Copilot4D, Wayve PRISM/GAIA, and VISTA."
       ]
     },
     {
