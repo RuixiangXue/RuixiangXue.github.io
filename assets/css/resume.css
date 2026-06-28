@@ -224,8 +224,10 @@ li {
 }
 
 .award-line span {
+  margin-left: 12px;
   color: var(--nju-purple);
   font-weight: 760;
+  white-space: nowrap;
 }
 
 @media (max-width: 720px) {
