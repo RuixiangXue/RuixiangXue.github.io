@@ -130,12 +130,12 @@ def render_home(profile: dict[str, Any], *, lang: str = "en") -> str:
     resume_links = [
         {
             "label": "CV EN",
-            "url": "https://ruixiangxue.github.io/assets/cv/resume-en.pdf?v=20260628-1530",
+            "url": "https://ruixiangxue.github.io/assets/cv/resume-en-20260628.pdf",
             "icon": "fa-solid fa-file-arrow-down",
         },
         {
             "label": "CV 中文",
-            "url": "https://ruixiangxue.github.io/assets/cv/resume-zh.pdf?v=20260628-1530",
+            "url": "https://ruixiangxue.github.io/assets/cv/resume-zh-20260628.pdf",
             "icon": "fa-solid fa-file-pdf",
         },
     ]
