@@ -255,15 +255,15 @@
           "items": [
             "Scene branch: one reference scene image is reconstructed into scene 3DGS with Marble.",
             "Human branch: one reference person image is segmented by SAM and reconstructed into human 3DGS with SHARP.",
-            "Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photography simulation."
+            "Simulation branch: scene and human assets are combined in Unreal Engine for immersive roaming and virtual shooting, then refined with neural rendering for photographic-quality output."
           ]
         },
-        "**Spatial reframing**: takes one reference image as input and quickly enables Spatial Reframing-style nearby-view recomposition."
+        "**Spatial Reframing**: input-image outpainting, SHARP 3DGS reconstruction, camera-pose transformation, novel-view rendering, and generative-prior repair produce the final recomposed photo."
       ],
       "bullets": [
         "Built a virtual studio pipeline where reference scene images are reconstructed into scene 3DGS with Marble, while person images are segmented by SAM and reconstructed into human 3DGS with SHARP.",
-        "Combined scene and human assets in Unreal Engine for immersive roaming and virtual shooting, then refined raw captures with neural rendering for photography simulation.",
-        "Prototyped Spatial Reframing with image outpainting, foreground-background SHARP 3DGS composition, constrained view transformation, novel-view rendering, and final reframed-photo output."
+        "Combined scene and human assets in Unreal Engine for immersive roaming and virtual shooting, then used neural rendering to improve the photographic quality of raw captures.",
+        "Prototyped Spatial Reframing with input-image outpainting, SHARP 3DGS reconstruction, camera-pose transformation, novel-view rendering, and generative-prior repair to produce the final recomposed photo."
       ],
       "flows": [
         {
