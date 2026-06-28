@@ -2,19 +2,19 @@
   "jobs": [
     {
       "company": "DJI 大疆",
-      "role": "校园招聘岗位（未指定）",
-      "source": "https://careers.dji.com/zh-CN/campus/recruitment?from=sec_nav",
-      "location": "校园招聘",
+      "role": "世界模型算法工程师（上海）",
+      "source": "https://apply.careers.dji.com/su/ePbSn",
+      "location": "上海",
       "status": "applied",
       "priority": "high",
       "deadline": "",
-      "jd_file": "jobs/jd/dji-大疆-校园招聘岗位-未指定.md",
-      "target_file": "targets/default.zh.json",
-      "resume_file": "assets/cv/resume-zh.html",
+      "jd_file": "jobs/jd/dji-大疆-世界模型算法工程师-上海.md",
+      "target_file": "targets/driving-world-model.zh.json",
+      "resume_file": "assets/cv/resume-driving-world-model-zh.html",
       "contacts": [],
-      "next_action": "等待招聘系统反馈；补充具体岗位/JD 后可继续定制简历与面试准备。",
+      "next_action": "围绕 3D/4D 重建、新视角合成、生成式仿真、世界模型训练闭环准备定制简历与面试材料。",
       "next_action_date": "2026-07-05",
-      "notes": "2026-06-28 已通过大疆校园招聘入口投递。具体岗位/JD 待补充。"
+      "notes": "2026-06-28 已投递大疆世界模型算法工程师（上海）。职位方向与 3DGS/4DGS 重建、新视角合成、可控视频生成、log2world 和强化学习仿真闭环相关。"
     }
   ]
 }
