@@ -1169,6 +1169,18 @@ def render_award(item: dict[str, Any]) -> str:
 
 def render_job_card(item: dict[str, Any]) -> str:
     contacts = ", ".join(item.get("contacts", [])) or "No contacts yet"
+    role = item.get("role", "")
+    location = item.get("location", "")
+    role_line = f"<strong>{esc(role)}</strong>"
+    if location:
+        role_line += f" · {esc(location)}"
+    source = item.get("source", "")
+    source_html = ""
+    if source and source != "sample":
+        source_html = (
+            f'<p>Source: <a href="{esc(source)}" target="_blank" '
+            f'rel="noopener">{esc(source)}</a></p>'
+        )
     return f"""
           <article class="card job-card">
             <div class="job-topline">
@@ -1176,7 +1188,8 @@ def render_job_card(item: dict[str, Any]) -> str:
               <strong>{esc(item.get('priority', ''))}</strong>
             </div>
             <h3>{esc(item['company'])}</h3>
-            <p><strong>{esc(item['role'])}</strong> · {esc(item.get('location', ''))}</p>
+            <p>{role_line}</p>
+            {source_html}
             <p>Next: {esc(item.get('next_action', ''))}</p>
             <p>Date: {esc(item.get('next_action_date', ''))}</p>
             <p>Resume: {esc(item.get('resume_file', ''))}</p>
