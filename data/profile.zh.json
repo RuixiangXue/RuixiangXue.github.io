@@ -255,15 +255,15 @@
           "items": [
             "场景分支：一张参考场景图像输入 Marble，重建得到场景 3DGS。",
             "人物分支：一张参考人物图像先输入 SAM，再通过 SHARP 重建得到人物 3DGS。",
-            "仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染提升原始拍摄结果的照片观感。"
+            "仿真分支：场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟拍摄，并通过神经渲染提升原始拍摄结果的照片观感。"
           ]
         },
-        "**Spatial Reframing**：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
+        "**空间重构**：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
       ],
       "bullets": [
         "构建虚拟摄影棚流程：参考场景图像通过 Marble 重建场景 3DGS，参考人物图像经 SAM 分割后通过 SHARP 重建人物 3DGS。",
-        "将场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟 shooting，并通过神经渲染提升原始拍摄结果的照片观感。",
-        "原型实现 Spatial Reframing：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
+        "将场景与人物资产组合导入 UE，实现沉浸式漫游与虚拟拍摄，并通过神经渲染提升原始拍摄结果的照片观感。",
+        "原型实现空间重构功能：输入图像外扩、SHARP 3DGS 重建、相机姿态变换、新视角渲染与生成先验修复，得到最终重新构图图片。"
       ],
       "flows": [
         {
@@ -537,7 +537,7 @@
           ]
         },
         {
-          "title": "Spatial Reframing Pipeline",
+          "title": "空间重构流程",
           "caption": "",
           "layout": "grid-branches",
           "columns": 6,
@@ -632,7 +632,7 @@
               "row": 1,
               "preview": {
                 "title": "重构照片",
-                "caption": "输出最终 Spatial Reframing 结果。",
+                "caption": "输出最终空间重构结果。",
                 "media": [
                   {
                     "src": "assets/media/photography-preview/spatial-reframing/repair_upscaled.jpg",
