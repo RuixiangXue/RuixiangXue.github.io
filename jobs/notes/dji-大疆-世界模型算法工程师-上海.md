@@ -3,6 +3,7 @@
 - Status: applied
 - 2026-06-28: 已投递。职位链接：https://apply.careers.dji.com/su/ePbSn
 - Next action: 围绕 3D/4D 重建、新视角合成、生成式仿真、世界模型训练闭环准备定制简历与面试材料。
+- Detailed report: [DJI 世界模型算法工程师岗位工作报告](../reports/dji-world-model-algorithm-engineer-report.md)
 
 ## 匹配点
 
