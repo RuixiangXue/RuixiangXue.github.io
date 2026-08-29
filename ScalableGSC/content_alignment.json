@@ -1,0 +1,57 @@
+{
+  "schema": "researchstudio-lite.alignment.v1",
+  "title": "3D Gaussian Splatting Compression with Object Scalability",
+  "video": "assets/research_reel.mp4",
+  "poster": "assets/poster.pdf",
+  "sections": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "start": 0,
+      "end": 6,
+      "summary": "RecastGS reorganizes unordered 3DGS into a region-aware layered hierarchy, and LayeredCGS compresses it progressively."
+    },
+    {
+      "id": "problem",
+      "label": "Problem",
+      "start": 6,
+      "end": 13,
+      "summary": "Uniform 3DGS compression makes preview, truncation, and object-level quality allocation difficult."
+    },
+    {
+      "id": "recastgs",
+      "label": "RecastGS",
+      "start": 13,
+      "end": 21,
+      "summary": "Overcomplete layer search, progressive distillation, and prompt-driven extraction build a recomposable representation."
+    },
+    {
+      "id": "layeredcgs",
+      "label": "LayeredCGS",
+      "start": 21,
+      "end": 29,
+      "summary": "Layer-wise context conditions later layers on previously decoded layers for better feed-forward compression."
+    },
+    {
+      "id": "results",
+      "label": "Results",
+      "start": 29,
+      "end": 39,
+      "summary": "RecastGS and LayeredCGS reduce BD-BR over GoDe and FCGS, respectively."
+    },
+    {
+      "id": "roi",
+      "label": "ROI Control",
+      "start": 39,
+      "end": 48,
+      "summary": "Foreground and background subsets can be recomposed at different target quality levels."
+    },
+    {
+      "id": "poster",
+      "label": "Poster",
+      "start": 48,
+      "end": 56,
+      "summary": "The ECCV 2026 poster summarizes the method, quantitative results, progressive visualization, and ablations."
+    }
+  ]
+}

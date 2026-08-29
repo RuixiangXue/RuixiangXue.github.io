@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Reel | 3D Gaussian Splatting Compression with Object Scalability</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;520;650;760&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .reel-shell {
+      min-height: 100vh;
+      background: #f7f9ff;
+    }
+
+    .reel-main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 28px 72px;
+    }
+
+    .reel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 22px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
+    .video-panel,
+    .section-panel,
+    .poster-panel {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 18px 44px rgba(38, 61, 160, 0.10);
+    }
+
+    .video-panel {
+      padding: 12px;
+    }
+
+    .video-panel video {
+      width: 100%;
+      border-radius: 8px;
+      background: #000;
+    }
+
+    .section-panel {
+      padding: 14px;
+    }
+
+    .section-panel h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .chapter {
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+    }
+
+    .chapter strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 15px;
+    }
+
+    .chapter span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .chapter.active {
+      border-color: var(--blue);
+      box-shadow: inset 4px 0 0 var(--blue);
+      background: var(--soft);
+    }
+
+    .poster-panel {
+      margin-top: 24px;
+      padding: 14px;
+    }
+
+    .poster-panel img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .reel-title {
+      max-width: 900px;
+    }
+
+    .reel-title h1 {
+      font-size: clamp(34px, 5vw, 58px);
+    }
+
+    @media (max-width: 920px) {
+      .reel-layout {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="reel-shell">
+    <nav class="nav">
+      <a href="./" class="brand">Project Page</a>
+      <div class="nav-links">
+        <a href="assets/research_reel.mp4">Download Video</a>
+        <a href="assets/poster.pdf">Poster</a>
+        <a href="assets/paper.pdf">Paper</a>
+      </div>
+    </nav>
+
+    <main class="reel-main">
+      <div class="reel-title">
+        <p class="venue">ResearchStudio-Reel Lite</p>
+        <h1>3D Gaussian Splatting Compression with Object Scalability</h1>
+        <p class="lead">Use the chapter rail to jump through the generated research reel.</p>
+      </div>
+
+      <section class="reel-layout">
+        <div class="video-panel">
+          <video id="reelVideo" controls playsinline poster="assets/research_reel_preview.webp">
+            <source src="assets/research_reel.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <aside class="section-panel">
+          <h2>Chapters</h2>
+          <div id="chapters"></div>
+        </aside>
+      </section>
+
+      <section class="poster-panel">
+        <a href="assets/poster.pdf">
+          <img src="assets/poster.webp" alt="ECCV poster preview">
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const chapters = document.getElementById("chapters");
+    const video = document.getElementById("reelVideo");
+
+    fetch("content_alignment.json")
+      .then((res) => res.json())
+      .then((alignment) => {
+        const updateActiveChapter = () => {
+          const t = video.currentTime;
+          for (const item of buttons) {
+            item.button.classList.toggle("active", t >= item.section.start && t < item.section.end);
+          }
+        };
+
+        const buttons = alignment.sections.map((section) => {
+          const button = document.createElement("button");
+          button.className = "chapter";
+          button.innerHTML = `<strong>${section.label}</strong><span>${section.summary}</span>`;
+          button.addEventListener("click", () => {
+            video.pause();
+            video.currentTime = section.start;
+            updateActiveChapter();
+            video.play().catch(() => {});
+          });
+          chapters.appendChild(button);
+          return { button, section };
+        });
+
+        video.addEventListener("timeupdate", updateActiveChapter);
+        video.addEventListener("seeked", updateActiveChapter);
+        updateActiveChapter();
+      });
+  </script>
+</body>
+</html>

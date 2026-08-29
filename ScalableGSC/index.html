@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Gaussian Splatting Compression with Object Scalability</title>
+  <meta name="description" content="Project page for 3D Gaussian Splatting Compression with Object Scalability, ECCV 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="3D Gaussian Splatting Compression with Object Scalability">
+  <meta property="og:description" content="RecastGS and LayeredCGS for object-scalable 3D Gaussian Splatting compression.">
+  <meta property="og:image" content="https://ruixiangxue.github.io/ScalableGSC/assets/poster.webp">
+  <meta property="og:url" content="https://ruixiangxue.github.io/ScalableGSC/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;520;650;760&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <a href="https://ruixiangxue.github.io/" class="brand">Ruixiang Xue</a>
+      <div class="nav-links">
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#poster">Poster</a>
+        <a href="#bibtex">BibTeX</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div class="hero-copy">
+        <p class="venue">ECCV 2026</p>
+        <h1>3D Gaussian Splatting Compression with Object Scalability</h1>
+        <p class="authors">Ruixiang Xue, Tong Chen, and Zhan Ma</p>
+        <p class="affiliation">Nanjing University</p>
+        <p class="lead">
+          We reorganize pretrained 3D Gaussian Splatting models into a region-aware layered hierarchy,
+          then compress the hierarchy layer by layer for fast preview, progressive refinement, and
+          object-level quality control.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="assets/paper.pdf">Paper</a>
+          <a class="button" href="assets/poster.pdf">Poster PDF</a>
+          <a class="button" href="reel.html">Interactive Reel</a>
+          <a class="button" href="assets/research_reel.mp4">Video</a>
+          <a class="button" href="https://github.com/RuixiangXue/ScalableGSC">Code</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-label="Research reel preview">
+        <video controls playsinline poster="assets/research_reel_preview.webp">
+          <source src="assets/research_reel.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Abstract</p>
+        <h2>Compress once, browse at multiple object-aware quality levels.</h2>
+      </div>
+      <p class="abstract">
+        Existing 3DGS compression methods often treat a scene as a single holistic bitstream, which makes
+        progressive decoding and region-specific quality control difficult. This work introduces
+        <strong>RecastGS</strong>, a post-training method that converts unordered Gaussian primitives into a
+        region-aware layered representation, and <strong>LayeredCGS</strong>, a feed-forward compressor that
+        conditions each layer on previously decoded layers. Together, they support bitstream truncation,
+        fast coarse preview, and ROI-aware compression without retraining for every user preference.
+      </p>
+    </section>
+
+    <section class="section" id="method">
+      <div class="section-heading">
+        <p class="eyebrow">Method</p>
+        <h2>Recast the representation, then compress it layer by layer.</h2>
+      </div>
+      <div class="figure-block">
+        <img src="assets/recastgs.webp" alt="Overview of RecastGS">
+        <p>
+          <strong>RecastGS</strong> constructs a region-aware layered hierarchy through overcomplete layer
+          search, progressive distillation, and prompt-driven object extraction.
+        </p>
+      </div>
+      <div class="figure-block">
+        <img src="assets/layeredcgs.webp" alt="Overview of LayeredCGS">
+        <p>
+          <strong>LayeredCGS</strong> compresses Gaussian primitives layer by layer. Previously decoded layers
+          provide context for later layers, reducing inter-layer redundancy while keeping the bitstream
+          progressively decodable.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-heading">
+        <p class="eyebrow">Results</p>
+        <h2>Stronger compression, fast preview, and object-level scalability.</h2>
+      </div>
+      <div class="metrics">
+        <article>
+          <span>RecastGS vs. GoDe</span>
+          <strong>-24.90 / -18.69 / -12.90%</strong>
+          <p>Average BD-BR reductions on PSNR / SSIM / LPIPS.</p>
+        </article>
+        <article>
+          <span>LayeredCGS vs. FCGS</span>
+          <strong>-34.91 / -38.42 / -34.83%</strong>
+          <p>Average BD-BR reductions on PSNR / SSIM / LPIPS.</p>
+        </article>
+        <article>
+          <span>ROI quality</span>
+          <strong>+2.16 dB</strong>
+          <p>ROI PSNR gain on the kitchen scene at comparable bitrate.</p>
+        </article>
+      </div>
+      <div class="figure-grid">
+        <img src="assets/progressive.webp" alt="Progressive quality visualization">
+        <img src="assets/roi.webp" alt="ROI-aware compression visualization">
+        <img src="assets/ablation.webp" alt="Ablation study">
+      </div>
+    </section>
+
+    <section class="section" id="poster">
+      <div class="section-heading">
+        <p class="eyebrow">Poster</p>
+        <h2>ECCV 2026 poster overview.</h2>
+      </div>
+      <a class="poster-link" href="assets/poster.pdf">
+        <img src="assets/poster.webp" alt="ECCV 2026 poster preview">
+      </a>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="section-heading">
+        <p class="eyebrow">Citation</p>
+        <h2>BibTeX</h2>
+      </div>
+      <pre><code>@inproceedings{xue2026objectscalable3dgs,
+  title     = {3D Gaussian Splatting Compression with Object Scalability},
+  author    = {Xue, Ruixiang and Chen, Tong and Ma, Zhan},
+  booktitle = {Computer Vision -- ECCV 2026},
+  year      = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built from the ECCV 2026 poster assets and a lightweight ResearchStudio-Reel-style video summary.</p>
+  </footer>
+</body>
+</html>
